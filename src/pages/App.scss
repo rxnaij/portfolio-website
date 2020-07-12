@@ -1,0 +1,47 @@
+@import "./custom.scss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Neutralizes <Link> styling when placed in other visual components, like buttons */
+.a-no-style {
+    color: inherit;
+    text-decoration: none;
+    transition: none;
+
+    &:hover {
+        @extend .a-no-style;
+        color: inherit;
+    }
+}
+
+/* Rich text components */
+/* Sets width of text elements */
+.article-width {
+    p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 624px;
+    }
+    @media (max-height: 720px) {
+        img {
+            max-width: 100%;
+        }
+    }
+    @media (min-height: 721px) {
+        img {
+            max-width: 624px;
+        }
+    }
+    
+}
+
+/* Figcaptions */
+.caption {
+    font-size: 0.8rem;
+    font-style: italic;
+
+    // border-top: 2px solid lightgray;
+    padding-top: 0.5rem;
+}
