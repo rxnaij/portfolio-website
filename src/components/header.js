@@ -12,6 +12,9 @@ const Header = ({ siteTitle }) => (
     </Navbar.Brand>
     <Nav>
       <Nav.Link>
+        <Link to="/" className="a-no-style" activeStyle={{ 'color': 'blue' }}>Home</Link>
+      </Nav.Link>
+      <Nav.Link>
         <Link to="/work" className="a-no-style" activeStyle={{ 'color': 'blue' }} >Work</Link>
       </Nav.Link>
     </Nav>

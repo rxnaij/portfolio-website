@@ -16,6 +16,14 @@ html {
     }
 }
 
+/* WorkBlurb Card component */
+.work-blurb {
+    transition: box-shadow 0.3s ease;
+    &:hover {
+        box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.16);
+    }
+}
+
 /* Rich text components */
 /* Sets width of text elements */
 .article-width {
@@ -35,6 +43,24 @@ html {
         }
     }
     
+}
+
+/* Feature figures - specific type of <figure class="figure> */
+/* 
+    <figure className="figure">
+        <img className="figure-img" />
+        <figcaption className="figure-caption" />
+    </figure>
+*/
+.feature-figure {
+    @media (max-width: 720px) {
+
+    }
+    @media (min-width: 721px) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 /* Figcaptions */

@@ -9,12 +9,20 @@ const Footer = ({ siteTitle }) => {
     return (
         <Container>
             <div className="border-top pt-4">
-                Find me around the internet:
-                <div className="d-flex justify-content-start">
-                    <Image src="../images/icons/github-32.png" />
-                    <Image roundedCircle />
-                    <Image roundedCircle />
-                    <Image roundedCircle />
+                <div>
+                    Find me around the internet:
+                    <div className="d-flex justify-content-start">
+                        <Image src="../images/icons/github-32.png" />
+                        <Image roundedCircle />
+                        <Image roundedCircle />
+                        <Image roundedCircle />
+                    </div>
+                </div>
+                <div>
+                    <Link to="/#contact">
+                        Get in touch
+                    </Link>
+
                 </div>
                 <span className="small">
                     © {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>

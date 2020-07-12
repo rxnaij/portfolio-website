@@ -8,6 +8,8 @@ import SEO from '../components/seo'
 
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -22,7 +24,7 @@ export const query = graphql`
             title
             description
             coverPhoto {
-                fluid (maxWidth: 1920, maxHeight: 400) {
+                fluid (maxWidth: 1920, maxHeight: 720) {
                     ...GatsbyContentfulFluid
                 }
             }
@@ -47,6 +49,17 @@ const ArticleText = ({ children }) => {
     )
 }
 
+const FeatureFigure = props => {
+    return(
+        <figure className="figure feature-figure">
+            <img src={props.url} alt={props.title} className="figure-img" />
+            <figcaption className="figure-caption">
+                { props.caption }
+            </figcaption>
+        </figure>
+    )
+}
+
 const CaseStudy = props => {
     // Set renderNode options
     const options = {
@@ -58,10 +71,7 @@ const CaseStudy = props => {
                     : ''
                 const url = node.data.target.fields.file['en-US'].url
                 return (
-                    <figure className="figure">
-                        <img src={url} alt={title} className="figure-img" />
-                        <figcaption className="figure-caption">{ title && caption }</figcaption>
-                    </figure>
+                    <FeatureFigure url={url} title={title} caption={ title && caption } />
                 ) 
             }
         }
@@ -81,20 +91,27 @@ const CaseStudy = props => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
                 <Img fluid={props.data.contentfulCaseStudy.coverPhoto.fluid} className="mb-4" fadeIn />
-                <p className="lead">{props.data.contentfulCaseStudy.description}</p>
-                <p>
-                    <strong>Date</strong>: { 
-                        props.data.contentfulCaseStudy.startDate + (
-                            props.data.contentfulCaseStudy.endDate 
-                            ? ` – ${props.data.contentfulCaseStudy.endDate}` 
-                            : `` 
-                        ) 
-                    }
-                    <br />
-                    <strong>Project type</strong>: { props.data.contentfulCaseStudy.projectType }
-                    <br />
-                    <strong>Role</strong>: { props.data.contentfulCaseStudy.role }
-                </p>
+                <Row>
+                    <Col md={6}>
+                        <p className="lead">{props.data.contentfulCaseStudy.description}</p>
+                    </Col>
+                    <Col md={6}>
+                        <p>
+                            <strong>Date</strong>: { 
+                                props.data.contentfulCaseStudy.startDate + (
+                                    props.data.contentfulCaseStudy.endDate 
+                                    ? ` – ${props.data.contentfulCaseStudy.endDate}` 
+                                    : `` 
+                                ) 
+                            }
+                            <br />
+                            <strong>Project type</strong>: { props.data.contentfulCaseStudy.projectType }
+                            <br />
+                            <strong>Role</strong>: { props.data.contentfulCaseStudy.role }
+                        </p>
+                    </Col>
+                </Row>
+                <hr />
                 <ArticleText>
                     { documentToReactComponents(props.data.contentfulCaseStudy.mainContent.json, options) }
                 </ArticleText>
