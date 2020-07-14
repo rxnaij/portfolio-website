@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
 const Header = ({ siteTitle }) => (
-  <Navbar sticky="top" bg="dark" variant="dark">
+  <Navbar sticky="top" bg="light">
     <Navbar.Brand>
       <Link to="/" className="a-no-style">Richard Lu</Link>
     </Navbar.Brand>
