@@ -6,20 +6,30 @@ import Card from 'react-bootstrap/Card'
 
 const WorkBlurb = props => (
     <Card className="work-blurb mb-4">
-        <Card.Body className="">
-            <Img fixed={props.thumbnail} />
-            <Card.Title>
+        <Card.Body className="work-blurb__body">
+            <div className="work-blurb__container">
+                <Link to={props.slug}>
+                    <Img fixed={props.thumbnail} className="work-blurb__thumbnail" />
+                    {/* <img src={props.thumbnail} alt={props.title} className="work-blurb__thumbnail" backgroundColor /> */}
+                </Link>
+            </div>
+            
+
+            <div className="work-blurb__container">
+                <Card.Title className="work-blurb__title">
                 <Link className="h3" to={props.slug}>{props.title}</Link>
-            </Card.Title>
-            <Card.Subtitle className="text-muted mb-1">
-                {props.projectDates}
-            </Card.Subtitle>
-            <Card.Subtitle className="text-muted mb-2">
-                {props.projectType}
-            </Card.Subtitle>
-            <Card.Text>
-                {props.description}
-            </Card.Text>
+                </Card.Title>
+                <Card.Subtitle className="text-muted work-blurb__dates">
+                    {props.projectDates}
+                </Card.Subtitle>
+                <Card.Subtitle className="text-muted work-blurb__type">
+                    {props.projectType}
+                </Card.Subtitle>
+                <Card.Text>
+                    {props.description}
+                </Card.Text>
+            </div>
+            
         </Card.Body>
     </Card>
 )

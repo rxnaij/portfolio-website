@@ -81,7 +81,6 @@ const CaseStudy = props => {
         <Layout>
             <SEO title={props.data.contentfulCaseStudy.title} />
             <Container>
-                <h1>{props.data.contentfulCaseStudy.title}</h1>
                 <Breadcrumb>
                     <Breadcrumb.Item>
                         <Link to="/work/">Work</Link>
@@ -90,6 +89,7 @@ const CaseStudy = props => {
                         { props.data.contentfulCaseStudy.title }
                     </Breadcrumb.Item>
                 </Breadcrumb>
+                <h1>{props.data.contentfulCaseStudy.title}</h1>
                 <Img fluid={props.data.contentfulCaseStudy.coverPhoto.fluid} className="mb-4" fadeIn />
                 <Row>
                     <Col md={6}>

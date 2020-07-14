@@ -1,9 +1,28 @@
 @import "./custom.scss";
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
-html {
+/* Activates smooth scrolling for anchor links */
+html, body {
     scroll-behavior: smooth;
 }
 
+// .dark-mode {
+//     @at-root {
+//         *, *:before, *:after {
+//             background-color: hsla(0, 0%, 20%, 1);
+//             color: white;
+//         }
+        
+//     }
+// }
+
+/* Page sections */
+/* Adds bottom-margin spacing to every page section */
+section {
+    margin-bottom: 5rem;
+}
+
+/* Navigation */
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
 .a-no-style {
     color: inherit;
@@ -16,15 +35,81 @@ html {
     }
 }
 
+/* Header link styling. Builds off of .a-no-style */
+.header-link {
+    @extend .a-no-style;
+    display: inline-block;
+    padding: 1rem 2rem;
+    
+    &:hover {
+        @extend .header-link;
+        color: blue;
+    }
+
+    /* Active state */
+    &--is-active {
+        color: blue;
+        border-bottom: 2px solid blue;
+        &:hover {
+            @extend .header-link--is-active;
+        }
+    }
+}
+
+/* Page components – Work */
 /* WorkBlurb Card component */
 .work-blurb {
     transition: box-shadow 0.3s ease;
     &:hover {
         box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.16);
     }
+
+    &__body {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @media (max-width: 576px) {
+            flex-direction: column;
+        }
+    }
+
+    &__container {
+        @media (max-width: 576px) {
+            max-width: 100%;
+            &:first-of-type {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 577px) {
+            width: 50%;
+            &:first-of-type {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    &__thumbnail {
+        max-width: 100%;
+        max-height: 100%;
+
+        @media (max-width: 576px) {
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        margin-bottom: 1rem;   
+    }
+    &__dates {
+        margin-bottom: 0.5rem;
+    }
+    &__type {
+        margin-bottom: 3rem;
+    }
 }
 
-/* Rich text components */
+/* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
 .article-width {
     p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
@@ -32,12 +117,12 @@ html {
         margin-left: auto;
         max-width: 624px;
     }
-    @media (max-height: 720px) {
+    @media (max-width: 720px) {
         img {
             max-width: 100%;
         }
     }
-    @media (min-height: 721px) {
+    @media (min-width: 721px) {
         img {
             max-width: 624px;
         }
@@ -45,8 +130,9 @@ html {
     
 }
 
-/* Feature figures - specific type of <figure class="figure> */
-/* 
+/* Case study contentfulRichText styling – images
+ * Feature figures - specific type of <figure class="figure>
+
     <figure className="figure">
         <img className="figure-img" />
         <figcaption className="figure-caption" />

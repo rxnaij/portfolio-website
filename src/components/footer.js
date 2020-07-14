@@ -2,7 +2,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
 import Container from 'react-bootstrap/Container'
-import Image from 'react-bootstrap/Image'
 
 const Footer = ({ siteTitle }) => {
 
@@ -11,12 +10,14 @@ const Footer = ({ siteTitle }) => {
             <div className="border-top pt-4">
                 <div>
                     Find me around the internet:
-                    <div className="d-flex justify-content-start">
-                        <Image src="../images/icons/github-32.png" />
-                        <Image roundedCircle />
-                        <Image roundedCircle />
-                        <Image roundedCircle />
-                    </div>
+                    <ul className="unstyled-list">
+                        <li>
+                            <a href="">GitHub</a>
+                        </li>
+                        <li>
+                            <a href="">Behance</a>
+                        </li>
+                    </ul>
                 </div>
                 <div>
                     <Link to="/#contact">

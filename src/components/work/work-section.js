@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Container from 'react-bootstrap/Container'
 
@@ -24,8 +24,14 @@ const WorkSection = () => {
                     startDate(formatString: "MMMM YYYY")
                     endDate(formatString:"MMMM YYYY")      
                     coverPhoto {
-                        fixed (width: 300) {
+                        fluid {
+                            ...GatsbyContentfulFluid
+                        }
+                        fixed (width: 600, height: 400) {
                             ...GatsbyContentfulFixed
+                        }
+                        file {
+                            url
                         }
                     }  
                 }
@@ -36,13 +42,13 @@ const WorkSection = () => {
 
     return(
         <section>
-            <Container>
+            <Container id="work">
                 <h1>Work</h1>
                 <ul className="list-unstyled">
                 {
                     data.allContentfulCaseStudy.edges.map( edge => {
                         return(
-                            <li>
+                            <li key={edge.node.title}>
                                 <WorkBlurb 
                                     title={edge.node.title}
                                     slug={edge.node.slug}
