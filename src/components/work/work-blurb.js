@@ -8,7 +8,7 @@ const WorkBlurb = props => (
     <Card className="work-blurb mb-4">
         <Card.Body className="work-blurb__body">
             <div className="work-blurb__container">
-                <Link to={props.slug}>
+                <Link to={`/work/${props.slug}`}>
                     <Img fixed={props.thumbnail} className="work-blurb__thumbnail" />
                     {/* <img src={props.thumbnail} alt={props.title} className="work-blurb__thumbnail" backgroundColor /> */}
                 </Link>
@@ -17,7 +17,7 @@ const WorkBlurb = props => (
 
             <div className="work-blurb__container">
                 <Card.Title className="work-blurb__title">
-                <Link className="h3" to={props.slug}>{props.title}</Link>
+                <Link className="h3" to={`/work/${props.slug}`}>{props.title}</Link>
                 </Card.Title>
                 <Card.Subtitle className="text-muted work-blurb__dates">
                     {props.projectDates}
