@@ -45,7 +45,8 @@ section {
     
     &:hover {
         @extend .header-link;
-        color: blue;
+        color: lightskyblue;
+        border-bottom: 2px solid lightskyblue;
     }
 
     /* Active state */
@@ -114,21 +115,33 @@ section {
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
 .article-width {
-    p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 624px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 624px;
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        margin-top: 2em;
+        margin-bottom: 1em;
     }
-    @media (max-width: 720px) {
-        img {
-            max-width: 100%;
-        }
+    p {
+        line-height: 1.5;
     }
-    @media (min-width: 721px) {
-        img {
-            max-width: 624px;
-        }
+    h2 {
+        padding-top: 1em;
     }
+    img {
+        max-width: 100%;
+    }
+    // @media (max-width: 720px) {
+    //     img {
+    //         max-width: 100%;
+    //     }
+    // }
+    // @media (min-width: 721px) {
+    //     img {
+    //         max-width: 624px;
+    //     }
+    // }
     
 }
 
@@ -141,13 +154,14 @@ section {
     </figure>
 */
 .feature-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @media (max-width: 720px) {
 
     }
     @media (min-width: 721px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+
     }
 }
 
@@ -155,6 +169,7 @@ section {
 .caption {
     font-size: 0.8rem;
     font-style: italic;
+
 
     // border-top: 2px solid lightgray;
     padding-top: 0.5rem;

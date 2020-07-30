@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 720,
+        maxWidth: 960,
       }}
     >
       <Header siteTitle={data.site.siteMetadata.title} />

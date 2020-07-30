@@ -11,7 +11,7 @@ const ContactSection = () => {
             <Container id="contact">
                 <h2>Contact Me</h2>
                 <p>Hi! Whether you'd like to work together or have a question, let's get in touch.</p>
-                <form name="contact" method="POST" data-netlify="true">
+                <form name="contact" method="POST" action="" data-netlify="true" novalidate>
                     <Form.Group controlId="formGroupEmail">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Your name" />
