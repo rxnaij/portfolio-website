@@ -5,11 +5,11 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from "react-bootstrap/Form"
 
-function encode(data {
+function encode(data) {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
         .join('&')
-})
+}
 
 const ContactSection = () => {
     const [ state, setState ] = useState({})
@@ -20,7 +20,7 @@ const ContactSection = () => {
     }
 
     // Handle form submissions
-    const handleSubmit = () => {
+    const handleSubmit = e => {
         e.preventDefault()
         const form = e.target
         fetch('/', {
@@ -44,22 +44,22 @@ const ContactSection = () => {
                     name="contact"
                     method="post"
                     data-netlify="true"
-                    action="#"
+                    data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                     novalidate
                 >
                     <input type="hidden" name="form-name" value="contact" />
                     <Form.Group controlId="formGroupEmail">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Your name" />
+                        <Form.Control type="text" placeholder="Your name" onChange={handleChange} />
                     </Form.Group>
                     <Form.Group controlId="formGroupPassword">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Your email" />
+                        <Form.Control type="email" placeholder="Email address" onChange={handleChange} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Message</Form.Label>
-                        <Form.Control as="textarea" rows="3" />
+                        <Form.Control as="textarea" rows="3" onChange={handleChange} />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
