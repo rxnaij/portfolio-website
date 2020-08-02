@@ -45,21 +45,20 @@ const ContactSection = () => {
                     method="post"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
                     novalidate
                 >
                     <input type="hidden" name="form-name" value="contact" />
-                    <Form.Group controlId="formGroupEmail">
+                    <Form.Group controlId="name">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Your name" onChange={handleChange} />
                     </Form.Group>
-                    <Form.Group controlId="formGroupPassword">
+                    <Form.Group controlId="email">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email address" onChange={handleChange} />
+                        <Form.Control type="email" placeholder="email@example.com" onChange={handleChange} />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group controlId="message">
                         <Form.Label>Message</Form.Label>
-                        <Form.Control as="textarea" rows="3" onChange={handleChange} />
+                        <Form.Control as="textarea" rows="3" onChange={handleChange} placeholder="Let's work together..." />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
