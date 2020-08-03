@@ -1,13 +1,15 @@
 @import "./custom.scss";
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
-$body-color: #222;
+/* ==================================================================== */
+/* Universal styles */
 
 /* Activates smooth scrolling for anchor links */
 html, body {
     scroll-behavior: smooth;
 }
 
+/* Dark mode - in progress */
 // .dark-mode {
 //     @at-root {
 //         *, *:before, *:after {
@@ -18,13 +20,17 @@ html, body {
 //     }
 // }
 
+/* ==================================================================== */
 /* Page sections */
+
 /* Adds bottom-margin spacing to every page section */
 section {
     margin-bottom: 5rem;
 }
 
+/* ==================================================================== */
 /* Navigation */
+
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
 .a-no-style {
     color: inherit;
@@ -37,29 +43,56 @@ section {
     }
 }
 
+/* Sets base color of header text. */
+.header-text {
+    color: hsla(0, 0%, 0%, 0.7);
+}
+
+/* Header brand styling. */
+.header-brand {
+    @extend .a-no-style;
+    @extend .header-text;
+    margin-right: 1.5rem;
+
+    font-weight: 700;
+}
+
 /* Header link styling. Builds off of .a-no-style */
+/* How to use: 
+ * <Nav.Link> doesn't work with Gatsby's Link component.
+ * That's why this class exists.
+ * 1) Add to a Gatsby <Link> component inside a <Nav.Item> component.
+ * 2) Give the component an activeClassStyle attribute, and set it to the
+ * '--is-active' modifier of this class.
+*/
 .header-link {
     @extend .a-no-style;
+    @extend .header-text;
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1rem 1.75rem 1rem 0;
+    margin-right: 0.5rem;
+
+    text-align: left;
     
     &:hover {
         @extend .header-link;
-        color: lightskyblue;
-        border-bottom: 2px solid lightskyblue;
+        color: $gray-600;
+        border-bottom: 2px solid $gray-600;
     }
 
     /* Active state */
     &--is-active {
-        color: blue;
-        border-bottom: 2px solid blue;
+        color: $teal;
+        border-bottom: 2px solid $teal;
         &:hover {
             @extend .header-link--is-active;
         }
     }
 }
 
+/* ==================================================================== */
 /* Page components – Work */
+
 /* WorkBlurb Card component */
 .work-blurb {
     transition: box-shadow 0.3s ease;
@@ -111,6 +144,10 @@ section {
         margin-bottom: 3rem;
     }
 }
+
+/* ==================================================================== */
+/* Page components - Case Study */
+
 
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
@@ -174,3 +211,5 @@ section {
     // border-top: 2px solid lightgray;
     padding-top: 0.5rem;
 }
+
+/* ==================================================================== */

@@ -6,9 +6,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
 const Header = ({ siteTitle }) => (
-  <Navbar sticky="top" bg="light">
+  <Navbar sticky="top" bg="white" variant="light" className="pb-0 mb-4">
     <Navbar.Brand>
-      <Link to="/" className="a-no-style">Richard Lu</Link>
+      <Link to="/" className="header-brand">Richard Lu</Link>
     </Navbar.Brand>
     <Nav>
       <Nav.Item>
@@ -19,6 +19,11 @@ const Header = ({ siteTitle }) => (
       <Nav.Item>
         <Link to="/work" className="header-link" activeClassName="header-link--is-active">
           Work
+        </Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Link to="/#contact" className="header-link" activeClassName="header-link--is-active">
+          Contact
         </Link>
       </Nav.Item>
     </Nav>
