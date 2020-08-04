@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 import IntroSection from '../components/index/intro'
 import WorkSection from '../components/work/work-section'
 import ContactSection from '../components/index/contact'
-import GameSection from '../components/game/game'
 
 
 const IndexPage = () => (

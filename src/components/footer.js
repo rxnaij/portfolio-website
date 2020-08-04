@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import React from "react"
-import Img from 'gatsby-image'
 
 import githubIcon from '../images/icons/github-32.png'
 import behanceIcon from '../images/icons/behance-32.png'

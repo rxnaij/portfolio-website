@@ -61,6 +61,7 @@ const ArticleText = ({ children }) => {
     )
 }
 
+/* FeaturedImage: product images that appear at the top to describe the product */
 const FeaturedImage = props => {
     return(
         <Row className="mb-4 py-4 align-items-center justify-content-center">
