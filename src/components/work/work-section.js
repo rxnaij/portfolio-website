@@ -24,7 +24,7 @@ const WorkSection = () => {
                     startDate(formatString: "MMMM YYYY")
                     endDate(formatString:"MMMM YYYY")      
                     coverPhoto {
-                        fluid {
+                        fluid (maxWidth: 720, maxHeight: 480) {
                             ...GatsbyContentfulFluid
                         }
                         fixed (width: 600, height: 400) {
@@ -55,7 +55,7 @@ const WorkSection = () => {
                                     description={edge.node.description}
                                     projectType={edge.node.projectType}
                                     projectDates={edge.node.startDate + (edge.node.endDate ? ` – ${edge.node.endDate}` : `` )}
-                                    thumbnail={edge.node.coverPhoto.fixed}
+                                    thumbnail={edge.node.coverPhoto.fluid}
                                 />
                             </li>
                         )

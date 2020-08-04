@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
 const Header = ({ siteTitle }) => (
-  <Navbar sticky="top" bg="white" variant="light" className="pb-0 mb-4">
+  <Navbar sticky="top" bg="white" variant="light" className="pb-0 mb-2">
     <Navbar.Brand>
       <Link to="/" className="header-brand">Richard Lu</Link>
     </Navbar.Brand>
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </Nav.Item>
       <Nav.Item>
-        <Link to="/work" className="header-link" activeClassName="header-link--is-active">
+        <Link to="/work" className="header-link" activeClassName="header-link--is-active" partiallyActive={true}>
           Work
         </Link>
       </Nav.Item>

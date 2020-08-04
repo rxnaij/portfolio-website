@@ -1,4 +1,4 @@
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 
 import Container from 'react-bootstrap/Container'
@@ -9,13 +9,13 @@ const Footer = ({ siteTitle }) => {
         <Container>
             <div className="border-top pt-4">
                 <div>
-                    Find me around the internet:
-                    <ul className="unstyled-list">
+                    <p className="small">Find me around the internet:</p>
+                    <ul className="list-unstyled">
                         <li>
-                            <a href="">GitHub</a>
+                            <a href="https://github.com/rxnaij">GitHub</a>
                         </li>
                         <li>
-                            <a href="">Behance</a>
+                            <a href="https://www.behance.net/xricharizab88b">Behance</a>
                         </li>
                     </ul>
                 </div>

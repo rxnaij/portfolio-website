@@ -25,7 +25,7 @@ const GameSection = () => {
     return(
         <section>
             <Container>
-                <h2>Bonus Game</h2>
+                <h1>Bonus Game</h1>
                 <div>Donate apples to hear your internet fortune.</div>
                 <div>
                     <div>
