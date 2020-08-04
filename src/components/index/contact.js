@@ -45,7 +45,7 @@ const ContactSection = () => {
                     method="post"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
-                    novalidate
+                    noValidate
                 >
                     <input type="hidden" name="form-name" value="contact" />
                     <p hidden>
@@ -65,8 +65,8 @@ const ContactSection = () => {
                         <Form.Label>Message</Form.Label>
                         <Form.Control name="message" as="textarea" rows="3" onChange={handleChange} placeholder="Let's work together..." />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
+                    <Button className="mr-auto" variant="primary" type="submit">
+                        Send it!
                     </Button>
                 </form>
             </Container>

@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 
 const WorkBlurb = props => (
     <Row className="mb-5">
-        <Col md={6} className="mb-3">
+        <Col md={6} className="mb-3 mb-md-0">
             <Link to={`/work/${props.slug}`}>
                 <Img fluid={props.thumbnail} />
             </Link>

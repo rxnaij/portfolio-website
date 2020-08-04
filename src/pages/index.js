@@ -15,7 +15,6 @@ const IndexPage = () => (
     <IntroSection />
     <WorkSection />
     <ContactSection />
-    <GameSection />
   </Layout>
 )
 

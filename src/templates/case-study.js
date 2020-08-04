@@ -61,6 +61,19 @@ const ArticleText = ({ children }) => {
     )
 }
 
+const FeaturedImage = props => {
+    return(
+        <Row className="mb-4 py-4 align-items-center justify-content-center">
+            <Col xs={9} sm={{ order: props.index % 2 === 0 ? 1 : 12 }} lg={5} className="mb-2 mb-md-0">
+                <Img fluid={props.image} alt={props.description} />
+            </Col>
+            <Col sm={{ order: props.index % 2 === 0 ? 12 : 1 }} lg={5} className="d-flex align-items-center">
+                <p className="lead">{props.description}</p>
+            </Col>
+        </Row>
+    )
+}
+
 /* FeatureFigure: display images in rich text */
 const FeatureFigure = props => {
     // Render FeatureFigure component
@@ -169,15 +182,12 @@ const CaseStudy = props => {
                         // Testing product images featured at the top
                         props.data.contentfulCaseStudy.productImages && props.data.contentfulCaseStudy.productImages.map( (image, index) => {
                             return (
-                                <Row key={image.id} className="mb-4 py-4 align-items-center justify-content-center">
-                                    <Col xs={8} sm={5} sm={{ order: index % 2 === 0 ? 1 : 12 }}>
-                                        {/* <img className="mw-100" src={image.file.url} alt={image.description}/> */}
-                                        <Img fluid={image.fluid} alt={image.description} />
-                                    </Col>
-                                    <Col sm={7} sm={{ order: index % 2 === 0 ? 12 : 1 }} className="d-flex align-items-center">
-                                        <span className="h5">{image.description}</span>
-                                    </Col>
-                                </Row>
+                                <FeaturedImage
+                                    key={image.id}
+                                    image={image.fluid}
+                                    description={image.description}
+                                    index={index}
+                                />
                             )
                         } )
                     }

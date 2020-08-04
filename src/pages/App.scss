@@ -22,6 +22,7 @@ html, body {
 
 /* ==================================================================== */
 /* Typography */
+
 h1, .h1 {
     margin-bottom: 0.625em;
 }
@@ -92,7 +93,7 @@ section {
     
     &:hover {
         @extend .header-link;
-        border-bottom: 2px solid $gray-600;
+        border-bottom: 2px solid black;
     }
 
     /* Active state */
@@ -132,18 +133,7 @@ section {
     }
     img {
         max-width: 100%;
-    }
-    // @media (max-width: 720px) {
-    //     img {
-    //         max-width: 100%;
-    //     }
-    // }
-    // @media (min-width: 721px) {
-    //     img {
-    //         max-width: 624px;
-    //     }
-    // }
-    
+    } 
 }
 
 /* Case study contentfulRichText styling – images
