@@ -41,8 +41,8 @@ const WorkSection = () => {
     `)
 
     return(
-        <section>
-            <Container id="work">
+        <section id="work">
+            <Container>
                 <h1>Work</h1>
                 <ul className="list-unstyled">
                 {

@@ -14,8 +14,8 @@ const ContactSection = () => {
     }
 
     return(
-        <section>
-            <Container id="contact">
+        <section id="contact">
+            <Container>
                 <h1>Contact Me</h1>
                 <p>Hi! Whether you'd like to work together or have a question, let's get in touch.</p>
                 <form 
@@ -32,16 +32,16 @@ const ContactSection = () => {
                         </label>
                     </p>
                     <Form.Group controlId="name">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control name="name" type="text" placeholder="Your name" onChange={handleChange} />
+                        <Form.Label>Your name (required)</Form.Label>
+                        <Form.Control name="name" type="text" placeholder="Jimmy Johns" onChange={handleChange} required />
                     </Form.Group>
                     <Form.Group controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control name="email" type="email" placeholder="email@example.com" onChange={handleChange} />
+                        <Form.Label>Your email (required)</Form.Label>
+                        <Form.Control name="email" type="email" placeholder="email@example.com" onChange={handleChange} required />
                     </Form.Group>
                     <Form.Group controlId="message">
-                        <Form.Label>Message</Form.Label>
-                        <Form.Control name="message" as="textarea" rows="3" onChange={handleChange} placeholder="Let's work together..." />
+                        <Form.Label>Message (required)</Form.Label>
+                        <Form.Control name="message" as="textarea" rows="3" onChange={handleChange} placeholder="Let's work together..." required />
                     </Form.Group>
                     <Button className="mr-auto" variant="primary" type="submit">
                         Send it!
