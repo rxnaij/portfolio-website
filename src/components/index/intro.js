@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Image from 'react-bootstrap/Image'
 
@@ -24,18 +24,40 @@ const IntroSection = () => {
     }
     `)
 
+    const [profileImageIsRotating, setProfileImageIsRotating] = useState(false)
+
     return(
         <section id="intro">
             <Container>
                 <Row className="d-flex justify-content-between">
-                    <Col className="d-flex align-items-center">
+                    <Col xs={8} lg={7} className="d-flex flex-column justify-content-center">
                         <h1 className="display-3">hey!<br />i'm richard.</h1>
+                        <p>
+                            <span className="lead text-muted">
+                                product designer, human, etc.
+                            </span>
+                            <br />
+                            <strong className="lead text-info">
+                                open to full-time and freelance opportunities!
+                            </strong>
+                        </p>
+
                     </Col>
-                    <Col>
-                        <Image className="mw-100" src={profileImage} roundedCircle />
+                    <Col xs={4} lg={5} className="d-flex flex-row align-items-center">
+                        <Image
+                            className={`mw-100 ${profileImageIsRotating ? 'profile-image' : ''}`}
+                            src={profileImage}
+                            roundedCircle 
+                            onClick={() => {
+                                if (profileImageIsRotating) {
+                                    setProfileImageIsRotating(false)
+                                } else {
+                                    setProfileImageIsRotating(true)
+                                }
+                            }}
+                        />
                     </Col>
                 </Row>
-                
                 <p>
                     I'm a product designer // human being // thing-doer based in NYC. I use technology to help people connect with themselves and others in meaningful ways.
                 </p>
@@ -47,7 +69,7 @@ const IntroSection = () => {
                     </Link>
                 </Button>
                 <Button size="lg" variant="outline-primary" className="">
-                    <a href={data.contentfulAsset.file.url} className="a-no-style">Resume</a>
+                    <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
                 </Button>
             </Container>
         </section>  

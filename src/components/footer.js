@@ -12,6 +12,10 @@ const Footer = ({ siteTitle }) => {
         <Container>
             <div className="border-top py-4">
                 <div>
+                    <p className="text-muted"><strong>Current status:</strong> open to full-time and freelance opportunities.
+                    <br />If you're interested in working together, <Link to="#contact">drop me a line!</Link></p>
+                </div>
+                <div>
                     <p className="small">Find me around the internet:</p>
                     <ul className="list-unstyled d-flex justify-content-start">
                         <li className="mr-2">
@@ -26,11 +30,6 @@ const Footer = ({ siteTitle }) => {
                             </a>
                         </li>
                     </ul>
-                </div>
-                <div>
-                    <Link to="/#contact">
-                        Get in touch
-                    </Link>
                 </div>
                 <span className="small">
                     © {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>

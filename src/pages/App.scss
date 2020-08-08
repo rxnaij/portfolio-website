@@ -9,6 +9,7 @@ html, body {
     scroll-behavior: smooth;
 }
 
+/* Header scroll fix */
 section:before {
     content: "";
     display: block;
@@ -42,8 +43,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Page sections */
 
 /* Adds bottom-margin spacing to every page section */
-section {
-    margin-bottom: 5rem;
+section, .page-section {
+    margin-bottom: 8rem;
 }
 
 /* ==================================================================== */
@@ -113,6 +114,23 @@ section {
         &:hover {
             @extend .header-link--is-active;
         }
+    }
+}
+
+/* ==================================================================== */
+/* Page components – Intro */
+
+/* Profile image */
+.profile-image {
+    animation: profile-image-spin infinite 20s linear;
+}
+
+@keyframes profile-image-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 
