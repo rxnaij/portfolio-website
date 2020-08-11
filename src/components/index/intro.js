@@ -14,7 +14,7 @@ const IntroSection = () => {
     query {
         contentfulAsset(
             title: {
-            eq: "Richard Lu Resume [April 2020]"
+            eq: "Richard Lu Resume"
             }
         ) {
             file {
