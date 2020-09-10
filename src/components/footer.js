@@ -12,7 +12,7 @@ const Footer = ({ siteTitle }) => {
         <Container>
             <div className="border-top py-4">
                 <div>
-                    <p className="text-muted"><strong>Current status:</strong> open to full-time and freelance opportunities.
+                    <p className="text-muted"><strong>Current status:</strong> <span class="text-info">open to full-time and freelance opportunities.</span>
                     <br />If you're interested in working together, <Link to="#contact">drop me a line!</Link></p>
                 </div>
                 <div>

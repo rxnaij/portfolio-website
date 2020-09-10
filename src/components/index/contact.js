@@ -24,7 +24,7 @@ const ContactSection = () => {
                         <p className="mb-4">Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.
                         </p>
                         <p>
-                            At the moment, <strong>I'm currently open to offers for full-time and freelance work.</strong> Woohoo!
+                            At the moment, <strong className="text-info">I'm currently open to offers for full-time and freelance work.</strong> Woohoo!
                         </p>
                     </Col>
                     <Col xs={12} md={6}>

@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import Border from '../border/Border'
+
 import profileImage from '../../images/cursor-face.jpg'
 
 const IntroSection = () => {
@@ -30,20 +32,21 @@ const IntroSection = () => {
         <section id="intro">
             <Container>
                 <Row className="d-flex justify-content-between">
-                    <Col xs={8} lg={7} className="d-flex flex-column justify-content-center">
+                    <Col xs={12} lg={7} className="d-flex flex-column justify-content-center">
                         <h1 className="display-3">hey!<br />i'm richard.</h1>
                         <p>
                             <span className="lead text-muted">
                                 product designer, human, etc.
                             </span>
                             <br />
-                            <strong className="lead text-info">
-                                open to full-time and freelance opportunities!
-                            </strong>
+                            <Border>
+                                <strong className="lead text-info font-weight-bold">
+                                    open to full-time and freelance opportunities!
+                                </strong>
+                            </Border>
                         </p>
-
                     </Col>
-                    <Col xs={4} lg={5} className="d-flex flex-row align-items-center">
+                    <Col xs={6} lg={5} className="d-flex flex-row align-items-center mx-auto">
                         <Image
                             className={`mw-100 ${profileImageIsRotating ? 'profile-image' : ''}`}
                             src={profileImage}
