@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import Container from 'react-bootstrap/Container'
 
-import WorkBlurb from './work-blurb'
+import WorkBlurb from './WorkBlurb'
 
 const WorkSection = () => {
 

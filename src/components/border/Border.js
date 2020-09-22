@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Border({children}) {
     return (
-        <div class="position-relative">
+        <div className="position-relative">
             {children}
             <div style={{ 
                 'zIndex': '-1',

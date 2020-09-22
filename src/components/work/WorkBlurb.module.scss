@@ -1,0 +1,15 @@
+.workblurb {
+
+    padding: 1rem 0;
+    
+    &:hover {
+        background-color: #dee2e6;
+    }
+    .title {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .info {
+    }
+}

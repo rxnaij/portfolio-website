@@ -33,8 +33,8 @@ const IntroSection = () => {
             <Container>
                 <Row className="d-flex justify-content-between">
                     <Col xs={12} lg={7} className="d-flex flex-column justify-content-center">
-                        <h1 className="display-3">hey!<br />i'm richard.</h1>
-                        <p>
+                        <h1>hey!<br />i'm richard.</h1>
+                        <div>
                             <span className="lead text-muted">
                                 product designer, human, etc.
                             </span>
@@ -44,7 +44,7 @@ const IntroSection = () => {
                                     open to full-time and freelance opportunities!
                                 </strong>
                             </Border>
-                        </p>
+                        </div>
                     </Col>
                     <Col xs={6} lg={5} className="d-flex flex-row align-items-center mx-auto">
                         <Image
@@ -62,11 +62,11 @@ const IntroSection = () => {
                     </Col>
                 </Row>
                 <p>
-                    I'm a product designer // human being // thing-doer based in NYC. I use technology to help people connect with themselves and others in meaningful ways.
+                    I'm a product designer // human being // thing-doer based in NYC. I design with the purpose of helping people connect with themselves and others in meaningful, equitable, and healthy ways.
                 </p>
                 <p>Additionally, I have been involved in activism related to Asian American issues, mental health, and ethics in tech. In 2019, I co-directed the <a href="http://nycaasc.com">New York City Asian American Student Conference (NYCAASC).</a></p>
                 <p>In my free time, I love to ride my fixed gear bike, jam out on the piano, and dance my heart out on Dance Dance Revolution.</p>
-                <Button size="lg" variant="outline-primary" className="mr-3">
+                <Button size="lg" variant="primary" className="mr-3">
                     <Link to="#contact" className="a-no-style">
                         Let's talk!
                     </Link>

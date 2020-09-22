@@ -34,10 +34,6 @@ section:before {
 /* ==================================================================== */
 /* Typography */
 
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0.5em;
-}
-
 
 /* ==================================================================== */
 /* Page sections */
@@ -138,60 +134,3 @@ section, .page-section {
 /* Page components – Work */
 
 
-/* ==================================================================== */
-/* Page components - Case Study */
-
-
-/* Case Study contentfulRichText styling - text */
-/* Sets width of text elements */
-.article-width {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 624px;
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 400;
-    }
-    p {
-        line-height: 1.5;
-    }
-    p, ol, ul, blockquote {
-        &+h1, &+h2, &+h3, &+h4, &+h5, &+h6, &+img {
-            padding-top: 1.5em;
-        }
-    }
-    img {
-        max-width: 100%;
-    } 
-}
-
-/* Case study contentfulRichText styling – images
- * Feature figures - specific type of <figure class="figure>
-
-    <figure className="figure">
-        <img className="figure-img" />
-        <figcaption className="figure-caption" />
-    </figure>
-*/
-.feature-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media (max-width: 720px) {
-
-    }
-    @media (min-width: 721px) {
-
-    }
-}
-
-/* Figcaptions */
-.caption {
-    font-size: 0.8rem;
-    font-style: italic;
-
-
-    // border-top: 2px solid lightgray;
-    padding-top: 0.5rem;
-}
-
-/* ==================================================================== */

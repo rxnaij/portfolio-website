@@ -11,6 +11,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import styles from './CaseStudy.module.scss'
+
 // Use GraphQL to source content from Contentful
 export const query = graphql`
     query (
@@ -54,7 +56,7 @@ const ArticleText = ({ children }) => {
     // Render ArticleText component
     return(
         <article>
-            <Container fluid className="article-width">
+            <Container fluid className={styles.content}>
                 { children }
             </Container>
         </article>
@@ -75,19 +77,12 @@ const FeaturedImage = props => {
     )
 }
 
-/* FeatureFigure: display images in rich text */
-const FeatureFigure = props => {
-    // Render FeatureFigure component
-    // (desktop/tablet only) if image width is larger than half the article max-width,
-    // set the figure's flex-direction to column
-    // otherwise, set it to row
-    if (props.width < (624 / 2)) {
-
-    }
+/* Figure: display images in rich text */
+const Figure = props => {
     return(
-        <figure className={`mb-4 figure feature-figure`}>
-            <img src={props.url} alt={props.title} className="figure-img" />
-            <figcaption className="figure-caption">
+        <figure className={`figure ${styles.figure} ${styles.wide}`}>
+            <img src={props.url} alt={props.title} className="figure__img" />
+            <figcaption className={styles.caption}>
                 { props.caption }
             </figcaption>
         </figure>
@@ -153,7 +148,7 @@ const CaseStudy = props => {
                 const url = fields.file['en-US'].url
                 // Render image as a figure
                 return (
-                    <FeatureFigure
+                    <Figure
                         url={url}
                         title={title}
                         caption={ title && caption }
@@ -177,11 +172,12 @@ const CaseStudy = props => {
                 projectType={props.data.contentfulCaseStudy.projectType}
                 role={props.data.contentfulCaseStudy.role}
             />
+            {props.data.contentfulCaseStudy.productImages &&
             <section>
                 <Container>
                     {
                         // Testing product images featured at the top
-                        props.data.contentfulCaseStudy.productImages && props.data.contentfulCaseStudy.productImages.map( (image, index) => {
+                        props.data.contentfulCaseStudy.productImages.map( (image, index) => {
                             return (
                                 <FeaturedImage
                                     key={image.id}
@@ -193,11 +189,16 @@ const CaseStudy = props => {
                         } )
                     }
                 </Container>
-            </section>
-            <hr />
+            </section>}
             <ArticleText>
                 { documentToReactComponents(props.data.contentfulCaseStudy.mainContent.json, options) }
             </ArticleText>
+            <section>
+                <Container>
+                    <hr />
+                    <Link to="/work">Back to Work</Link>
+                </Container>
+            </section>
         </Layout>
     )
 }
