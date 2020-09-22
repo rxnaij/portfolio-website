@@ -51,18 +51,6 @@ export const query = graphql`
     }
 `
 
-/* ArticleText: container for case study rich text */
-const ArticleText = ({ children }) => {
-    // Render ArticleText component
-    return(
-        <article>
-            <Container fluid className={styles.content}>
-                { children }
-            </Container>
-        </article>
-    )
-}
-
 /* FeaturedImage: product images that appear at the top to describe the product */
 const FeaturedImage = props => {
     return(
@@ -190,13 +178,15 @@ const CaseStudy = props => {
                     }
                 </Container>
             </section>}
-            <ArticleText>
-                { documentToReactComponents(props.data.contentfulCaseStudy.mainContent.json, options) }
-            </ArticleText>
+            <article>
+                <Container fluid className={styles.content}>
+                    { documentToReactComponents(props.data.contentfulCaseStudy.mainContent.json, options) }
+                </Container>
+            </article>
             <section>
                 <Container>
                     <hr />
-                    <Link to="/work">Back to Work</Link>
+                    <Link to="/work">&lsaquo; Back to work</Link>
                 </Container>
             </section>
         </Layout>

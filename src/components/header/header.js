@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => {
 
 
   return (
-    <Navbar sticky="top" bg="white" variant="light" className="mb-2">
+    <Navbar bg="white" variant="light" className="py-3 mb-2">
       <Navbar.Brand>
         <Link to="/" className="header-brand">Richard Lu</Link>
       </Navbar.Brand>

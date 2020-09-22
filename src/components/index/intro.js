@@ -34,7 +34,7 @@ const IntroSection = () => {
                 <Row className="d-flex justify-content-between">
                     <Col xs={12} lg={7} className="d-flex flex-column justify-content-center">
                         <h1>hey!<br />i'm richard.</h1>
-                        <div>
+                        <>
                             <span className="lead text-muted">
                                 product designer, human, etc.
                             </span>
@@ -44,7 +44,7 @@ const IntroSection = () => {
                                     open to full-time and freelance opportunities!
                                 </strong>
                             </Border>
-                        </div>
+                        </>
                     </Col>
                     <Col xs={6} lg={5} className="d-flex flex-row align-items-center mx-auto">
                         <Image
@@ -61,19 +61,21 @@ const IntroSection = () => {
                         />
                     </Col>
                 </Row>
-                <p>
-                    I'm a product designer // human being // thing-doer based in NYC. I design with the purpose of helping people connect with themselves and others in meaningful, equitable, and healthy ways.
-                </p>
-                <p>Additionally, I have been involved in activism related to Asian American issues, mental health, and ethics in tech. In 2019, I co-directed the <a href="http://nycaasc.com">New York City Asian American Student Conference (NYCAASC).</a></p>
-                <p>In my free time, I love to ride my fixed gear bike, jam out on the piano, and dance my heart out on Dance Dance Revolution.</p>
-                <Button size="lg" variant="primary" className="mr-3">
-                    <Link to="#contact" className="a-no-style">
-                        Let's talk!
-                    </Link>
-                </Button>
-                <Button size="lg" variant="outline-primary" className="">
-                    <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
-                </Button>
+                <Row>
+                    <Col xs={12}>
+                        <p className="lead">I'm a product designer, human being, thing-doer, etc.<br />I design to help people connect with themselves and others in meaningful, equitable, and healthy ways.</p>
+                        <p>My interests extend into social justice, mental health, and ethics in tech. In 2019, I served as co-director for the 13th <a href="http://nycaasc.com">New York City Asian American Student Conference (NYCAASC).</a></p>
+                        <Button size="lg" variant="primary" className="mr-3">
+                            <Link to="#contact" className="a-no-style">
+                                Let's talk!
+                            </Link>
+                        </Button>
+                        <Button size="lg" variant="outline-primary" className="">
+                            <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
+                        </Button>
+                    </Col>
+                </Row>
+                
             </Container>
         </section>  
     )

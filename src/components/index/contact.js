@@ -30,7 +30,6 @@ const ContactSection = () => {
                             method="post"
                             data-netlify="true"
                             data-netlify-honeypot="bot-field"
-                            noValidate
                         >
                             <input type="hidden" name="form-name" value="contact" />
                             <p hidden>

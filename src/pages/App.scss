@@ -33,6 +33,20 @@ section:before {
 
 /* ==================================================================== */
 /* Typography */
+blockquote {
+    border-left: 3px solid gray;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    font-size: 1.15rem;
+    font-style: italic;
+    color: hsla(0, 0%, 0%, 0.8);
+
+    p {
+        margin-bottom: 0 !important;
+    }
+}
 
 
 /* ==================================================================== */
