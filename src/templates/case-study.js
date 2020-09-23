@@ -26,7 +26,7 @@ export const query = graphql`
             title
             description
             coverPhoto {
-                fluid (maxWidth: 1920, maxHeight: 720) {
+                fluid (maxWidth: 1920, maxHeight: 800) {
                     ...GatsbyContentfulFluid
                 }
             }
@@ -66,40 +66,35 @@ const FeaturedImage = props => {
 }
 
 /* Figure: display images in rich text */
-const Figure = props => {
+const Figure = ({url, title, caption}) => {
     return(
-        <figure className={`figure ${styles.figure} ${styles.wide}`}>
-            <img src={props.url} alt={props.title} className="figure__img" />
-            <figcaption className={styles.caption}>
-                { props.caption }
+        <figure className={`figure ${styles.wide}`}>
+            <img src={url} alt={title} />
+            <figcaption>
+                { caption }
             </figcaption>
         </figure>
     )
 }
 
 /* Head of the case study, with intro content */
-const CaseStudyHead = props => {
-
-    const { title, coverPhoto, description, startDate, endDate, projectType, role } = props
+const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role }) => {
 
     return(
         <section>
-            <Container>
-                <Breadcrumb>
-                    <Breadcrumb.Item>
-                        <Link to="/work/">Work</Link>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item active>
-                        { title }
-                    </Breadcrumb.Item>
-                </Breadcrumb>
-                <h1>{title}</h1>
-                <Img fluid={coverPhoto} className="mb-4" fadeIn />
+            <Container fluid >
+                
                 <Row>
-                    <Col md={6}>
-                        <p className="lead">{description}</p>
+                    <Col xs={12}>
+                        <Img
+                            fluid={coverPhoto} 
+                            className="mb-4" 
+                            fadeIn 
+                        />
                     </Col>
-                    <Col md={6}>
+                    <Col xs={12} lg={8}>
+                        <h1>{title}</h1>
+                        <p className="lead">{description}</p>
                         <p>
                             <strong>Date</strong>: { 
                                 startDate + ( endDate ? ` – ${endDate}` : `` ) 
@@ -117,7 +112,7 @@ const CaseStudyHead = props => {
 }
 
 /* Case study template */
-const CaseStudy = props => {
+const CaseStudy = ({data}) => {
     // Set renderNode options
     const options = {
         renderNode: {
@@ -126,69 +121,76 @@ const CaseStudy = props => {
                 // Declare references to make my life easier
                 // Shorten the reference to the fields property
                 const fields = node.data.target.fields
-                // Title of image
-                const title = fields.title['en-US']
-                // Image caption – default to description, otherwise leave blank
-                const caption = fields.description
+                const title = fields.title['en-US'] // Title of image
+                const description = fields.description  // Image caption – default to description, otherwise leave blank
                     ? fields.description['en-US']
                     : ''
-                // Image url, to be passed into src attribute
-                const url = fields.file['en-US'].url
-                // Render image as a figure
+                const url = fields.file['en-US'].url    // Image url, to be passed into src attribute
+
                 return (
                     <Figure
                         url={url}
                         title={title}
-                        caption={ title && caption }
+                        caption={ title && description }
                         width={fields.file['en-US'].details.image.width}
                     />
                 ) 
             }
         }
-      }
+    }
+    
+    const { 
+        title, 
+        coverPhoto, 
+        description, 
+        startDate, 
+        endDate, 
+        projectType, 
+        role, 
+        productImages, 
+        mainContent 
+    } = data.contentfulCaseStudy
 
     // Render CaseStudy component
     return (
         <Layout>
-            <SEO title={props.data.contentfulCaseStudy.title} />
+            <SEO title={title} />
             <CaseStudyHead 
-                title={props.data.contentfulCaseStudy.title}
-                coverPhoto={props.data.contentfulCaseStudy.coverPhoto.fluid}
-                description={props.data.contentfulCaseStudy.description}
-                startDate={props.data.contentfulCaseStudy.startDate}
-                endDate={props.data.contentfulCaseStudy.endDate}
-                projectType={props.data.contentfulCaseStudy.projectType}
-                role={props.data.contentfulCaseStudy.role}
+                title={title}
+                coverPhoto={coverPhoto.fluid}
+                description={description}
+                startDate={startDate}
+                endDate={endDate}
+                projectType={projectType}
+                role={role}
             />
-            {props.data.contentfulCaseStudy.productImages &&
-            <section>
-                <Container>
-                    {
-                        // Testing product images featured at the top
-                        props.data.contentfulCaseStudy.productImages.map( (image, index) => {
-                            return (
-                                <FeaturedImage
-                                    key={image.id}
-                                    image={image.fluid}
-                                    description={image.description}
-                                    index={index}
-                                />
-                            )
-                        } )
-                    }
-                </Container>
-            </section>}
+            {
+                productImages &&
+                <section>
+                    <Container>
+                        {
+                            productImages.map( (image, index) => {
+                                return (
+                                    <FeaturedImage
+                                        key={image.id}
+                                        image={image.fluid}
+                                        description={image.description}
+                                        index={index}
+                                    />
+                                )
+                            } )
+                        }
+                    </Container>
+                </section>
+            }
             <article>
                 <Container fluid className={styles.content}>
-                    { documentToReactComponents(props.data.contentfulCaseStudy.mainContent.json, options) }
+                    { documentToReactComponents(mainContent.json, options) }
+                    <nav className="my-5">
+                        <Link to="/work">&lsaquo; Back to work</Link>
+                    </nav>
                 </Container>
             </article>
-            <section>
-                <Container>
-                    <hr />
-                    <Link to="/work">&lsaquo; Back to work</Link>
-                </Container>
-            </section>
         </Layout>
     )
 }

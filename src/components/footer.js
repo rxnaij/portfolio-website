@@ -13,12 +13,12 @@ const Footer = ({ siteTitle }) => {
     return (
         <Container>
             <Row className="border-top py-4">
-                <Col sm={6}>
+                <Col sm={6} className="mb-2">
                     <p className="small"><strong>Current status:</strong> <span className="text-info">open to full-time and freelance opportunities.</span>
                     <br />If you're interested in working together, <Link to="#contact">drop me a line!</Link></p>
                 </Col>
-                <Col sm={6} className="d-flex flex-column align-items-end">
-                    <p className="small mb-1">Find me around the internet</p>
+                <Col sm={6} className="d-flex flex-column">
+                    <p className="small mb-1">Find me around the internet:</p>
                     <ul className="list-unstyled d-flex justify-content-start">
                         <li className="mr-2">
                             <a href="https://github.com/rxnaij">

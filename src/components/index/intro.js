@@ -31,12 +31,12 @@ const IntroSection = () => {
     return(
         <section id="intro">
             <Container>
-                <Row className="d-flex justify-content-between">
-                    <Col xs={12} lg={7} className="d-flex flex-column justify-content-center">
+                <Row className="d-flex justify-content-between mb-4">
+                    <Col xs={{ span: 12, order: 1 }} sm={{ span: 8, order: 0 }} className="d-flex flex-column justify-content-center">
                         <h1>hey!<br />i'm richard.</h1>
                         <>
-                            <span className="lead text-muted">
-                                product designer, human, etc.
+                            <span className="lead">
+                                product designer // human // etc.
                             </span>
                             <br />
                             <Border>
@@ -46,25 +46,33 @@ const IntroSection = () => {
                             </Border>
                         </>
                     </Col>
-                    <Col xs={6} lg={5} className="d-flex flex-row align-items-center mx-auto">
-                        <Image
-                            className={`mw-100 ${profileImageIsRotating ? 'profile-image' : ''}`}
-                            src={profileImage}
-                            roundedCircle 
-                            onClick={() => {
-                                if (profileImageIsRotating) {
-                                    setProfileImageIsRotating(false)
-                                } else {
-                                    setProfileImageIsRotating(true)
-                                }
-                            }}
-                        />
+                    <Col xs={{ span: 6, order: 0 }} sm={{ span: 4, order: 1 }} className="d-flex flex-row align-items-center mx-auto">
+                        <figure>
+                            <Image
+                                className={`mw-100 ${profileImageIsRotating ? 'profile-image' : ''}`}
+                                style={{
+
+                                }}
+                                src={profileImage}
+                                roundedCircle 
+                                onClick={() => {
+                                    if (profileImageIsRotating) {
+                                        setProfileImageIsRotating(false)
+                                    } else {
+                                        setProfileImageIsRotating(true)
+                                    }
+                                }}
+                            />
+                            <figcaption>
+                                { profileImageIsRotating ? 'Tap again to stop spinning.' : 'Tap me!' }
+                            </figcaption>
+                        </figure>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <p className="lead">I'm a product designer, human being, thing-doer, etc.<br />I design to help people connect with themselves and others in meaningful, equitable, and healthy ways.</p>
-                        <p>My interests extend into social justice, mental health, and ethics in tech. In 2019, I served as co-director for the 13th <a href="http://nycaasc.com">New York City Asian American Student Conference (NYCAASC).</a></p>
+                        <p className="lead">Harnessing the powers of empathy, design, and code, I'm on a quest to help people connect with themselves and others in meaningful, equitable, and healthy ways.</p>
+                        <p>Additionally, my interests extend into social justice, mental health, and ethics in tech. In 2019, I served as co-director for the 13th <a href="http://nycaasc.com">New York City Asian American Student Conference (NYCAASC).</a></p>
                         <Button size="lg" variant="primary" className="mr-3">
                             <Link to="#contact" className="a-no-style">
                                 Let's talk!

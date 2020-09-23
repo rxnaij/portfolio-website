@@ -14,12 +14,9 @@
     li p {
         margin-bottom: 0.25rem;
     }
-    .wide {
-        img {
-            max-width: 100%;
-        }
-        
-    } 
+    .wide, .wide > * {
+        max-width: 100%;
+    }
 }
 
 /* Grid system for displaying content on large screens */
@@ -30,7 +27,7 @@
         & > * {
             grid-column: main / main-end;
         }
-        .wide {
+        & > .wide {
             grid-column: full-start / full-end;
         }
     }
@@ -44,17 +41,18 @@
         <figcaption className="figure-caption" />
     </figure>
 */
-.figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+// .figure {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-bottom: 1.5rem;
 
-    /* Figcaptions */
-    .caption {
-        text-align: center;
-        font-size: 0.8rem;
-        font-style: italic;
-        // border-top: 2px solid lightgray;
-        padding-top: 0.5rem;
-    }
-}
+//     /* Figcaptions */
+//     .caption {
+//         text-align: center;
+//         font-size: 0.8rem;
+//         font-style: italic;
+//         padding-top: 0.5rem;
+//     }
+// }
+
