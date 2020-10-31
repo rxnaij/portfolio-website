@@ -63,10 +63,15 @@ figure {
 }
 
 .small-header {
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
     color: $gray-600;
     text-transform: uppercase;
+}
+
+label {
+    font-weight: 500;
 }
 
 

@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-import Border from '../border/Border'
 import Flipcard from '../flipcard/Flipcard'
 
 import githubIcon from '../../images/icons/github-32.png'
@@ -34,11 +33,11 @@ const IntroSection = () => {
         <section id="intro">
             <Container>
                 <Row className="d-flex">
-                    <Col xs={12} sm={6} className="mb-5 mb-sm-0 d-flex flex-column justify-content-center">
-                        <h1>hey! i'm richard.</h1>
-                        <p className="text-muted mb-4"> product designer // human // etc.</p>
+                    <Col xs={12} sm={6} md={6} className="mb-5 mb-sm-0 d-flex flex-column justify-content-center">
+                        <h1 className="display-4 font-weight-bold">hey, I'm Richard!</h1>
+                        <p className="lead text-muted mb-4"> product designer // human // etc.</p>
                         <div>
-                            <p>Harnessing the powers of empathy, design, and code, I'm on a quest to help people connect with themselves and others in meaningful, equitable, and healthy ways.</p>
+                            <p>I'm a digital product designer on a quest to use technology to help people connect with themselves and others in meaningful, healthy, and equitable ways.</p>
                             <p>My interests also extend into social justice, mental health, and ethics in tech.</p>
                             <Button size="lg" variant="primary" className="mr-3">
                                 <Link to="#contact" className="a-no-style">
@@ -50,10 +49,10 @@ const IntroSection = () => {
                             </Button>
                         </div>
                     </Col>
-                    <Col xs={12} sm={6} className="mb-4 mb-sm-0">
-                        <Card as="aside" className="d-flex align-items-center py-4 bg-light text-center">
+                    <Col xs={12} sm={6} md={6} lg={5} className="mb-4 mb-sm-0 ml-auto">
+                        <Card as="aside" className="px-5 d-flex align-items-start py-4 bg-light">
                             <Flipcard
-                                className="mb-4"
+                                className="mb-4 align-self-center"
                                 front={
                                     <Image
                                         className="mb-4 mw-100"
@@ -70,7 +69,7 @@ const IntroSection = () => {
                                 }
                             />
                             <h2 className="small-header">Across the internet</h2>
-                            <ul className="list-unstyled d-flex justify-content-around mb-4">
+                            <ul className="list-unstyled d-flex justify-content-around mb-5">
                                 <li className="mr-2">
                                     <a href="https://github.com/rxnaij">
                                         <img src={githubIcon} alt="Richard's GitHub" />
