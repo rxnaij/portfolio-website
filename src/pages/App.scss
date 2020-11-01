@@ -21,15 +21,15 @@ section:before {
 }
 
 /* Dark mode - in progress */
-// .dark-mode {
-//     @at-root {
-//         *, *:before, *:after {
-//             background-color: hsla(0, 0%, 20%, 1);
-//             color: white;
-//         }
+.dark-mode {
+    @at-root {
+        *, *:before, *:after {
+            background-color: hsla(0, 0%, 20%, 1);
+            color: white;
+        }
         
-//     }
-// }
+    }
+}
 
 /* ==================================================================== */
 /* Typography */
@@ -98,59 +98,9 @@ section, .page-section {
     }
 }
 
-.basic-link {
-    color: black;
-    
-    &:hover {
-        color: black;
-    }
-}
-
-/* Sets base color of header text. */
-.header-text {
-    color: hsla(0, 0%, 0%, 0.7);
-    // font-size: 14px;
-}
-
-/* Header brand styling. */
-.header-brand {
-    @extend .a-no-style;
-    @extend .header-text;
-    margin-right: 1.5rem;
-
-    font-weight: 700;
-}
-
-/* Header link styling. Builds off of .a-no-style */
-/* How to use: 
- * <Nav.Link> doesn't work with Gatsby's Link component.
- * That's why this class exists.
- * 1) Add to a Gatsby <Link> component inside a <Nav.Item> component.
- * 2) Give the component an activeClassStyle attribute, and set it to the
- * '--is-active' modifier of this class.
-*/
-.header-link {
-    @extend .a-no-style;
-    @extend .header-text;
-    display: inline-block;
-    padding: 1rem 1rem 1rem 0;
-    margin-right: 0.5rem;
-
-    text-align: left;
-    
-    &:hover {
-        @extend .header-link;
-        border-bottom: 3px solid black;
-    }
-
-    /* Active state */
-    &--is-active {
-        color: $teal;
-        border-bottom: 3px solid $teal;
-        &:hover {
-            @extend .header-link--is-active;
-        }
-    }
+.nav-link--is-active {
+    color: $teal !important;
+    border-bottom: 3px solid $teal;
 }
 
 /* ==================================================================== */
