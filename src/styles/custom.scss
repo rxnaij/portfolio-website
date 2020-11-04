@@ -1,4 +1,14 @@
-@import "~bootstrap/scss/bootstrap";
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/images";
+// @import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
 
 /* ==================================================================== */
 /* Overrides follow. */
@@ -20,9 +30,11 @@ $headings-font-weight: 400;
 $navbar-padding-y: $spacer;
 $navbar-padding-x: $spacer;
 $navbar-brand-font-size: $font-size-base;
+$navbar-brand-weight: 700;
+$navbar-brand-padding-y: 1rem;
 
 /* Nav */
-$nav-link-padding-x: 1.5rem;
+$nav-link-padding-x: 2rem;
 $nav-link-padding-y: 1rem;
 
 /* ==================================================================== */

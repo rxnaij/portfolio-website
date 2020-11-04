@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { useSpring, animated } from 'react-spring'
+import { useThemeState } from '../../hooks/ThemeContext.ts'
 
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -10,9 +11,11 @@ import styles from './WorkBlurb.module.scss'
 
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
+    const themeState = useThemeState()
+    const highlightColor = themeState.theme === 'dark' ? 'white' : 'black'  // Highlight color is the inverse of the theme color
     const { borderBottom, boxShadow } = useSpring({
-        borderBottom: `3px solid ${hover ? `black` : `transparent`}`,
-        boxShadow: `black ${hover? `10px 10px` : `0px 0px`} 0`
+        borderBottom: `4px solid ${hover ? highlightColor : `transparent`}`,
+        boxShadow: `${highlightColor} ${hover? `10px 10px` : `0px 0px`} 0`
     })
     return(
         <Link className={'a-no-style'} to={`/work/${props.slug}`}>

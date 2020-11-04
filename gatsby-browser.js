@@ -3,5 +3,18 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import React from 'react'
 
-// You can delete this file if you're not using it
+import { ThemeProvider } from './src/hooks/ThemeContext.ts' // Provides context for theme
+
+/**
+ * Wraps the root element in global Context providers to provide global state.
+ * @param element - the element belonging to the root of the Gatsby document
+ */
+export const wrapRootElement = ({ element }) => {
+    return (
+        <ThemeProvider>
+            {element}
+        </ThemeProvider>
+    )
+}

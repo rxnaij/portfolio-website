@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Image from 'react-bootstrap/Image'
+import { useThemeState } from '../../hooks/ThemeContext.ts'
 
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -29,11 +30,13 @@ const IntroSection = () => {
     }
     `)
 
+    const { theme } = useThemeState()
+
     return(
         <section id="intro">
             <Container>
                 <Row className="d-flex">
-                    <Col xs={12} sm={6} md={6} className="mb-5 mb-sm-0 d-flex flex-column justify-content-center">
+                    <Col xs={12} sm={6} md={6} className="mb-5 mb-sm-0">
                         <h1 className="display-4 font-weight-bold">hey!<br />I'm Richard.</h1>
                         <p className="lead text-muted mb-4"> product designer // human // etc.</p>
                         <div>
@@ -50,7 +53,7 @@ const IntroSection = () => {
                         </div>
                     </Col>
                     <Col xs={12} sm={6} md={6} lg={5} className="mb-4 mb-sm-0 ml-auto">
-                        <Card as="aside" className="px-5 d-flex align-items-start py-4 bg-light">
+                        <Card as="aside" bg={theme === 'dark' ? 'secondary' : 'white'} className="px-5 d-flex align-items-start py-4 bg-light">
                             <Flipcard
                                 className="mb-4 align-self-center"
                                 front={

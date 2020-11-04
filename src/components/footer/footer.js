@@ -1,8 +1,8 @@
 import { Link } from "gatsby"
 import React from "react"
 
-import githubIcon from '../images/icons/github-32.png'
-import behanceIcon from '../images/icons/behance-32.png'
+import githubIcon from '../../images/icons/github-32.png'
+import behanceIcon from '../../images/icons/behance-32.png'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'

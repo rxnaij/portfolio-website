@@ -13,7 +13,7 @@ html, body {
 section:before {
     content: "";
     display: block;
-    height: 100px;
+    height: 125px;
     margin-top: -100px;
     
     visibility: hidden;
@@ -21,15 +21,49 @@ section:before {
 }
 
 /* Dark mode - in progress */
-.dark-mode {
-    @at-root {
-        *, *:before, *:after {
-            background-color: hsla(0, 0%, 20%, 1);
-            color: white;
-        }
-        
-    }
+.default-mode {
+    background-color: $light;
+    color: $dark;
 }
+.dark-mode {
+    background-color: $dark;
+    color: $light;
+    // card? color
+    // secondary text color
+    // link color
+    // hover color
+    // border color
+}
+
+// .light-mode {
+//     @at-root {
+//         *, *:before, *:after {
+//             background-color: hsl(0, 0%, 96%);
+//             color: black;
+//         }
+//     }
+// }
+
+$themes: (
+    default: (
+        bg: $light,
+        // card-bg: $bg--card--light,
+        text: $dark,
+        // text-secondary: $text--2--light,
+        // // link: $brand--blue--light,
+        // hover: $hover--light,
+        // border: $border--light
+    ),
+    dark: (
+        bg: $dark,
+        // card-bg: $bg--card--dark,
+        text: $light,
+        // text-secondary: $text--2--dark,
+        // link: $brand--blue--dark,
+        // hover: $hover--dark,
+        // border: $border--dark
+    ),
+);
 
 /* ==================================================================== */
 /* Typography */
@@ -98,6 +132,10 @@ section, .page-section {
     }
 }
 
+.navbar-brand {
+    border-bottom: 3px solid transparent;
+}
+
 .nav-link--is-active {
     color: $teal !important;
     border-bottom: 3px solid $teal;
@@ -106,19 +144,7 @@ section, .page-section {
 /* ==================================================================== */
 /* Page components – Intro */
 
-/* Profile image */
-.profile-image {
-    animation: profile-image-spin infinite 20s linear;
-}
 
-@keyframes profile-image-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 /* ==================================================================== */
 /* Page components – Work */

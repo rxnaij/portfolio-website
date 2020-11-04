@@ -1,0 +1,78 @@
+@mixin hidden {
+    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    visibility: inherit;
+    clip-path: polygon(0, 0, 0, 0);
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+
+    // Switch container
+    .switch {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        width: 3rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+        margin-top: 0.25rem;
+
+        // Switch visual styles
+        // Background
+        &::before {
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 3rem;
+            height: 1.5rem;
+            border-radius: .935rem;
+            background-color: gray;
+            content: '';
+        }
+        // Button
+        &::after {
+            position: absolute;
+            top: .1875rem;
+            left: .1875rem;
+            display: block;
+            width: 1.125rem;
+            height: 1.125rem;
+            border-radius: 50%;
+            background-color: white;
+            content: '';
+            transition: transform 70ms ease-out;
+        }
+
+        // State label
+        .state {
+            // margin-left: 3.5rem;    
+        }
+    }
+
+}
+.input {
+    @include hidden;
+}
+
+// Switch :checked state
+.input:checked + .label > .switch {
+    &::before {
+        background-color: green;
+    }
+    &::after {
+        transform: translateX(1.5rem);;
+    }
+}
