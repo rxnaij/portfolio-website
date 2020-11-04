@@ -1,13 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import classNames from 'classnames'
 import { ThemeContext } from '../../hooks/ThemeContext.ts'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Toggle from '../toggle/Toggle.tsx'
 
 const Header = ({ siteTitle }) => {
@@ -36,7 +33,7 @@ const Header = ({ siteTitle }) => {
           className=""
           horizontal
           name="dark-theme-toggle"
-          labelText="Theme"
+          labelText="lights"
           offText="Dark"
           onText="Light"
           onToggle={() => dispatch({ type: 'toggleDarkMode' })}

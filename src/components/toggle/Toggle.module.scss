@@ -14,19 +14,22 @@
 
 .label {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     user-select: none;
     font-size: 0.8rem;
-    font-weight: 400;
+    font-weight: 700;
 
     // Switch container
     .switch {
         position: relative;
         display: flex;
+        justify-content: flex-start;
         align-items: center;
 
         width: 3rem;
         height: 1.5rem;
+        margin-left: 0.5rem;
         margin-right: 0.5rem;
         margin-top: 0.25rem;
 
@@ -54,11 +57,6 @@
             background-color: white;
             content: '';
             transition: transform 70ms ease-out;
-        }
-
-        // State label
-        .state {
-            // margin-left: 3.5rem;    
         }
     }
 
