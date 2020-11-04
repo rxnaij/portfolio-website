@@ -21,6 +21,7 @@ export default function Toggle ({className, name, labelText, offText, onText, on
     return (    
         <div className={className}>
             <input
+                aria-labelledby={name + '-label'}
                 className={styles.input}
                 id={name}
                 type="checkbox"
@@ -31,8 +32,10 @@ export default function Toggle ({className, name, labelText, offText, onText, on
                 }}  
             />
             <label
+                id={name + '-label'}
                 className={styles.label}
                 htmlFor={name}
+                tabIndex={0}
             >
                 {labelText}
                 <span className={styles.switch}>
