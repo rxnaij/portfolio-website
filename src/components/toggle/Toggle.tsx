@@ -29,7 +29,8 @@ export default function Toggle ({className, name, labelText, offText, onText, on
                 onChange={() => {
                     set(isActive => !isActive)
                     onToggle()
-                }}  
+                }}
+                value={isActive}
             />
             <label
                 id={name + '-label'}

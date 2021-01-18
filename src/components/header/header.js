@@ -10,13 +10,15 @@ import Toggle from '../toggle/Toggle.tsx'
 const Header = ({ siteTitle }) => {
 
   const { state, dispatch } = React.useContext(ThemeContext)
+  
+  const theme = state.theme === 'dark' ? 'dark' : 'light'
 
   return (
     <Navbar
       expand="sm"
       sticky='top'
-      variant={state.theme === 'dark' ? 'dark' : 'light'}
-      bg={ state.theme === 'dark' ? 'dark' : 'light' }
+      variant={theme}
+      bg={theme}
     >
       <Navbar.Brand className="mr-4 font-weight-bold">
         <Link to="/" className="a-no-style">Richard Lu</Link>
