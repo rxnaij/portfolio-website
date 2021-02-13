@@ -33,7 +33,6 @@ const PageContent = ({children}) => {
 
   const { theme } = useThemeState()
   const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
-  console.log("state", tType)
 
   return (
     <div

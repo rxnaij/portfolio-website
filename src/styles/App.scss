@@ -31,39 +31,12 @@ section:before {
     // card? color
     // secondary text color
     // link color
+    a {
+        // color: hsl(189, 98%, 62%);
+    }
     // hover color
     // border color
 }
-
-// .light-mode {
-//     @at-root {
-//         *, *:before, *:after {
-//             background-color: hsl(0, 0%, 96%);
-//             color: black;
-//         }
-//     }
-// }
-
-$themes: (
-    default: (
-        bg: $light,
-        // card-bg: $bg--card--light,
-        text: $dark,
-        // text-secondary: $text--2--light,
-        // // link: $brand--blue--light,
-        // hover: $hover--light,
-        // border: $border--light
-    ),
-    dark: (
-        bg: $dark,
-        // card-bg: $bg--card--dark,
-        text: $light,
-        // text-secondary: $text--2--dark,
-        // link: $brand--blue--dark,
-        // hover: $hover--dark,
-        // border: $border--dark
-    ),
-);
 
 /* ==================================================================== */
 /* Typography */

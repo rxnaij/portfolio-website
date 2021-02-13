@@ -34,7 +34,7 @@ export const query = graphql`
             startDate(formatString: "MMMM YYYY")
             endDate(formatString: "MMMM YYYY")
             role
-
+            projectLink
             productImages {
                 id
                 description
@@ -79,7 +79,7 @@ const Figure = ({url, title, caption}) => {
 }
 
 /* Head of the case study, with intro content */
-const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role }) => {
+const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role, projectLink }) => {
 
     return(
         <section className="mb-5">
@@ -99,6 +99,7 @@ const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, pro
                             <li className="mb-1"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
                             <li className="mb-1"><strong>Project type</strong>: { projectType }</li>
                             <li className="mb-1"><strong>Role</strong>: { role }</li>
+                            { projectLink && <li className="mb-1"><strong>View app website</strong>: <a href={projectLink}>{projectLink}</a> </li> }
                         </ul>
                     </Col>
                 </Row>
@@ -143,7 +144,8 @@ const CaseStudy = ({data}) => {
         endDate, 
         projectType, 
         role, 
-        productImages, 
+        projectLink,
+        productImages,
         mainContent 
     } = data.contentfulCaseStudy
 
@@ -159,6 +161,7 @@ const CaseStudy = ({data}) => {
                 endDate={endDate}
                 projectType={projectType}
                 role={role}
+                projectLink={projectLink}
             />
             {
                 productImages &&
