@@ -1,16 +1,30 @@
 /* Page components - Case Study */
 
+.head {
+    .img {
+        margin-bottom: 2rem;
+        box-shadow: 0px 16px 48px hsla(0, 0%, 0%, 0.35);
+    }
+    .info {
+        list-style: none;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+}
 
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
 .content {
     max-width: 780px;
     p {
+        font-size: 1.1rem;
         margin-bottom: 1.5em;
-        line-height: 1.65rem;
+        line-height: 1.65em;
+        font-weight: 300;
     }
     h1, h2, h3, h4, h5, h6 {
         margin: 0.5em 0 0.75em;
+        font-weight: 700;
     }
     li p {
         margin-bottom: 0.25rem;

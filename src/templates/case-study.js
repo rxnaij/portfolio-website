@@ -34,6 +34,7 @@ export const query = graphql`
             startDate(formatString: "MMMM YYYY")
             endDate(formatString: "MMMM YYYY")
             role
+
             productImages {
                 id
                 description
@@ -87,20 +88,18 @@ const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, pro
                     <Col xs={12}>
                         <Img
                             fluid={coverPhoto} 
-                            className="mb-4" 
+                            className={styles.img} 
                             fadeIn 
                         />
                     </Col>
                     <Col xs={12}>
-                        <h1>{title}</h1>
+                        <h1 className="display-4 mb-3">{title}</h1>
                         <p className="lead">{description}</p>
-                        <p>
-                            <strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }
-                            <br />
-                            <strong>Project type</strong>: { projectType }
-                            <br />
-                            <strong>Role</strong>: { role }
-                        </p>
+                        <ul className={styles.info}>
+                            <li className="mb-1"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
+                            <li className="mb-1"><strong>Project type</strong>: { projectType }</li>
+                            <li className="mb-1"><strong>Role</strong>: { role }</li>
+                        </ul>
                     </Col>
                 </Row>
             </Container>
@@ -184,7 +183,7 @@ const CaseStudy = ({data}) => {
                 <Container fluid className={styles.content}>
                     { documentToReactComponents(mainContent.json, options) }
                     <nav className="my-5">
-                        <Link to="/work">&lsaquo; Back to work</Link>
+                        <Link to="/work">&larr; Back to work</Link>
                     </nav>
                 </Container>
             </article>
