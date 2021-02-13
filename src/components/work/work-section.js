@@ -43,7 +43,7 @@ const WorkSection = () => {
     return(
         <section id="work">
             <Container>
-                <h1>Work</h1>
+                <h1 className="section-title">Work</h1>
                 <ul className="list-unstyled">
                 {
                     data.allContentfulCaseStudy.edges.map( edge => {

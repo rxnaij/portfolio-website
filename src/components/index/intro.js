@@ -38,7 +38,7 @@ const IntroSection = () => {
                 <Row className="d-flex">
                     <Col xs={12} sm={6} md={6} className="mb-5 mb-sm-0">
                         <h1 className="display-4 font-weight-bold">hey!<br />I'm Richard.</h1>
-                        <p className="lead text-muted mb-4"> product designer // human // etc.</p>
+                        <p className="lead text-muted mb-4"> product designer // front-end developer // human // etc.</p>
                         <div>
                             <p>I'm a <strong className="text-info">product designer</strong> and <strong className="text-info">front-end developer</strong> on a quest to use technology to help people connect with themselves and others in meaningful, healthy, and equitable ways.</p>
                             <p>My interests also extend into social justice, mental health, and ethics in tech.</p>

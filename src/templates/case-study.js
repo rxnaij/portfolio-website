@@ -26,13 +26,13 @@ export const query = graphql`
             title
             description
             coverPhoto {
-                fluid (maxWidth: 1920, maxHeight: 800) {
+                fluid (maxWidth: 1920, maxHeight: 1080) {
                     ...GatsbyContentfulFluid
                 }
             }
             projectType
             startDate(formatString: "MMMM YYYY")
-            endDate(formatString:"MMMM YYYY")
+            endDate(formatString: "MMMM YYYY")
             role
             productImages {
                 id
@@ -81,9 +81,8 @@ const Figure = ({url, title, caption}) => {
 const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role }) => {
 
     return(
-        <section>
-            <Container fluid >
-                
+        <section className="mb-5">
+            <Container fluid className={styles.head}>
                 <Row>
                     <Col xs={12}>
                         <Img
@@ -92,13 +91,11 @@ const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, pro
                             fadeIn 
                         />
                     </Col>
-                    <Col xs={12} lg={8}>
+                    <Col xs={12}>
                         <h1>{title}</h1>
                         <p className="lead">{description}</p>
                         <p>
-                            <strong>Date</strong>: { 
-                                startDate + ( endDate ? ` – ${endDate}` : `` ) 
-                            }
+                            <strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }
                             <br />
                             <strong>Project type</strong>: { projectType }
                             <br />

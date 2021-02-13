@@ -17,7 +17,7 @@ const ContactSection = () => {
     return(
         <section id="contact">
             <Container>
-                <h1>Let's talk!</h1>
+                <h1 className="section-title">Let's talk!</h1>
                 <Row>
                     <Col xs={12} md={6}>
                         <p className="mb-4">Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.

@@ -75,7 +75,6 @@ blockquote {
 
     font-size: 1.15rem;
     font-style: italic;
-    color: hsla(0, 0%, 0%, 0.8);
 
     p {
         margin-bottom: 0 !important;
@@ -115,6 +114,12 @@ label {
 /* Adds bottom-margin spacing to every page section */
 section, .page-section {
     margin-bottom: 6rem;
+
+    .section-title {
+        font-weight: 700;
+        margin-bottom: 1em;
+        font-size: 3rem;
+    }
 }
 
 /* ==================================================================== */

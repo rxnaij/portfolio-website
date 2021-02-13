@@ -43,7 +43,7 @@ const WorkBlurb = props => {
                         {props.title}
                     </animated.h3>
                     <p className="text-muted mb-0">{props.projectDates}</p>
-                    <p className="text-muted">{props.projectType}</p>
+                    <p className="text-muted mb-3">{props.projectType}</p>
                     <p className="">{props.description}</p>
                 </Col>
             </Row>
