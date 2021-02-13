@@ -6,7 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.0.0-alpha5",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
@@ -27,7 +27,7 @@
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.1.1",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-spring": "^8.0.27"
