@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col'
 const Footer = ({ siteTitle }) => {
 
     return (
-        <Container>
+        <Container style={{ maxWidth: 1000 }}>
             <Row className="border-top py-4">
                 <Col sm={6} className="mb-2">
                     <p className="small"><strong>Current status:</strong> <span className="text-info">open to full-time and freelance opportunities.</span>
