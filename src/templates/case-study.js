@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import Img from 'gatsby-image'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
-import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import styles from './CaseStudy.module.scss'
+import { wide, head, img, info, content } from './CaseStudy.module.scss'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -46,7 +45,7 @@ export const query = graphql`
                 }
             }
             mainContent {
-                json
+                raw
             }
         }
     }
@@ -69,7 +68,7 @@ const FeaturedImage = props => {
 /* Figure: display images in rich text */
 const Figure = ({url, title, caption}) => {
     return(
-        <figure className={`figure ${styles.wide}`}>
+        <figure className={`figure ${wide}`}>
             <img src={url} alt={title} />
             <figcaption>
                 { caption }
@@ -83,19 +82,19 @@ const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, pro
 
     return(
         <section className="mb-5">
-            <Container fluid className={styles.head}>
+            <Container fluid className={head}>
                 <Row>
                     <Col xs={12}>
                         <Img
                             fluid={coverPhoto} 
-                            className={styles.img} 
+                            className={img} 
                             fadeIn 
                         />
                     </Col>
                     <Col xs={12}>
                         <h1 className="display-4 mb-3">{title}</h1>
                         <p className="lead">{description}</p>
-                        <ul className={styles.info}>
+                        <ul className={info}>
                             <li className="mb-1"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
                             <li className="mb-1"><strong>Project type</strong>: { projectType }</li>
                             <li className="mb-1"><strong>Role</strong>: { role }</li>
@@ -146,7 +145,7 @@ const CaseStudy = ({data}) => {
         role, 
         projectLink,
         productImages,
-        mainContent 
+        mainContent
     } = data.contentfulCaseStudy
 
     // Render CaseStudy component
@@ -183,8 +182,8 @@ const CaseStudy = ({data}) => {
                 </section>
             }
             <article>
-                <Container fluid className={styles.content}>
-                    { documentToReactComponents(mainContent.json, options) }
+                <Container fluid className={content}>
+                    { mainContent && renderRichText(mainContent, options) }
                     <nav className="my-5">
                         <Link to="/work">&larr; Back to work</Link>
                     </nav>

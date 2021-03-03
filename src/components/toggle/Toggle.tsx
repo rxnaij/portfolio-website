@@ -4,7 +4,7 @@
  */
 
 import * as React from 'react'
-import styles from './Toggle.module.scss'
+import { input, label, switchbutton } from './Toggle.module.scss'
 
 interface ToggleProps {
     className?: string,
@@ -22,7 +22,7 @@ export default function Toggle ({className, name, labelText, offText, onText, on
         <div className={className}>
             <input
                 aria-labelledby={name + '-label'}
-                className={styles.input}
+                className={input}
                 id={name}
                 type="checkbox"
                 name={name}
@@ -30,18 +30,16 @@ export default function Toggle ({className, name, labelText, offText, onText, on
                     set(isActive => !isActive)
                     onToggle()
                 }}
-                value={isActive}
+                value={isActive.toString()}
             />
             <label
                 id={name + '-label'}
-                className={styles.label}
+                className={label}
                 htmlFor={name}
                 tabIndex={0}
             >
                 {labelText}
-                <span className={styles.switch}>
-                    {/** @todo This is currently hidden behind the switch. Change styles to accomodate flex? */}
-                    <span className={styles.state}>{isActive ? onText : offText}</span>
+                <span className={switchbutton}>
                 </span>
             </label>
         </div>

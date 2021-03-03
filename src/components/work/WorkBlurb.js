@@ -7,8 +7,6 @@ import { useThemeState } from '../../hooks/ThemeContext.ts'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-import styles from './WorkBlurb.module.scss'
-
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
     const themeState = useThemeState()
@@ -33,7 +31,7 @@ const WorkBlurb = props => {
                         <Img fluid={props.thumbnail} />
                     </animated.div>
                 </Col>
-                <Col md={6} className={"d-flex flex-column justify-content-center " + styles.info}>
+                <Col md={6} className="d-flex flex-column justify-content-center ">
                     <animated.h3
                         className="align-self-start"
                         style={{
