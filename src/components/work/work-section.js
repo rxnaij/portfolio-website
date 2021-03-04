@@ -24,15 +24,15 @@ const WorkSection = () => {
                     startDate(formatString: "MMMM YYYY")
                     endDate(formatString:"MMMM YYYY")      
                     coverPhoto {
-                        fluid (maxWidth: 720, maxHeight: 480) {
-                            ...GatsbyContentfulFluid
-                        }
-                        fixed (width: 600, height: 400) {
-                            ...GatsbyContentfulFixed
-                        }
                         file {
                             url
+                            fileName
                         }
+                        gatsbyImageData(
+                            width: 720
+                            height: 480
+                            placeholder: BLURRED
+                        )
                     }  
                 }
             }
@@ -55,7 +55,8 @@ const WorkSection = () => {
                                     description={edge.node.description}
                                     projectType={edge.node.projectType}
                                     projectDates={edge.node.startDate + (edge.node.endDate ? ` – ${edge.node.endDate}` : `` )}
-                                    thumbnail={edge.node.coverPhoto.fluid}
+                                    thumbnail={edge.node.coverPhoto.gatsbyImageData}
+                                    alt={edge.node.coverPhoto.file.fileName}
                                 />
                             </li>
                         )

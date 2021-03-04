@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { useSpring, animated } from 'react-spring'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
@@ -28,7 +28,10 @@ const WorkBlurb = props => {
                             boxShadow
                         }}
                     >
-                        <Img fluid={props.thumbnail} />
+                        <GatsbyImage
+                            image={props.thumbnail}
+                            alt={props.alt}
+                        />
                     </animated.div>
                 </Col>
                 <Col md={6} className="d-flex flex-column justify-content-center ">

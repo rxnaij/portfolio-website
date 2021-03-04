@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio website for designer & developer Richard Lu",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Richard Lu",
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-types": "^14.1.2",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.0",
     "classnames": "^2.2.6",
@@ -25,7 +25,6 @@
     "gatsby-source-contentful": "^5.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
-    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
