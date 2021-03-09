@@ -13,10 +13,12 @@ interface ToggleProps {
     // Labels describing the on and off states
     offText: string,
     onText: string,
+    value: string,          // Semantic value of toggle (belongs => value prop)
+    condition: boolean,     // Boolean value of toggle (belongs => checked prop)
     onToggle: () => void,   // Callback function to call when toggle is switched
 }
 
-export default function Toggle ({className, name, labelText, offText, onText, onToggle}: ToggleProps) {
+export default function Toggle ({className, name, labelText, offText, onText, value, condition, onToggle}: ToggleProps) {
     const [isActive, set] = React.useState(false)
     return (    
         <div className={className}>
@@ -26,11 +28,12 @@ export default function Toggle ({className, name, labelText, offText, onText, on
                 id={name}
                 type="checkbox"
                 name={name}
+                value={value}
+                checked={condition}
                 onChange={() => {
                     set(isActive => !isActive)
                     onToggle()
                 }}
-                value={isActive.toString()}
             />
             <label
                 id={name + '-label'}
@@ -39,7 +42,9 @@ export default function Toggle ({className, name, labelText, offText, onText, on
                 tabIndex={0}
             >
                 {labelText}
-                <span className={switchbutton}>
+                <span
+                    className={switchbutton}
+                >
                 </span>
             </label>
         </div>

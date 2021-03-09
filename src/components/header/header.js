@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => {
 
   const { state, dispatch } = React.useContext(ThemeContext)
   
-  const theme = state.theme === 'dark' ? 'dark' : 'light'
+  const { theme } = state
 
   return (
     <Navbar
@@ -38,6 +38,8 @@ const Header = ({ siteTitle }) => {
           labelText="lights"
           offText="Dark"
           onText="Light"
+          value={theme}
+          condition={theme === 'light'}
           onToggle={() => dispatch({ type: 'toggleDarkMode' })}
         />
       </Navbar.Collapse>
