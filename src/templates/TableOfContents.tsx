@@ -5,6 +5,8 @@ import { generateSlugFromTitle } from './slugUtil'
 import { ChevronCompactUp, ChevronCompactDown } from 'react-bootstrap-icons'
 
 import { tocClass, iconClass, listClass, activeLinkClass, labelClass } from './TableOfContents.module.scss'
+import { exampleData } from './exampleData'
+import { UnorderedListNode } from '../components/lists/UnorderedListNode'
 
 interface TableOfContentsProps {
     rootSlug: string
@@ -44,6 +46,7 @@ const TableOfContents = ({ rootSlug, headings }: TableOfContentsProps) => {
                         )}
                        </ul>
             }
+            <UnorderedListNode children={exampleData} />
         </nav>
     )
 }
