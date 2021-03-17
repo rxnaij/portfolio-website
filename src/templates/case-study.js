@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout'
@@ -11,6 +10,8 @@ import SEO from '../components/seo'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import TableOfContents from './TableOfContents.tsx'
+import { generateSlugFromTitle } from './slugUtil'
 
 import { wide, head, img, info, content } from './CaseStudy.module.scss'
 
@@ -25,6 +26,7 @@ export const query = graphql`
             }
         ) {
             title
+            slug
             description
             coverPhoto {
                 title
@@ -62,19 +64,19 @@ export const query = graphql`
 /* Head of the case study, with intro content */
 const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role, projectLink }) => {
     return(
-        <section className="mb-5">
+        <section className="mb-4">
             <Container fluid className={head}>
                 <Row>
                     <Col xs={12}>
                         <GatsbyImage image={coverPhoto.gatsbyImageData} alt={coverPhoto.title} className={img} loading="eager" />
                     </Col>
                     <Col xs={12}>
-                        <h1 className="display-4 mb-3">{title}</h1>
+                        <h1 className="display-3 mb-4">{title}</h1>
                         <p className="lead">{description}</p>
                         <ul className={info}>
-                            <li className="mb-1"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
-                            <li className="mb-1"><strong>Project type</strong>: { projectType }</li>
-                            <li className="mb-1"><strong>Role</strong>: { role }</li>
+                            <li className="mb-2"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
+                            <li className="mb-2"><strong>Project type</strong>: { projectType }</li>
+                            <li className="mb-2"><strong>Role</strong>: { role }</li>
                             { projectLink && <li className="mb-1"><strong>View app website</strong>: <a href={projectLink}>{projectLink}</a> </li> }
                         </ul>
                     </Col>
@@ -103,6 +105,7 @@ const FeaturedImage = ({ image, description, index }) => {
 const CaseStudy = ({ data }) => {
     const { 
         title, 
+        slug,
         coverPhoto, 
         description, 
         startDate, 
@@ -114,13 +117,16 @@ const CaseStudy = ({ data }) => {
         mainContent
     } = data.contentfulCaseStudy
 
+    const contentNodes = JSON.parse(mainContent.raw).content
+    const headings = contentNodes.filter(node => node.nodeType.includes('heading'))
+    console.log(headings)
+
+
     // Set renderNode options
     const options = {
         renderNode: {
             // Special rendering options for images embedded in rich text
             [BLOCKS.EMBEDDED_ASSET]: node => {
-                // console.log(node)
-                // console.log(data)
                 const { id } = node.data.target.sys
                 const { title, description, gatsbyImageData } = data.contentfulCaseStudy.mainContent.references.find(asset => asset.contentful_id === id)
                 return (
@@ -133,7 +139,19 @@ const CaseStudy = ({ data }) => {
                         <figcaption>{ description }</figcaption>
                     </figure>
                 ) 
-            }
+            },
+            [BLOCKS.HEADING_2]: node => 
+                <h2 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h2>,
+            [BLOCKS.HEADING_3]: node => 
+                <h3 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h3>,
+            [BLOCKS.HEADING_4]: node => 
+                <h4 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h4>
         }
     }
 
@@ -151,6 +169,7 @@ const CaseStudy = ({ data }) => {
                 role={role}
                 projectLink={projectLink}
             />
+            <TableOfContents rootSlug={slug} headings={headings} />
             {
                 productImages &&
                 <section>
