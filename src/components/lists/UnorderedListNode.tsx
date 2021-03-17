@@ -4,7 +4,7 @@ import { ListItemNodeProps, ListItemNode } from './ListItemNode'
 import { SiblingsNode } from './SiblingsNode'
 
 interface UnorderedListNodeProps {
-  children: Array<ListItemNodeProps>
+  children: Array<ListItemNodeProps | UnorderedListNodeProps>
 }
 
 const UnorderedListNode = ({ children }: UnorderedListNodeProps) => {
