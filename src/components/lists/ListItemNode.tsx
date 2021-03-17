@@ -15,7 +15,7 @@ const ListItemNode = ({ title, siblings }: ListItemNodeProps) => {
     <>
         <li>{title}</li>
         {
-          siblings.children.map(child => {
+          siblings.map(child => {
             if (instanceOfListItemNodeProps(child)) {
               return <ListItemNode title={child.title} siblings={child.siblings} />
             } else {
