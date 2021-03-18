@@ -1,4 +1,9 @@
-export const exampleData = [
+interface Data {
+    title: string
+    children: Data[] | null
+}
+
+export const exampleData: Data[] = [
     {
         title: "A big section",
         children: [

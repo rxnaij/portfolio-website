@@ -1,14 +1,19 @@
 import React from 'react'
-import { UnorderedListNodeProps } from './UnorderedListNode'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 interface ListItemNodeProps {
   title: string
+  slug: string
   children: Array<ListItemNodeProps>
 }
 
-const ListItemNode = ({ title }: ListItemNodeProps) => {
+const ListItemNode = ({ title, slug }: ListItemNodeProps) => {
   return (
-    <li>{title}</li>
+    <li>
+      <AnchorLink to={slug}>
+        {title}
+      </AnchorLink>
+    </li>
   )
 }
 

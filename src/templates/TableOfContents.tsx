@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import { Link } from 'gatsby'
 
 import { generateSlugFromTitle } from './slugUtil'
@@ -6,20 +6,19 @@ import { ChevronCompactUp, ChevronCompactDown } from 'react-bootstrap-icons'
 
 import { tocClass, iconClass, listClass, activeLinkClass, labelClass } from './TableOfContents.module.scss'
 import { exampleData } from './exampleData'
-import { UnorderedListNode } from '../components/lists/UnorderedListNode'
+import { UnorderedListNode, UnorderedListNodeProps } from '../components/lists/UnorderedListNode'
+import { HeadingNode } from '../components/lists/HeadingUtils'
 
-interface TableOfContentsProps {
-    rootSlug: string
-    headings: {
-        content: [
-            {
-                value: string
-            }
-        ]
-    }[]
+interface Data {
+    title: string
+    children: Data[] | null
 }
 
-const TableOfContents = ({ rootSlug, headings }: TableOfContentsProps) => {
+interface TableOfContentsProps extends UnorderedListNodeProps {
+    headings: HeadingNode[]
+}
+
+const TableOfContents = ({ headings }: TableOfContentsProps) => {
     const [isOpen, setOpen] = useState(false)
     return (
         <nav className={tocClass} onClick={() => setOpen(!isOpen)}>
@@ -32,7 +31,7 @@ const TableOfContents = ({ rootSlug, headings }: TableOfContentsProps) => {
                     }
                 </div>
             </div>
-            {
+            {/* {
                 isOpen && <ul className={listClass}>
                         { headings.map(heading => 
                             <li key={heading.content[0].value}>
@@ -45,8 +44,10 @@ const TableOfContents = ({ rootSlug, headings }: TableOfContentsProps) => {
                             </li>
                         )}
                        </ul>
+            } */}
+            {
+                isOpen && <UnorderedListNode children={headings} />
             }
-            <UnorderedListNode children={exampleData} />
         </nav>
     )
 }

@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import TableOfContents from './TableOfContents.tsx'
 import { generateSlugFromTitle } from './slugUtil'
+import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
 
 import { wide, head, img, info, content } from './CaseStudy.module.scss'
 
@@ -117,10 +118,7 @@ const CaseStudy = ({ data }) => {
         mainContent
     } = data.contentfulCaseStudy
 
-    const contentNodes = JSON.parse(mainContent.raw).content
-    const headings = contentNodes.filter(node => node.nodeType.includes('heading'))
-    console.log(headings)
-
+    const nestedHeadings = createHeadingNodesFromContentNodes(JSON.parse(mainContent.raw).content, `work/${slug}`)
 
     // Set renderNode options
     const options = {
@@ -169,7 +167,7 @@ const CaseStudy = ({ data }) => {
                 role={role}
                 projectLink={projectLink}
             />
-            <TableOfContents rootSlug={slug} headings={headings} />
+            <TableOfContents rootSlug={slug} headings={nestedHeadings} />
             {
                 productImages &&
                 <section>

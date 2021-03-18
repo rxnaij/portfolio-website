@@ -40,6 +40,12 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -200
+      }
+    }
     // 'gatsby-plugin-scss-typescript'
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
