@@ -17,7 +17,7 @@ const SiblingsNode = ({ siblings }: SiblingsNodeProps) => (
             children={null}
             key={child.title + 'list-item-node'} 
           />
-          {child.children && <UnorderedListNode children={child.children} key={child.title + 'ul-node'} />}
+          {child.children && child.children.length > 0 && <UnorderedListNode children={child.children} key={child.title + 'ul-node'} />}
         </>
       ))
     }
