@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout'
@@ -11,8 +10,12 @@ import SEO from '../components/seo'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import CaseStudyHead from './components/CaseStudyHead'
+import TableOfContents from './components/TableOfContents.tsx'
+import { generateSlugFromTitle } from './slugUtil'
+import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
 
-import { wide, head, img, info, content } from './CaseStudy.module.scss'
+import { pageLayout, wide, content } from './CaseStudy.module.scss'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -25,6 +28,7 @@ export const query = graphql`
             }
         ) {
             title
+            slug
             description
             coverPhoto {
                 title
@@ -59,35 +63,10 @@ export const query = graphql`
     }
 `
 
-/* Head of the case study, with intro content */
-const CaseStudyHead = ({ title, coverPhoto, description, startDate, endDate, projectType, role, projectLink }) => {
-    return(
-        <section className="mb-5">
-            <Container fluid className={head}>
-                <Row>
-                    <Col xs={12}>
-                        <GatsbyImage image={coverPhoto.gatsbyImageData} alt={coverPhoto.title} className={img} loading="eager" />
-                    </Col>
-                    <Col xs={12}>
-                        <h1 className="display-4 mb-3">{title}</h1>
-                        <p className="lead">{description}</p>
-                        <ul className={info}>
-                            <li className="mb-1"><strong>Date</strong>: {  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
-                            <li className="mb-1"><strong>Project type</strong>: { projectType }</li>
-                            <li className="mb-1"><strong>Role</strong>: { role }</li>
-                            { projectLink && <li className="mb-1"><strong>View app website</strong>: <a href={projectLink}>{projectLink}</a> </li> }
-                        </ul>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-    )
-}
-
 /* FeaturedImage: product images that appear at the top to describe the product */
 const FeaturedImage = ({ image, description, index }) => {
     return(
-        <Row className="mb-4 py-4 align-items-center justify-content-center">
+        <Row className="py-4 align-items-center justify-content-center">
             <Col xs={9} sm={{ order: index % 2 === 0 ? 1 : 12 }} lg={5} className="mb-2 mb-md-0">
                 {/* <Img fluid={image} alt={description} /> */}
                 <GatsbyImage image={image} alt={description} />
@@ -103,6 +82,7 @@ const FeaturedImage = ({ image, description, index }) => {
 const CaseStudy = ({ data }) => {
     const { 
         title, 
+        slug,
         coverPhoto, 
         description, 
         startDate, 
@@ -114,13 +94,16 @@ const CaseStudy = ({ data }) => {
         mainContent
     } = data.contentfulCaseStudy
 
+    const nestedHeadings = createHeadingNodesFromContentNodes(
+        JSON.parse(mainContent.raw).content, 
+        `work/${slug}`
+    )
+
     // Set renderNode options
     const options = {
         renderNode: {
             // Special rendering options for images embedded in rich text
             [BLOCKS.EMBEDDED_ASSET]: node => {
-                // console.log(node)
-                // console.log(data)
                 const { id } = node.data.target.sys
                 const { title, description, gatsbyImageData } = data.contentfulCaseStudy.mainContent.references.find(asset => asset.contentful_id === id)
                 return (
@@ -133,7 +116,19 @@ const CaseStudy = ({ data }) => {
                         <figcaption>{ description }</figcaption>
                     </figure>
                 ) 
-            }
+            },
+            [BLOCKS.HEADING_2]: node => 
+                <h2 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h2>,
+            [BLOCKS.HEADING_3]: node => 
+                <h3 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h3>,
+            [BLOCKS.HEADING_4]: node => 
+                <h4 id={generateSlugFromTitle(node.content[0].value)}>
+                    {node.content[0].value}
+                </h4>
         }
     }
 
@@ -141,43 +136,45 @@ const CaseStudy = ({ data }) => {
     return (
         <Layout>
             <SEO title={title} />
-            <CaseStudyHead 
-                title={title}
-                coverPhoto={coverPhoto}
-                description={description}
-                startDate={startDate}
-                endDate={endDate}
-                projectType={projectType}
-                role={role}
-                projectLink={projectLink}
-            />
-            {
-                productImages &&
-                <section>
-                    <Container>
-                        {
-                            productImages.map( (image, index) => {
-                                return (
-                                    <FeaturedImage
-                                        key={image.id}
-                                        image={image.gatsbyImageData}
-                                        description={image.description}
-                                        index={index}
-                                    />
-                                )
-                            } )
-                        }
-                    </Container>
-                </section>
-            }
-            <article>
-                <Container fluid className={content}>
+            <Container className={pageLayout}>
+                <nav><Link to="/work">&larr; Back to portfolio</Link></nav>
+                <CaseStudyHead 
+                    title={title}
+                    coverPhoto={coverPhoto}
+                    description={description}
+                    startDate={startDate}
+                    endDate={endDate}
+                    projectType={projectType}
+                    role={role}
+                    projectLink={projectLink}
+                />
+                {
+                    productImages &&
+                    <section>
+                        <Container>
+                            {
+                                productImages.map( (image, index) => {
+                                    return (
+                                        <FeaturedImage
+                                            key={image.id}
+                                            image={image.gatsbyImageData}
+                                            description={image.description}
+                                            index={index}
+                                        />
+                                    )
+                                } )
+                            }
+                        </Container>
+                    </section>
+                }
+                <TableOfContents rootSlug={slug} headings={nestedHeadings} />
+                <article className={content}>
                     { mainContent && renderRichText(mainContent, options ) }
-                    <nav className="my-5">
-                        <Link to="/work">&larr; Back to work</Link>
-                    </nav>
-                </Container>
-            </article>
+                </article>
+                <nav>
+                    <Link to="/work">&larr; Back to portfolio</Link>
+                </nav>
+            </Container>
         </Layout>
     )
 }

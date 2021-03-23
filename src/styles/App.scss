@@ -10,7 +10,7 @@ html, body {
 }
 
 /* Header scroll fix */
-section:before {
+section:before, h1:before, h2:before, h3:before, h4:before, article:before {
     content: "";
     display: block;
     height: 125px;
@@ -51,20 +51,6 @@ blockquote {
 
     p {
         margin-bottom: 0 !important;
-    }
-}
-
-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
-
-    figcaption {
-        text-align: center;
-        font-size: 0.8rem;
-        font-style: italic;
-        padding-top: 0.5rem;
     }
 }
 
