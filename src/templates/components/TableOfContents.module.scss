@@ -1,26 +1,28 @@
 .tocClass {
     z-index: 999;
-    position: sticky;
-    top: 91px;
-    background-color: black;
+    background-color: inherit;
 
+    border-radius: 4px;
     padding: 1rem;
 
     transition: height 0.3s ease-out;
 
-    box-shadow: 0 16px 48px hsla(0, 0%, 0%, 0.36);
+    border: 1px solid lightgray;
 
     cursor: pointer;
     user-select: none;
 
+    & > ul {
+        padding-left: 0;
+    }
     ul {
         list-style: none;
-        padding-left: none;
+        // padding-left: 0;
         li {
             a {
                 display: block;
                 padding: 0.5rem;
-                color: white;
+                color: currentColor;
                 &:hover, &:focus {
                     text-decoration: underline;
                     background-color: hsla(0, 0%, 100%, 0.158);
@@ -39,6 +41,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: 700;
 
     &:hover {
         color: rgb(129, 196, 255);

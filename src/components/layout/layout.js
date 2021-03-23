@@ -15,12 +15,12 @@ import Footer from '../footer/footer'
 import '../../styles/App.scss'
 
 /**
- * The actual content of the page.
- * Edit this component to change the appearance of the layout.
+ * Returns page layout, contained within state managers.
+ * Only edit this component to change state providers.
  * @param {React.ReactNode} children 
  */
-const PageContent = ({children}) => {
-  // Queries for site title
+const Layout = ({ children, style }) => {
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -35,35 +35,22 @@ const PageContent = ({children}) => {
   const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
 
   return (
-    <div
-        className={tType}
-    >
+      <div className={tType}>
         <Header siteTitle={data.site.siteMetadata.title} />
         <main style={{
           margin: `0 auto`,
           maxWidth: 1000,
+          marginBottom: '48px',
+          ...style
         }} className="pt-3">{children}</main>
         <Footer />
-    </div>
-  )
-}
-
-/**
- * Returns page layout, contained within state managers.
- * Only edit this component to change state providers.
- * @param {React.ReactNode} children 
- */
-const Layout = ({ children }) => {
-
-  return (
-      <PageContent>
-        {children}
-      </PageContent>
+      </div>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  style: PropTypes.object
 }
 
 export default Layout

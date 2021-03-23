@@ -10,7 +10,7 @@ html, body {
 }
 
 /* Header scroll fix */
-section:before {
+section:before, h1:before, h2:before, h3:before, h4:before, article:before {
     content: "";
     display: block;
     height: 125px;

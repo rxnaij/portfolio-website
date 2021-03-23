@@ -15,7 +15,7 @@ import TableOfContents from './components/TableOfContents.tsx'
 import { generateSlugFromTitle } from './slugUtil'
 import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
 
-import { wide, content } from './CaseStudy.module.scss'
+import { pageLayout, wide, content } from './CaseStudy.module.scss'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -66,7 +66,7 @@ export const query = graphql`
 /* FeaturedImage: product images that appear at the top to describe the product */
 const FeaturedImage = ({ image, description, index }) => {
     return(
-        <Row className="mb-4 py-4 align-items-center justify-content-center">
+        <Row className="py-4 align-items-center justify-content-center">
             <Col xs={9} sm={{ order: index % 2 === 0 ? 1 : 12 }} lg={5} className="mb-2 mb-md-0">
                 {/* <Img fluid={image} alt={description} /> */}
                 <GatsbyImage image={image} alt={description} />
@@ -136,44 +136,45 @@ const CaseStudy = ({ data }) => {
     return (
         <Layout>
             <SEO title={title} />
-            <CaseStudyHead 
-                title={title}
-                coverPhoto={coverPhoto}
-                description={description}
-                startDate={startDate}
-                endDate={endDate}
-                projectType={projectType}
-                role={role}
-                projectLink={projectLink}
-            />
-            <TableOfContents rootSlug={slug} headings={nestedHeadings} />
-            {
-                productImages &&
-                <section>
-                    <Container>
-                        {
-                            productImages.map( (image, index) => {
-                                return (
-                                    <FeaturedImage
-                                        key={image.id}
-                                        image={image.gatsbyImageData}
-                                        description={image.description}
-                                        index={index}
-                                    />
-                                )
-                            } )
-                        }
-                    </Container>
-                </section>
-            }
-            <article>
-                <Container fluid className={content}>
+            <Container className={pageLayout}>
+                <nav><Link to="/work">&larr; Back to portfolio</Link></nav>
+                <CaseStudyHead 
+                    title={title}
+                    coverPhoto={coverPhoto}
+                    description={description}
+                    startDate={startDate}
+                    endDate={endDate}
+                    projectType={projectType}
+                    role={role}
+                    projectLink={projectLink}
+                />
+                {
+                    productImages &&
+                    <section>
+                        <Container>
+                            {
+                                productImages.map( (image, index) => {
+                                    return (
+                                        <FeaturedImage
+                                            key={image.id}
+                                            image={image.gatsbyImageData}
+                                            description={image.description}
+                                            index={index}
+                                        />
+                                    )
+                                } )
+                            }
+                        </Container>
+                    </section>
+                }
+                <TableOfContents rootSlug={slug} headings={nestedHeadings} />
+                <article className={content}>
                     { mainContent && renderRichText(mainContent, options ) }
-                    <nav className="my-5">
-                        <Link to="/work">&larr; Back to work</Link>
-                    </nav>
-                </Container>
-            </article>
+                </article>
+                <nav>
+                    <Link to="/work">&larr; Back to portfolio</Link>
+                </nav>
+            </Container>
         </Layout>
     )
 }

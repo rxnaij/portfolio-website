@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => {
   return (
     <Navbar
       expand="sm"
-      sticky='top'
+      // sticky='top'
       variant={theme}
       bg={theme}
     >

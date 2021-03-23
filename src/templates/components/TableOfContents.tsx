@@ -17,7 +17,7 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
     return (
         <nav className={tocClass} onClick={() => setOpen(!isOpen)}>
             <div className={labelClass}>
-                <div>Table of Contents</div>
+                <div>Table of contents</div>
                 <div>
                     { isOpen 
                         ? <ChevronCompactUp className={iconClass} aria-label="Close section navigation" /> 
