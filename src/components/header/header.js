@@ -1,4 +1,5 @@
 import { Link } from "gatsby"
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import PropTypes from "prop-types"
 import React from "react"
 import { ThemeContext } from '../../hooks/ThemeContext.ts'
@@ -10,7 +11,6 @@ import Toggle from '../toggle/Toggle.tsx'
 const Header = ({ siteTitle }) => {
 
   const { state, dispatch } = React.useContext(ThemeContext)
-  
   const { theme } = state
 
   return (
@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => {
         <Nav className="mr-auto">
           <Link className="nav-link pl-0 pr-3 mr-3" activeClassName="nav-link--is-active" to="/">Home</Link>
           <Link className="nav-link pl-0 pr-3 mr-3" activeClassName="nav-link--is-active" partiallyActive={true} to="/work">Portfolio</Link>
-          <Link className="nav-link pl-0 pr-3" activeClassName="nav-link--is-active" to="/#contact">Contact</Link>
+          <AnchorLink className="nav-link pl-0 pr-3" activeClassName="nav-link--is-active" to="/#contact">Contact</AnchorLink>
         </Nav>
         <hr />
         <Toggle

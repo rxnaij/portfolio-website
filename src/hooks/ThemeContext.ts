@@ -11,7 +11,10 @@ const initialState = {
     theme: 'dark',
     animation: true
 }
-type ThemeState = typeof initialState
+type ThemeState = {
+    theme: 'dark' | 'light',
+    animation: boolean
+}
 type Action = 
     | { type: 'toggleDarkMode' }
     | { type: 'toggleAnimationMode' }

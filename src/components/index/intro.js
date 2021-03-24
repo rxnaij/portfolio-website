@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import Image from 'react-bootstrap/Image'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
@@ -40,12 +41,13 @@ const IntroSection = () => {
                         <h1 className="display-4 font-weight-bold">hey!<br />I'm Richard.</h1>
                         <p className="lead text-muted mb-4"> product designer // front-end developer // human // etc.</p>
                         <div>
-                            <p>I'm a <strong className="text-info">product designer</strong> and <strong className="text-info">front-end developer</strong> on a quest to use technology to help people connect with themselves and others in meaningful, healthy, and equitable ways.</p>
-                            <p>My interests also extend into social justice, mental health, and ethics in tech.</p>
+                            <p>I'm a <strong className="text-info">product designer</strong> and <strong className="text-info">front-end developer</strong> on a quest to create compassionate technology.</p> 
+                            <p>My specialty lies at the intersection of user experience design, empathetic design, and web development.</p>
+                            <p>I'm also interested in the relationship between tech and social justice, well-being, and ethics. In college, I was a co-director for the <a href="https://nycaasc.com">NYC Asian American Student Conference</a>.</p>
                             <Button size="lg" variant="primary" className="mr-3">
-                                <Link to="#contact" className="a-no-style">
+                                <AnchorLink to="#contact" className="a-no-style">
                                     Let's talk!
-                                </Link>
+                                </AnchorLink>
                             </Button>
                             <Button size="lg" variant="outline-primary">
                                 <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
@@ -72,7 +74,7 @@ const IntroSection = () => {
                                 }
                             />
                             <h2 className="small-header">Across the internet</h2>
-                            <ul className="list-unstyled d-flex justify-content-around mb-5">
+                            <ul className="list-unstyled d-flex justify-content-around mb-3">
                                 <li className="mr-2">
                                     <a href="https://github.com/rxnaij">
                                         <img src={githubIcon} alt="Richard's GitHub" />

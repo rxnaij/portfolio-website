@@ -10,7 +10,7 @@ html, body {
 }
 
 /* Header scroll fix */
-section:before, h1:before, h2:before, h3:before, h4:before, article:before {
+section:before {
     content: "";
     display: block;
     height: 125px;
@@ -24,15 +24,18 @@ section:before, h1:before, h2:before, h3:before, h4:before, article:before {
 .default-mode {
     background-color: $light;
     color: $dark;
+    a {
+        color: hsl(212, 100%, 39%);
+    }
 }
 .dark-mode {
     background-color: $dark;
-    color: $light;
+    color: hsl(204, 24%, 96%);
     // card? color
     // secondary text color
     // link color
     a {
-        // color: hsl(189, 98%, 62%);
+        color: hsl(198, 100%, 50%);
     }
     // hover color
     // border color
@@ -86,7 +89,7 @@ section, .page-section {
 
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
 .a-no-style {
-    color: inherit;
+    color: inherit !important;
     text-decoration: none;
     transition: none;
 
