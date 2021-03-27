@@ -38,10 +38,9 @@ const IntroSection = () => {
             <Container>
                 <Row className="d-flex">
                     <Col xs={12} sm={6} md={6} className="mb-5 mb-sm-0">
-                        <h1 className="display-4 font-weight-bold">hey!<br />I'm Richard.</h1>
-                        <p className="lead text-muted mb-4"> product designer // front-end developer // human // etc.</p>
+                        <h1 className="display-4 font-weight-bold">Hey!<br />I'm Richard.</h1>
                         <div>
-                            <p>I'm a <strong className="text-info">product designer</strong> and <strong className="text-info">front-end developer</strong> on a quest to create compassionate technology.</p> 
+                            <p>I'm a <strong>product designer</strong> and <strong>front-end developer</strong> on a quest to create compassionate technology.</p> 
                             <p>My specialty lies at the intersection of user experience design, empathetic design, and web development.</p>
                             <p>I'm also interested in the relationship between tech and social justice, well-being, and ethics. In college, I was a co-director for the <a href="https://nycaasc.com">NYC Asian American Student Conference</a>.</p>
                             <Button variant="primary" className="mr-3">
