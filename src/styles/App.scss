@@ -58,11 +58,13 @@ blockquote {
 }
 
 .small-header {
-    // font-size: 0.8rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     color: $gray-600;
     text-transform: uppercase;
+    &.dark {
+        color: $gray-400;
+    }
 }
 
 label {
@@ -96,6 +98,13 @@ section, .page-section {
     &:hover {
         @extend .a-no-style;
         color: inherit;
+    }
+}
+
+.secondary-link {
+    @extend .a-no-style;
+    &:hover {
+        text-decoration: underline;
     }
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import Image from 'react-bootstrap/Image'
+import classNames from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
 import Button from 'react-bootstrap/Button'
@@ -54,7 +55,7 @@ const IntroSection = () => {
                         </div>
                     </Col>
                     <Col xs={12} sm={6} md={6} lg={5} className="mb-4 mb-sm-0 ml-auto">
-                        <Card as="aside" bg={theme === 'dark' ? 'secondary' : 'white'} className="px-5 d-flex align-items-start py-4 bg-light">
+                        <Card as="aside" bg={theme === 'dark' ? 'dark' : 'white'} className="px-4 py-4 d-flex align-items-start bg-light">
                             <Flipcard
                                 className="mb-4 align-self-center"
                                 front={
@@ -72,20 +73,22 @@ const IntroSection = () => {
                                     />
                                 }
                             />
-                            <h2 className="small-header">Across the internet</h2>
-                            <ul className="list-unstyled d-flex justify-content-around mb-3">
-                                <li className="mr-2">
-                                    <a href="https://github.com/rxnaij">
-                                        <img src={githubIcon} alt="Richard's GitHub" />
+                            <h2 className={classNames("small-header mb-3", theme === 'dark' && "dark")}>Across the internet</h2>
+                            <ul className="list-unstyled d-flex flex-column mb-4">
+                                <li className="mb-3">
+                                    <a href="https://github.com/rxnaij" className="d-flex align-items-center secondary-link">
+                                        <img src={githubIcon} alt="Richard's GitHub" className="mr-2"/>
+                                        GitHub
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.behance.net/xricharizab88b">
-                                        <img src={behanceIcon} alt="Richard's Behance portfolio" />
+                                    <a href="https://be.net/richardbludesign" className="d-flex align-items-center secondary-link">
+                                        <img src={behanceIcon} alt="Richard's Behance portfolio" className="mr-2"/>
+                                        Behance
                                     </a>
                                 </li>
                             </ul>
-                            <h2 className="small-header">Current Status</h2>
+                            <h2 className={classNames("small-header mb-3", theme === 'dark' && "dark")}>Current Status</h2>
                             <strong className="text-info font-weight-bold">
                                 open to full-time and freelance opportunities!
                             </strong>
