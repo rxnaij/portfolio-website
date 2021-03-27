@@ -19,6 +19,7 @@ $dark: hsl(234, 22%, 19%);
 $light: hsl(204, 24%, 96%);
 $dark-link: hsl(198, 100%, 50%);
 $light-link: hsl(212, 100%, 39%);
+$primary: $teal;
 
 /* ==================================================================== */
 /* Inputs */
@@ -38,7 +39,7 @@ $headings-font-weight: 400;
 
 /* ==================================================================== */
 /* Navbar */
-$navbar-padding-y: $spacer;
+$navbar-padding-y: $spacer / 2;
 $navbar-padding-x: $spacer * 2;
 $navbar-brand-font-size: $font-size-base;
 $navbar-brand-weight: 700;
