@@ -6,22 +6,51 @@
     }
 }
 
+/* Default layout for large screens */
 .head {
-    margin: 0 auto;
+    background-color: hsl(234, 22%, 10%);
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+
+    & > div {
+        min-width: 50%;
+    }
+    
+    .titleClass {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 16px;
+    }
     .img {
-        box-shadow: 0px 16px 48px hsla(0, 0%, 0%, 0.35);
+        align-self: stretch;
+    }  
+}
+
+/*
+ * Layout for extra-small screens (mobile)
+*/
+@media (max-width: 781px) {
+    .head {
+        flex-direction: column;
+        & > div {
+            min-width: 100%;
+        }
     }
-    .info {
-        list-style: none;
-        padding: 0;
-        // font-size: 1.2rem;
-    }
+}
+
+
+
+.info {
+    list-style: none;
+    padding: 0;
 }
 
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
-.content, .head {
+.content {
     max-width: 780px;
     p {
         font-size: 1.1rem;
@@ -65,7 +94,7 @@
 
 /* Grid system for displaying content on large screens */
 @media screen and (min-width: 701px) {
-    .pageLayout {
+    .content {
         display: grid;
         grid-template-columns: [full-start] minmax(1em, 1fr) [main] minmax(min-content, 700px) [main-end] minmax(1em, 1fr) [full-end];
         & > * {

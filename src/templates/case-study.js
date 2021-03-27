@@ -15,7 +15,7 @@ import TableOfContents from './components/TableOfContents.tsx'
 import { generateSlugFromTitle } from './slugUtil'
 import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
 
-import { pageLayout, wide, content } from './CaseStudy.module.scss'
+import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -34,7 +34,6 @@ export const query = graphql`
                 title
                 gatsbyImageData(
                     layout: FULL_WIDTH
-                    aspectRatio: 1.8
                 )
             }
             projectType
@@ -134,43 +133,53 @@ const CaseStudy = ({ data }) => {
 
     // Render CaseStudy component
     return (
-        <Layout>
+        <Layout style={{ maxWidth: 'none', paddingTop: 0 }}>
             <SEO title={title} />
-            <Container className={pageLayout}>
-                <nav><Link to="/work">&larr; Back to portfolio</Link></nav>
-                <CaseStudyHead 
-                    title={title}
-                    coverPhoto={coverPhoto}
-                    description={description}
-                    startDate={startDate}
-                    endDate={endDate}
-                    projectType={projectType}
-                    role={role}
-                    projectLink={projectLink}
-                />
+            <CaseStudyHead 
+                title={title}
+                coverPhoto={coverPhoto}
+                description={description}
+                startDate={startDate}
+                endDate={endDate}
+                projectType={projectType}
+                role={role}
+                projectLink={projectLink}
+            />
+            <Container fluid className={pageLayout}>
                 {
                     productImages &&
                     <section>
-                        <Container>
-                            {
-                                productImages.map( (image, index) => {
-                                    return (
-                                        <FeaturedImage
-                                            key={image.id}
-                                            image={image.gatsbyImageData}
-                                            description={image.description}
-                                            index={index}
-                                        />
-                                    )
-                                } )
-                            }
-                        </Container>
+                        {
+                            productImages.map( (image, index) => {
+                                return (
+                                    <FeaturedImage
+                                        key={image.id}
+                                        image={image.gatsbyImageData}
+                                        description={image.description}
+                                        index={index}
+                                    />
+                                )
+                            } )
+                        }
                     </section>
                 }
                 <TableOfContents rootSlug={slug} headings={nestedHeadings} />
-                <article className={content}>
-                    { mainContent && renderRichText(mainContent, options ) }
-                </article>
+                <Row>
+                    <Col lg={10}>
+                        <article className={content}>
+                            { mainContent && renderRichText(mainContent, options ) }
+                        </article>
+                    </Col>
+                    <Col lg={2}>
+                        <ul className={info}>
+                            <li className="mb-2"><strong>Date</strong><br />{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
+                            <li className="mb-2"><strong>Project type</strong><br />{ projectType }</li>
+                            <li className="mb-2"><strong>Role</strong><br />{ role }</li>
+                            { projectLink && <li className="mb-2"><strong>View app website</strong><br /><a href={projectLink}>{projectLink}</a> </li> }
+                        </ul>
+                    </Col>
+                </Row>
+                
                 <nav>
                     <Link to="/work">&larr; Back to portfolio</Link>
                 </nav>

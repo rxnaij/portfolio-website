@@ -13,6 +13,7 @@ import { useThemeState } from "../../hooks/ThemeContext.ts"
 import Header from "../header/header"
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
+import { layoutClass } from './Layout.module.scss'
 
 /**
  * Returns page layout, contained within state managers.
@@ -37,12 +38,7 @@ const Layout = ({ children, style }) => {
   return (
       <div className={tType}>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main style={{
-          margin: `0 auto`,
-          maxWidth: 1000,
-          marginBottom: '48px',
-          ...style
-        }} className="pt-3">{children}</main>
+        <main style={{ ...style }} className={layoutClass}>{children}</main>
         <Footer />
       </div>
   )
