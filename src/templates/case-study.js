@@ -163,20 +163,13 @@ const CaseStudy = ({ data }) => {
                         }
                     </section>
                 }
-                {/* <TableOfContents rootSlug={slug} headings={nestedHeadings} /> */}
                 <Row>
-                    <Col lg={8}>
+                    <Col xs={{ order: "last", span: 12 }} lg={{ order: "first", span: 8 }}>
                         <article className={content}>
                             { mainContent && renderRichText(mainContent, options ) }
                         </article>
                     </Col>
-                    <Col lg={4}>
-                        {/* <ul className={info}>
-                            <li className="mb-2"><strong>Date</strong><br />{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
-                            <li className="mb-2"><strong>Project type</strong><br />{ projectType }</li>
-                            <li className="mb-2"><strong>Role</strong><br />{ role }</li>
-                            { projectLink && <li className="mb-2"><strong>View app website</strong><br /><a href={projectLink}>{projectLink}</a> </li> }
-                        </ul> */}
+                    <Col xs={{ order: "first", span: 12 }} lg={{ order: "last", span: 4 }}>
                         <TableOfContents rootSlug={slug} headings={nestedHeadings} />
                     </Col>
                 </Row>

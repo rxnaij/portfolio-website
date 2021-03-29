@@ -1,5 +1,5 @@
 export const generateSlugFromTitle = (title: string) => {
-    return encodeURIComponent(
+    return (
         title.toLowerCase()
             .replace(' ', '-')
             .replace(/\W-/g, '')

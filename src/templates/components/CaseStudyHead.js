@@ -20,22 +20,33 @@ const CaseStudyHead = ({
     <section className={head}>
         <div className={titleClass}>
             <nav><Link to="/work"><small>&larr; Back to portfolio</small></Link></nav>
-            <h1 className="">{title}</h1>  
-            <p className="">{description}</p>
+            <h1>{title}</h1>  
+            <p className="lead">{description}</p>
             {
                 projectLink && 
-                <p className="">
-                    <strong>Try it out:</strong><br /><a href={projectLink}>{projectLink}</a>
+                <p className="lead">
+                    <strong>Try it out:</strong> <a href={projectLink}>{projectLink}</a>
                 </p>
             }
             <ul className={info}>
-                <li className="mb-2"><strong>Date</strong><br />{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
-                <li className="mb-2"><strong>Project type</strong><br />{ projectType }</li>
-                <li className="mb-2"><strong>Role</strong><br />{ role }</li>
+                <li className="mb-2">
+                    <strong>Date</strong>
+                    {/* <hr /> */}
+                    <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
+                </li>
+                <li className="mb-2">
+                    <strong>Project type</strong>
+                    {/* <hr /> */}
+                    <div>{ projectType }</div>
+                </li>
+                <li className="mb-2">
+                    <strong>Role</strong>
+                    {/* <hr /> */}
+                    <div>{ role }</div>
+                </li>
                 {/* { projectLink && <li className="mb-2"><strong>View app website</strong><br /><a href={projectLink}>{projectLink}</a> </li> } */}
             </ul>
         </div>
-        
         <GatsbyImage 
             image={coverPhoto.gatsbyImageData} 
             alt={coverPhoto.title} 

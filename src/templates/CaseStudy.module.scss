@@ -6,63 +6,80 @@
     }
 }
 
-/* Default layout for large screens */
+/* Title container */
 .head {
     background-color: hsl(234, 22%, 10%);
+    color: #fff;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
-
-    & > div {
-        min-width: 50%;
-    }
-
-    h1 {
-        font-size: 2rem;
-        font-weight: 400;
-        margin-top: 0;
-        // padding-bottom: 16px;
-
-        &::after {
-            content: "";
-            display: block;
-            padding-top: 16px;
-            width: 64px;
-            // height: 1px;
-            border-bottom: 4px solid #fff;
-        }
-    }
+    justify-content: space-between;
 }
 
+/* Title content */
 .titleClass {
     display: flex;
     flex-direction: column;
     justify-content: center;
     // align-items: center;
     padding-inline: 16px;
-    padding-block: 24px;
+    padding-block: 36px;
 
+    /* Spacing */
     & > *:not(:last-child) {
         margin-bottom: 2rem;
     }
 
-    ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    /* Title */
+    h1 {
+        font-weight: 400;
+        margin-top: 0;
 
-        font-size: 0.8rem;
-        // color: #fff8;
+        &::after {
+            content: "";
+            display: block;
+            padding-top: 16px;
+            margin-left: 1px;
+            width: 64px;
+            // height: 1px;
+            border-bottom: 3px solid #fff;
+        }
+    }
+}
 
-        li:not(:last-of-type) {
+/* Project attributes */
+.info {
+    list-style: none;
+    padding: 0;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 0.8rem;
+
+    li {
+        flex: 1;
+        padding-bottom: 8px;
+        &:not(:last-of-type) {
             margin-right: 16px;
+        }
+        strong {
+            // padding-bottom: 8px;
+            // border-bottom: 1px solid white;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        hr {
+            color: white;
+            border-color: white;
         }
     }
 }
 
 /* Layout for extra small screens */
 @media (max-width: 575px) {
-    .titleClass ul {
+    .info {
         flex-direction: column;
         li {
             margin-right: 0;
@@ -70,8 +87,10 @@
     }
 }
 
+/* Title cover photo */
 .img {
     align-self: stretch;
+    min-width: 40%;
 }
 
 /*
@@ -84,13 +103,6 @@
             min-width: 100%;
         }
     }
-}
-
-
-
-.info {
-    list-style: none;
-    padding: 0;
 }
 
 /* Case Study contentfulRichText styling - text */
