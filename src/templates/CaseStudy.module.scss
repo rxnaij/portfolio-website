@@ -16,21 +16,66 @@
     & > div {
         min-width: 50%;
     }
-    
-    .titleClass {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-inline: 16px;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-top: 0;
+        // padding-bottom: 16px;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-top: 16px;
+            width: 64px;
+            // height: 1px;
+            border-bottom: 4px solid #fff;
+        }
     }
-    .img {
-        align-self: stretch;
-    }  
+}
+
+.titleClass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    padding-inline: 16px;
+    padding-block: 24px;
+
+    & > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        font-size: 0.8rem;
+        // color: #fff8;
+
+        li:not(:last-of-type) {
+            margin-right: 16px;
+        }
+    }
+}
+
+/* Layout for extra small screens */
+@media (max-width: 575px) {
+    .titleClass ul {
+        flex-direction: column;
+        li {
+            margin-right: 0;
+        }
+    }
+}
+
+.img {
+    align-self: stretch;
 }
 
 /*
- * Layout for extra-small screens (mobile)
+ * Layout for small screens (mobile)
 */
 @media (max-width: 781px) {
     .head {
@@ -52,6 +97,9 @@
 /* Sets width of text elements */
 .content {
     max-width: 780px;
+    & > *:first-child {
+        margin-top: 0;
+    }
     p {
         font-size: 1.1rem;
         margin-bottom: 1.5em;
@@ -94,7 +142,7 @@
 
 /* Grid system for displaying content on large screens */
 @media screen and (min-width: 701px) {
-    .content {
+    .content, .titleClass {
         display: grid;
         grid-template-columns: [full-start] minmax(1em, 1fr) [main] minmax(min-content, 700px) [main-end] minmax(1em, 1fr) [full-end];
         & > * {

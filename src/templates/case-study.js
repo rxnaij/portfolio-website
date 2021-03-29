@@ -145,7 +145,7 @@ const CaseStudy = ({ data }) => {
                 role={role}
                 projectLink={projectLink}
             />
-            <Container fluid className={pageLayout}>
+            <Container className={pageLayout}>
                 {
                     productImages &&
                     <section>
@@ -163,20 +163,21 @@ const CaseStudy = ({ data }) => {
                         }
                     </section>
                 }
-                <TableOfContents rootSlug={slug} headings={nestedHeadings} />
+                {/* <TableOfContents rootSlug={slug} headings={nestedHeadings} /> */}
                 <Row>
-                    <Col lg={10}>
+                    <Col lg={8}>
                         <article className={content}>
                             { mainContent && renderRichText(mainContent, options ) }
                         </article>
                     </Col>
-                    <Col lg={2}>
-                        <ul className={info}>
+                    <Col lg={4}>
+                        {/* <ul className={info}>
                             <li className="mb-2"><strong>Date</strong><br />{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</li>
                             <li className="mb-2"><strong>Project type</strong><br />{ projectType }</li>
                             <li className="mb-2"><strong>Role</strong><br />{ role }</li>
                             { projectLink && <li className="mb-2"><strong>View app website</strong><br /><a href={projectLink}>{projectLink}</a> </li> }
-                        </ul>
+                        </ul> */}
+                        <TableOfContents rootSlug={slug} headings={nestedHeadings} />
                     </Col>
                 </Row>
                 
