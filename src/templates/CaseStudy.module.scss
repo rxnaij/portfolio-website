@@ -154,7 +154,7 @@
 
 /* Grid system for displaying content on large screens */
 @media screen and (min-width: 701px) {
-    .content, .titleClass {
+    .content {
         display: grid;
         grid-template-columns: [full-start] minmax(1em, 1fr) [main] minmax(min-content, 700px) [main-end] minmax(1em, 1fr) [full-end];
         & > * {
