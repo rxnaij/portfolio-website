@@ -15,9 +15,16 @@
     cursor: pointer;
     user-select: none;
 
+    /* Styles only applied to the first hierarchy level */
     & > ul {
         padding-left: 0;
+
+        & > li {
+            font-weight: 700;
+        }
     }
+
+    /* Styles applied to all hierarchy levels */
     ul {
         list-style: none;
         // padding-left: 0;

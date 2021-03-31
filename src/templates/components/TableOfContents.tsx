@@ -13,7 +13,7 @@ interface TableOfContentsProps extends UnorderedListNodeProps {
 }
 
 const TableOfContents = ({ headings }: TableOfContentsProps) => {
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(true)
     return (
         <nav className={tocClass} onClick={() => setOpen(!isOpen)}>
             <div className={labelClass}>
