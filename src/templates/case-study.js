@@ -15,7 +15,7 @@ import TableOfContents from './components/TableOfContents.tsx'
 import { generateSlugFromTitle } from './slugUtil'
 import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
 
-import { pageLayout, wide, content } from './CaseStudy.module.scss'
+import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
@@ -34,7 +34,6 @@ export const query = graphql`
                 title
                 gatsbyImageData(
                     layout: FULL_WIDTH
-                    aspectRatio: 1.8
                 )
             }
             projectType
@@ -134,43 +133,47 @@ const CaseStudy = ({ data }) => {
 
     // Render CaseStudy component
     return (
-        <Layout>
+        <Layout style={{ maxWidth: 'none', paddingTop: 0 }}>
             <SEO title={title} />
+            <CaseStudyHead 
+                title={title}
+                coverPhoto={coverPhoto}
+                description={description}
+                startDate={startDate}
+                endDate={endDate}
+                projectType={projectType}
+                role={role}
+                projectLink={projectLink}
+            />
             <Container className={pageLayout}>
-                <nav><Link to="/work">&larr; Back to portfolio</Link></nav>
-                <CaseStudyHead 
-                    title={title}
-                    coverPhoto={coverPhoto}
-                    description={description}
-                    startDate={startDate}
-                    endDate={endDate}
-                    projectType={projectType}
-                    role={role}
-                    projectLink={projectLink}
-                />
                 {
                     productImages &&
                     <section>
-                        <Container>
-                            {
-                                productImages.map( (image, index) => {
-                                    return (
-                                        <FeaturedImage
-                                            key={image.id}
-                                            image={image.gatsbyImageData}
-                                            description={image.description}
-                                            index={index}
-                                        />
-                                    )
-                                } )
-                            }
-                        </Container>
+                        {
+                            productImages.map( (image, index) => {
+                                return (
+                                    <FeaturedImage
+                                        key={image.id}
+                                        image={image.gatsbyImageData}
+                                        description={image.description}
+                                        index={index}
+                                    />
+                                )
+                            } )
+                        }
                     </section>
                 }
-                <TableOfContents rootSlug={slug} headings={nestedHeadings} />
-                <article className={content}>
-                    { mainContent && renderRichText(mainContent, options ) }
-                </article>
+                <Row>
+                    <Col xs={{ order: "last", span: 12 }} lg={{ order: "first", span: 8 }}>
+                        <article className={content}>
+                            { mainContent && renderRichText(mainContent, options ) }
+                        </article>
+                    </Col>
+                    <Col xs={{ order: "first", span: 12 }} lg={{ order: "last", span: 4 }}>
+                        <TableOfContents rootSlug={slug} headings={nestedHeadings} />
+                    </Col>
+                </Row>
+                
                 <nav>
                     <Link to="/work">&larr; Back to portfolio</Link>
                 </nav>

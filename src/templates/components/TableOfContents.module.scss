@@ -1,13 +1,16 @@
 .tocClass {
     z-index: 999;
     background-color: inherit;
+    grid-column: main / main-end;
 
     border-radius: 4px;
-    padding: 1rem;
+    // padding: 1rem;
 
     transition: height 0.3s ease-out;
 
-    border: 1px solid lightgray;
+    // border: 1px solid lightgray;
+
+    font-size: 0.8rem;
 
     cursor: pointer;
     user-select: none;
@@ -37,10 +40,28 @@
     }
 }
 
+
+/* Spacing */
+
+
+@media (max-width: 991px) {
+    .tocClass {
+        margin-bottom: 32px;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 701px) {
+    .tocClass {
+        padding: 0;
+    }
+}
+
 .labelClass {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1rem;
     font-weight: 700;
 
     &:hover {

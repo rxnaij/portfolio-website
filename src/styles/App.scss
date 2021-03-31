@@ -10,15 +10,15 @@ html, body {
 }
 
 /* Header scroll fix */
-section:before {
-    content: "";
-    display: block;
-    height: 125px;
-    margin-top: -100px;
+// section:before {
+//     content: "";
+//     display: block;
+//     height: 125px;
+//     margin-top: -100px;
     
-    visibility: hidden;
-    pointer-events: none;
-}
+//     visibility: hidden;
+//     pointer-events: none;
+// }
 
 /* Dark mode - in progress */
 .default-mode {

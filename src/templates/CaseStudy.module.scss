@@ -6,23 +6,119 @@
     }
 }
 
+/* Title container */
 .head {
-    margin: 0 auto;
     margin-bottom: 2rem;
-    .img {
-        box-shadow: 0px 16px 48px hsla(0, 0%, 0%, 0.35);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    &.darkHead {
+        background-color: hsl(234, 22%, 10%);
+        color: #fff;
     }
-    .info {
-        list-style: none;
-        padding: 0;
-        // font-size: 1.2rem;
+
+    &.lightHead {
+        background: hsl(235, 22%, 90%);
+        color: #000;
     }
 }
 
+/* Title content */
+.titleClass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    padding-inline: 16px;
+    padding-block: 36px;
+
+    /* Spacing */
+    & > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    /* Title */
+    h1 {
+        font-weight: 400;
+        margin-top: 0;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-top: 16px;
+            margin-left: 1px;
+            width: 64px;
+            // height: 1px;
+            border-bottom: 3px solid #fff;
+        }
+    }
+}
+
+/* Project attributes */
+.info {
+    list-style: none;
+    padding: 0;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 0.8rem;
+
+    li {
+        flex: 1;
+        padding-bottom: 8px;
+        &:not(:last-of-type) {
+            margin-right: 16px;
+        }
+        strong {
+            // padding-bottom: 8px;
+            // border-bottom: 1px solid white;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        hr {
+            color: white;
+            border-color: white;
+        }
+    }
+}
+
+/* Layout for extra small screens */
+@media (max-width: 575px) {
+    .info {
+        flex-direction: column;
+        li {
+            margin-right: 0;
+        }
+    }
+}
+
+/* Title cover photo */
+.img {
+    min-width: 40%;
+}
+
+// /*
+//  * Layout for small screens (mobile)
+// */
+// @media (max-width: 781px) {
+//     .head {
+//         flex-direction: column;
+//         & > div {
+//             min-width: 100%;
+//         }
+//     }
+// }
+
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
-.content, .head {
+.content {
     max-width: 780px;
+    & > *:first-child {
+        margin-top: 0;
+    }
     p {
         font-size: 1.1rem;
         margin-bottom: 1.5em;
@@ -65,7 +161,7 @@
 
 /* Grid system for displaying content on large screens */
 @media screen and (min-width: 701px) {
-    .pageLayout {
+    .content {
         display: grid;
         grid-template-columns: [full-start] minmax(1em, 1fr) [main] minmax(min-content, 700px) [main-end] minmax(1em, 1fr) [full-end];
         & > * {
