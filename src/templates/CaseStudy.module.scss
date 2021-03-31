@@ -89,21 +89,20 @@
 
 /* Title cover photo */
 .img {
-    align-self: stretch;
     min-width: 40%;
 }
 
-/*
- * Layout for small screens (mobile)
-*/
-@media (max-width: 781px) {
-    .head {
-        flex-direction: column;
-        & > div {
-            min-width: 100%;
-        }
-    }
-}
+// /*
+//  * Layout for small screens (mobile)
+// */
+// @media (max-width: 781px) {
+//     .head {
+//         flex-direction: column;
+//         & > div {
+//             min-width: 100%;
+//         }
+//     }
+// }
 
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */

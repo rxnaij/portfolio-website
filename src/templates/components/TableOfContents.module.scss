@@ -40,9 +40,20 @@
     }
 }
 
+
+/* Spacing */
+
+
 @media (max-width: 991px) {
     .tocClass {
         margin-bottom: 32px;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 701px) {
+    .tocClass {
+        padding: 0;
     }
 }
 
