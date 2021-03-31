@@ -8,12 +8,20 @@
 
 /* Title container */
 .head {
-    background-color: hsl(234, 22%, 10%);
-    color: #fff;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+    &.darkHead {
+        background-color: hsl(234, 22%, 10%);
+        color: #fff;
+    }
+
+    &.lightHead {
+        background: hsl(235, 22%, 90%);
+        color: #000;
+    }
 }
 
 /* Title content */

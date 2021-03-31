@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import classNames from 'classnames'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { img, head, wide, info, titleClass } from '../CaseStudy.module.scss'
+import { img, head, wide, info, titleClass, darkHead, lightHead } from '../CaseStudy.module.scss'
+import { useThemeState } from '../../hooks/ThemeContext'
 
 /* Head of the case study, with intro content */
 const CaseStudyHead = ({ 
@@ -17,7 +19,7 @@ const CaseStudyHead = ({
     role,
     projectLink 
 }) => (
-    <section className={head}>
+    <section className={classNames(head, useThemeState().theme === 'dark' ? darkHead : lightHead)}>
         <Container className="pb-5 pb-lg-0">
             <Row>
                 <Col lg={6}>
