@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { BLOCKS } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -127,7 +127,7 @@ const CaseStudy = ({ data }) => {
             [BLOCKS.HEADING_4]: node => 
                 <h4 id={generateSlugFromTitle(node.content[0].value)}>
                     {node.content[0].value}
-                </h4>
+                </h4>,
         }
     }
 
