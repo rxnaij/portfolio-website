@@ -16,9 +16,8 @@ const Header = ({ siteTitle }) => {
   return (
     <Navbar
       expand="sm"
-      // sticky='top'
       variant={theme}
-      bg={theme}
+      style={{ "background-color": "inherit" }}
     >
       <Navbar.Brand className="mr-4 font-weight-bold">
         <Link to="/" className="a-no-style">Richard Lu</Link>
