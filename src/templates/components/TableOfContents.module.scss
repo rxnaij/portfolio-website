@@ -4,11 +4,10 @@
     grid-column: main / main-end;
 
     border-radius: 4px;
-    // padding: 1rem;
 
     transition: height 0.3s ease-out;
 
-    // border: 1px solid lightgray;
+    overflow: auto;
 
     font-size: 0.8rem;
 
@@ -27,7 +26,6 @@
     /* Styles applied to all hierarchy levels */
     ul {
         list-style: none;
-        // padding-left: 0;
         li {
             a {
                 display: block;
@@ -47,20 +45,26 @@
     }
 }
 
+@media (min-width: 992px) {
+    .tocClass {
+        position: sticky;
+    }
+}
+
 
 /* Spacing */
 
-
+/* Medium screens only: align using 16px padding */
 @media (max-width: 991px) {
     .tocClass {
         margin-bottom: 32px;
-        padding: 0 16px;
+        padding-left: 16px;
     }
 }
 
 @media (max-width: 701px) {
     .tocClass {
-        padding: 0;
+        padding-left: 0;
     }
 }
 
@@ -79,4 +83,8 @@
 .iconClass {
     font-size: 32px;
     font-weight: 700;
+
+    transition: transform 0.3s ease;
+
+    
 }
