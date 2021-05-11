@@ -25,7 +25,8 @@ const WorkBlurb = props => {
                 <Col md={6} className="mb-3 mb-md-0">
                     <animated.div 
                         style={{ 
-                            boxShadow
+                            boxShadow,
+                            lineHeight: 0
                         }}
                     >
                         <GatsbyImage
