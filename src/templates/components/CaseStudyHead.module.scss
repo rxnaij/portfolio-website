@@ -1,0 +1,93 @@
+/* Title container */
+.head {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    &.darkHead {
+        background-color: hsl(234, 22%, 10%);
+        color: #fff;
+    }
+
+    &.lightHead {
+        background: hsl(235, 22%, 90%);
+        color: #000;
+    }
+}
+
+/* Title content */
+.titleClass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    padding: 36px 16px;
+
+    /* Spacing */
+    & > *:not(:last-child) {
+        margin-bottom: 32px;
+    }
+
+    /* Title */
+    h1 {
+        font-weight: 400;
+        margin-top: 0;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-top: 16px;
+            margin-left: 1px;
+            width: 64px;
+            // height: 1px;
+            border-bottom: 3px solid #fff;
+        }
+    }
+}
+
+/* Project attributes */
+.info {
+    list-style: none;
+    padding: 0;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 0.8rem;
+    
+    li {
+        flex: 1;
+        padding-bottom: 8px;
+        &:not(:last-of-type) {
+            padding-right: 16px;
+        }
+        strong {
+            opacity: 0.9;
+            // padding-bottom: 8px;
+            // border-bottom: 1px solid white;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        hr {
+            color: white;
+            border-color: white;
+        }
+    }
+}
+
+/* Layout for extra small screens */
+@media (max-width: 575px) {
+    .info {
+        flex-direction: column;
+        li {
+            margin-right: 0;
+        }
+    }
+}
+
+/* Title cover photo */
+.img {
+    // min-width: 40%;
+}

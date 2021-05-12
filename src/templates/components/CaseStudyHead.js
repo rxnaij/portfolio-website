@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { img, head, wide, info, titleClass, darkHead, lightHead } from '../CaseStudy.module.scss'
+import { img, head, info, titleClass, darkHead, lightHead } from './CaseStudyHead.module.scss'
 import { useThemeState } from '../../hooks/ThemeContext'
 
 /* Head of the case study, with intro content */
@@ -34,17 +34,17 @@ const CaseStudyHead = ({
                             </p>
                         }
                         <ul className={info}>
-                            <li className="mb-2">
+                            <li>
                                 <strong>Date</strong>
                                 {/* <hr /> */}
                                 <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
                             </li>
-                            <li className="mb-2">
+                            <li>
                                 <strong>Project type</strong>
                                 {/* <hr /> */}
                                 <div>{ projectType }</div>
                             </li>
-                            <li className="mb-2">
+                            <li>
                                 <strong>Role</strong>
                                 {/* <hr /> */}
                                 <div>{ role }</div>
