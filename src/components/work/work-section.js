@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container'
 
 import WorkBlurb from './WorkBlurb'
 
+import { stack } from './WorkSection.module.scss'
+
 const WorkSection = () => {
 
     const data = useStaticQuery(graphql`
@@ -44,7 +46,7 @@ const WorkSection = () => {
         <section id="work">
             <Container>
                 <h1 className="section-title">Work</h1>
-                <ul className="list-unstyled">
+                <ul className={"list-unstyled " + stack}>
                 {
                     data.allContentfulCaseStudy.edges.map( edge => {
                         return(

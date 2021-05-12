@@ -18,7 +18,6 @@ const WorkBlurb = props => {
     return(
         <Link className={'a-no-style'} to={`/work/${props.slug}`}>
             <Row
-                className={`mb-5 `}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
@@ -35,7 +34,7 @@ const WorkBlurb = props => {
                         />
                     </animated.div>
                 </Col>
-                <Col md={6} className="d-flex flex-column justify-content-center ">
+                <Col md={6} className="d-flex flex-column justify-content-center">
                     <animated.h3
                         className="align-self-start"
                         style={{
@@ -46,7 +45,7 @@ const WorkBlurb = props => {
                     </animated.h3>
                     <p className="text-muted mb-0">{props.projectDates}</p>
                     <p className="text-muted mb-3">{props.projectType}</p>
-                    <p className="">{props.description}</p>
+                    <p>{props.description}</p>
                 </Col>
             </Row>
         </Link>

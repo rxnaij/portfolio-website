@@ -1,0 +1,5 @@
+.stack {
+    & > *:not(:last-child) {
+        padding-bottom: 56px;
+    }
+}
