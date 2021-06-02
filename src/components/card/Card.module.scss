@@ -1,0 +1,12 @@
+.card {
+    border: 1px solid #40B7A0;
+    border-radius: 8px;
+    padding: 24px;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+
+    & > :not(:first-child) {
+        padding-top: 16px;
+    }
+}

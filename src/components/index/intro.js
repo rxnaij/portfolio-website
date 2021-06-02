@@ -9,7 +9,8 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
+import Card from '../card/Card'
 
 import Flipcard from '../flipcard/Flipcard'
 
@@ -57,39 +58,43 @@ const IntroSection = () => {
                     <Col xs={12} sm={5} className="mb-4 mb-sm-0 ml-auto">
                         <Card as="aside" bg={theme === 'dark' ? 'dark' : 'white'} className="px-4 py-4 d-flex align-items-start bg-light">
                             <Flipcard
-                                className="mb-4 align-self-center"
+                                className="align-self-center"
                                 front={
                                     <Image
-                                        className="mb-4 mw-100"
+                                        className="mw-100"
                                         src={profileImage}
                                         roundedCircle 
                                     />
                                 }
                                 back={
                                     <Image
-                                        className="mb-4 mw-100"
+                                        className="mw-100"
                                         src={profileImage}
                                         roundedCircle 
                                     />
                                 }
                             />
-                            <h2 className={classNames("small-header mb-3", theme === 'dark' && "dark")}>Across the internet</h2>
-                            <ul className="list-unstyled d-flex flex-column mb-4">
-                                <li className="mb-3">
-                                    <a href="https://github.com/rxnaij" className="d-flex align-items-center secondary-link">
-                                        <img src={githubIcon} alt="Richard's GitHub" className="mr-2"/>
-                                        GitHub
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://be.net/richardbludesign" className="d-flex align-items-center secondary-link">
-                                        <img src={behanceIcon} alt="Richard's Behance portfolio" className="mr-2"/>
-                                        Behance
-                                    </a>
-                                </li>
-                            </ul>
-                            <h2 className={classNames("small-header mb-3", theme === 'dark' && "dark")}>Current Status</h2>
-                            <strong>Open to full-time and freelance opportunities!</strong>
+                            <div>
+                                <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Across the internet</h2>
+                                <ul className="list-unstyled">
+                                    <li className="mb-3 d-flex">
+                                        <a href="https://github.com/rxnaij" className="d-flex align-items-center secondary-link">
+                                            <img src={githubIcon} alt="Richard's GitHub" className="mr-2"/>
+                                            GitHub
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://be.net/richardbludesign" className="d-flex align-items-center secondary-link">
+                                            <img src={behanceIcon} alt="Richard's Behance portfolio" className="mr-2"/>
+                                            Behance
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Current Status</h2>
+                                <p>Open to full-time and freelance opportunities!</p>
+                            </div>
                         </Card>
                     </Col>
                 </Row>

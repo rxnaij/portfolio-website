@@ -22,6 +22,7 @@ export default function Flipcard({front, back, className}: Props) {
         <div
             className={classNames(
                 styles.card,
+                "w-50",
                 className
             )} 
             role="presentation" onClick={() => set(state => !state)}
