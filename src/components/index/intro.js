@@ -5,11 +5,11 @@ import Image from 'react-bootstrap/Image'
 import classNames from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
+import Button from '../button/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-// import Card from 'react-bootstrap/Card'
 import Card from '../card/Card'
 
 import Flipcard from '../flipcard/Flipcard'
@@ -45,14 +45,17 @@ const IntroSection = () => {
                             <p>I'm a <strong>product designer</strong> and <strong>front-end developer</strong> on a quest to create compassionate technology.</p> 
                             <p>My specialty lies at the intersection of user experience design, empathetic design, and web development.</p>
                             <p>I'm also interested in the relationship between tech and social justice, well-being, and ethics. In college, I was a co-director for the <a href="https://nycaasc.com">NYC Asian American Student Conference</a>.</p>
-                            <Button variant="primary" className="mr-3">
-                                <AnchorLink to="#contact" className="a-no-style">
-                                    Let's talk!
-                                </AnchorLink>
-                            </Button>
-                            <Button variant="outline-primary">
-                                <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
-                            </Button>
+                            <div>
+                                <Button className="mr-3">
+                                    <AnchorLink to="#contact" className="a-no-style">
+                                        Let's talk!
+                                    </AnchorLink>
+                                </Button>
+                                <Button variant="outline">
+                                    <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
+                                </Button>
+                            </div>
+                            
                         </div>
                     </Col>
                     <Col xs={12} sm={5} className="mb-4 mb-sm-0 ml-auto">

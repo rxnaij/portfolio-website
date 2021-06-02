@@ -41,6 +41,14 @@ html, body {
     // border color
 }
 
+.light {
+    color: $dark;
+}
+
+.dark {
+    color: hsl(204, 24%, 96%);
+}
+
 /* ==================================================================== */
 /* Typography */
 blockquote {
