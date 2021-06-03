@@ -10,7 +10,8 @@ import Row from 'react-bootstrap/Row'
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
     const themeState = useThemeState()
-    const highlightColor = themeState.theme === 'dark' ? 'white' : 'black'  // Highlight color is the inverse of the theme color
+    // const highlightColor = themeState.theme === 'dark' ? 'white' : 'black'  // Highlight color is the inverse of the theme color
+    const highlightColor = `hsl(168, 48%, 48%)`
     const { borderBottom, boxShadow } = useSpring({
         borderBottom: `4px solid ${hover ? highlightColor : `transparent`}`,
         boxShadow: `${highlightColor} ${hover? `10px 10px` : `0px 0px`} 0`

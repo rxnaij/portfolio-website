@@ -39,7 +39,7 @@ const IntroSection = () => {
         <section id="intro">
             <Container>
                 <Row className="d-flex">
-                    <Col xs={12} sm={7} className="mb-5 mb-sm-0">
+                    <Col xs={12} sm={8} className="mb-5 mb-sm-0">
                         <h1 className="display-4 font-weight-bold">Hey!<br />I'm Richard.</h1>
                         <div>
                             <p>I'm a <strong>product designer</strong> and <strong>front-end developer</strong> on a quest to create compassionate technology.</p> 
@@ -48,17 +48,17 @@ const IntroSection = () => {
                             <div>
                                 <Button className="mr-3">
                                     <AnchorLink to="#contact" className="a-no-style">
-                                        Let's talk!
+                                        Get in touch!
                                     </AnchorLink>
                                 </Button>
                                 <Button variant="outline">
-                                    <a href={data.contentfulAsset.file.url} className="a-no-style">Résumé</a>
+                                    <a href={data.contentfulAsset.file.url} className="a-no-style">View résumé</a>
                                 </Button>
                             </div>
                             
                         </div>
                     </Col>
-                    <Col xs={12} sm={5} className="mb-4 mb-sm-0 ml-auto">
+                    <Col xs={12} sm={4} className="mb-4 mb-sm-0 ml-auto">
                         <Card as="aside" bg={theme === 'dark' ? 'dark' : 'white'} className="px-4 py-4 d-flex align-items-start bg-light">
                             <Flipcard
                                 className="align-self-center"
@@ -80,14 +80,14 @@ const IntroSection = () => {
                             <div>
                                 <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Across the internet</h2>
                                 <ul className="list-unstyled">
-                                    <li className="mb-3 d-flex">
-                                        <a href="https://github.com/rxnaij" className="d-flex align-items-center secondary-link">
+                                    <li className="">
+                                        <a href="https://github.com/rxnaij" className="secondary-link">
                                             <img src={githubIcon} alt="Richard's GitHub" className="mr-2"/>
                                             GitHub
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://be.net/richardbludesign" className="d-flex align-items-center secondary-link">
+                                        <a href="https://be.net/richardbludesign" className="secondary-link">
                                             <img src={behanceIcon} alt="Richard's Behance portfolio" className="mr-2"/>
                                             Behance
                                         </a>
