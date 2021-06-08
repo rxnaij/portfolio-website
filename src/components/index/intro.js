@@ -40,7 +40,7 @@ const IntroSection = () => {
         <section id="intro">
             <Container>
                 <Row className="d-flex">
-                    <Col xs={12} sm={8} className="mb-5 mb-sm-0">
+                    <Col xs={12} md={6} className="mb-5 mb-md-0">
                         <h1 className="display-4 font-weight-bold">Hey!<br />I'm Richard.</h1>
                         <div>
                             <p>I'm a <strong>product designer</strong> and <strong>front-end developer</strong> on a quest to create compassionate technology.</p> 
@@ -59,7 +59,8 @@ const IntroSection = () => {
                             
                         </div>
                     </Col>
-                    <Col xs={12} sm={4} className="mb-4 mb-sm-0 ml-auto">
+                    <Col xs={12} md={1} lg={2}></Col>
+                    <Col xs={12} md={5} lg={4} className="mb-4 mb-sm-0 ml-auto">
                         <Card as="aside" bg={theme === 'dark' ? 'dark' : 'white'} className="px-4 py-4 d-flex align-items-start bg-light">
                             <Flipcard
                                 className="align-self-center"
@@ -97,7 +98,7 @@ const IntroSection = () => {
                             </div>
                             <div>
                                 <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Current Status</h2>
-                                <p>Open to full-time and freelance opportunities!</p>
+                                <p>I'm open to full-time and freelance opportunities!</p>
                             </div>
                         </Card>
                     </Col>
