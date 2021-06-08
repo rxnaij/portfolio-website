@@ -1,13 +1,14 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 
 import Container from 'react-bootstrap/Container'
 
 import WorkBlurb from './WorkBlurb'
+import Button from '../button/Button'
 
 import { stack } from './WorkSection.module.scss'
 
-const WorkSection = () => {
+const WorkSection = ({ seeAllCTA }) => {
 
     const data = useStaticQuery(graphql`
     query {
@@ -65,6 +66,14 @@ const WorkSection = () => {
                     })
                 }
                 </ul>
+                {
+                    seeAllCTA && 
+                    <Button className="d-block mt-3 ml-auto">
+                        <Link to="/work" className="a-no-style">
+                            See all work &rarr;
+                        </Link>
+                    </Button>
+                }
             </Container>
         </section>
     )
