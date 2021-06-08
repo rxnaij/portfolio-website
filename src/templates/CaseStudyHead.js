@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { img, head, info, titleClass, darkHead, lightHead } from './CaseStudyHead.module.scss'
-import { useThemeState } from '../../hooks/ThemeContext'
+import { useThemeState } from '../hooks/ThemeContext'
 
 /* Head of the case study, with intro content */
 const CaseStudyHead = ({ 
@@ -33,6 +33,7 @@ const CaseStudyHead = ({
                                 <strong>Try it out:</strong> <a href={projectLink}>{projectLink}</a>
                             </p>
                         }
+                        <hr />
                         <ul className={info}>
                             <li>
                                 <strong>Date</strong>
@@ -62,8 +63,6 @@ const CaseStudyHead = ({
                     />
                 </Col>
             </Row>
-                
-            
         </Container>
         
     </section>

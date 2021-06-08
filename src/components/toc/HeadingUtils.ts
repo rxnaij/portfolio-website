@@ -1,4 +1,4 @@
-import { generateSlugFromTitle } from '../../templates/slugUtil'
+import { generateSlugFromTitle } from './slugUtil'
 
 interface HeadingNode {
     title: string

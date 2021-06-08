@@ -10,10 +10,11 @@ import SEO from '../components/seo'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import CaseStudyHead from './components/CaseStudyHead'
-import TableOfContents from './components/TableOfContents.tsx'
-import { generateSlugFromTitle } from './slugUtil'
-import { createHeadingNodesFromContentNodes } from '../components/lists/HeadingUtils'
+import CaseStudyHead from './CaseStudyHead'
+import TableOfContents from '../components/toc/TableOfContents.tsx'
+import FeaturedImage from './FeaturedImage'
+import { generateSlugFromTitle } from '../components/toc/slugUtil'
+import { createHeadingNodesFromContentNodes } from '../components/toc/HeadingUtils'
 
 import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
@@ -62,21 +63,6 @@ export const query = graphql`
     }
 `
 
-/* FeaturedImage: product images that appear at the top to describe the product */
-const FeaturedImage = ({ image, description, index }) => {
-    return(
-        <Row className="py-4 align-items-center justify-content-center">
-            <Col xs={9} sm={{ order: index % 2 === 0 ? 1 : 12 }} lg={5} className="mb-2 mb-md-0">
-                {/* <Img fluid={image} alt={description} /> */}
-                <GatsbyImage image={image} alt={description} />
-            </Col>
-            <Col sm={{ order: index % 2 === 0 ? 12 : 1 }} lg={5} className="d-flex align-items-center">
-                <p className="lead">{description}</p>
-            </Col>
-        </Row>
-    )
-}
-
 /* Case study template */
 const CaseStudy = ({ data }) => {
     const { 
@@ -116,17 +102,17 @@ const CaseStudy = ({ data }) => {
                     </figure>
                 ) 
             },
-            [BLOCKS.HEADING_2]: node => 
-                <h2 id={generateSlugFromTitle(node.content[0].value)}>
-                    {node.content[0].value}
+            [BLOCKS.HEADING_2]: ({ content }) => 
+                <h2 id={generateSlugFromTitle(content[0].value)}>
+                    {content[0].value}
                 </h2>,
-            [BLOCKS.HEADING_3]: node => 
-                <h3 id={generateSlugFromTitle(node.content[0].value)}>
-                    {node.content[0].value}
+            [BLOCKS.HEADING_3]: ({ content }) => 
+                <h3 id={generateSlugFromTitle(content[0].value)}>
+                    {content[0].value}
                 </h3>,
-            [BLOCKS.HEADING_4]: node => 
-                <h4 id={generateSlugFromTitle(node.content[0].value)}>
-                    {node.content[0].value}
+            [BLOCKS.HEADING_4]: ({ content }) => 
+                <h4 id={generateSlugFromTitle(content[0].value)}>
+                    {content[0].value}
                 </h4>,
         }
     }
@@ -173,7 +159,6 @@ const CaseStudy = ({ data }) => {
                         <TableOfContents rootSlug={slug} headings={nestedHeadings} />
                     </Col>
                 </Row>
-                
                 <nav>
                     <Link to="/work">&larr; Back to portfolio</Link>
                 </nav>

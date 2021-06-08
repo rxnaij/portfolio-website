@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 
-import { generateSlugFromTitle } from '../slugUtil'
+// import { generateSlugFromTitle } from './slugUtil'
 import { ChevronCompactUp, ChevronCompactDown } from 'react-bootstrap-icons'
 
 import { tocClass, iconClass, chevronIsOpen, activeLinkClass, labelClass } from './TableOfContents.module.scss'
-import { exampleData } from '../exampleData'
-import { UnorderedListNode, UnorderedListNodeProps } from '../../components/lists/UnorderedListNode'
-import { HeadingNode } from '../../components/lists/HeadingUtils'
+// import { exampleData } from '../exampleData'
+import { UnorderedListNode, UnorderedListNodeProps } from './UnorderedListNode'
+import { HeadingNode } from './HeadingUtils'
 
 interface TableOfContentsProps extends UnorderedListNodeProps {
     headings: Array<HeadingNode>

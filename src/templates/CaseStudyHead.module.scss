@@ -7,12 +7,12 @@
     
     &.darkHead {
         background-color: hsl(234, 22%, 10%);
-        color: #fff;
+        color: hsl(235, 22%, 90%);
     }
 
     &.lightHead {
         background: hsl(235, 22%, 90%);
-        color: #000;
+        color: hsl(234, 22%, 10%);
     }
 }
 
@@ -43,6 +43,9 @@
             // height: 1px;
             border-bottom: 3px solid #fff;
         }
+    }
+    hr {
+        border: 1px solid white;
     }
 }
 
