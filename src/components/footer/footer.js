@@ -3,6 +3,7 @@ import React from "react"
 
 import githubIcon from '../../images/icons/github-32.png'
 import behanceIcon from '../../images/icons/behance-32.png'
+import Icon from '../icon/Icon'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -20,14 +21,14 @@ const Footer = ({ siteTitle }) => {
                 <Col sm={6} className="d-flex flex-column">
                     <p className="small mb-1">Find me around the internet:</p>
                     <ul className="list-unstyled d-flex justify-content-start">
-                        <li className="mr-2">
+                        <li className="">
                             <a href="https://github.com/rxnaij">
-                                <img src={githubIcon} alt="Richard's GitHub" />
+                                <Icon src={githubIcon} alt="Richard's GitHub profile" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.behance.net/xricharizab88b">
-                                <img src={behanceIcon} alt="Richard's Behance portfolio" />
+                            <a href="https://be.net/richardbludesign">
+                                <Icon src={behanceIcon} alt="Richard's Behance profile" />
                             </a>
                         </li>
                     </ul>

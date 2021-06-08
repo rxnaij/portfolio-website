@@ -113,13 +113,25 @@ section, .page-section {
 .secondary-link {
     @extend .a-no-style;
     border-radius: 4px;
-    padding: 8px 4px;
+    padding: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
     &:hover {
         text-decoration: underline;
         background-color: hsl(168, 48%, 68%);
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $light;
+        margin-right: 8px;
+        padding: 2px;
     }
 }
 

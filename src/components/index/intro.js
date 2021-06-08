@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col'
 import Card from '../card/Card'
 
 import Flipcard from '../flipcard/Flipcard'
+import Icon from '../icon/Icon'
 
 import githubIcon from '../../images/icons/github-32.png'
 import behanceIcon from '../../images/icons/behance-32.png'
@@ -82,13 +83,13 @@ const IntroSection = () => {
                                 <ul className="list-unstyled">
                                     <li className="">
                                         <a href="https://github.com/rxnaij" className="secondary-link">
-                                            <img src={githubIcon} alt="Richard's GitHub" className="mr-2"/>
+                                            <Icon src={githubIcon} alt="Richard's GitHub profile" />
                                             GitHub
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://be.net/richardbludesign" className="secondary-link">
-                                            <img src={behanceIcon} alt="Richard's Behance portfolio" className="mr-2"/>
+                                            <Icon src={behanceIcon} alt="Richard's Behance profile" />
                                             Behance
                                         </a>
                                     </li>
