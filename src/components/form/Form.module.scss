@@ -1,0 +1,43 @@
+.formClass {
+    & > .groupClass {
+        padding: 8px 0;
+    }
+    & > .groupClass:first-of-type {
+        padding-top: 0;
+    }
+    & > .groupClass:last-of-type {
+        padding-bottom: 16px;
+    }
+}
+
+.labelClass {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+@mixin input {
+    display: block;
+    border-radius: 2px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    padding: 8px;
+}
+
+.inputClass {
+    @include input;
+}
+
+.textareaClass {
+    @include input;
+}
+
+.groupClass {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .labelClass {
+        padding-bottom: 4px;
+    }
+}

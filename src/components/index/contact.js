@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import Button from 'react-bootstrap/Button'
+import Button from '../button/Button'
 import Container from 'react-bootstrap/Container'
-import Form from "react-bootstrap/Form"
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Form from '../form/Form'
 
 const ContactSection = () => {
     const [ state, setState ] = useState({})
@@ -25,34 +25,26 @@ const ContactSection = () => {
                         <p>At the moment, <strong className="">I'm currently open to offers for full-time and freelance work.</strong> Woohoo!</p>
                     </Col>
                     <Col xs={12} md={6}>
-                        <form 
+                        <Form 
                             name="contact"
                             method="post"
-                            data-netlify="true"
-                            data-netlify-honeypot="bot-field"
                         >
-                            <input type="hidden" name="form-name" value="contact" />
-                            <p hidden>
-                                <label>
-                                    Don't fill this out: <input name="bot-field" onChange={handleChange} />
-                                </label>
-                            </p>
-                            <Form.Group controlId="name">
-                                <Form.Label>Your name (required)</Form.Label>
-                                <Form.Control name="name" type="text" placeholder="Jimmy Johns" onChange={handleChange} required />
+                            <Form.Group>
+                                <Form.Label htmlFor="name">Your name</Form.Label>
+                                <Form.Input type="text" name="name" required />
                             </Form.Group>
-                            <Form.Group controlId="email">
-                                <Form.Label>Your email (required)</Form.Label>
-                                <Form.Control name="email" type="email" placeholder="email@example.com" onChange={handleChange} required />
+                            <Form.Group>
+                                <Form.Label htmlFor="email">Email address</Form.Label>
+                                <Form.Input type="email" name="email" required />
                             </Form.Group>
-                            <Form.Group controlId="message">
-                                <Form.Label>Message (required)</Form.Label>
-                                <Form.Control name="message" as="textarea" rows="3" onChange={handleChange} placeholder="Let's work together..." required />
+                            <Form.Group>
+                                <Form.Label htmlFor="message">Your message</Form.Label>
+                                <Form.Textarea name="message" rows={4} required />
                             </Form.Group>
-                            <Button className="mr-auto" variant="primary" type="submit">
+                            <Button className="d-block ml-auto" variant="primary" type="submit">
                                 Send it!
                             </Button>
-                        </form>
+                        </Form>
                     </Col>
                 </Row>
             </Container>

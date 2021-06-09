@@ -19,7 +19,12 @@ const CaseStudyHead = ({
     role,
     projectLink 
 }) => (
-    <section className={classNames(head, useThemeState().theme === 'dark' ? darkHead : lightHead)}>
+    <section
+        className={classNames(
+            head, 
+            useThemeState().theme === 'dark' ? darkHead : lightHead
+        )}
+        >
         <Container className="pb-5 pb-lg-0">
             <Row>
                 <Col lg={6}>
@@ -33,7 +38,6 @@ const CaseStudyHead = ({
                                 <strong>Try it out:</strong> <a href={projectLink}>{projectLink}</a>
                             </p>
                         }
-                        <hr />
                         <ul className={info}>
                             <li>
                                 <strong>Date</strong>

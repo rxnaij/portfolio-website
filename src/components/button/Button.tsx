@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext'
 import { buttonClass, outline } from './Button.module.scss'
 
-export interface ButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode,
     className?: string|null,
     
@@ -22,7 +22,7 @@ export interface ButtonProps {
     collapse?: 'sm'
 }
 
-const Button = ({children, className, state, variant, onClick, icon, collapse}: ButtonProps) => {
+const Button = ({children, className, type, state, variant, onClick, icon, collapse}: ButtonProps) => {
     const { theme } = useThemeState()
     return(
         <button
@@ -39,6 +39,7 @@ const Button = ({children, className, state, variant, onClick, icon, collapse}: 
                     onClick(event)
                 }
             }}
+            type={type}
         >
             {
                 icon && 
