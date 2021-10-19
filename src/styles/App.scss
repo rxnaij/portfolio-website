@@ -9,6 +9,14 @@ html, body {
     scroll-behavior: smooth;
 }
 
+/* Enables full height pages */
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+    height: 100%;
+}
+
 /* Header scroll fix */
 // section:before {
 //     content: "";

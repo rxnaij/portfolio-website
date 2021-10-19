@@ -13,7 +13,7 @@ import { useThemeState } from "../../hooks/ThemeContext.ts"
 import Header from "../header/header"
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
-import { layoutClass } from './Layout.module.scss'
+import { layout, mainContent } from './Layout.module.scss'
 
 /**
  * Returns page layout, contained within state managers.
@@ -36,9 +36,9 @@ const Layout = ({ children, style }) => {
   const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
 
   return (
-      <div className={tType}>
+      <div className={`${tType} ${layout}`}>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main style={{ ...style }} className={layoutClass}>{children}</main>
+        <main style={{ ...style }} className={mainContent}>{children}</main>
         <Footer />
       </div>
   )
