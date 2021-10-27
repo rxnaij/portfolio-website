@@ -2,12 +2,14 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 }
 
 .mainContent {
     // min-height: 100%;
-    margin: 0 auto;
-    max-width: 1000px;
+    // margin: 0 auto;
+
+    // max-width: 1000px;
     padding: 32px 0;
     flex: 1;
 }

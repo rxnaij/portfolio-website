@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
+    align-items: flex-start;
     padding: 36px 16px;
 
     /* Spacing */
@@ -44,29 +44,31 @@
             border-bottom: 3px solid hsl(234, 22%, 90%);
         }
     }
+    p {
+        max-width: 500px;
+    }
 }
 
 /* Project attributes */
 .info {
-    list-style: none;
     padding: 0;
     padding-top: 8px;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    
     font-size: 0.8rem;
+    list-style: none;
     
     li {
         flex: 1;
-        padding-bottom: 8px;
+        padding-bottom: 16px;
         &:not(:last-of-type) {
             padding-right: 16px;
         }
         strong {
             opacity: 0.9;
-            // padding-bottom: 8px;
-            // border-bottom: 1px solid white;
             display: inline-block;
             margin-bottom: 8px;
         }

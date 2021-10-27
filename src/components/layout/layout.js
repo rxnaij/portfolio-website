@@ -36,11 +36,11 @@ const Layout = ({ children, style }) => {
   const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
 
   return (
-      <div className={`${tType} ${layout}`}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <main style={{ ...style }} className={mainContent}>{children}</main>
-        <Footer />
-      </div>
+    <div className={`${tType} ${layout}`}>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <main style={{ ...style }} className={mainContent}>{children}</main>
+      <Footer />
+    </div>
   )
 }
 

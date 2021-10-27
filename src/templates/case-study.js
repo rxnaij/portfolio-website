@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -17,51 +17,6 @@ import { generateSlugFromTitle } from '../components/toc/slugUtil'
 import { createHeadingNodesFromContentNodes } from '../components/toc/HeadingUtils'
 
 import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
-
-// Use GraphQL to source content from Contentful
-export const query = graphql`
-    query (
-        $slug: String
-    ) {
-        contentfulCaseStudy(
-            slug: {
-                eq: $slug
-            }
-        ) {
-            title
-            slug
-            description
-            coverPhoto {
-                title
-                gatsbyImageData(
-                    layout: FULL_WIDTH
-                )
-            }
-            projectType
-            startDate(formatString: "MMMM YYYY")
-            endDate(formatString: "MMMM YYYY")
-            role
-            projectLink
-            productImages {
-                id
-                description
-                gatsbyImageData
-            }
-            mainContent {
-                raw
-                references {
-                    ...on ContentfulAsset {
-                        __typename
-                        title
-                        description
-                        gatsbyImageData
-                        contentful_id
-                    }
-                }
-            }
-        }
-    }
-`
 
 /* Case study template */
 const CaseStudy = ({ data }) => {
@@ -84,7 +39,7 @@ const CaseStudy = ({ data }) => {
         `work/${slug}`
     )
 
-    // Set renderNode options
+    // Set renderNode options to handle article content styles
     const options = {
         renderNode: {
             // Special rendering options for images embedded in rich text
@@ -168,3 +123,48 @@ const CaseStudy = ({ data }) => {
 }
 
 export default CaseStudy
+
+// Use GraphQL to source content from Contentful
+export const query = graphql`
+    query (
+        $slug: String
+    ) {
+        contentfulCaseStudy(
+            slug: {
+                eq: $slug
+            }
+        ) {
+            title
+            slug
+            description
+            coverPhoto {
+                title
+                gatsbyImageData(
+                    layout: FULL_WIDTH
+                )
+            }
+            projectType
+            startDate(formatString: "MMMM YYYY")
+            endDate(formatString: "MMMM YYYY")
+            role
+            projectLink
+            productImages {
+                id
+                description
+                gatsbyImageData
+            }
+            mainContent {
+                raw
+                references {
+                    ...on ContentfulAsset {
+                        __typename
+                        title
+                        description
+                        gatsbyImageData
+                        contentful_id
+                    }
+                }
+            }
+        }
+    }
+`

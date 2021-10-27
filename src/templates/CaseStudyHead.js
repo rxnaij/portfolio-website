@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from '../components/button/Button'
 import { img, head, info, titleClass, darkHead, lightHead } from './CaseStudyHead.module.scss'
 import { useThemeState } from '../hooks/ThemeContext'
 
@@ -24,8 +25,8 @@ const CaseStudyHead = ({
             head, 
             useThemeState().theme === 'dark' ? darkHead : lightHead
         )}
-        >
-        <Container className="pb-5 pb-lg-0">
+    >
+        <Container fluid className="pb-5 pb-lg-0">
             <Row>
                 <Col lg={6}>
                     <div className={titleClass}>
@@ -34,27 +35,25 @@ const CaseStudyHead = ({
                         <p className="lead">{description}</p>
                         {
                             projectLink && 
-                            <p className="lead">
-                                <strong>Try it out:</strong> <a href={projectLink}>{projectLink}</a>
-                            </p>
+                            <a href={projectLink} className={`a-no-style`}>
+                                <Button>
+                                    Try it out &rarr;
+                                </Button>
+                            </a>
                         }
                         <ul className={info}>
                             <li>
                                 <strong>Date</strong>
-                                {/* <hr /> */}
                                 <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
                             </li>
                             <li>
                                 <strong>Project type</strong>
-                                {/* <hr /> */}
                                 <div>{ projectType }</div>
                             </li>
                             <li>
                                 <strong>Role</strong>
-                                {/* <hr /> */}
                                 <div>{ role }</div>
                             </li>
-                            {/* { projectLink && <li className="mb-2"><strong>View app website</strong><br /><a href={projectLink}>{projectLink}</a> </li> } */}
                         </ul>
                     </div>
                 </Col>
@@ -68,7 +67,6 @@ const CaseStudyHead = ({
                 </Col>
             </Row>
         </Container>
-        
     </section>
 )
 
