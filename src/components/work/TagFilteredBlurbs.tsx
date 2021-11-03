@@ -51,6 +51,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                         projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
                                         thumbnail={node.coverPhoto.gatsbyImageData}
                                         alt={node.coverPhoto.file.fileName}
+                                        protected={node.protected}
                                     />
                                 </li>
                             )
