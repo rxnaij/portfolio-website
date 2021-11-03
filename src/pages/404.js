@@ -4,7 +4,7 @@ import { Link }  from 'gatsby'
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
-import Container from 'react-boostrap/Container'
+import Container from 'react-bootstrap/Container'
 
 const NotFoundPage = () => (
   <Layout>
