@@ -77,6 +77,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                     <WorkBlurb 
                                         title={node.title}
                                         slug={node.slug}
+                                        protected={node.protected}
                                         description={node.description}
                                         projectType={node.projectType}
                                         projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}

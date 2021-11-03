@@ -15,21 +15,21 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const response = await graphql(`
         query {
             allContentfulCaseStudy {
-                edges {
-                    node {
-                        slug
-                    }
+                nodes {
+                    slug
+                    protected
                 }
             }
         }
     `)
 
-    response.data.allContentfulCaseStudy.edges.forEach(edge => {
+    response.data.allContentfulCaseStudy.nodes.forEach(node => {
+        const path = node.protected ? `/work/secret/${node.slug}` : `/work/${node.slug}`
         createPage({
             component: caseStudyTemplate,
-            path: `/work/${edge.node.slug}`,
+            path: path,
             context: {
-                slug: edge.node.slug
+                slug: node.slug,
             }
         })
     })

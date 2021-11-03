@@ -7,6 +7,8 @@ import { useThemeState } from '../../hooks/ThemeContext.ts'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
+import { Lock } from 'react-bootstrap-icons'
+
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
     const themeState = useThemeState()
@@ -17,7 +19,7 @@ const WorkBlurb = props => {
         boxShadow: `${highlightColor} ${hover? `10px 10px` : `0px 0px`} 0`
     })
     return(
-        <Link className={'a-no-style'} to={`/work/${props.slug}`}>
+        <Link className={'a-no-style'} to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}>
             <Row
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
@@ -43,6 +45,7 @@ const WorkBlurb = props => {
                         }}
                     >
                         {props.title}
+                        {props.protected && <Lock className="ml-2" color="hsl(168, 48%, 48%)" size="1.5rem" />}
                     </animated.h3>
                     <p className="text-muted mb-0">{props.projectDates}</p>
                     <p className="text-muted mb-3">{props.projectType}</p>

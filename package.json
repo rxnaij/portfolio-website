@@ -6,6 +6,7 @@
   "author": "Richard Lu",
   "dependencies": {
     "@contentful/rich-text-types": "^14.1.2",
+    "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
     "classnames": "^2.3.1",

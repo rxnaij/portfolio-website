@@ -45,6 +45,14 @@ module.exports = {
       options: {
         // offset: -200
       }
+    },
+    {
+      resolve: `@mkitio/gatsby-theme-password-protect`,
+      options: {
+        password: process.env.PORTFOLIO_PASSWORD,
+        pagePaths: [`/work/secret/`],
+        partialMatching: true,
+      }
     }
     // 'gatsby-plugin-scss-typescript'
     // this (optional) plugin enables Progressive Web App + Offline functionality

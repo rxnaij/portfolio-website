@@ -19,6 +19,7 @@ const WorkSection = ({ seeAllCTA, isOnHomePage }) => {
             nodes {
                 title
                 slug
+                protected
                 description
                 projectType
                 startDate(formatString: "MMMM YYYY")
