@@ -30,7 +30,7 @@ const CaseStudy = ({ data }) => {
         role, 
         projectLink,
         productImages,
-        mainContent
+        mainContent,
     } = data.contentfulCaseStudy
 
     // Options that assign special rendering to certain data from the case study content.
@@ -111,7 +111,7 @@ const CaseStudy = ({ data }) => {
                             rootSlug={slug} 
                             headings={createHeadingNodesFromContentNodes(
                                 JSON.parse(mainContent.raw).content, 
-                                `work/${slug}`
+                                data.contentfulCaseStudy.protected ? `work/secret/${slug}` : `work/${slug}`
                             )} 
                         />
                     </Col>
@@ -139,6 +139,7 @@ export const query = graphql`
         ) {
             title
             slug
+            protected
             description
             coverPhoto {
                 title
