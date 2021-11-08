@@ -4,7 +4,6 @@ const storage = typeof window !== "undefined" && window.sessionStorage
 const STORAGE_NAME = `gatsby-theme-password-protect`
 
 export const setSessionPassword = (passwordCandidate: string) => {
-    console.log("Just checking if this is shadowed")
     storage.setItem(STORAGE_NAME, passwordCandidate)
 }
 
