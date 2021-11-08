@@ -18,7 +18,6 @@ import { createHeadingNodesFromContentNodes } from '../components/toc/HeadingUti
 
 import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
-/* Case study template */
 const CaseStudy = ({ data }) => {
     const { 
         title, 
@@ -34,18 +33,15 @@ const CaseStudy = ({ data }) => {
         mainContent
     } = data.contentfulCaseStudy
 
-    const nestedHeadings = createHeadingNodesFromContentNodes(
-        JSON.parse(mainContent.raw).content, 
-        `work/${slug}`
-    )
-
-    // Set renderNode options to handle article content styles
+    // Options that assign special rendering to certain data from the case study content.
     const options = {
         renderNode: {
-            // Special rendering options for images embedded in rich text
+            // Render images as figures.
             [BLOCKS.EMBEDDED_ASSET]: node => {
+                // Retrieve image and metadata.
                 const { id } = node.data.target.sys
                 const { title, description, gatsbyImageData } = data.contentfulCaseStudy.mainContent.references.find(asset => asset.contentful_id === id)
+
                 return (
                     <figure className={`figure ${wide}`}>
                         <GatsbyImage 
@@ -57,6 +53,7 @@ const CaseStudy = ({ data }) => {
                     </figure>
                 ) 
             },
+            // Assign slugs to heading IDs, allowing headings to be linkable via anchor links.
             [BLOCKS.HEADING_2]: ({ content }) => 
                 <h2 id={generateSlugFromTitle(content[0].value)}>
                     {content[0].value}
@@ -72,7 +69,6 @@ const CaseStudy = ({ data }) => {
         }
     }
 
-    // Render CaseStudy component
     return (
         <Layout style={{ maxWidth: 'none', paddingTop: 0 }}>
             <SEO title={title} />
@@ -107,11 +103,17 @@ const CaseStudy = ({ data }) => {
                 <Row>
                     <Col xs={{ order: "last", span: 12 }} lg={{ order: "first", span: 8 }}>
                         <article className={content}>
-                            { mainContent && renderRichText(mainContent, options ) }
+                            { mainContent && renderRichText(mainContent, options) }
                         </article>
                     </Col>
                     <Col xs={{ order: "first", span: 12 }} lg={{ order: "last", span: 4 }}>
-                        <TableOfContents rootSlug={slug} headings={nestedHeadings} />
+                        <TableOfContents 
+                            rootSlug={slug} 
+                            headings={createHeadingNodesFromContentNodes(
+                                JSON.parse(mainContent.raw).content, 
+                                `work/${slug}`
+                            )} 
+                        />
                     </Col>
                 </Row>
                 <nav>
@@ -123,6 +125,7 @@ const CaseStudy = ({ data }) => {
 }
 
 export default CaseStudy
+
 
 // Use GraphQL to source content from Contentful
 export const query = graphql`
