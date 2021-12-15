@@ -33,6 +33,11 @@ const CaseStudy = ({ data }) => {
         mainContent,
     } = data.contentfulCaseStudy
 
+    const headings = createHeadingNodesFromContentNodes(
+        JSON.parse(mainContent.raw).content, 
+        data.contentfulCaseStudy.protected ? `work/secret/${slug}` : `work/${slug}`
+    )
+
     // Options that assign special rendering to certain data from the case study content.
     const options = {
         renderNode: {
@@ -107,13 +112,13 @@ const CaseStudy = ({ data }) => {
                         </article>
                     </Col>
                     <Col xs={{ order: "first", span: 12 }} lg={{ order: "last", span: 4 }}>
-                        <TableOfContents 
-                            rootSlug={slug} 
-                            headings={createHeadingNodesFromContentNodes(
-                                JSON.parse(mainContent.raw).content, 
-                                data.contentfulCaseStudy.protected ? `work/secret/${slug}` : `work/${slug}`
-                            )} 
-                        />
+                        {
+                            headings.length > 0 &&
+                            <TableOfContents 
+                                rootSlug={slug} 
+                                headings={headings} 
+                            />
+                        }
                     </Col>
                 </Row>
                 <nav>
