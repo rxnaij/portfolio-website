@@ -9,7 +9,7 @@
 
     overflow: auto;
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 
     cursor: pointer;
     user-select: none;
@@ -19,7 +19,7 @@
         padding-left: 0;
 
         & > li {
-            font-weight: 700;
+            font-weight: 600;
         }
     }
 
@@ -31,16 +31,22 @@
                 display: block;
                 padding: 0.5rem;
                 color: currentColor;
+                border-radius: 4px;
                 &:hover, &:focus {
-                    text-decoration: underline;
+                    color: hsl(208, 100%, 65%);
+                    text-decoration: none;
                     background-color: hsla(0, 0%, 100%, 0.158);
                 }
             }
             .activeLinkClass {
                 font-weight: 700;
-                text-decoration: underline;
+                text-decoration: none;
             }
             
+        }
+        
+        ul {
+            padding-left: 1.5rem;
         }
     }
 }
