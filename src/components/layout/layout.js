@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useThemeState } from "../../hooks/ThemeContext.ts"
 
 import Header from "../header/header"
+import Sidebar from '../navigation/Sidebar'
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
 import { layout, mainContent } from './Layout.module.scss'
@@ -37,9 +38,10 @@ const Layout = ({ children, style }) => {
 
   return (
     <div className={`${tType} ${layout}`}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+      <Sidebar />
       <main style={{ ...style }} className={mainContent}>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
