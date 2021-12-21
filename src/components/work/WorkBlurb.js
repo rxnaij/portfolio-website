@@ -4,9 +4,6 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { useSpring, animated } from 'react-spring'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-
 import { Lock } from 'react-bootstrap-icons'
 
 const WorkBlurb = props => {
@@ -20,38 +17,29 @@ const WorkBlurb = props => {
     })
     return(
         <Link className={'a-no-style'} to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}>
-            <Row
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
+            <animated.div 
+                style={{ 
+                    boxShadow,
+                    lineHeight: 0
+                }}
             >
-                <Col md={6} className="mb-3 mb-md-0">
-                    <animated.div 
-                        style={{ 
-                            boxShadow,
-                            lineHeight: 0
-                        }}
-                    >
-                        <GatsbyImage
-                            image={props.thumbnail}
-                            alt={props.alt}
-                        />
-                    </animated.div>
-                </Col>
-                <Col md={6} className="d-flex flex-column justify-content-center">
-                    <animated.h3
-                        className="align-self-start"
-                        style={{
-                            borderBottom,
-                        }}
-                    >
-                        {props.title}
-                        {props.protected && <Lock className="ml-2" color="hsl(168, 48%, 48%)" size="1.5rem" />}
-                    </animated.h3>
-                    <p className="text-muted mb-0">{props.projectDates}</p>
-                    <p className="text-muted mb-3">{props.projectType}</p>
-                    <p>{props.description}</p>
-                </Col>
-            </Row>
+                <GatsbyImage
+                    image={props.thumbnail}
+                    alt={props.alt}
+                />
+            </animated.div>
+            <animated.h3
+                className="align-self-start"
+                style={{
+                    borderBottom,
+                }}
+            >
+                {props.title}
+                {props.protected && <Lock className="ml-2" color="hsl(168, 48%, 48%)" size="1.5rem" />}
+            </animated.h3>
+            <p className="text-muted mb-0">{props.projectDates}</p>
+            <p className="text-muted mb-3">{props.projectType}</p>
+            <p>{props.description}</p>
         </Link>
     )
 }
