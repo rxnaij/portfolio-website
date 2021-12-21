@@ -10,7 +10,6 @@
 .mainContent {
     // max-width: 1000px;
     flex: 1;
-    padding: 24px 0;
 
     display: grid;
     grid-template-columns: [start] minmax(24px, 1fr) [main-start] 1000px [main-end] minmax(24px, 1fr) [end];

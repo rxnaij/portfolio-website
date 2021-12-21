@@ -1,15 +1,13 @@
 /* Page components - Case Study */
 
 .pageLayout {
-    & > section, article, aside {
-        margin-bottom: 48px;
-    }
+    gap: 48px;
 }
 
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
 .content {
-    max-width: 780px;
+    grid-column: main-start / main-end;
     & > *:first-child {
         margin-top: 0;
     }
@@ -37,7 +35,7 @@
         margin-bottom: 0.25rem;
     }
     .wide, .wide > * {
-        max-width: 100%;
+        grid-column: start / end;
     }
 
     figure {
@@ -52,20 +50,6 @@
             font-size: 0.8rem;
             font-style: italic;
             padding-top: 0.5rem;
-        }
-    }
-}
-
-/* Grid system for displaying content on large screens */
-@media screen and (min-width: 701px) {
-    .content {
-        display: grid;
-        grid-template-columns: [full-start] minmax(1em, 1fr) [main] minmax(min-content, 700px) [main-end] minmax(1em, 1fr) [full-end];
-        & > * {
-            grid-column: main / main-end;
-        }
-        .wide {
-            grid-column: full-start / full-end;
         }
     }
 }

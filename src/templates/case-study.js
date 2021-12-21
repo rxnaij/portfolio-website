@@ -7,9 +7,6 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import CaseStudyHead from './CaseStudyHead'
 import TableOfContents from '../components/toc/TableOfContents.tsx'
 import FeaturedImage from './FeaturedImage'
@@ -87,38 +84,36 @@ const CaseStudy = ({ data }) => {
                 role={role}
                 projectLink={projectLink}
             />
-            <Container className={pageLayout}>
-                {
-                    productImages &&
-                    <section>
-                        {
-                            productImages.map( (image, index) => {
-                                return (
-                                    <FeaturedImage
-                                        key={image.id}
-                                        image={image.gatsbyImageData}
-                                        description={image.description}
-                                        index={index}
-                                    />
-                                )
-                            } )
-                        }
-                    </section>
-                }
-                <article className={content}>
-                    { mainContent && renderRichText(mainContent, options) }
-                </article>
-                {
-                    headings.length > 0 &&
-                    <TableOfContents 
-                        rootSlug={slug} 
-                        headings={headings} 
-                    />
-                }
-                <nav>
-                    <Link to="/work">&larr; Back to portfolio</Link>
-                </nav>
-            </Container>
+            {
+                productImages &&
+                <section>
+                    {
+                        productImages.map( (image, index) => {
+                            return (
+                                <FeaturedImage
+                                    key={image.id}
+                                    image={image.gatsbyImageData}
+                                    description={image.description}
+                                    index={index}
+                                />
+                            )
+                        } )
+                    }
+                </section>
+            }
+            <article className={content}>
+                { mainContent && renderRichText(mainContent, options) }
+            </article>
+            {
+                headings.length > 0 &&
+                <TableOfContents 
+                    rootSlug={slug} 
+                    headings={headings} 
+                />
+            }
+            <nav>
+                <Link to="/work">&larr; Back to portfolio</Link>
+            </nav>
         </Layout>
     )
 }

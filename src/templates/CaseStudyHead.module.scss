@@ -1,5 +1,6 @@
 /* Title container */
 .head {
+    grid-column: start / end;
     margin-bottom: 60px;
     display: flex;
     flex-direction: row;
