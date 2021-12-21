@@ -38,7 +38,6 @@ const Layout = ({ children, style }) => {
 
   return (
     <div className={`${tType} ${layout}`}>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <Sidebar />
       <main style={{ ...style }} className={mainContent}>{children}</main>
       {/* <Footer /> */}

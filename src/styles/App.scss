@@ -17,17 +17,6 @@ body,
     height: 100%;
 }
 
-/* Header scroll fix */
-// section:before {
-//     content: "";
-//     display: block;
-//     height: 125px;
-//     margin-top: -100px;
-    
-//     visibility: hidden;
-//     pointer-events: none;
-// }
-
 /* Dark mode - in progress */
 .default-mode {
     background-color: $light;
@@ -94,6 +83,7 @@ label {
 
 /* Adds bottom-margin spacing to every page section */
 section, .page-section {
+    grid-column: main-start / main-end;
     padding: 48px 0;
 
     .section-title {
@@ -101,6 +91,10 @@ section, .page-section {
         margin-bottom: 0.5em;
         font-size: 3rem;
     }
+
+    // At smaller screens, turn into hamburger menu
+    // Fix menu button at top left
+    // Slide in from left
 }
 
 @media screen and (max-width: 768px) {

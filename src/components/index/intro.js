@@ -1,16 +1,10 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import Image from 'react-bootstrap/Image'
 import classNames from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
-// import Button from 'react-bootstrap/Button'
 import Button from '../button/Button'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from '../card/Card'
 
 import Flipcard from '../flipcard/Flipcard'
 import Icon from '../icon/Icon'
@@ -18,6 +12,18 @@ import Icon from '../icon/Icon'
 import githubIcon from '../../images/icons/github-32.png'
 import behanceIcon from '../../images/icons/behance-32.png'
 import profileImage from '../../images/cursor-face.jpg'
+
+const today = new Date().toString()
+const getSubtitle = () => {
+    const subtitles = [
+        'enjoy your stay...',
+        'take your time...',
+        'happy web-surfing...',
+        `how's it going?`,
+        `take it easy...`
+    ]
+    return subtitles[Math.floor(Math.random(0, subtitles.length - 1))]
+}
 
 const IntroSection = () => {
     const data = useStaticQuery(graphql`
@@ -38,72 +44,53 @@ const IntroSection = () => {
 
     return(
         <section id="intro">
-            <Container>
-                <Row className="d-flex">
-                    <Col xs={12} md={6} className="mb-5 mb-md-0">
-                        <h1 className="display-4 font-weight-bold">Hey!<br />I'm Richard.</h1>
-                        <div>
-                            <p>I'm a <strong>product designer</strong> and <strong>front-end developer</strong> on a quest to create compassionate technology.</p> 
-                            <p>My specialty lies at the intersection of user experience design, empathetic design, and web development.</p>
-                            <p>I'm also interested in the relationship between tech and social justice, well-being, and ethics. In college, I was a co-director for the <a href="https://nycaasc.com">NYC Asian American Student Conference</a>.</p>
-                            <div>
-                                <Button className="mr-3">
-                                    <AnchorLink to="#contact" className="a-no-style">
-                                        Get in touch!
-                                    </AnchorLink>
-                                </Button>
-                                <Button variant="outline">
-                                    <a href={data.contentfulAsset.file.url} className="a-no-style">View résumé</a>
-                                </Button>
-                            </div>
-                            
-                        </div>
-                    </Col>
-                    <Col xs={12} md={1} lg={2}></Col>
-                    <Col xs={12} md={5} lg={4} className="mb-4 mb-sm-0 ml-auto">
-                        <Card as="aside" bg={theme === 'dark' ? 'dark' : 'white'} className="px-4 py-4 d-flex align-items-start bg-light">
-                            <Flipcard
-                                className="align-self-center"
-                                front={
-                                    <Image
-                                        className="mw-100"
-                                        src={profileImage}
-                                        roundedCircle 
-                                    />
-                                }
-                                back={
-                                    <Image
-                                        className="mw-100"
-                                        src={profileImage}
-                                        roundedCircle 
-                                    />
-                                }
-                            />
-                            <div>
-                                <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Across the internet</h2>
-                                <ul className="list-unstyled">
-                                    <li className="">
-                                        <a href="https://github.com/rxnaij" className="secondary-link">
-                                            <Icon src={githubIcon} alt="Richard's GitHub profile" />
-                                            GitHub
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://be.net/richardbludesign" className="secondary-link">
-                                            <Icon src={behanceIcon} alt="Richard's Behance profile" />
-                                            Behance
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h2 className={classNames("small-header", theme === 'dark' && "dark")}>Current Status</h2>
-                                <p>I'm open to full-time and freelance opportunities!</p>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+            <h1>Hey! Welcome to richardblu.com.</h1>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                <p>{getSubtitle()}</p>
+                <p>today's date: { today }</p>
+            </div>
+            <div>
+                <p>
+                    Hey, I'm Richard! I'm a product designer, developer, and human being.
+                </p>
+                <p>
+                    As a designer, I'm on a quest to create technology that's compassionate, inclusive, delightful, and grounded in real human needs. After all, the last thing we need is more tech-related stress, right?
+                </p>
+                <p>
+                    Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
+                </p>
+                <div>
+                    <Button>
+                        <AnchorLink to="#contact">
+                            Get in touch!
+                        </AnchorLink>
+                    </Button>
+                    <Button variant="outline">
+                        <a href={data.contentfulAsset.file.url}>View résumé</a>
+                    </Button>
+                </div>
+            </div>
+            <div>
+                <h2>Across the internet</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/rxnaij" className="secondary-link">
+                            <Icon src={githubIcon} alt="GitHub logo" />
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://be.net/richardbludesign" className="secondary-link">
+                            <Icon src={behanceIcon} alt="Behance logo" />
+                            Behance
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2>Current Status</h2>
+                <p>I'm open to full-time and freelance opportunities!</p>
+            </div>
         </section>  
     )
 }
