@@ -40,7 +40,7 @@ const WorkSection = ({ seeAllCTA, isOnHomePage }) => {
 
     return(
         <section id="work">
-            <h1 className="section-title">Work</h1>
+            <h2 className="section-title">Work</h2>
             <TagFilteredBlurbs 
                 nodes={data.allContentfulCaseStudy.nodes}
                 isOnHomePage={isOnHomePage}

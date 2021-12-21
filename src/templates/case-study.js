@@ -75,7 +75,7 @@ const CaseStudy = ({ data }) => {
     }
 
     return (
-        <Layout style={{ maxWidth: 'none', paddingTop: 0 }}>
+        <Layout>
             <SEO title={title} />
             <CaseStudyHead 
                 title={title}
@@ -105,22 +105,16 @@ const CaseStudy = ({ data }) => {
                         }
                     </section>
                 }
-                <Row>
-                    <Col xs={{ order: "last", span: 12 }} lg={{ order: "first", span: 8 }}>
-                        <article className={content}>
-                            { mainContent && renderRichText(mainContent, options) }
-                        </article>
-                    </Col>
-                    <Col xs={{ order: "first", span: 12 }} lg={{ order: "last", span: 4 }}>
-                        {
-                            headings.length > 0 &&
-                            <TableOfContents 
-                                rootSlug={slug} 
-                                headings={headings} 
-                            />
-                        }
-                    </Col>
-                </Row>
+                <article className={content}>
+                    { mainContent && renderRichText(mainContent, options) }
+                </article>
+                {
+                    headings.length > 0 &&
+                    <TableOfContents 
+                        rootSlug={slug} 
+                        headings={headings} 
+                    />
+                }
                 <nav>
                     <Link to="/work">&larr; Back to portfolio</Link>
                 </nav>

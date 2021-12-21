@@ -47,7 +47,7 @@ const IntroSection = () => {
             <h1>Hey! Welcome to richardblu.com.</h1>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <p>{getSubtitle()}</p>
-                <p>today's date: { today }</p>
+                <p>today's date: December 12, 2021</p>
             </div>
             <div>
                 <p>

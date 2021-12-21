@@ -26,47 +26,39 @@ const CaseStudyHead = ({
             useThemeState().theme === 'dark' ? darkHead : lightHead
         )}
     >
-        <Container fluid className="pb-5 pb-lg-0">
-            <Row>
-                <Col lg={6}>
-                    <div className={titleClass}>
-                        <nav><Link to="/work"><small>&larr; Back to portfolio</small></Link></nav>
-                        <h1>{title}</h1>  
-                        <p className="lead">{description}</p>
-                        {
-                            projectLink && 
-                            <a href={projectLink} className={`a-no-style`}>
-                                <Button>
-                                    Try it out &rarr;
-                                </Button>
-                            </a>
-                        }
-                        <ul className={info}>
-                            <li>
-                                <strong>Date</strong>
-                                <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
-                            </li>
-                            <li>
-                                <strong>Project type</strong>
-                                <div>{ projectType }</div>
-                            </li>
-                            <li>
-                                <strong>Role</strong>
-                                <div>{ role }</div>
-                            </li>
-                        </ul>
-                    </div>
-                </Col>
-                <Col lg={6} className="d-flex flex-column justify-content-center">
-                    <GatsbyImage 
-                        image={coverPhoto.gatsbyImageData} 
-                        alt={coverPhoto.title} 
-                        className={img}
-                        loading="eager" 
-                    />
-                </Col>
-            </Row>
-        </Container>
+        <div className={titleClass}>
+            <nav><Link to="/work"><small>&larr; Back to portfolio</small></Link></nav>
+            <h1>{title}</h1>  
+            <p className="lead">{description}</p>
+            {
+                projectLink && 
+                <a href={projectLink} className={`a-no-style`}>
+                    <Button>
+                        Try it out &rarr;
+                    </Button>
+                </a>
+            }
+            <ul className={info}>
+                <li>
+                    <strong>Date</strong>
+                    <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
+                </li>
+                <li>
+                    <strong>Project type</strong>
+                    <div>{ projectType }</div>
+                </li>
+                <li>
+                    <strong>Role</strong>
+                    <div>{ role }</div>
+                </li>
+            </ul>
+        </div>
+        <GatsbyImage 
+            image={coverPhoto.gatsbyImageData} 
+            alt={coverPhoto.title} 
+            className={img}
+            loading="eager" 
+        />
     </section>
 )
 
