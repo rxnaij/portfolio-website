@@ -60,13 +60,19 @@ const IntroSection = () => {
                     Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
                 </p>
                 <Stack gap="base">
-                    <Button>
-                        <AnchorLink to="#contact">
-                            Get in touch!
-                        </AnchorLink>
-                    </Button>
-                    <Button variant="outline">
-                        <a href={data.contentfulAsset.file.url}>View résumé</a>
+                    <Button
+                        renderContainer={(props) => (
+                            <AnchorLink to="/contact" {...props}>
+                                Get in touch!
+                            </AnchorLink>
+                        )}
+                    />
+                    <Button 
+                        variant="outline"
+                        renderContainer={(props) => (
+                            <a href={data.contentfulAsset.file.url} {...props}>View résumé</a>
+                        )}
+                    >
                     </Button>
                 </Stack>
             </div>

@@ -95,7 +95,6 @@ const NavLink = ({ name, href, icon }: NavLinkProps) => {
 const Overlay = ({ handleClick }) => {
     return(
         <div className={overlay} onClick={handleClick}>
-
         </div>
     )
 }
