@@ -5,6 +5,7 @@
     
     padding: 100px 40px;
 
+    box-shadow: 4px 0px 16px hsla(210, 11%, 25%, 0.5);
     background-color: hsl(210, 11%, 25%);
 
     display: block;
@@ -50,7 +51,6 @@
 }
 
 .nav {
-    box-shadow: 0px 0px 4px hsla(168, 48%, 48%, 0.5);
     padding: 0;
     &>*:not(:last-child) {
         margin-bottom: 4px;

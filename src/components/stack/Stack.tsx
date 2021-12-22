@@ -1,4 +1,5 @@
 import React from 'react'
+import { stack } from './Stack.module.scss'
 
 type Size = 'none' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl'
 
@@ -16,6 +17,8 @@ const sizes = {
 interface StackProps {
     children: React.ReactNode
     padding?: Size
+    paddingX?: Size
+    paddingY?: Size
     gap?: Size
     flexDirection?: 'row' | 'column'
     justifyContent?: string
@@ -24,7 +27,9 @@ interface StackProps {
 
 const Stack = ({ 
     children, 
-    padding="none", 
+    padding="none",
+    paddingX="none",
+    paddingY="none",
     gap="none", 
     flexDirection='row', 
     justifyContent='flex-start', 
@@ -32,14 +37,17 @@ const Stack = ({
 }: StackProps) => {
     return (
         <div
+            className={stack}
             style={{
-                display: 'flex',
                 padding: sizes[padding],
+                paddingLeft: sizes[paddingX],
+                paddingRight: sizes[paddingX],
+                paddingTop: sizes[paddingY],
+                paddingBottom: sizes[paddingY],
                 gap: sizes[gap],
                 flexDirection,
                 justifyContent,
                 alignItems,
-                flexWrap: 'wrap'
             }}
         >
             { children }

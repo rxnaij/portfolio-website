@@ -4,6 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { useSpring, animated } from 'react-spring'
 import cn from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
+import Stack from '../stack/Stack'
 
 import { Lock } from 'react-bootstrap-icons'
 
@@ -42,8 +43,8 @@ const WorkBlurb = props => {
                 {props.title}
                 {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
             </animated.h3>
-            <p className="">{props.projectDates}</p>
-            <p className="">{props.projectType}</p>
+            <p>{props.projectDates}</p>
+            <p>{props.projectType}</p>
             <p>{props.description}</p>
         </Link>
     )

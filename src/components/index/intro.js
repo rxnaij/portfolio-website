@@ -44,38 +44,42 @@ const IntroSection = () => {
 
     return(
         <section id="intro">
-            <h1>Hey! Welcome to richardblu.com.</h1>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <p>{getSubtitle()}</p>
-                <p>today's date: December 12, 2021</p>
-            </div>
-            <div>
-                <p>
-                    Hey, I'm Richard! I'm a product designer, developer, and human being.
-                </p>
-                <p>
-                    As a designer, I'm on a quest to create technology that's compassionate, inclusive, delightful, and grounded in real human needs. After all, the last thing we need is more tech-related stress, right?
-                </p>
-                <p>
-                    Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
-                </p>
-                <Stack gap="base">
-                    <Button
-                        renderContainer={(props) => (
-                            <AnchorLink to="/contact" {...props}>
-                                Get in touch!
-                            </AnchorLink>
-                        )}
-                    />
-                    <Button 
-                        variant="outline"
-                        renderContainer={(props) => (
-                            <a href={data.contentfulAsset.file.url} {...props}>View résumé</a>
-                        )}
-                    >
-                    </Button>
-                </Stack>
-            </div>
+            <Stack gap="lg">
+                <div>
+                    <h1>Hey! Welcome to richardblu.com.</h1>
+                    <Stack justifyContent="space-between">
+                        <p><em>{getSubtitle()}</em></p>
+                        <p><em>today's date: December 12, 2021</em></p>
+                    </Stack>
+                </div>
+                <div>
+                    <p>
+                        Hey, I'm Richard! I'm a product designer, developer, and human being.
+                    </p>
+                    <p>
+                        As a designer, I'm on a quest to create technology that's compassionate, inclusive, delightful, and grounded in real human needs. After all, the last thing we need is more tech-related stress, right?
+                    </p>
+                    <p>
+                        Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
+                    </p>
+                    <Stack gap="base" paddingY="base">
+                        <Button
+                            renderContainer={(props) => (
+                                <AnchorLink to="/contact" {...props}>
+                                    Get in touch!
+                                </AnchorLink>
+                            )}
+                        />
+                        <Button 
+                            variant="outline"
+                            renderContainer={(props) => (
+                                <a href={data.contentfulAsset.file.url} {...props}>View résumé</a>
+                            )}
+                        >
+                        </Button>
+                    </Stack>
+                </div>
+            </Stack>
             <div>
                 <h2>Across the internet</h2>
                 <ul>
