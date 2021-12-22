@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { sidebar, nav, navLink, active } from './Sidebar.module.scss'
+import { sidebar, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
 import cn from 'classnames'
 import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText } from 'react-bootstrap-icons'
 
@@ -39,23 +39,38 @@ const navigation: Array<NavLink> = [
 ]
 
 const Sidebar = () => {
+    const [isOpen, setOpen] = useState(false)
     return (
-        <div className={sidebar}>
-            <div style={{ marginBottom: '24px' }}>
-                <strong>
-                    Richard Lu
-                </strong>
+        <> 
+            {isOpen && <Overlay handleClick={() => setOpen(false)} />}
+            <button 
+                onClick={() => setOpen(!isOpen)}
+                className={cn(
+                    openButton
+                )}
+            >
+                Open Menu
+            </button>
+            <div className={cn(
+                sidebar,
+                !isOpen && sidebarIsClosed
+            )}>
+                <div style={{ marginBottom: '24px' }}>
+                    <strong>
+                        Richard Lu
+                    </strong>
+                </div>
+                <ul className={nav}>
+                    {
+                        navigation.map(item => {
+                            return (
+                                <NavLink {...item} />
+                            )
+                        })
+                    }
+                </ul>
             </div>
-            <ul className={nav}>
-                {
-                    navigation.map(item => {
-                        return (
-                            <NavLink {...item} />
-                        )
-                    })
-                }
-            </ul>
-        </div>
+        </>
     )
 }
 
@@ -75,3 +90,12 @@ const NavLink = ({ name, href, icon }: NavLinkProps) => {
     )
 }
 
+
+
+const Overlay = ({ handleClick }) => {
+    return(
+        <div className={overlay} onClick={handleClick}>
+
+        </div>
+    )
+}

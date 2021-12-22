@@ -1,6 +1,7 @@
-@import "./custom.scss";
+@import "./reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "./typography.scss";
+@import "./colors.scss";
 
 /* ==================================================================== */
 /* Universal styles */
@@ -8,14 +9,6 @@
 /* Activates smooth scrolling for anchor links */
 html, body {
     scroll-behavior: smooth;
-}
-
-/* Enables full height pages */
-html,
-body,
-#___gatsby,
-#gatsby-focus-wrapper {
-    height: 100%;
 }
 
 /* Dark mode - in progress */
@@ -47,36 +40,7 @@ body,
     color: hsl(204, 24%, 96%);
 }
 
-/* ==================================================================== */
-/* Typography */
-blockquote {
-    border-left: 3px solid gray;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 
-    font-size: 1.15rem;
-    font-style: italic;
-
-    p {
-        margin-bottom: 0 !important;
-    }
-}
-
-.small-header {
-    margin-bottom: 0.6rem;
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: $gray-600;
-    text-transform: uppercase;
-    &.dark {
-        color: $gray-400;
-    }
-}
-
-label {
-    font-weight: 500;
-}
 
 
 /* ==================================================================== */
@@ -139,6 +103,6 @@ section, .page-section {
 }
 
 .nav-link--is-active {
-    color: $teal !important;
-    border-bottom: 3px solid $teal;
+    // color: $teal !important;
+    // border-bottom: 3px solid $teal;
 }

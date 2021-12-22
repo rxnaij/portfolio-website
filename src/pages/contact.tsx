@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../components/layout/layout'
 import Button from '../components/button/Button'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Form from '../components/form/Form'
 
 const ContactPage = () => {

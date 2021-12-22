@@ -12,5 +12,5 @@
     flex: 1;
 
     display: grid;
-    grid-template-columns: [start] minmax(24px, 1fr) [main-start] 1000px [main-end] minmax(24px, 1fr) [end];
+    grid-template-columns: [start] minmax(24px, 1fr) [main-start] minmax(min-content, 1000px) [main-end] minmax(24px, 1fr) [end];
 }

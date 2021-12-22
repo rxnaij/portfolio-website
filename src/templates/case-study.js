@@ -85,6 +85,13 @@ const CaseStudy = ({ data }) => {
                 projectLink={projectLink}
             />
             {
+                headings.length > 0 &&
+                <TableOfContents 
+                    rootSlug={slug} 
+                    headings={headings} 
+                />
+            }
+            {
                 productImages &&
                 <section>
                     {
@@ -104,16 +111,9 @@ const CaseStudy = ({ data }) => {
             <article className={content}>
                 { mainContent && renderRichText(mainContent, options) }
             </article>
-            {
-                headings.length > 0 &&
-                <TableOfContents 
-                    rootSlug={slug} 
-                    headings={headings} 
-                />
-            }
-            <nav>
+            <section>
                 <Link to="/work">&larr; Back to portfolio</Link>
-            </nav>
+            </section>
         </Layout>
     )
 }
