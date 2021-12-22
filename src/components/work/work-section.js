@@ -40,7 +40,8 @@ const WorkSection = ({ isOnHomePage }) => {
 
     return(
         <section id="work">
-            <h2 className="section-title">Work</h2>
+            <h2 className="section-title">Featured Work</h2>
+            <p>Check out the projects I've worked on!</p>
             <TagFilteredBlurbs 
                 nodes={data.allContentfulCaseStudy.nodes}
                 isOnHomePage={isOnHomePage}

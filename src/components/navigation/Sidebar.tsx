@@ -4,6 +4,8 @@ import { sidebar, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButt
 import cn from 'classnames'
 import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText } from 'react-bootstrap-icons'
 
+import Stack from '../stack/Stack'
+
 export type NavLink = {
     name: string
     href: string
@@ -55,7 +57,7 @@ const Sidebar = () => {
                 sidebar,
                 !isOpen && sidebarIsClosed
             )}>
-                <div style={{ marginBottom: '24px' }}>
+                <div>
                     <strong>
                         Richard Lu
                     </strong>
@@ -82,7 +84,7 @@ const NavLink = ({ name, href, icon }: NavLinkProps) => {
     const Icon = icon
     return (
         <li className={navLink}>
-            <Link to={href} activeClassName={active} partiallyActive>
+            <Link to={href} activeClassName={active}>
                 <Icon width={20} height={20}/>
                 { name }
             </Link>
