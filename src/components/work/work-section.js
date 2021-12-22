@@ -4,7 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import Button from '../button/Button'
 import TagFilteredBlurbs from './TagFilteredBlurbs'
 
-const WorkSection = ({ seeAllCTA, isOnHomePage }) => {
+const WorkSection = ({ isOnHomePage }) => {
 
     const data = useStaticQuery(graphql`
     query {
@@ -47,10 +47,11 @@ const WorkSection = ({ seeAllCTA, isOnHomePage }) => {
             />
             {
                 isOnHomePage && 
-                <Button className="d-block mt-3 ml-auto">
-                    <Link to="/work" className="a-no-style">
+                <Button renderContainer={(props) => (
+                    <Link to="/work" {...props}>
                         See all work &rarr;
                     </Link>
+                )}>
                 </Button>
             }
         </section>

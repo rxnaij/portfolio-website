@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useSpring, animated } from 'react-spring'
+import cn from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
 import { Lock } from 'react-bootstrap-icons'
+
+import { blurb } from './WorkSection.module.scss'
 
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
@@ -16,7 +19,10 @@ const WorkBlurb = props => {
         boxShadow: `${highlightColor} ${hover? `10px 10px` : `0px 0px`} 0`
     })
     return(
-        <Link className={'a-no-style'} to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}>
+        <Link 
+            className={`${blurb} a-no-style`} 
+            to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
+        >
             <animated.div 
                 style={{ 
                     boxShadow,
@@ -29,16 +35,15 @@ const WorkBlurb = props => {
                 />
             </animated.div>
             <animated.h3
-                className="align-self-start"
                 style={{
                     borderBottom,
                 }}
             >
                 {props.title}
-                {props.protected && <Lock className="ml-2" color="hsl(168, 48%, 48%)" size="1.5rem" />}
+                {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
             </animated.h3>
-            <p className="text-muted mb-0">{props.projectDates}</p>
-            <p className="text-muted mb-3">{props.projectType}</p>
+            <p className="">{props.projectDates}</p>
+            <p className="">{props.projectType}</p>
             <p>{props.description}</p>
         </Link>
     )

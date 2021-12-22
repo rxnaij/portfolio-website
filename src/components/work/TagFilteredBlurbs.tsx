@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Tag from './Tag'
 import WorkBlurb from './WorkBlurb'
-import { stack, inlineRow } from './WorkSection.module.scss'
+import Stack from '../stack/Stack'
+import { inlineRow } from './WorkSection.module.scss'
 import { ProjectNode, getTagsOfNode, getAllUniqueTags } from './tagUtilities'
 
 interface TagFilteredBlurbsProps {
@@ -15,7 +16,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
     return (
         <section>
             {
-                !isOnHomePage && <div className={inlineRow}>
+                !isOnHomePage && <Stack gap='base'>
                     {
                         tags?.map(tag => 
                             <Tag 
@@ -34,26 +35,25 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                         )
                     }
                     {filter.length > 0 && <Tag reset name="Clear filter" handleClick={() => setFilter([])}/>}
-                </div>
+                </Stack>
             }
-            <ul className={`list-unstyled ${stack}`}>
+            <Stack gap="2xl">
                 {
                     isOnHomePage
                         ? nodes
                             .slice(0, 3)
                             .map((node: any) => 
-                                <li key={node.title}>
-                                    <WorkBlurb 
-                                        title={node.title}
-                                        slug={node.slug}
-                                        description={node.description}
-                                        projectType={node.projectType}
-                                        projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
-                                        thumbnail={node.coverPhoto.gatsbyImageData}
-                                        alt={node.coverPhoto.file.fileName}
-                                        protected={node.protected}
-                                    />
-                                </li>
+                                <WorkBlurb 
+                                    key={node.title}
+                                    title={node.title}
+                                    slug={node.slug}
+                                    description={node.description}
+                                    projectType={node.projectType}
+                                    projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
+                                    thumbnail={node.coverPhoto.gatsbyImageData}
+                                    alt={node.coverPhoto.file.fileName}
+                                    protected={node.protected}
+                                />
                             )
                         : nodes
                             .filter((node) => {       // Filter nodes by tag
@@ -74,21 +74,20 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                 }
                             })
                             .map((node: any) => 
-                                <li key={node.title}>
-                                    <WorkBlurb 
-                                        title={node.title}
-                                        slug={node.slug}
-                                        protected={node.protected}
-                                        description={node.description}
-                                        projectType={node.projectType}
-                                        projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
-                                        thumbnail={node.coverPhoto.gatsbyImageData}
-                                        alt={node.coverPhoto.file.fileName}
-                                    />
-                                </li>
+                                <WorkBlurb 
+                                    key={node.title}
+                                    title={node.title}
+                                    slug={node.slug}
+                                    protected={node.protected}
+                                    description={node.description}
+                                    projectType={node.projectType}
+                                    projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
+                                    thumbnail={node.coverPhoto.gatsbyImageData}
+                                    alt={node.coverPhoto.file.fileName}
+                                />
                             )
                 }
-            </ul>
+            </Stack>
         </section>
     )
 }

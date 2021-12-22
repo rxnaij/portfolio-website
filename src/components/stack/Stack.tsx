@@ -38,7 +38,8 @@ const Stack = ({
                 gap: sizes[gap],
                 flexDirection,
                 justifyContent,
-                alignItems
+                alignItems,
+                flexWrap: 'wrap'
             }}
         >
             { children }

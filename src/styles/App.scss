@@ -72,15 +72,16 @@ section, .page-section {
 /* Navigation */
 
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
-.a-no-style {
+.a-no-style, .a-no-style:hover {
     color: inherit !important;
     text-decoration: none;
     transition: none;
+}
 
-    &:hover {
-        @extend .a-no-style;
-        color: inherit;
-    }
+@mixin a-unstyled {
+    color: inherit !important;
+    text-decoration: none;
+    transition: none;
 }
 
 .secondary-link {
