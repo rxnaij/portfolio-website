@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { sidebar, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
 import cn from 'classnames'
-import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText } from 'react-bootstrap-icons'
+import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, X } from 'react-bootstrap-icons'
 
 import Stack from '../stack/Stack'
 
@@ -51,7 +51,7 @@ const Sidebar = () => {
                     openButton
                 )}
             >
-                Open Menu
+                {isOpen ? <X width={24} height={24} /> : <List width={24} height={24}/>}
             </button>
             <div className={cn(
                 sidebar,

@@ -8,7 +8,7 @@ import Stack from '../stack/Stack'
 
 import { Lock } from 'react-bootstrap-icons'
 
-import { blurb } from './WorkSection.module.scss'
+import { blurb, details } from './WorkSection.module.scss'
 
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
@@ -24,28 +24,32 @@ const WorkBlurb = props => {
             className={`${blurb} a-no-style`} 
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
         >
-            <animated.div 
-                style={{ 
-                    boxShadow,
-                    lineHeight: 0
-                }}
-            >
-                <GatsbyImage
-                    image={props.thumbnail}
-                    alt={props.alt}
-                />
-            </animated.div>
-            <animated.h3
-                style={{
-                    borderBottom,
-                }}
-            >
-                {props.title}
-                {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
-            </animated.h3>
-            <p>{props.projectDates}</p>
-            <p>{props.projectType}</p>
-            <p>{props.description}</p>
+            <Stack gap="sm">
+                <animated.div 
+                    style={{ 
+                        boxShadow,
+                        lineHeight: 0
+                    }}
+                >
+                    <GatsbyImage
+                        image={props.thumbnail}
+                        alt={props.alt}
+                    />
+                </animated.div>
+                <animated.h3
+                    style={{
+                        borderBottom,
+                    }}
+                >
+                    {props.title}
+                    {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
+                </animated.h3>
+                <div className={details}>
+                    <p>{props.projectDates}</p>
+                    <p>{props.projectType}</p>
+                </div>
+                <p>{props.description}</p>
+            </Stack>
         </Link>
     )
 }
