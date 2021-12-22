@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 
 import Button from '../button/Button'
-
+import Stack from '../stack/Stack'
 import Flipcard from '../flipcard/Flipcard'
 import Icon from '../icon/Icon'
 
@@ -59,7 +59,7 @@ const IntroSection = () => {
                 <p>
                     Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
                 </p>
-                <div>
+                <Stack gap="base">
                     <Button>
                         <AnchorLink to="#contact">
                             Get in touch!
@@ -68,7 +68,7 @@ const IntroSection = () => {
                     <Button variant="outline">
                         <a href={data.contentfulAsset.file.url}>View résumé</a>
                     </Button>
-                </div>
+                </Stack>
             </div>
             <div>
                 <h2>Across the internet</h2>
