@@ -62,10 +62,13 @@ section, .page-section {
     // Slide in from left
 }
 
-@media screen and (max-width: 768px) {
-    section:first-of-type {
-        padding-top: 0;
-    }
+section:first-of-type {
+    padding-top: 0;
+}
+
+// Solution for long text
+.longform-text p {
+    max-width: 600px;
 }
 
 /* ==================================================================== */
@@ -106,4 +109,9 @@ section, .page-section {
 .nav-link--is-active {
     // color: $teal !important;
     // border-bottom: 3px solid $teal;
+}
+
+.unstyled-list {
+    list-style: none;
+    padding: 0;
 }

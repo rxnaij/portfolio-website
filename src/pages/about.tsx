@@ -4,7 +4,7 @@ import Layout from '../components/layout/layout'
 const AboutPage = () => {
     return (
         <Layout>
-            <section>
+            <section className="longform-text">
                 <h1>About me</h1>
                 <p>
                     Hey, I'm Richard!

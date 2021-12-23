@@ -3,7 +3,7 @@ import * as React from 'react'
 import cn from 'classnames'
 
 import { useThemeState } from '../../hooks/ThemeContext'
-import { buttonClass, outline } from './Button.module.scss'
+import { buttonClass, outline, secondary } from './Button.module.scss'
 
 interface ButtonInjectedProps {
     className: string
@@ -38,7 +38,9 @@ const Button = ({
             className,
 
             [outline]: variant === 'outline',
-            [theme]: variant === 'outline'
+            [theme]: variant === 'outline',
+            
+            [secondary]: variant === 'secondary'
         }),
         children
     })

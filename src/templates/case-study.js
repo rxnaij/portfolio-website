@@ -108,7 +108,7 @@ const CaseStudy = ({ data }) => {
                     }
                 </section>
             }
-            <article className={content}>
+            <article className={`${content}`}>
                 { mainContent && renderRichText(mainContent, options) }
             </article>
             <section>
