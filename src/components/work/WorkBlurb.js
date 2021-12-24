@@ -24,7 +24,7 @@ const WorkBlurb = props => {
             className={`${blurb} a-no-style`} 
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
         >
-            <Stack gap="sm">
+            <Stack gap="lg" flexDirection="column">
                 <animated.div 
                     style={{ 
                         boxShadow,
@@ -36,19 +36,21 @@ const WorkBlurb = props => {
                         alt={props.alt}
                     />
                 </animated.div>
-                <animated.h3
-                    style={{
-                        borderBottom,
-                    }}
-                >
-                    {props.title}
-                    {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
-                </animated.h3>
-                <div className={details}>
-                    <p>{props.projectDates}</p>
-                    <p>{props.projectType}</p>
-                </div>
-                <p>{props.description}</p>
+                <Stack gap="base" flexDirection="column">
+                    <animated.h3
+                        style={{
+                            borderBottom,
+                        }}
+                        >
+                            {props.title}
+                        {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
+                    </animated.h3>
+                    <div className={details}>
+                        <p>{props.projectDates}</p>
+                        <p>{props.projectType}</p>
+                        <p>{props.description}</p>
+                    </div>
+                </Stack>
             </Stack>
         </Link>
     )

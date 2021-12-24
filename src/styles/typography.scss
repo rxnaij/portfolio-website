@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 html, body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -16,24 +18,29 @@ h1 {
     font-size: var(--text-3xl);
     font-weight: 700;
     line-height: 1.2;
+    color: $header-text-light;
 }
 h2 {
     font-size: var(--text-2xl);
     font-weight: 700;
     line-height: 1.2;
+    color: $header-text-light;
 }
 h3 {
     font-size: var(--text-lg);
     font-weight: 400;
     line-height: 1.2;
+    color: $header-text-light;
 }
 h4 {
     font-size: var(--text-base);
     font-weight: 400;
     line-height: 1.2;
+    color: $header-text-light;
 }
 h5 {
 
+    color: $header-text-light;
 }
 
 /* Mobile & tablet — screen size > 720px */
@@ -42,27 +49,33 @@ h5 {
     h1 {
         font-size: var(--text-4xl);
         font-weight: 700;
+        color: $header-text-light;
     }
     h2 {
         font-size: var(--text-3xl);
         font-weight: 700;
+        color: $header-text-light;
     }
     h3 {
         font-size: var(--text-2xl);
         font-weight: 400;
+        color: $header-text-light;
     }
     h4 {
         font-size: var(--text-lg);
         font-weight: 400;
+        color: $header-text-light;
     }
     h5 {
     
+        color: $header-text-light;
     }
 }
 
 p {
     font-size: var(--text-base);
     line-height: 1.75;
+    color: $body-text-light;
 
     // Paragraph spacing
     + p {

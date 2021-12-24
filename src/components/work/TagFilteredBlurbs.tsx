@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Tag from './Tag'
 import WorkBlurb from './WorkBlurb'
 import Stack from '../stack/Stack'
-import { inlineRow } from './WorkSection.module.scss'
+import { workSection } from './WorkSection.module.scss'
 import { ProjectNode, getTagsOfNode, getAllUniqueTags } from './tagUtilities'
 
 interface TagFilteredBlurbsProps {
@@ -37,7 +37,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                     {filter.length > 0 && <Tag reset name="Clear filter" handleClick={() => setFilter([])}/>}
                 </Stack>
             }
-            <Stack gap="2xl">
+            <div className={workSection}>
                 {
                     isOnHomePage
                         ? nodes
@@ -87,7 +87,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                 />
                             )
                 }
-            </Stack>
+            </div>
         </section>
     )
 }
