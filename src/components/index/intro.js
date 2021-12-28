@@ -53,8 +53,8 @@ const IntroSection = () => {
                 >
                     <h1>Welcome to richardblu.com</h1>
                     <Stack justifyContent="space-between" alignSelf="stretch" paddingY="base">
-                        <p><em>{getSubtitle()}</em></p>
-                        <p><em>today's date: December 12, 2021</em></p>
+                        <p className="subtle"><em>{getSubtitle()}</em></p>
+                        <p className="subtle"><em>today's date: December 12, 2021</em></p>
                     </Stack>
                 </Stack>
                 <Stack flexDirection="row" gap="xl">
