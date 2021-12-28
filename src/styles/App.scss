@@ -49,7 +49,7 @@ html, body {
 /* Adds bottom-margin spacing to every page section */
 section, .page-section {
     grid-column: main-start / main-end;
-    padding: 48px 0;
+    padding: 64px 0;
 
     .section-title {
         font-weight: 700;
@@ -64,6 +64,10 @@ section, .page-section {
 
 section:first-of-type {
     padding-top: 0;
+}
+
+section:not(:last-of-type) {
+    border-bottom: 1px solid hsla(168, 48%, 48%, 0.2);
 }
 
 // Solution for long text

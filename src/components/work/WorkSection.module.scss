@@ -46,12 +46,34 @@
     }
 }
 
+
+
 .blurb {
     p {
         margin: 0;
     }
+
+    .coverImage {
+        box-shadow: none;
+        background-color:hsl(168, 48%, 48%);
+        
+        & > div {
+            transform: none;
+            transition: transform 0.15s ease-out;
+        }
+    }
+    &:hover .coverImage > div {
+        // box-shadow: 10px 10px 0 hsl(168, 48%, 48%);
+        transform: translateX(10px) translateY(-10px);
+    }
 }
 
-.details p:not(:last-child) {
+.details {
     color: #f2f5f770;
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: hsl(168, 58%, 58%);
 }

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { useSpring, animated } from 'react-spring'
 import cn from 'classnames'
+import { useSpring, animated } from 'react-spring'
 import { useThemeState } from '../../hooks/ThemeContext.ts'
 import Stack from '../stack/Stack'
 
 import { Lock } from 'react-bootstrap-icons'
 
-import { blurb, details } from './WorkSection.module.scss'
+import { blurb, details, icon, coverImage } from './WorkSection.module.scss'
 
 const WorkBlurb = props => {
     const [hover, setHover] = useState(false)
@@ -17,17 +17,21 @@ const WorkBlurb = props => {
     const highlightColor = `hsl(168, 48%, 48%)`
     const { borderBottom, boxShadow } = useSpring({
         borderBottom: `4px solid ${hover ? highlightColor : `transparent`}`,
-        boxShadow: `${highlightColor} ${hover? `10px 10px` : `0px 0px`} 0`
+        boxShadow: `${highlightColor} ${hover ? `10px 10px` : `0px 0px`} 0`
     })
     return(
         <Link 
-            className={`${blurb} a-no-style`} 
+            className={cn(
+                blurb,
+                `a-no-style`
+            )} 
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
         >
             <Stack gap="lg" flexDirection="column">
                 <animated.div 
+                    className={coverImage}
                     style={{ 
-                        boxShadow,
+                        // boxShadow,
                         lineHeight: 0
                     }}
                 >
@@ -41,15 +45,15 @@ const WorkBlurb = props => {
                         style={{
                             borderBottom,
                         }}
-                        >
-                            {props.title}
-                        {props.protected && <Lock color="hsl(168, 48%, 48%)" size="1.5rem" />}
+                    >
+                        {props.protected && <Lock className={icon} width={20} height={20}  />}
+                        {props.title}
                     </animated.h3>
-                    <div className={details}>
-                        <p>{props.projectDates}</p>
-                        <p>{props.projectType}</p>
-                        <p>{props.description}</p>
+                    <div>
+                        <p className={details}>{props.projectDates}</p>
+                        <p className={details}>{props.projectType}</p>
                     </div>
+                    <p>{props.description}</p>
                 </Stack>
             </Stack>
         </Link>

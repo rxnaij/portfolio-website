@@ -23,7 +23,9 @@ interface StackProps {
     gap?: Size
     flexDirection?: 'row' | 'column'
     justifyContent?: string
-    alignItems?: string
+    alignItems?: string,
+    alignSelf?: string,
+    style?: React.CSSProperties
 }
 
 const Stack = ({ 
@@ -34,7 +36,9 @@ const Stack = ({
     gap="none", 
     flexDirection='row', 
     justifyContent='flex-start', 
-    alignItems='flex-start' 
+    alignItems='flex-start',
+    alignSelf="flex-start",
+    style
 }: StackProps) => {
     return (
         <div
@@ -49,6 +53,8 @@ const Stack = ({
                 flexDirection,
                 justifyContent,
                 alignItems,
+                alignSelf,
+                ...style
             }}
         >
             { children }

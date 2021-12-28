@@ -43,13 +43,20 @@ const IntroSection = () => {
     return(
         <section id="intro">
             <Stack flexDirection="column" gap="2xl">
-                <div>
-                    <h1>Hey! Welcome to richardblu.com.</h1>
-                    <Stack justifyContent="space-between">
+                <Stack 
+                    flexDirection="column" 
+                    alignItems="stretch" 
+                    alignSelf="stretch"
+                    style={{
+                        borderBottom: '1px solid hsla(168, 48%, 48%, 0.2)'
+                    }}
+                >
+                    <h1>Welcome to richardblu.com</h1>
+                    <Stack justifyContent="space-between" alignSelf="stretch" paddingY="base">
                         <p><em>{getSubtitle()}</em></p>
                         <p><em>today's date: December 12, 2021</em></p>
                     </Stack>
-                </div>
+                </Stack>
                 <Stack flexDirection="row" gap="xl">
                     <Stack gap="2xl" flexDirection="column">
                         <div className="longform-text">
@@ -63,7 +70,7 @@ const IntroSection = () => {
                                 Currently, I'm interested in designing for the web, and building bridges between designs and code. Check out some of the cool projects I made (and likely coded) below!
                             </p>
                         </div>
-                        <Stack gap="base">
+                        {/* <Stack gap="base">
                             <Button
                                 renderContainer={(props) => (
                                     <AnchorLink to="/contact" {...props}>
@@ -78,10 +85,10 @@ const IntroSection = () => {
                                     )}
                                     >
                             </Button>
-                        </Stack>
+                        </Stack> */}
                     </Stack>
                     <div>
-                        <h4>Across the internet</h4>
+                        {/* <h4>Across the internet</h4>
                         <ul className="unstyled-list">
                             <li>
                                 <Button variant="secondary" renderContainer={(props) => (
@@ -107,7 +114,7 @@ const IntroSection = () => {
                             </li>
                         </ul>
                         <h4>Current Status</h4>
-                        <p>I'm open to full-time and freelance opportunities!</p>
+                        <p>I'm open to full-time and freelance opportunities!</p> */}
                     </div>
                 </Stack>
             </Stack>
