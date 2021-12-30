@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Layout from '../components/layout/layout'
 import Button from '../components/button/Button'
 import Form from '../components/form/Form'
+import SEO from '../components/seo'
+import Stack from '../components/stack/Stack'
 
 const ContactPage = () => {
     const [ state, setState ] = useState({})
@@ -13,6 +15,7 @@ const ContactPage = () => {
 
     return(
         <Layout>
+            <SEO title="Contact" />
             <section id="contact">
                 <h1>Let's talk!</h1>
                 <p>Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.</p>
@@ -21,21 +24,30 @@ const ContactPage = () => {
                     name="contact"
                     method="post"
                 >
-                    <Form.Group>
-                        <Form.Label htmlFor="name">Your name</Form.Label>
-                        <Form.Input type="text" name="name" required />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label htmlFor="email">Email address</Form.Label>
-                        <Form.Input type="email" name="email" required />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label htmlFor="message">Your message</Form.Label>
-                        <Form.Textarea name="message" rows={4} required />
-                    </Form.Group>
-                    <Button className="d-block ml-auto" variant="primary" type="submit">
-                        Send it!
-                    </Button>
+                    <Stack flexDirection="row" gap="md" paddingY='xl'>
+                        <Stack flexDirection='column' gap="md">
+                            <Form.Group>
+                                <Form.Label htmlFor="name">Your name</Form.Label>
+                                <Form.Input type="text" name="name" required />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="email">Email address</Form.Label>
+                                <Form.Input type="email" name="email" required />
+                            </Form.Group>
+                        </Stack>
+                        <Stack flexDirection="column" gap="md">
+                            <Form.Group>
+                                <Form.Label htmlFor="message">Your message</Form.Label>
+                                <Form.Textarea name="message" rows={4} required />
+                            </Form.Group>
+                            <Button renderContainer={
+                                (props) => <button type="submit" {...props} />
+                            }>
+                                Send it!
+                            </Button>
+                        </Stack>
+                    </Stack>
+                    
                 </Form>
             </section>
         </Layout>

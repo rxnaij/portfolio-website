@@ -1,0 +1,15 @@
+.footer {
+    grid-column: main-start / main-end;
+    align-self: end;
+
+    border-top: 1px solid hsla(168, 48%, 48%, 0.1);
+    padding: 16px 0;
+
+    small {
+        display: block;
+        line-height: 1.5em;
+    }
+    small:first-of-type {
+        margin-bottom: 1em;
+    }
+}

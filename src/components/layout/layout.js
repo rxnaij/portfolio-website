@@ -7,10 +7,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { useThemeState } from "../../hooks/ThemeContext.ts"
 
-import Header from "../header/header"
 import Sidebar from '../navigation/Sidebar'
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
@@ -23,24 +21,16 @@ import { layout, mainContent } from './Layout.module.scss'
  */
 const Layout = ({ children, style }) => {
 
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const { theme } = useThemeState()
   const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
 
   return (
     <div className={`${tType} ${layout}`}>
       <Sidebar />
-      <main style={{ ...style }} className={mainContent}>{children}</main>
-      {/* <Footer /> */}
+      <main style={{ ...style }} className={mainContent}>
+        {children}
+        <Footer />
+      </main>
     </div>
   )
 }

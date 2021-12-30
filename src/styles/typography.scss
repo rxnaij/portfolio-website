@@ -83,6 +83,10 @@ p {
     }
 }
 
+small {
+    font-size: 0.75rem;
+}
+
 blockquote {
     border-left: 3px solid gray;
     padding-left: 1rem;
@@ -112,4 +116,5 @@ label {
 
 .subtle {
     color: #c8cccb;
+    font-size: 0.9rem;
 }

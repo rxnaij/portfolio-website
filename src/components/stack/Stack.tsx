@@ -1,4 +1,5 @@
 import React from 'react'
+import cn from 'classnames'
 import { stack } from './Stack.module.scss'
 
 type Size = 'none' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl'
@@ -17,6 +18,7 @@ const sizes = {
 
 interface StackProps {
     children: React.ReactNode
+    className?: string
     padding?: Size
     paddingX?: Size
     paddingY?: Size
@@ -26,10 +28,12 @@ interface StackProps {
     alignItems?: string,
     alignSelf?: string,
     style?: React.CSSProperties
+    asList?: boolean
 }
 
 const Stack = ({ 
     children, 
+    className,
     padding="none",
     paddingX="none",
     paddingY="none",
@@ -38,11 +42,16 @@ const Stack = ({
     justifyContent='flex-start', 
     alignItems='flex-start',
     alignSelf="flex-start",
-    style
+    style,
+    asList
 }: StackProps) => {
+    const Container = asList ? 'ul' : 'div'
     return (
-        <div
-            className={stack}
+        <Container
+            className={cn({
+                [stack]: true,
+                [className]: className !== undefined
+            })}
             style={{
                 padding: sizes[padding],
                 paddingLeft: sizes[paddingX],
@@ -58,7 +67,7 @@ const Stack = ({
             }}
         >
             { children }
-        </div>
+        </Container>
     )
 }
 

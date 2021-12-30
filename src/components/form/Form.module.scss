@@ -18,10 +18,19 @@
 
 @mixin input {
     display: block;
-    border-radius: 2px;
-    border: 2px solid #ddd;
-    background-color: #fff;
+    border-radius: 4px;
+    border: 2px solid hsl(168, 100%, 99%);
+    background-color: hsla(168, 100%, 99%, 0.8);
     padding: 8px;
+
+    &:hover {
+        background-color: hsla(168, 100%, 99%, 1);
+    }
+
+    &:active, &:focus {
+        border: 2px solid hsl(168, 44%, 54%);
+        outline: none;
+    }
 }
 
 .inputClass {

@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
-import Stack from '../components/Stack/Stack'
-import Button from '../components/Button/Button'
+import Stack from '../components/stack/Stack'
+import Button from '../components/button/Button'
 import { Github, Behance, Globe, Controller, CloudMoonFill, FileMusicFill } from 'react-bootstrap-icons'
 
 const AboutPage = () => {

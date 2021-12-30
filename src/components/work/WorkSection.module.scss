@@ -49,10 +49,6 @@
 
 
 .blurb {
-    p {
-        margin: 0;
-    }
-
     .coverImage {
         box-shadow: none;
         background-color:hsl(168, 48%, 48%);
@@ -70,6 +66,7 @@
 
 .details {
     color: #f2f5f770;
+    margin: 0;
 }
 
 .icon {

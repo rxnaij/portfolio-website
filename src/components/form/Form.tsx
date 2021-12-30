@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext, ChangeEvent } from 'react'
+import React, { useState, useEffect, createContext, useContext, ChangeEvent, ComponentPropsWithoutRef } from 'react'
 import cn from 'classnames'
 import { formClass, labelClass, inputClass, textareaClass, groupClass } from './Form.module.scss'
 
@@ -28,7 +28,7 @@ export const useFormContext = (): FormContextValue => {
 
 /* Form component */
 
-interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
+interface FormProps extends ComponentPropsWithoutRef<"form"> {
     disableNetlify?: boolean
 }
 
@@ -88,8 +88,8 @@ const Group = ({ children }) => {
 
 /* Label component */
 
-interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-    children: React.ReactNode
+interface LabelProps extends ComponentPropsWithoutRef<"label"> {
+
 }
 
 const Label = (props: LabelProps) => {
@@ -105,13 +105,12 @@ const Label = (props: LabelProps) => {
 
 /* Input component */
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends ComponentPropsWithoutRef<"input"> {
 
 }
 
 const Input = (props: InputProps) => {
     const { state, handleChange } = useFormContext()
-    console.log(state)
     
     return(
         <input
@@ -120,15 +119,14 @@ const Input = (props: InputProps) => {
             value={state[props.name]}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 handleChange(e)
-                props.onChange(e)
+                props.onChange && props.onChange(e)
             }}
         />
     )
 }
 
 /* Textarea component */
-interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-
+interface TextareaProps extends ComponentPropsWithoutRef<"textarea"> {
 }
 
 const Textarea = (props: TextareaProps) => {
