@@ -62,6 +62,10 @@ section, .page-section {
     // Slide in from left
 }
 
+.page-title {
+    padding-bottom: 48px;
+}
+
 section:first-of-type {
     padding-top: 0;
 }
@@ -107,6 +111,26 @@ section:first-of-type {
         .main {
             padding-bottom: 64px;
         }
+    }
+}
+
+.sidebar-list {
+    p, li {
+        font-size: 0.8rem;
+        color: $body-text-light-subtle;
+    }
+    li:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+    }
+    h4 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 1rem;
+        font-weight: 500;
+
+        margin-bottom: 1rem;
     }
 }
 
