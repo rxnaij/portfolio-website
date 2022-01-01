@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import { navigate } from 'gatsby'
+import { Link } from 'gatsby'
 import { setSessionPassword } from '../utils/utils'
 
-import Container from 'react-bootstrap/Container'
-
 import { Lock } from 'react-bootstrap-icons'
+
 import Form  from '../../../components/form/Form'
 import Button from '../../../components/button/Button'
 import Layout from '../../../components/layout/layout'
-
+import Stack from '../../../components/stack/Stack'
 
 const PasswordProtect = () => {
     const [password, setPassword] = useState('')
@@ -21,19 +20,12 @@ const PasswordProtect = () => {
 
     return (
         <Layout>
-            <Container>
-                <section>
-                    <a 
-                        href="/" 
-                        onClick={(e) => {
-                            e.preventDefault()
-                            navigate(-1)
-                        }}
-                        className="d-block mb-4"
-                    >&larr; Back to previous page</a>
-                    <h1>Protected case study <Lock color="hsl(168, 48%, 48%)" size="1.5rem" /></h1>
-                    <p>This case study is protected. If you have the password, please enter it below.</p>
-                    <Form onSubmit={onSubmit} disableNetlify={true}>
+            <section>
+                <h1 className="section-title">Protected case study</h1>
+                <Link to="/work">&larr; Go back to portfolio</Link>
+                <Stack flexDirection="column" paddingY="2xl" gap="base">
+                    <p><Lock color="hsl(168, 48%, 48%)" size={24} style={{ display: 'inline-block' }} /> This case study is password-protected. If you have the password, please enter it below.</p>
+                    <Form onSubmit={onSubmit} disableNetlify={true} style={{ width: '100%', maxWidth: 400 }}>
                         <Form.Group>
                             <Form.Label htmlFor="password">
                                 Enter password
@@ -42,18 +34,16 @@ const PasswordProtect = () => {
                                 type="password" 
                                 name="password" 
                                 onChange={e => setPassword(e.target.value)}
-                                required 
-                                style={{
-                                    maxWidth: 500
-                                }}
+                                required
                             />
                         </Form.Group>
                         <Button type="submit">
                             Submit
                         </Button>
                     </Form>
-                </section>
-            </Container>
+                </Stack>
+                
+            </section>
         </Layout>
     )
 }

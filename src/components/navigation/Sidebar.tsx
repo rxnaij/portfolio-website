@@ -47,7 +47,7 @@ const navigation: Array<NavLink> = [
     {
         name: "GitHub",
         href: "https://github.com/rxnaij",
-        icon: GitHub,
+        icon: Github,
         external: true
     },
     {

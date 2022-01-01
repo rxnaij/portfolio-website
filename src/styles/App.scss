@@ -66,10 +66,6 @@ section:first-of-type {
     padding-top: 0;
 }
 
-section:not(:last-of-type) {
-    // border-bottom: 1px solid hsla(168, 48%, 48%, 0.2);
-}
-
 // Solution for long text
 .longform-text {
     & > *:first-child {
@@ -81,6 +77,36 @@ section:not(:last-of-type) {
     h1, h2, h3, h4, h5 {
         margin-top: 0.5em;
         margin-bottom: 0.25em;
+    }
+}
+
+.main-and-sidebar-container {
+    display: grid;
+    grid-template-columns: 
+        [start] minmax(min-content, 600px)
+        [sidebar-start] 1fr
+        [end]
+    ;
+
+    column-gap: 176px;
+
+    .main {
+        grid-column: start / sidebar-start;
+    }
+
+    .sidebar {
+        grid-column: sidebar-start / end;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .main-and-sidebar-container {
+        .main, .sidebar {
+            grid-column: start / end;
+        }
+        .main {
+            padding-bottom: 64px;
+        }
     }
 }
 
@@ -127,4 +153,9 @@ section:not(:last-of-type) {
 .unstyled-list {
     list-style: none;
     padding: 0;
+}
+
+.divider {
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
