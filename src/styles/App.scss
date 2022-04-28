@@ -45,29 +45,14 @@ html, body {
 
 /* ==================================================================== */
 /* Page sections */
-
-/* Adds bottom-margin spacing to every page section */
-section, .page-section {
-    grid-column: main-start / main-end;
-    padding: 64px 0;
-
-    .section-title {
-        font-weight: 700;
-        margin-bottom: 0.5em;
-        font-size: 3rem;
-    }
-
-    // At smaller screens, turn into hamburger menu
-    // Fix menu button at top left
-    // Slide in from left
+.section-title {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    font-size: 3rem;
 }
 
 .page-title {
     padding-bottom: 48px;
-}
-
-section:first-of-type {
-    padding-top: 0;
 }
 
 // Solution for long text

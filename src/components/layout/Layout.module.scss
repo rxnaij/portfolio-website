@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
+    padding-top: 32px;
 }
 
 .mainContent {
@@ -17,6 +19,11 @@
         [main-end] minmax(24px, 1fr) 
         [end]
     ;
+    grid-auto-flow: column;
 
-    padding: 64px 0;
+    row-gap: 80px;
+
+    & > section {
+        grid-column: main-start / main-end;
+    }
 }
