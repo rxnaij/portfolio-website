@@ -86,30 +86,31 @@ section:first-of-type {
 
 .main-and-sidebar-container {
     display: grid;
-    grid-template-columns: 
-        [start] minmax(min-content, 600px)
-        [sidebar-start] 1fr
-        [end]
-    ;
-
-    column-gap: 176px;
-
-    .main {
-        grid-column: start / sidebar-start;
+    .main, .sidebar {
+        grid-column: start / end;
     }
-
-    .sidebar {
-        grid-column: sidebar-start / end;
+    .main {
+        padding-bottom: 64px;
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
     .main-and-sidebar-container {
-        .main, .sidebar {
-            grid-column: start / end;
-        }
+        display: grid;
+        grid-template-columns: 
+            [start] minmax(min-content, 600px)
+            [sidebar-start] 1fr
+            [end]
+        ;
+
+        column-gap: 176px;
+
         .main {
-            padding-bottom: 64px;
+            grid-column: start / sidebar-start;
+        }
+
+        .sidebar {
+            grid-column: sidebar-start / end;
         }
     }
 }

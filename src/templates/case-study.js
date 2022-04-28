@@ -8,10 +8,11 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
 import CaseStudyHead from './CaseStudyHead'
-import TableOfContents from '../components/toc/TableOfContents.tsx'
+import CaseStudyMainContent from './CaseStudyMainContent'
+import TableOfContents from './TableOfContents/TableOfContents.tsx'
 import FeaturedImage from './FeaturedImage'
-import { generateSlugFromTitle } from '../components/toc/slugUtil'
-import { createHeadingNodesFromContentNodes } from '../components/toc/HeadingUtils'
+import { generateSlugFromTitle } from './TableOfContents/slugUtil'
+import { createHeadingNodesFromContentNodes } from './TableOfContents/HeadingUtils'
 
 import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
@@ -91,26 +92,10 @@ const CaseStudy = ({ data }) => {
                     headings={headings} 
                 />
             }
-            {
-                productImages &&
-                <section>
-                    {
-                        productImages.map( (image, index) => {
-                            return (
-                                <FeaturedImage
-                                    key={image.id}
-                                    image={image.gatsbyImageData}
-                                    description={image.description}
-                                    index={index}
-                                />
-                            )
-                        } )
-                    }
-                </section>
-            }
-            <article className={`${content}`}>
-                { mainContent && renderRichText(mainContent, options) }
-            </article>
+            <CaseStudyMainContent 
+                productImages={productImages}
+                content={mainContent}
+            />
             <section>
                 <Link to="/work">&larr; Back to portfolio</Link>
             </section>

@@ -4,12 +4,10 @@ title: "About Me"
 
 ---
 
-Hey, I'm Richard! Thanks for stopping by. I'm a designer, developer, and human being who loves creating technology that delights, inspires, and and spreads compassion.
+Hey, I'm Richard! I'm a self-taught product designer, developer, and human being. I want to create technology that delights and inspires compassion. Currently, I’m seeking a full-time product designer role where I can help talented design teams solve real human needs.
 
-I'm currently seeking a **full-time role** where I can help talented design and engineering teams build solutions to real human needs. I'm particularly excited about using my skills to bridge gaps between design and code.
+A little about me: as a kid, I always enjoyed tinkering around on the web, but I was turned off by boring computer science classes and discouraging teachers. Then in college, I was tasked to create a website for a large student conference, despite having no prior design experience! The work was so fun and fulfilling that I created my own major in Digital Design and User Experience.
 
-As a Web 2.0 kid, I loved tinkering around on the web, from drag-and-drop site builders to wikis. But years of boring and gatekeepy computer science classes discouraged me from pursuing that interest further.
+I believe design (and tech in general) should be about people first and technology second. Some of my interests include the relationship between tech and mental health/positive wellbeing, using design to connect people with communities, and translating UIs into front-end code.
 
-Then in college, I was tasked with creating a club website, and oh boy, did that rekindle my love for the web. Not only did I love learning things like HTML/CSS and design trends, I was fascinated to discover that "design" meant much more than fancy aesthetics; it was a deliberate approach to solving real-world problems.
-
-Since then, I created my own Digital Design and User Experience major in college, taught myself web development, and built a number of sites. Today, I believe my role as a technologist is to recognize the responsibility that tech has on others’ lives, and to harness it for human good.
+In my free time, I like taking morning walks, playing video games, and practicing guitar. I’m resisting the urge to buy a PS5.
