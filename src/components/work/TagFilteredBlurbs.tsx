@@ -41,7 +41,7 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                 {
                     isOnHomePage
                         ? nodes
-                            .slice(0, 3)
+                            .slice(0, 2)
                             .map((node: any) => 
                                 <WorkBlurb 
                                     key={node.title}

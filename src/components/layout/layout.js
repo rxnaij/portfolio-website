@@ -14,11 +14,6 @@ import Footer from '../footer/footer'
 import '../../styles/App.scss'
 import { layout, mainContent } from './Layout.module.scss'
 
-/**
- * Returns page layout, contained within state managers.
- * Only edit this component to change state providers.
- * @param {React.ReactNode} children 
- */
 const Layout = ({ children, style }) => {
 
   const { theme } = useThemeState()

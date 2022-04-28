@@ -20,37 +20,6 @@ const AboutPage = ({ data }) => {
                 </div>
                 <aside className="sidebar">
                     <Stack asList={true} flexDirection="column" gap="sm" className="unstyled-list">
-                        {/* <li>
-                            <Button 
-                                icon={Github}
-                                variant="outline"
-                                renderContainer={props =>
-                                    <a href="https://github.com/rxnaij" {...props} />
-                                }
-                            >
-                                GitHub
-                            </Button>
-                        </li>
-                        <li>
-                            <Button 
-                                icon={Behance}
-                                variant="outline"
-                                renderContainer={props =>
-                                    <a href="https://www.behance.net/richardbludesign" {...props} />
-                                }
-                            >
-                                Behance
-                            </Button>
-                        </li>
-                        <li>
-                            <Button
-                                icon={Controller}
-                                variant="outline"
-                                renderContainer={props => <a href="https://kind-lumiere-cbb8a1.netlify.app/" {...props} />}
-                            >
-                                Super Save Slot (my gaming blog!)
-                            </Button>
-                        </li> */}
                         <li><Github size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="">GitHub</a></li>
                         <li><Behance size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="">Behance</a></li>
                         <li><Controller size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="https://kind-lumiere-cbb8a1.netlify.app/">Super Save Slot (my gaming blog!)</a></li>
