@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout'
 import Button from '../components/button/Button'
 import Form from '../components/form/Form'
 import SEO from '../components/seo'
-import Stack from '../components/stack/Stack'
+import { wrapper } from './contact.module.scss'
 
 const ContactPage = () => {
     const [ state, setState ] = useState({})
@@ -16,11 +16,12 @@ const ContactPage = () => {
     return(
         <Layout>
             <SEO title="Contact" />
-            <section id="contact">
-                <h1>Let's talk!</h1>
-                <p>Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.</p>
-                <p>At the moment, <strong>I'm currently open to offers for full-time and freelance work.</strong> Woohoo!</p>
-                <br />
+            <section id="contact" className={wrapper}>
+                <div>
+                    <h1 className='page-title'>Let's get in touch!</h1>
+                    <p>Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.</p>
+                    <p>At the moment, <strong>I'm currently open to offers for full-time and freelance work.</strong> Woohoo!</p>
+                </div>
                 <Form 
                     name="contact"
                     method="post"

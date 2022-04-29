@@ -80,9 +80,9 @@ p {
 
 
 // // Paragraph spacing
-// p + p, ul + p {
-//     margin-top: 1em;
-// }
+p + p {
+    margin-top: 1.5em;
+}
 
 small {
     font-size: 0.75rem;
