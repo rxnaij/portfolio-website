@@ -76,19 +76,20 @@ p {
     font-size: var(--text-base);
     line-height: 1.75;
     color: $body-text-light;
-
-    // Paragraph spacing
-    + p {
-      margin-top: 1em;  
-    }
 }
+
+
+// // Paragraph spacing
+// p + p, ul + p {
+//     margin-top: 1em;
+// }
 
 small {
     font-size: 0.75rem;
 }
 
 blockquote {
-    border-left: 3px solid gray;
+    border-left: 3px solid $primary;
     padding-left: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;

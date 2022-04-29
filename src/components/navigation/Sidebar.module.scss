@@ -1,5 +1,5 @@
 .sidebar {
-    z-index: var(--sidebar);
+    z-index: var(--active-navigation);
     min-width: 224px;
     height: 100vh;
 
@@ -40,7 +40,7 @@
 }
 
 .menuBar {
-    // z-index: 3;
+    z-index: var(--menu-bar);
     position: sticky;
     top: 0;
     left: 0;
@@ -130,7 +130,7 @@
 }
 
 .overlay {
-    z-index: 1;
+    z-index: var(--active-navigation);
     transition: background-color 0.3s ease-out;
     position: fixed;
     top: 0;

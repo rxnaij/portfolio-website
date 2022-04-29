@@ -24,7 +24,7 @@ const CaseStudyMainContent = ({ productImages, content }: CaseStudyMainContentPr
                 const { title, description, gatsbyImageData } = content.references.find(asset => asset.contentful_id === id)
 
                 return (
-                    <figure className={`figure ${wide}`}>
+                    <figure>
                         <GatsbyImage 
                             image={gatsbyImageData}
                             alt={title && description}

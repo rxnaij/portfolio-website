@@ -15,7 +15,7 @@
     align-items: center;
     gap: 12px;
 
-    font-weight: 500;
+    font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;
 
@@ -25,10 +25,12 @@
 
 }
 .outline {
-    background-color: transparent;
-    border: 2px solid $primary;
+    --primary-light: hsl(168, 44%, 54%);
 
-    color: $primary;
+    background-color: transparent;
+    border: 2px solid var(--primary-light);
+
+    color: var(--primary-light);
 }
 .secondary {
     background-color: transparent;

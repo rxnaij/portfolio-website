@@ -2,48 +2,72 @@
 /* Sets width of text elements */
 .wrapper {
     grid-column: main-start / main-end;
+
     & > *:first-child {
         margin-top: 0;
     }
+
+    // Paragraphs
     p {
         font-size: 1.1rem;
         margin-bottom: 1.5em;
-        line-height: 1.65em;
+        line-height: 1.65;
     }
+
+    // Lists
+    ul, ol {
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    li p {
+        margin-bottom: 0.75em;
+    }
+
+    // Headings
     h1, h2, h3, h4, h5, h6 {
-        margin-top: 0.5em;
-        margin-bottom: 0.25em;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #f1f2f7;
     }
-    h2 {
-        font-size: 3rem;
-        font-weight: 500;
-    }
+
     h3 {
-        font-size: 2.25rem;
-        font-weight: 500;
+        margin-bottom: 0.75em;
+        font-weight: 700;
     }
+
+    // Inline elements
     b, strong {
         font-weight: 700;
     }
-    li p {
-        margin-bottom: 0.25rem;
+
+    // Blockquotes
+    blockquote {
+        font-size: 1.2rem;
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
+
+    // Wide elements and figures
     .wide, .wide > * {
-        grid-column: start / end;
+        margin-left: -24px;
+        margin-right: -24px;
     }
 
     figure {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     
         figcaption {
             // text-align: center;
             font-size: 0.8rem;
             font-style: italic;
-            padding-top: 0.5rem;
+            padding-top: 0.8em;
+
+            color: #c8cccb;
         }
     }
 }

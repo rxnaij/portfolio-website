@@ -1,4 +1,4 @@
-/* Title container */
+/* Container */
 .wrapper {
     grid-column: main-start / main-end;
 
@@ -9,40 +9,44 @@
     margin-left: -24px;
     margin-right: -24px;
     
+    padding-top: 32px;
+    padding-bottom: 32px;
+    
     background-color: hsl(234, 22%, 10%);
-    color: hsl(235, 22%, 90%);
+    // color: #e1e5e5;
 }
 
-/* Title content */
+/* Title & description */
 .titleWrapper {
+    padding: 0 24px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 24px;
-
-    /* Spacing */
-    & > *:not(:last-child) {
-        margin-bottom: 32px;
+    gap: 48px;
+    
+    nav {
+        font-size: 0.8rem;
     }
 
     /* Title */
     h1 {
-        font-weight: 400;
         margin-top: 0;
 
-        &::after {
-            content: "";
+        &::before {
+            content: "Case study";
             display: block;
-            padding-top: 16px;
-            margin-left: 1px;
-            width: 64px;
-            // height: 1px;
-            border-bottom: 3px solid hsl(234, 22%, 90%);
+            
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #e1e5e580;
         }
     }
-    p {
-        max-width: 500px;
+    /* Description */
+    .lead {
+        font-size: 1.31rem;
+        line-height: 1.25;
     }
 }
 
@@ -51,38 +55,23 @@
     padding: 0 24px;
     
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
     
     font-size: 0.8rem;
     list-style: none;
     
+    // Detail item
     li {
-        flex: 1;
-        padding-bottom: 16px;
-        &:not(:last-of-type) {
-            padding-right: 16px;
-        }
-        strong {
-            opacity: 0.9;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        hr {
-            color: white;
-            border-color: white;
-        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
     }
 }
 
-/* Layout for extra small screens */
-@media (max-width: 575px) {
-    .info {
-        flex-direction: column;
-        li {
-            margin-right: 0;
-        }
-    }
+.link {
+    margin-left: 24px;
 }
 
 /* Title cover photo */

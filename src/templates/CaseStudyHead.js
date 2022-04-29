@@ -3,7 +3,8 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import classNames from 'classnames'
 import Button from '../components/button/Button'
-import { coverImage, wrapper, projectDetails, titleWrapper, darkHead, lightHead } from './CaseStudyHead.module.scss'
+import { CalendarFill, PersonFill, CardChecklist } from 'react-bootstrap-icons'
+import { coverImage, wrapper, projectDetails, titleWrapper, lead, link } from './CaseStudyHead.module.scss'
 
 /* Head of the case study, with intro content */
 const CaseStudyHead = ({ 
@@ -18,9 +19,9 @@ const CaseStudyHead = ({
 }) => (
     <section className={wrapper}>
         <div className={titleWrapper}>
-            <nav><Link to="/work"><small>Portfolio</small></Link> &rarr; {title}</nav>
+            <nav><Link to="/work">Portfolio</Link> &rarr; {title}</nav>
             <h1>{title}</h1>  
-            <p className="lead">{description}</p>
+            <p className={lead}>{description}</p>
         </div>
         <GatsbyImage 
             image={coverPhoto.gatsbyImageData} 
@@ -30,25 +31,29 @@ const CaseStudyHead = ({
         />
         <ul className={projectDetails}>
             <li>
-                <strong>Date</strong>
-                <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
+                <CalendarFill size={16} />
+                <div>{ startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
             </li>
             <li>
-                <strong>Project type</strong>
+                <PersonFill size={16} />
                 <div>{ projectType }</div>
             </li>
             <li>
-                <strong>Role</strong>
+                <CardChecklist size={16} />
                 <div>{ role }</div>
             </li>
         </ul>
         {
             projectLink && 
-            <a href={projectLink} className={`a-no-style`}>
-                <Button>
-                    Try it out &rarr;
-                </Button>
-            </a>
+            <Button
+                className={link}
+                variant="outline"
+                renderContainer={(props) => 
+                    <a href={projectLink} {...props}>
+                        Try it out! &rarr;
+                    </a>
+                }
+            />
         }
     </section>
 )
