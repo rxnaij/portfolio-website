@@ -2,21 +2,25 @@
     background-color: #000;
     margin-left: -24px;
     margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
 
 .content {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    justify-content: center;
+    gap: 32px;
     padding: 0;
 
     list-style: none;
 
     a {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 8px;
         align-items: center;
     }

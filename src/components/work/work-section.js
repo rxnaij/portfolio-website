@@ -48,12 +48,9 @@ const WorkSection = ({ isOnHomePage }) => {
             />
             {
                 isOnHomePage && 
-                <Button renderContainer={(props) => (
-                    <Link to="/work" {...props}>
-                        See all work &rarr;
-                    </Link>
-                )}>
-                </Button>
+                <Link to="/work">
+                    See all work &rarr;
+                </Link>
             }
         </section>
     )

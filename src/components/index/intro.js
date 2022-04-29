@@ -39,6 +39,7 @@ const IntroSection = () => {
             </div>
             <div className="longform-text" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
             <Button
+                variant='outline'
                 renderContainer={(props) => (
                     <Link to="/contact" {...props}>
                         <Envelope size={24} />

@@ -1,10 +1,6 @@
 import * as React from 'react'
-
 import cn from 'classnames'
-
-import { useThemeState } from '../../hooks/ThemeContext'
 import { buttonClass, outline, secondary, buttonIcon } from './Button.module.scss'
-
 import { Icon } from 'react-bootstrap-icons'
 
 interface ButtonInjectedProps {
@@ -33,16 +29,14 @@ const Button = ({
     icon,
     renderContainer=(props) => <button {...props} />
 }: ButtonProps) => {
-    const { theme } = useThemeState()
     const Icon = icon
     return renderContainer({
         className: cn({
             [buttonClass]: true,
-            "a-no-style": true,
+            // "a-no-style": true,
             [className]: className !== undefined,
 
             [outline]: variant === 'outline',
-            [theme]: variant === 'outline',
             
             [secondary]: variant === 'secondary'
         }),

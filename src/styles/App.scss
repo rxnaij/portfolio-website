@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "./typography.scss";
 @import "./colors.scss";
+@import "./layers.scss";
 
 /* ==================================================================== */
 /* Universal styles */
@@ -25,11 +26,12 @@ html, body {
     // card? color
     // secondary text color
     // link color
-    a {
-        color: hsl(198, 100%, 50%);
-    }
     // hover color
     // border color
+}
+
+a {
+    color: hsl(198, 100%, 50%);
 }
 
 .light {
@@ -39,9 +41,6 @@ html, body {
 .dark {
     color: hsl(204, 24%, 96%);
 }
-
-
-
 
 /* ==================================================================== */
 /* Page sections */
@@ -125,7 +124,7 @@ html, body {
 
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
 .a-no-style, .a-no-style:hover {
-    color: inherit !important;
+    color: inherit;
     text-decoration: none;
     transition: none;
 }

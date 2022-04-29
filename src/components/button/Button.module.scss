@@ -17,6 +17,7 @@
 
     font-weight: 500;
     font-size: 0.9rem;
+    text-decoration: none;
 
     &:hover {
         background-color: hsl(168, 48%, 68%);
@@ -25,9 +26,9 @@
 }
 .outline {
     background-color: transparent;
-    border: 2px solid hsl(168, 48%, 48%);
+    border: 2px solid $primary;
 
-    color: $body-text-light;
+    color: $primary;
 }
 .secondary {
     background-color: transparent;
