@@ -19,14 +19,18 @@ const AboutPage = ({ data }) => {
                 <div className="main">
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
-                <aside className="sidebar">
+            </section>
+
+            <section>
+                <aside>
+
                     <Stack asList={true} flexDirection="column" gap="sm" className="unstyled-list">
                         <li><Github size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="">GitHub</a></li>
                         <li><Behance size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="">Behance</a></li>
                         <li><Controller size={24} style={{ display: 'inline-block', marginRight: 8 }} /><a href="https://kind-lumiere-cbb8a1.netlify.app/">Super Save Slot (my gaming blog!)</a></li>
                     </Stack>
                     <div className="sidebar-list">
-                        <h4><Controller size={24} style={{ display: 'inline-block' }}/> Now playing</h4>
+                        <h4><Controller size={24} style={{ display: 'inline-block' }} /> Now playing</h4>
                         <ul className="unstyled-list">
                             <li>Dark Souls III</li>
                             <li>Persona 5</li>
@@ -34,7 +38,7 @@ const AboutPage = ({ data }) => {
                         </ul>
                     </div>
                     <div className="sidebar-list">
-                        <h4><CloudMoonFill size={24} style={{ display: 'inline-block' }}/> On deck</h4>
+                        <h4><CloudMoonFill size={24} style={{ display: 'inline-block' }} /> On deck</h4>
                         <ul className="unstyled-list">
                             <li>Metroid Dread</li>
                             <li>Dragon Quest XI: Echoes of an Elusive Age</li>
@@ -49,6 +53,7 @@ const AboutPage = ({ data }) => {
                     </div>
                 </aside>
             </section>
+
         </Layout>
     )
 }

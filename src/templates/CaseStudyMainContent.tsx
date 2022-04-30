@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import FeaturedImage from './FeaturedImage'
 import { generateSlugFromTitle } from './TableOfContents/slugUtil'
 
-import { wide, wrapper } from './CaseStudyMainContent.module.scss'
+import { wide, wrapper, productImagesWrapper } from './CaseStudyMainContent.module.scss'
 
 interface CaseStudyMainContentProps {
     productImages: any[]
@@ -54,7 +54,7 @@ const CaseStudyMainContent = ({ productImages, content }: CaseStudyMainContentPr
         <>
             {
                 productImages &&
-                <section>
+                <section className={productImagesWrapper}>
                     {
                         productImages.map( (image, index) => {
                             return (

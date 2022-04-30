@@ -71,11 +71,13 @@
 }
 
 .details {
-    font-size: 0.8rem;
-    color: #C8CCCB;
+    font-size: 0.85rem;
+    color: #C8CCCB95;
+    line-height: 1.21;
+    margin-bottom: 4px;
 
     &:last-of-type {
-        margin-bottom: 8px;
+        margin-bottom: 16px;
     }
 }
 

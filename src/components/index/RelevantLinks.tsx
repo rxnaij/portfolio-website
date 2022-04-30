@@ -20,17 +20,17 @@ const RelevantLinks = () => {
             <ul className={content}>
                 <li>
                     <a href="https://github.com/rxnaij">
-                        <Github size={24} /> GitHub
+                        <Github size={32} /> GitHub
                     </a>
                 </li>
                 <li>
                     <a href="https://be.net/richardbludesign">
-                        <Behance size={24}/> Behance
+                        <Behance size={32}/> Behance
                     </a>
                 </li>
                 <li>
                     <a href={data.contentfulAsset.file.url}>
-                        <JournalText size={24} /> Resume
+                        <JournalText size={32} /> Resume
                     </a>
                 </li>
             </ul>
