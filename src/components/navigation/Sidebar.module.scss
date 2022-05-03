@@ -10,7 +10,7 @@
     padding: 24px 24px;
     gap: 48px;
 
-    box-shadow: 4px 0px 16px hsla(210, 11%, 25%, 0.5);
+    // box-shadow: 4px 0px 16px hsla(210, 11%, 25%, 0.5);
     background-color: hsl(210, 11%, 25%);
 
 
@@ -27,7 +27,7 @@
 }
 
 /* Desktop screens: attach sidebar to left side. */
-@media screen and (min-width: 721px) {
+@media screen and (min-width: 1100px) {
     .sidebar {
         position: sticky;
         top: 0;

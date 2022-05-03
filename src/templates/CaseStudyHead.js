@@ -17,18 +17,12 @@ const CaseStudyHead = ({
     role,
     projectLink 
 }) => (
-    <section className={wrapper}>
+    <header className={wrapper}>
         <div className={titleWrapper}>
-            <nav><Link to="/work">Portfolio</Link> &rarr; {title}</nav>
+            <nav><Link to="/work">Portfolio</Link> &rsaquo; {title}</nav>
             <h1>{title}</h1>  
             <p className={lead}>{description}</p>
         </div>
-        <GatsbyImage 
-            image={coverPhoto.gatsbyImageData} 
-            alt={coverPhoto.title} 
-            className={coverImage}
-            loading="eager" 
-        />
         <ul className={projectDetails}>
             <li>
                 <CalendarFill size={16} />
@@ -50,12 +44,18 @@ const CaseStudyHead = ({
                 variant="outline"
                 renderContainer={(props) => 
                     <a href={projectLink} {...props}>
-                        Try it out! &rarr;
+                        Try it out! &rsaquo;
                     </a>
                 }
             />
         }
-    </section>
+        <GatsbyImage 
+            image={coverPhoto.gatsbyImageData} 
+            alt={coverPhoto.title} 
+            className={coverImage}
+            loading="eager" 
+        />
+    </header>
 )
 
 export default CaseStudyHead

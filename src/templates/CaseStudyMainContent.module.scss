@@ -1,7 +1,26 @@
-/* Case Study contentfulRichText styling - text */
-/* Sets width of text elements */
+/* Contains both main content and table of contents */
 .wrapper {
     grid-column: main-start / main-end;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+@media (min-width: 1100px) {
+    .wrapper {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        position: relative;
+    }
+}
+
+
+/* Case Study contentfulRichText styling - text */
+/* Sets width of text elements */
+.mainContentWrapper {
+    // grid-column: main-start / main-end;
+    max-width: 650px;
 
     & > *:first-child {
         margin-top: 0;
@@ -12,6 +31,8 @@
         font-size: 1.1rem;
         margin-bottom: 1.5em;
         line-height: 1.65;
+
+        // max-width: 600px;
     }
 
     // Lists

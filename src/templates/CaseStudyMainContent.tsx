@@ -1,19 +1,21 @@
 import React from 'react'
-
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import FeaturedImage from './FeaturedImage'
+import TableOfContents from './TableOfContents/TableOfContents'
 import { generateSlugFromTitle } from './TableOfContents/slugUtil'
-
-import { wide, wrapper, productImagesWrapper } from './CaseStudyMainContent.module.scss'
+import { HeadingNode } from './TableOfContents/HeadingUtils'
+import { wide, wrapper, productImagesWrapper, mainContentWrapper } from './CaseStudyMainContent.module.scss'
 
 interface CaseStudyMainContentProps {
     productImages: any[]
     content: any
+    headings: HeadingNode[]
+    rootSlug: string
 }
 
-const CaseStudyMainContent = ({ productImages, content }: CaseStudyMainContentProps) => {
+const CaseStudyMainContent = ({ productImages, content, headings, rootSlug }: CaseStudyMainContentProps) => {
     // Options that assign special rendering to certain data from the case study content.
     const options = {
         renderNode: {
@@ -69,9 +71,17 @@ const CaseStudyMainContent = ({ productImages, content }: CaseStudyMainContentPr
                     }
                 </section>
             }
-            <article className={wrapper}>
-                { renderRichText(content, options) }
-            </article>
+            <div className={wrapper}>
+                {
+                    headings.length > 0 &&
+                    <TableOfContents 
+                        headings={headings} 
+                    />
+                }     
+                <article className={mainContentWrapper}>
+                    { renderRichText(content, options) }
+                </article>
+            </div>
         </>
     )
 }

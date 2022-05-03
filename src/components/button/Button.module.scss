@@ -5,7 +5,7 @@
     // display: inline-block;
 
     border: 2px solid transparent;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 15px 18px;
     background-color: hsl(168, 48%, 48%);
 
@@ -31,6 +31,11 @@
     border: 2px solid var(--primary-light);
 
     color: var(--primary-light);
+
+    &:hover {
+        color: black;
+        background-color: var(--primary-light);
+    }
 }
 .secondary {
     background-color: transparent;

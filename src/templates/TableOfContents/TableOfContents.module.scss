@@ -1,7 +1,7 @@
 .wrapper {
-    background-color: inherit;
-    grid-column: main / main-end;
+    flex: 1 100 0;
 
+    background-color: inherit;
     border-radius: 4px;
 
     transition: height 0.3s ease-out;
@@ -55,28 +55,19 @@
     }
 }
 
-@media (min-width: 992px) {
-    .tocClass {
+@media (min-width: 1100px) {
+    .wrapper {
+        max-width: none;
+
+        align-self: flex-start;
+
         position: sticky;
+        top: 32px;
     }
 }
 
 
 /* Spacing */
-
-/* Medium screens only: align using 16px padding */
-@media (max-width: 991px) {
-    .tocClass {
-        margin-bottom: 32px;
-        padding-left: 16px;
-    }
-}
-
-@media (max-width: 701px) {
-    .tocClass {
-        padding-left: 0;
-    }
-}
 
 .labelClass {
     padding: 16px;
