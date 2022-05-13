@@ -20,7 +20,7 @@
 /* Sets width of text elements */
 .mainContentWrapper {
     // grid-column: main-start / main-end;
-    max-width: 650px;
+    max-width: 680px;
 
     & > *:first-child {
         margin-top: 0;
@@ -47,7 +47,7 @@
 
     // Headings
     h1, h2, h3, h4, h5, h6 {
-        margin-top: 1.5em;
+        margin-top: 2em;
         margin-bottom: 0.5em;
         color: #f1f2f7;
     }
