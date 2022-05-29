@@ -1,0 +1,46 @@
+.section {
+    h1 {
+        margin-bottom: 64px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    align-items: flex-start;
+
+    & > * {
+        margin: 0;
+    }
+}
+
+.blogPostsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.subtitle {
+
+}
+
+.category {
+    padding: 4px 8px;
+    border-radius: 4px;
+
+    background-color: #fff;
+    color: #000;
+
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.date {
+    color: #ffffff80;
+}
