@@ -1,5 +1,5 @@
 .wrapper {
-    background-color: #2E3842;
+    background-color: hsl(168, 47%, 4%);
     margin-left: -24px;
     margin-right: -24px;
     padding: 24px;
@@ -9,15 +9,22 @@
     gap: 48px;
 }
 
+
 .content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     gap: 48px;
     padding: 0;
-
+    
     list-style: none;
+    
+}
 
+@media (min-width: 567px) {
+    .content {
+        justify-content: center;
+    }
 }
 
 .linkWrapper {
@@ -30,12 +37,16 @@
     font-weight: 700;
     font-size: 0.9rem;
 
-    color: #fff;
+    color: #e1e5e5;
+
+    &:hover span {
+        text-decoration: underline;
+    }
 }
 
 .iconWrapper {
     padding: 20px;
     border-radius: 8px;
-
-    background-color: gray;
+    
+    border: 2px solid #40B59E;
 }
