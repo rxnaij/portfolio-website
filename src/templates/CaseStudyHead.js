@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import classNames from 'classnames'
 import Button from '../components/button/Button'
 import { CalendarFill, PersonFill, CardChecklist } from 'react-bootstrap-icons'
 import { coverImage, wrapper, projectDetails, titleWrapper, lead, link } from './CaseStudyHead.module.scss'

@@ -1,22 +1,11 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { BLOCKS } from "@contentful/rich-text-types"
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+
 import BlogPostHead from './BlogPostHead'
 import BlogPostMainContent from './BlogPostMainContent'
-
-import CaseStudyHead from './CaseStudyHead'
-import CaseStudyMainContent from './CaseStudyMainContent'
-import TableOfContents from './TableOfContents/TableOfContents'
-import FeaturedImage from './FeaturedImage'
-import { generateSlugFromTitle } from './TableOfContents/slugUtil'
-import { createHeadingNodesFromContentNodes } from './TableOfContents/HeadingUtils'
-
-import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
 const BlogPost = ({ data }) => {
     const { 
@@ -57,6 +46,15 @@ query BlogPostQuery($slug: String) {
         datePublished(formatString: "MMMM DD, YYYY")
         mainContent {
             raw
+            references {
+                ...on ContentfulAsset {
+                    __typename
+                    title
+                    description
+                    gatsbyImageData
+                    contentful_id
+                }
+            }
         }
       
     }

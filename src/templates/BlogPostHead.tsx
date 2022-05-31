@@ -9,19 +9,18 @@ interface BlogPostHeadProps {
 }
 
 /* Head of the case study, with intro content */
-const BlogPostHead = ({ 
+const BlogPostHead = ({
     title,
     subtitle,
     datePublished,
     category,
-}) => (
+}: BlogPostHeadProps) => (
     <header className={wrapper}>
         <div className={content}>
-
-        <span className={categoryClass}>{category}</span>
-        <h1>{title}</h1>  
-        <p>{subtitle}</p>
-        <p style={{ '--date-color': '#C8CCC8' } as React.CSSProperties}>Published {datePublished}</p>
+            <span className={categoryClass}>{category}</span>
+            <h1>{title}</h1>
+            <p>{subtitle}</p>
+            <p style={{ '--date-color': '#C8CCC8' } as React.CSSProperties}>Published {datePublished}</p>
         </div>
     </header>
 )
