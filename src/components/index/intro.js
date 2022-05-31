@@ -37,7 +37,7 @@ const IntroSection = () => {
                 <small>April 27, 2022</small>
                 <small>enjoy your stay</small>
             </div>
-            <div className="longform-text" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
             <Button
                 variant='outline'
                 renderContainer={(props) => (
