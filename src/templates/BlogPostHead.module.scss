@@ -29,6 +29,10 @@
     // Date published
     & > p:last-child {
         color: var(--date-color);
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: baseline;
     }
 }
 
