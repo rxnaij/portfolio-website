@@ -1,20 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { BLOCKS } from "@contentful/rich-text-types"
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
 import CaseStudyHead from './CaseStudyHead'
 import CaseStudyMainContent from './CaseStudyMainContent'
-import TableOfContents from './TableOfContents/TableOfContents.tsx'
-import FeaturedImage from './FeaturedImage'
-import { generateSlugFromTitle } from './TableOfContents/slugUtil'
 import { createHeadingNodesFromContentNodes } from './TableOfContents/HeadingUtils'
-
-import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
 
 const CaseStudy = ({ data }) => {
     const { 

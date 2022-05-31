@@ -1,0 +1,14 @@
+.wrapper {
+    grid-column: main-start / main-end;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.wide {
+
+}
+
+.mainContentWrapper {
+    grid-column: main-start / main-end;
+}

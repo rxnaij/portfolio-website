@@ -11,6 +11,7 @@ interface BlogPostNode {
     subtitle: string
     category: string
     datePublished: string
+    slug: string
 }
 
 const BlogPage = ({ data }) => {
@@ -24,26 +25,24 @@ const BlogPage = ({ data }) => {
                     {
                         data.allContentfulBlogPost.nodes.map((node: BlogPostNode) => {
                             return (
-                                <>
-                                    <Link
-                                        to="/"
-                                        key={node.id + Math.random()}
-                                        className={cn([
-                                            `a-no-style`,
-                                            wrapper
-                                        ])}
-                                    >
-                                        <span className={category}>{node.category}</span>
-                                        <h3 className={title}>{node.title}</h3>
-                                        <p className={subtitle}>{node.subtitle}</p>
-                                        <p className={date}>{node.datePublished}</p>
-                                    </Link>
-                                </>
+                                <Link
+                                    to={node.slug}
+                                    key={node.id + Math.random()}
+                                    className={cn([
+                                        `a-no-style`,
+                                        wrapper
+                                    ])}
+                                >
+                                    <span className={category}>{node.category}</span>
+                                    <h3 className={title}>{node.title}</h3>
+                                    <p className={subtitle}>{node.subtitle}</p>
+                                    <p className={date}>{node.datePublished}</p>
+                                </Link>
                             )
                         })
                     }
                     <Link
-                        to="/"
+                        to="/test-post"
                         className={cn([
                             `a-no-style`,
                             wrapper
@@ -84,6 +83,7 @@ export const query = graphql`
                 category
                 datePublished(formatString: "MMMM DD, YYYY")
                 id
+                slug
             }
         }
     }
