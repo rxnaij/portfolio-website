@@ -41,31 +41,6 @@ const BlogPage = ({ data }) => {
                             )
                         })
                     }
-                    <Link
-                        to="/test-post"
-                        className={cn([
-                            `a-no-style`,
-                            wrapper
-                        ])}
-                    >
-                        <span className={category}>Coding</span>
-                        <h3 className={title}>A Month of Coding Exercises</h3>
-                        <p className={subtitle}>Trying React and a bunch of other libraries</p>
-                        <p className={date}>May 21, 2022</p>
-                    </Link>
-                    <Link
-                        to="/"
-                        className={cn([
-                            `a-no-style`,
-                            wrapper
-                        ])}
-                    >
-                        <span className={category}>Stuff</span>
-                        <h3 className={title}>What I've been doing in life</h3>
-                        <p className={subtitle}>Learning, reading books, taking walks, and much more</p>
-                        <p className={date}>May 11, 2022</p>
-                    </Link>
-
                 </div>
             </section>
         </Layout>

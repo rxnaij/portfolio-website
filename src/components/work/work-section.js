@@ -6,6 +6,8 @@ import TagFilteredBlurbs from './TagFilteredBlurbs'
 
 const WorkSection = ({ isOnHomePage }) => {
 
+    const Title = isOnHomePage ? `h2` : `h1`
+
     const data = useStaticQuery(graphql`
     query {
         allContentfulCaseStudy(
@@ -40,7 +42,7 @@ const WorkSection = ({ isOnHomePage }) => {
 
     return(
         <section id="work">
-            <h2>Featured Work</h2>
+            <Title>Portfolio</Title>
             <p>Check out the projects I've worked on!</p>
             <TagFilteredBlurbs 
                 nodes={data.allContentfulCaseStudy.nodes}

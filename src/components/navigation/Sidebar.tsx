@@ -37,6 +37,12 @@ const navigation: Array<NavLink> = [
         external: false
     },
     {
+        name: "Blog",
+        href: '/blog',
+        icon: JournalText,
+        external: false
+    },
+    {
         name: "Resume",
         href: '#',
         icon: JournalText,
@@ -70,7 +76,7 @@ const Sidebar = () => {
                     <button className={openButton} onClick={() => setOpen(false)}>
                         <X width={24} height={24} />
                     </button>
-                    <strong>Richard Lu</strong>
+                    <strong><Link to="/" className="a-no-style">Richard Lu</Link></strong>
                 </div>
                 <ul className={nav}>
                     {
