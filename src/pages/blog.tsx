@@ -16,6 +16,8 @@ interface BlogPostNode {
 
 const BlogPage = ({ data }) => {
 
+    const { nodes } = data.allContentfulBlogPost
+
     return (
         <Layout>
             <SEO title="Blog" />
@@ -23,7 +25,8 @@ const BlogPage = ({ data }) => {
                 <h1>Blog</h1>
                 <div className={blogPostsWrapper}>
                     {
-                        data.allContentfulBlogPost.nodes.map((node: BlogPostNode) => {
+                        nodes.length > 0
+                        ? nodes.map((node: BlogPostNode) => {
                             return (
                                 <Link
                                     to={node.slug}
@@ -40,6 +43,7 @@ const BlogPage = ({ data }) => {
                                 </Link>
                             )
                         })
+                        : <p>No posts yet...but expect some in the near future!</p>
                     }
                 </div>
             </section>
@@ -51,7 +55,7 @@ export default BlogPage
 
 export const query = graphql`
     query MyQuery {
-        allContentfulBlogPost {
+        allContentfulBlogPost(filter: { title: {eq: "blog_placeholder"} }) {
             nodes {
                 title
                 subtitle
