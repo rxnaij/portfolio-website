@@ -1,19 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { BLOCKS } from "@contentful/rich-text-types"
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
 import CaseStudyHead from './CaseStudyHead'
-import TableOfContents from '../components/toc/TableOfContents.tsx'
-import FeaturedImage from './FeaturedImage'
-import { generateSlugFromTitle } from '../components/toc/slugUtil'
-import { createHeadingNodesFromContentNodes } from '../components/toc/HeadingUtils'
-
-import { pageLayout, wide, content, info } from './CaseStudy.module.scss'
+import CaseStudyMainContent from './CaseStudyMainContent'
+import { createHeadingNodesFromContentNodes } from './TableOfContents/HeadingUtils'
 
 const CaseStudy = ({ data }) => {
     const { 
@@ -35,42 +28,6 @@ const CaseStudy = ({ data }) => {
         data.contentfulCaseStudy.protected ? `work/secret/${slug}` : `work/${slug}`
     )
 
-    // Options that assign special rendering to certain data from the case study content.
-    const options = {
-        renderNode: {
-            // Render images as figures.
-            [BLOCKS.EMBEDDED_ASSET]: node => {
-                // Retrieve image and metadata.
-                const { id } = node.data.target.sys
-                const { title, description, gatsbyImageData } = data.contentfulCaseStudy.mainContent.references.find(asset => asset.contentful_id === id)
-
-                return (
-                    <figure className={`figure ${wide}`}>
-                        <GatsbyImage 
-                            image={gatsbyImageData}
-                            alt={title && description}
-                            className={wide}
-                        />
-                        <figcaption>{ description }</figcaption>
-                    </figure>
-                ) 
-            },
-            // Assign slugs to heading IDs, allowing headings to be linkable via anchor links.
-            [BLOCKS.HEADING_2]: ({ content }) => 
-                <h2 id={generateSlugFromTitle(content[0].value)}>
-                    {content[0].value}
-                </h2>,
-            [BLOCKS.HEADING_3]: ({ content }) => 
-                <h3 id={generateSlugFromTitle(content[0].value)}>
-                    {content[0].value}
-                </h3>,
-            [BLOCKS.HEADING_4]: ({ content }) => 
-                <h4 id={generateSlugFromTitle(content[0].value)}>
-                    {content[0].value}
-                </h4>,
-        }
-    }
-
     return (
         <Layout>
             <SEO title={title} />
@@ -84,33 +41,12 @@ const CaseStudy = ({ data }) => {
                 role={role}
                 projectLink={projectLink}
             />
-            {
-                headings.length > 0 &&
-                <TableOfContents 
-                    rootSlug={slug} 
-                    headings={headings} 
-                />
-            }
-            {
-                productImages &&
-                <section>
-                    {
-                        productImages.map( (image, index) => {
-                            return (
-                                <FeaturedImage
-                                    key={image.id}
-                                    image={image.gatsbyImageData}
-                                    description={image.description}
-                                    index={index}
-                                />
-                            )
-                        } )
-                    }
-                </section>
-            }
-            <article className={`${content}`}>
-                { mainContent && renderRichText(mainContent, options) }
-            </article>
+            <CaseStudyMainContent 
+                productImages={productImages}
+                content={mainContent}
+                headings={headings}
+                rootSlug={slug}
+            />
             <section>
                 <Link to="/work">&larr; Back to portfolio</Link>
             </section>

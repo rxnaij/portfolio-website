@@ -15,33 +15,11 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
     const [filter, setFilter] = useState([])
     return (
         <section>
-            {
-                !isOnHomePage && <Stack gap='base'>
-                    {
-                        tags?.map(tag => 
-                            <Tag 
-                                key={tag} 
-                                name={tag} 
-                                active={filter.includes(tag)} 
-                                handleClick={() => {
-                                    // Toggle the filter
-                                    if (filter.includes(tag)) {
-                                        setFilter(filter.filter(keep => keep !== tag))
-                                    } else {
-                                        setFilter([...filter, tag])
-                                    }
-                                }}
-                            />
-                        )
-                    }
-                    {filter.length > 0 && <Tag reset name="Clear filter" handleClick={() => setFilter([])}/>}
-                </Stack>
-            }
             <div className={workSection}>
                 {
                     isOnHomePage
                         ? nodes
-                            .slice(0, 3)
+                            .slice(0, 2)
                             .map((node: any) => 
                                 <WorkBlurb 
                                     key={node.title}
@@ -93,3 +71,27 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
 }
 
 export default TagFilteredBlurbs
+
+const TagFilter = ({ tags, filter, setFilter }) => {
+    return(
+        <Stack gap='base'>
+            {
+                tags?.map(tag => 
+                    <Tag 
+                        key={tag} 
+                        name={tag} 
+                        active={filter.includes(tag)} 
+                        handleClick={() => {
+                            // Toggle the filter
+                            if (filter.includes(tag)) {
+                                setFilter(filter.filter(keep => keep !== tag))
+                            } else {
+                                setFilter([...filter, tag])
+                            }
+                        }}
+                    />
+                )
+            }
+        </Stack>
+    )
+}

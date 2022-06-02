@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import classNames from 'classnames'
 import Button from '../components/button/Button'
-import { img, head, info, titleClass, darkHead, lightHead } from './CaseStudyHead.module.scss'
-import { useThemeState } from '../hooks/ThemeContext'
+import { CalendarFill, PersonFill, CardChecklist } from 'react-bootstrap-icons'
+import { coverImage, wrapper, projectDetails, titleWrapper, lead, link } from './CaseStudyHead.module.scss'
 
 /* Head of the case study, with intro content */
 const CaseStudyHead = ({ 
@@ -17,46 +16,45 @@ const CaseStudyHead = ({
     role,
     projectLink 
 }) => (
-    <section
-        className={classNames(
-            head, 
-            useThemeState().theme === 'dark' ? darkHead : lightHead
-        )}
-    >
-        <div className={titleClass}>
-            <nav><Link to="/work"><small>&larr; Back to portfolio</small></Link></nav>
+    <header className={wrapper}>
+        <div className={titleWrapper}>
+            <nav><Link to="/work">Portfolio</Link> &rsaquo; {title}</nav>
             <h1>{title}</h1>  
-            <p className="lead">{description}</p>
-            {
-                projectLink && 
-                <a href={projectLink} className={`a-no-style`}>
-                    <Button>
-                        Try it out &rarr;
-                    </Button>
-                </a>
-            }
-            <ul className={info}>
-                <li>
-                    <strong>Date</strong>
-                    <div>{  startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
-                </li>
-                <li>
-                    <strong>Project type</strong>
-                    <div>{ projectType }</div>
-                </li>
-                <li>
-                    <strong>Role</strong>
-                    <div>{ role }</div>
-                </li>
-            </ul>
+            <p className={lead}>{description}</p>
         </div>
+        <ul className={projectDetails}>
+            <li>
+                <CalendarFill size={16} />
+                <div>{ startDate + ( endDate ? ` – ${endDate}` : `` ) }</div>
+            </li>
+            <li>
+                <PersonFill size={16} />
+                <div>{ projectType }</div>
+            </li>
+            <li>
+                <CardChecklist size={16} />
+                <div>{ role }</div>
+            </li>
+        </ul>
+        {
+            projectLink && 
+            <Button
+                className={link}
+                variant="outline"
+                renderContainer={(props) => 
+                    <a href={projectLink} {...props}>
+                        Try it out! &rsaquo;
+                    </a>
+                }
+            />
+        }
         <GatsbyImage 
             image={coverPhoto.gatsbyImageData} 
             alt={coverPhoto.title} 
-            className={img}
+            className={coverImage}
             loading="eager" 
         />
-    </section>
+    </header>
 )
 
 export default CaseStudyHead

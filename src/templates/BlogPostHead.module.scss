@@ -1,0 +1,48 @@
+
+
+.wrapper {
+   grid-column: start / end;
+   display: grid;
+    grid-template-columns: inherit;
+    row-gap: 48px;
+
+    // Undo the initial vertical offset; integrate into section
+    margin-top: -32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    background-color: #000;
+}
+
+.content {
+    grid-column: main-start / main-end;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    & > * {
+        margin: 0;
+    }
+
+    // Date published
+    & > p:last-child {
+        color: var(--date-color);
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: baseline;
+    }
+}
+
+.categoryClass {
+    padding: 4px 8px;
+    border-radius: 4px;
+
+    background-color: #fff;
+    color: #000;
+
+    font-weight: bold;
+    font-size: 0.8rem;
+}

@@ -18,31 +18,21 @@ const WorkBlurb = props => {
             )} 
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
         >
-            <Stack gap="lg" flexDirection="column">
-                <div 
-                    className={coverImage}
-                    style={{ 
-                        // boxShadow,
-                        lineHeight: 0
-                    }}
-                >
+                <div className={coverImage}>
                     <GatsbyImage
                         image={props.thumbnail}
                         alt={props.alt}
                     />
                 </div>
-                <Stack gap="sm" flexDirection="column">
-                    <h3>
-                        {props.protected && <Lock className={icon} width={20} height={20}  />}
-                        {props.title}
-                    </h3>
-                    <div>
-                        <p className={details}>{props.projectDates}</p>
-                        <p className={details}>{props.projectType}</p>
-                    </div>
+                <h3>
+                    {props.protected && <Lock className={icon} width={20} height={20}  />}
+                    {props.title}
+                </h3>
+                <div>
+                    <div className={details}>{props.projectDates}</div>
+                    <div className={details}>{props.projectType}</div>
                     <p>{props.description}</p>
-                </Stack>
-            </Stack>
+                </div>
         </Link>
     )
 }

@@ -1,7 +1,8 @@
 @import "./reset.css";
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "./typography.scss";
 @import "./colors.scss";
+@import "./layers.scss";
+@import "./breakpoints.scss";
 
 /* ==================================================================== */
 /* Universal styles */
@@ -25,11 +26,12 @@ html, body {
     // card? color
     // secondary text color
     // link color
-    a {
-        color: hsl(198, 100%, 50%);
-    }
     // hover color
     // border color
+}
+
+a {
+    color: hsl(198, 100%, 50%);
 }
 
 .light {
@@ -40,34 +42,16 @@ html, body {
     color: hsl(204, 24%, 96%);
 }
 
-
-
-
 /* ==================================================================== */
 /* Page sections */
-
-/* Adds bottom-margin spacing to every page section */
-section, .page-section {
-    grid-column: main-start / main-end;
-    padding: 64px 0;
-
-    .section-title {
-        font-weight: 700;
-        margin-bottom: 0.5em;
-        font-size: 3rem;
-    }
-
-    // At smaller screens, turn into hamburger menu
-    // Fix menu button at top left
-    // Slide in from left
+.section-title {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    font-size: 3rem;
 }
 
 .page-title {
     padding-bottom: 48px;
-}
-
-section:first-of-type {
-    padding-top: 0;
 }
 
 // Solution for long text
@@ -86,30 +70,31 @@ section:first-of-type {
 
 .main-and-sidebar-container {
     display: grid;
-    grid-template-columns: 
-        [start] minmax(min-content, 600px)
-        [sidebar-start] 1fr
-        [end]
-    ;
-
-    column-gap: 176px;
-
-    .main {
-        grid-column: start / sidebar-start;
+    .main, .sidebar {
+        grid-column: start / end;
     }
-
-    .sidebar {
-        grid-column: sidebar-start / end;
+    .main {
+        padding-bottom: 64px;
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
     .main-and-sidebar-container {
-        .main, .sidebar {
-            grid-column: start / end;
-        }
+        display: grid;
+        grid-template-columns: 
+            [start] minmax(min-content, 600px)
+            [sidebar-start] 1fr
+            [end]
+        ;
+
+        column-gap: 176px;
+
         .main {
-            padding-bottom: 64px;
+            grid-column: start / sidebar-start;
+        }
+
+        .sidebar {
+            grid-column: sidebar-start / end;
         }
     }
 }
@@ -139,7 +124,7 @@ section:first-of-type {
 
 /* Neutralizes <Link> styling when placed in other visual components, like buttons */
 .a-no-style, .a-no-style:hover {
-    color: inherit !important;
+    color: inherit;
     text-decoration: none;
     transition: none;
 }

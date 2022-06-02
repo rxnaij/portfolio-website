@@ -25,7 +25,13 @@ module.exports = {
     `gatsby-transformer-remark`,
     'gatsby-plugin-image',
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {},
+        failOnError: true
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

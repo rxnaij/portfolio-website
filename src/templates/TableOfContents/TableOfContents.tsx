@@ -1,35 +1,21 @@
 import React, { useState } from 'react'
-import classNames from 'classnames'
 
 // import { generateSlugFromTitle } from './slugUtil'
 import { ChevronCompactUp, ChevronCompactDown } from 'react-bootstrap-icons'
 
-import { tocClass, iconClass, chevronIsOpen, activeLinkClass, labelClass } from './TableOfContents.module.scss'
+import { wrapper, iconClass, chevronIsOpen, activeLinkClass, labelClass } from './TableOfContents.module.scss'
 // import { exampleData } from '../exampleData'
 import { UnorderedListNode, UnorderedListNodeProps } from './UnorderedListNode'
 import { HeadingNode } from './HeadingUtils'
 
-interface TableOfContentsProps extends UnorderedListNodeProps {
+interface TableOfContentsProps {
     headings: Array<HeadingNode>
-}
-
-const getIDs = (headings: Array<HeadingNode>) => {
-    return headings.reduce((accumulator, heading) => {
-        if (heading.slug) {
-            accumulator.push(heading.slug)
-        }
-        return accumulator
-    })
-}
-
-const useActiveId = () => {
-
 }
 
 const TableOfContents = ({ headings }: TableOfContentsProps) => {
     const [isOpen, setOpen] = useState(true)
     return (
-        <nav className={tocClass}>
+        <nav className={wrapper}>
             <div className={labelClass} onClick={() => setOpen(!isOpen)}>
                 <div>Table of contents</div>
                 <div>

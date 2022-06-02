@@ -49,7 +49,13 @@
 
 
 .blurb {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
     .coverImage {
+        line-height: 0;
+
         box-shadow: none;
         background-color:hsl(168, 48%, 48%);
         
@@ -65,8 +71,14 @@
 }
 
 .details {
-    color: #f2f5f770;
-    margin: 0;
+    font-size: 0.85rem;
+    color: #C8CCCB95;
+    line-height: 1.21;
+    margin-bottom: 4px;
+
+    &:last-of-type {
+        margin-bottom: 16px;
+    }
 }
 
 .icon {

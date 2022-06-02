@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.bioWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.asideContent {
+    background-color: #27415C;
+    border-radius: 16px;
+    padding: 24px;
+    h3 {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+
+        color: hsla(168, 48%, 48%, 1);
+    }
+}
+
+// Desktop screens: align content horizontally
+@media (min-width: 1100px) {
+    .wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .bioWrapper {
+        flex: 1 0 50%;
+    }
+
+    .asideContent {
+        flex: 1 0 25%;
+    }
+}

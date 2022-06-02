@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { sidebar, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
+import { sidebar, menuBar, controls, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
 import cn from 'classnames'
-import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, X, ArrowUpRightSquareFill, Github, Behance } from 'react-bootstrap-icons'
-
-import Stack from '../stack/Stack'
+import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, BookFill, ChevronLeft, ArrowUpRightSquareFill, Github, Behance } from 'react-bootstrap-icons'
 
 export type NavLink = {
     name: string
@@ -33,54 +31,34 @@ const navigation: Array<NavLink> = [
         external: false
     },
     {
+        name: "Blog",
+        href: '/blog',
+        icon: BookFill,
+        external: false
+    },
+    {
         name: "Contact",
         href: '/contact',
         icon: EnvelopeFill,
         external: false
     },
-    {
-        name: "Resume",
-        href: '#',
-        icon: JournalText,
-        external: false
-    },
-    {
-        name: "GitHub",
-        href: "https://github.com/rxnaij",
-        icon: Github,
-        external: true
-    },
-    {
-        name: "Behance",
-        href: "https://be.net/richardbludesign",
-        icon: Behance,
-        external: true
-    },
 ]
-
-
 
 const Sidebar = () => {
     const [isOpen, setOpen] = useState(false)
     return (
         <> 
+            <MenuBar isOpen={isOpen} setOpen={setOpen} />
             {isOpen && <Overlay handleClick={() => setOpen(false)} />}
-            <button 
-                onClick={() => setOpen(!isOpen)}
-                className={cn(
-                    openButton
-                )}
-            >
-                {isOpen ? <X width={24} height={24} /> : <List width={24} height={24}/>}
-            </button>
             <div className={cn(
                 sidebar,
                 !isOpen && sidebarIsClosed
             )}>
-                <div>
-                    <strong>
-                        Richard Lu
-                    </strong>
+                <div className={controls}>
+                    <button className={openButton} onClick={() => setOpen(false)}>
+                        <ChevronLeft width={16} height={16} /> Close menu
+                    </button>
+                    <strong><Link to="/" className="a-no-style">Richard Lu</Link></strong>
                 </div>
                 <ul className={nav}>
                     {
@@ -117,10 +95,21 @@ const NavLink = ({ name, href, icon, external }: NavLinkProps) => {
 }
 
 
-
 const Overlay = ({ handleClick }) => {
     return(
-        <div className={overlay} onClick={handleClick}>
+        <div className={overlay} onClick={handleClick} />
+    )
+}
+
+const MenuBar = ({ isOpen, setOpen }) => {
+    return(
+        <div className={menuBar}>
+            <button 
+                onClick={() => setOpen(true)}
+                className={openButton}
+            >
+                <List width={24} height={24}/>
+            </button>
         </div>
     )
 }

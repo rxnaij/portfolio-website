@@ -20,6 +20,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     protected
                 }
             }
+            allContentfulBlogPost {
+                nodes {
+                    slug
+                }
+            }
         }
     `)
 
@@ -34,5 +39,38 @@ module.exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
+    const blogPostTemplate = path.resolve(`./src/templates/BlogPost.tsx`)
+    response.data.allContentfulBlogPost.nodes.forEach(node => {
+        createPage({
+            component: blogPostTemplate,
+            path: `/blog/${node.slug}`,
+            context: {
+                slug: node.slug
+            }
+        })
+    })
+}
 
+async function generateBlogPostPages() {
+    const blogPostTemplate = path.resolve(`./src/templates/BlogPost.tsx`)
+
+    const response = await graphql`
+        query {
+            allContentfulBlogPost {
+                nodes {
+                    slug
+                }
+            }
+        }
+    `
+
+    response.data.allContentfulBlogPost.nodes.forEach(node => {
+        createPage({
+            component: blogPostTemplate,
+            path: `/blog/${node.slug}`,
+            context: {
+                slug: node.slug
+            }
+        })
+    })
 }
