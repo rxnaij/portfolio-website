@@ -42,12 +42,6 @@ const navigation: Array<NavLink> = [
         icon: EnvelopeFill,
         external: false
     },
-    {
-        name: "Resume",
-        href: '#',
-        icon: JournalText,
-        external: false
-    },
 ]
 
 const Sidebar = () => {
