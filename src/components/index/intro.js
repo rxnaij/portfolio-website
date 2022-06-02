@@ -4,9 +4,9 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import Button from '../button/Button'
 import { Behance, Github, Envelope, JournalText } from 'react-bootstrap-icons'
 
-import { wrapper, title, ctaButton } from './Intro.module.scss'
+import { wrapper, title, ctaButton, small } from './Intro.module.scss'
 
-const today = new Date().toString()
+const today = new Date().toDateString()
 const getSubtitle = () => {
     const subtitles = [
         'enjoy your stay...',
@@ -34,8 +34,8 @@ const IntroSection = () => {
         <section id="intro" className={wrapper}>
             <div className={title}>
                 <h1>Welcome to richardblu.com!</h1>
-                <small>April 27, 2022</small>
-                <small>enjoy your stay</small>
+                <small className={small}>{getSubtitle()}</small>
+                <small className={small}>Today's date: {today}</small>
             </div>
             <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
             <Button

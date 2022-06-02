@@ -37,7 +37,7 @@ const Link = ({ href, icon, label }) => {
                 href={href}
                 style={{ 
                     '--button-color': '#96B3AC',
-                    '--label-size': `${13 / 16}rem`,
+                    '--label-size': `${14 / 16}rem`,
                 } as React.CSSProperties}
             >
                 <div className={iconWrapper}>

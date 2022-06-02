@@ -20,7 +20,7 @@ const ContactPage = () => {
                 <div>
                     <h1 className='page-title'>Let's get in touch!</h1>
                     <p>Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas.</p>
-                    <p>At the moment, <strong>I'm currently open to offers for full-time and freelance work.</strong> Woohoo!</p>
+                    <p>At the moment, <strong>I’m open to offers for full-time or freelance product design work.</strong> Reach out if you have any more questions!</p>
                 </div>
                 <Form 
                     name="contact"

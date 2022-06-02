@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { sidebar, menuBar, controls, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
 import cn from 'classnames'
-import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, X, ArrowUpRightSquareFill, Github, Behance } from 'react-bootstrap-icons'
+import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, BookFill, ChevronLeft, ArrowUpRightSquareFill, Github, Behance } from 'react-bootstrap-icons'
 
 export type NavLink = {
     name: string
@@ -31,15 +31,15 @@ const navigation: Array<NavLink> = [
         external: false
     },
     {
-        name: "Contact",
-        href: '/contact',
-        icon: EnvelopeFill,
+        name: "Blog",
+        href: '/blog',
+        icon: BookFill,
         external: false
     },
     {
-        name: "Blog",
-        href: '/blog',
-        icon: JournalText,
+        name: "Contact",
+        href: '/contact',
+        icon: EnvelopeFill,
         external: false
     },
     {
@@ -47,18 +47,6 @@ const navigation: Array<NavLink> = [
         href: '#',
         icon: JournalText,
         external: false
-    },
-    {
-        name: "GitHub",
-        href: "https://github.com/rxnaij",
-        icon: Github,
-        external: true
-    },
-    {
-        name: "Behance",
-        href: "https://be.net/richardbludesign",
-        icon: Behance,
-        external: true
     },
 ]
 
@@ -74,7 +62,7 @@ const Sidebar = () => {
             )}>
                 <div className={controls}>
                     <button className={openButton} onClick={() => setOpen(false)}>
-                        <X width={24} height={24} />
+                        <ChevronLeft width={16} height={16} /> Close menu
                     </button>
                     <strong><Link to="/" className="a-no-style">Richard Lu</Link></strong>
                 </div>

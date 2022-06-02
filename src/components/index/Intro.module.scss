@@ -7,7 +7,17 @@
 .title {
     display: flex;
     flex-direction: column;
+
+    .small {
+        font-size: 0.875rem;
+        color: hsla(165, 2%, 69%, 1);
+    
+        &:first-of-type {
+            font-style: italic;
+        }
+    }
 }
+
 
 .ctaButton {
     // Layout and sizing
