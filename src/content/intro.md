@@ -4,6 +4,6 @@ title: "Intro"
 
 ---
 
-Hey, I'm Richard! Thanks for stopping by. I'm a product designer and human being focused on technology that delights people and inspires compassion.
+Hey, I'm Richard! Thanks for stopping by. I'm a UX designer interested in tech that is human-first and inspires positive well-being.
 
-**Currently**: I’m seeking a full-time product design role where I can help talented design teams solve real human needs. I'm particularly excited about using my front-end development skills to bridge gaps between design and engineering.
+**Currently**: I’m seeking a full-time, entry-level UX/product design role where I can help talented teams solve real human needs. I'm particularly excited about applying my design and front-end skills in a real-world setting.
