@@ -4,6 +4,7 @@
  export interface ProjectNode {
     title: string
     projectType: string
+    projectCategory: 'Work' | 'Extra'
 }
 
 /**

@@ -1,0 +1,35 @@
+.tabContainer {
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    border: 1px solid #337B6F;
+    overflow: hidden;   // crop corners
+}
+
+.tab {
+    padding: 14px 21px;
+
+    font-weight: 700;
+    font-size: 0.875rem;
+
+    background-color: transparent;
+    color: #96B3AC;
+
+    &.tabIsActive {
+        background-color: hsl(168, 58%, 48%);
+        color: #fff;
+    }
+
+    .hiddenInput {
+        display: inline-block;
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1;
+        width: 1;
+        margin: -1;
+        padding: 0;
+        border: 0;
+    }
+}

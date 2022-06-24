@@ -19,6 +19,7 @@ const WorkSection = ({ isOnHomePage }) => {
             nodes {
                 title
                 slug
+                projectCategory
                 protected
                 description
                 projectType
