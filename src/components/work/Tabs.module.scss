@@ -18,6 +18,8 @@
     background-color: transparent;
     color: #96B3AC;
 
+    cursor: pointer;
+
     &.tabIsActive {
         background-color: hsl(168, 58%, 48%);
         color: #fff;

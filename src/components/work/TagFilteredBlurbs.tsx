@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import Tag from './Tag'
 import WorkBlurb from './WorkBlurb'
 import Stack from '../stack/Stack'
@@ -8,10 +9,44 @@ import { ProjectNode, getTagsOfNode, getAllUniqueTags } from './tagUtilities'
 
 interface TagFilteredBlurbsProps {
     isOnHomePage?: boolean
-    nodes: ProjectNode[]
+    // nodes: ProjectNode[]
 }
 
-const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
+const TagFilteredBlurbs = ({ isOnHomePage }: TagFilteredBlurbsProps) => {
+    const data = useStaticQuery(graphql`
+        query {
+            allContentfulCaseStudy(
+                sort: {
+                fields: startDate,
+                order: DESC
+                }
+            ) {
+                nodes {
+                    title
+                    slug
+                    projectCategory
+                    protected
+                    description
+                    projectType
+                    startDate(formatString: "MMMM YYYY")
+                    endDate(formatString:"MMMM YYYY")      
+                    coverPhoto {
+                        file {
+                            url
+                            fileName
+                        }
+                        gatsbyImageData(
+                            width: 720
+                            height: 480
+                            placeholder: BLURRED
+                        )
+                    }  
+                }
+            }
+        }
+    `)
+    const { nodes } = data.allContentfulCaseStudy
+
     const [tags] = useState(getAllUniqueTags(nodes))
     const [filter, setFilter] = useState([])
 

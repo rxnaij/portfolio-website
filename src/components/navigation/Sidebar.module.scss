@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .sidebar {
     z-index: var(--active-navigation);
     min-width: 224px;
@@ -44,7 +46,7 @@
 
         flex-direction: row;
         
-        background-color: inherit;
+        background-color: $dark;
 
         display: grid;
         grid-template-columns: 

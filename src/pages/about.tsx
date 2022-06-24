@@ -6,14 +6,17 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
 import { Github, Behance, Globe, Controller, CloudMoonFill, FileMusicFill } from 'react-bootstrap-icons'
-import { wrapper, bioWrapper, asideWrapper, asideContent } from './about.module.scss'
+import { wrapper, bioWrapper, asideContent } from './about.module.scss'
 const AboutPage = ({ data }) => {
     const { html } = data.markdownRemark
 
     return (
         <Layout>
             <SEO title="About me" />
-            <h1 className="main page-title" style={{ gridColumn: 2 }}>About me</h1>
+            <Layout.Title>
+                <h1>About me</h1>
+                <p>What's up!</p>
+            </Layout.Title>
             <section className={wrapper}>
                 <div className={bioWrapper}>
                     <div className="main">
@@ -25,13 +28,12 @@ const AboutPage = ({ data }) => {
                     />
                 </div>
                 <aside className={cn("typography", asideContent)}>
-                    <h2>Across the internet</h2>
+                    <h3>Across the internet</h3>
                     <ul>
                         <li><a href="https://be.net/richardbludesign">Behance</a> &ndash; more design work!</li>
                         <li><a href="https://github.com/rxnaij">GitHub</a> &ndash; code!</li>
                         <li><a href="https://kind-lumiere-cbb8a1.netlify.app/">Super Save Slot</a> &ndash; gaming blog!</li>
                     </ul>
-                    <h2>Status update</h2>
                     <h3><Controller size={20} style={{ display: 'inline-block' }} /> Now playing</h3>
                     <ul>
                         <li>Apex Legends</li>

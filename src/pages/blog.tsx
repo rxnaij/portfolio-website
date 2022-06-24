@@ -21,8 +21,10 @@ const BlogPage = ({ data }) => {
     return (
         <Layout>
             <SEO title="Blog" />
-            <section className={section}>
+            <Layout.Title>
                 <h1>Blog</h1>
+            </Layout.Title>
+            <section className={section}>
                 <div className={blogPostsWrapper}>
                     {
                         nodes.length > 0
@@ -43,7 +45,7 @@ const BlogPage = ({ data }) => {
                                 </Link>
                             )
                         })
-                        : <p>No posts yet...but expect some in the near future!</p>
+                        : <p style={{textAlign: 'center', color: '#C8CCCB'}}>No posts yet...but expect some in the near future!</p>
                     }
                 </div>
             </section>

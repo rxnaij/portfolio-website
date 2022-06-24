@@ -12,7 +12,8 @@ import { useThemeState } from "../../hooks/ThemeContext.ts"
 import Sidebar from '../navigation/Sidebar'
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
-import { layout, mainContent } from './Layout.module.scss'
+import cn from 'classnames'
+import { layout, mainContent, title } from './Layout.module.scss'
 
 const Layout = ({ children, style }) => {
 
@@ -34,5 +35,19 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.object
 }
+
+const Title = ({ children }) => {
+  return(
+      <div className={cn(["typography", title])}>
+          { children }
+      </div>
+  )
+}
+
+Title.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+Layout.Title = Title
 
 export default Layout

@@ -3,3 +3,14 @@
     flex-direction: column;
     gap: 64px;
 }
+
+.title {
+    grid-column: main-start / main-end;
+
+    h1 {
+
+    }
+    p {
+
+    }
+}

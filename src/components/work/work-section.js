@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-
-import Button from '../button/Button'
+import Layout from '../layout/layout'
 import TagFilteredBlurbs from './TagFilteredBlurbs'
 
 const WorkSection = ({ isOnHomePage }) => {
@@ -42,20 +41,16 @@ const WorkSection = ({ isOnHomePage }) => {
     `)
 
     return(
-        <section id="work">
-            <Title>Portfolio</Title>
-            <p>Check out the projects I've worked on!</p>
-            <TagFilteredBlurbs 
-                nodes={data.allContentfulCaseStudy.nodes}
-                isOnHomePage={isOnHomePage}
-            />
+        <>
+            
+            
             {
                 isOnHomePage && 
                 <Link to="/work">
                     See all work &rarr;
                 </Link>
             }
-        </section>
+        </>
     )
 }
 
