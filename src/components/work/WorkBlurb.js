@@ -4,9 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import cn from 'classnames'
 import Stack from '../stack/Stack'
 
-import { Lock } from 'react-bootstrap-icons'
+import { LockFill, CalendarFill, TagFill } from 'react-bootstrap-icons'
 
-import { blurb, details, icon, coverImage } from './WorkSection.module.scss'
+import { blurb, details, detailsContainer, icon, coverImage, protectedTag } from './WorkSection.module.scss'
 
 const WorkBlurb = props => {
 
@@ -18,21 +18,29 @@ const WorkBlurb = props => {
             )} 
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
         >
-                <div className={coverImage}>
-                    <GatsbyImage
-                        image={props.thumbnail}
-                        alt={props.alt}
-                    />
-                </div>
+            <div className={coverImage}>
+                <GatsbyImage
+                    image={props.thumbnail}
+                    alt={props.alt}
+                />
+            </div>
+            <div className="typography">
                 <h3>
-                    {props.protected && <Lock className={icon} width={20} height={20}  />}
+                    {
+                        props.protected && 
+                        <span className={protectedTag}>
+                            <LockFill className={icon} size={14} />
+                            protected
+                        </span>
+                    }
                     {props.title}
                 </h3>
-                <div>
-                    <div className={details}>{props.projectDates}</div>
-                    <div className={details}>{props.projectType}</div>
-                    <p>{props.description}</p>
-                </div>
+                <p>{props.description}</p>
+            </div>
+            <div className={detailsContainer}>
+                <div className={details}><CalendarFill size={14} /> {props.projectDates}</div> 
+                <div className={details}><TagFill size={14} /> {props.projectType}</div>
+            </div>
         </Link>
     )
 }

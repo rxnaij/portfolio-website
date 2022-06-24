@@ -1,5 +1,5 @@
 import React from 'react'
-import { workSection, tabContainer, tab, tabIsActive, hiddenInput } from './Tabs.module.scss'
+import { tabContainer, tab, tabIsActive, hiddenInput } from './Tabs.module.scss'
 import cn from 'classnames'
 
 interface TabsProps {

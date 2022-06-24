@@ -3,7 +3,7 @@ import Tag from './Tag'
 import WorkBlurb from './WorkBlurb'
 import Stack from '../stack/Stack'
 import Tabs from './Tabs'
-import { workSection } from './WorkSection.module.scss'
+import { wrapper, workSection, blurbContainer } from './WorkSection.module.scss'
 import { ProjectNode, getTagsOfNode, getAllUniqueTags } from './tagUtilities'
 
 interface TagFilteredBlurbsProps {
@@ -18,15 +18,15 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
     const [activeTab, setActiveTab] = useState<'Work' | 'Extra'>('Work')    // Consider dynamically building this state type based on the permitted projectCategory values in the Contentful Case Study.
 
     return (
-        <section>
+        <section className={wrapper}>
+            {
+                !isOnHomePage &&
+                <Tabs 
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                />
+            }
             <div className={workSection}>
-                {
-                    !isOnHomePage &&
-                    <Tabs 
-                        activeTab={activeTab}
-                        setActiveTab={setActiveTab}
-                    />
-                }
                 {
                     // Preview the first two work projects on the home page
                     isOnHomePage

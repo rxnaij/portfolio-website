@@ -12,8 +12,8 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <IntroSection />
-    <RelevantLinks />
     <WorkSection isOnHomePage />
+    <RelevantLinks />
   </Layout>
 )
 

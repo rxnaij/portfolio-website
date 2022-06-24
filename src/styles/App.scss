@@ -10,24 +10,9 @@
 /* Activates smooth scrolling for anchor links */
 html, body {
     scroll-behavior: smooth;
-}
 
-/* Dark mode - in progress */
-.default-mode {
-    background-color: $light;
-    color: $dark;
-    a {
-        color: hsl(212, 100%, 39%);
-    }
-}
-.dark-mode {
     background-color: $dark;
-    color: hsl(204, 24%, 96%);
-    // card? color
-    // secondary text color
-    // link color
-    // hover color
-    // border color
+    color: $body-text-light;
 }
 
 a {

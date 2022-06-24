@@ -16,7 +16,7 @@ const RelevantLinks = () => {
 
     return (
         <section id="relevant-links" className={wrapper}>
-            <h3>Find me elsewhere</h3>
+            <h3>Across the world wide web</h3>
             <ul 
                 className={content}
             >

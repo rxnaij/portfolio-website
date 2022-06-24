@@ -1,10 +1,12 @@
 .tabContainer {
-    justify-self: center;
+    width: fit-content;
     display: flex;
     flex-direction: row;
-    border-radius: 4px;
     border: 1px solid #337B6F;
+    border-radius: 4px;
     overflow: hidden;   // crop corners
+
+    margin-bottom: 32px;
 }
 
 .tab {

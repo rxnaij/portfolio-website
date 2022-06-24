@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Button from '../button/Button'
-import { Behance, Github, Envelope, JournalText } from 'react-bootstrap-icons'
+import { Envelope } from 'react-bootstrap-icons'
 
 import { wrapper, title, ctaButton, small } from './Intro.module.scss'
 
