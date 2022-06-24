@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Tag from './Tag'
 import WorkBlurb from './WorkBlurb'
 import Stack from '../stack/Stack'
+import Tabs from './Tabs'
 import { workSection } from './WorkSection.module.scss'
 import { ProjectNode, getTagsOfNode, getAllUniqueTags } from './tagUtilities'
 
@@ -13,12 +14,24 @@ interface TagFilteredBlurbsProps {
 const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
     const [tags] = useState(getAllUniqueTags(nodes))
     const [filter, setFilter] = useState([])
+
+    const [activeTab, setActiveTab] = useState<'Work' | 'Extra'>('Work')    // Consider dynamically building this state type based on the permitted projectCategory values in the Contentful Case Study.
+
     return (
         <section>
             <div className={workSection}>
                 {
+                    !isOnHomePage &&
+                    <Tabs 
+                        activeTab={activeTab}
+                        setActiveTab={setActiveTab}
+                    />
+                }
+                {
+                    // Preview the first two work projects on the home page
                     isOnHomePage
                         ? nodes
+                            .filter(node => node.projectCategory === 'Work')
                             .slice(0, 2)
                             .map((node: any) => 
                                 <WorkBlurb 
@@ -33,8 +46,11 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                     protected={node.protected}
                                 />
                             )
+                        // Preview 
                         : nodes
-                            .filter((node) => {       // Filter nodes by tag
+                            // (CURRENTLY UNUSED--See <TagFilter> definition.) 
+                            // Filter nodes by tag
+                            .filter((node) => {       
                                 // Is there a filter in the first place?
                                 if (filter.length > 0) {        
                                     const nodeTags = getTagsOfNode(node)
@@ -51,18 +67,21 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
                                     return true
                                 }
                             })
-                            .map((node: any) => 
-                                <WorkBlurb 
-                                    key={node.title}
-                                    title={node.title}
-                                    slug={node.slug}
-                                    protected={node.protected}
-                                    description={node.description}
-                                    projectType={node.projectType}
-                                    projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
-                                    thumbnail={node.coverPhoto.gatsbyImageData}
-                                    alt={node.coverPhoto.file.fileName}
-                                />
+                            // Filter nodes by work project category
+                            .filter(node => node.projectCategory === activeTab)
+                            // Render nodes
+                            .map((node: any) =>
+                                    <WorkBlurb 
+                                        key={node.title}
+                                        title={node.title}
+                                        slug={node.slug}
+                                        protected={node.protected}
+                                        description={node.description}
+                                        projectType={node.projectType}
+                                        projectDates={node.startDate + (node.endDate ? ` – ${node.endDate}` : `` )}
+                                        thumbnail={node.coverPhoto.gatsbyImageData}
+                                        alt={node.coverPhoto.file.fileName}
+                                    />
                             )
                 }
             </div>
@@ -72,6 +91,11 @@ const TagFilteredBlurbs = ({ nodes, isOnHomePage }: TagFilteredBlurbsProps) => {
 
 export default TagFilteredBlurbs
 
+/**
+ * CURRENTLY UNUSED
+ * Reason: adds unnecessary complexity to portfolio UX.
+ * Consider removing
+ */
 const TagFilter = ({ tags, filter, setFilter }) => {
     return(
         <Stack gap='base'>
