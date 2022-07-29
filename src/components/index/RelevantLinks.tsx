@@ -20,7 +20,7 @@ const RelevantLinks = () => {
             <ul 
                 className={content}
             >
-                <Link href="data.contentfulAsset.file.url" icon={JournalText} label="Resume" />
+                <Link href={data.contentfulAsset.file.url} icon={JournalText} label="Resume" />
                 <Link href="https://github.com/rxnaij" icon={Github} label="GitHub" />
                 <Link href="https://be.net/richardbludesign" icon={Behance} label="Behance" />
             </ul>
