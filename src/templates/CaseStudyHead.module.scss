@@ -13,8 +13,7 @@
     padding-top: 32px;
     // padding-bottom: 32px;
     
-    // background-color: hsl(234, 22%, 10%);
-    background-color: #ffffff10;
+    background-color: #30363B;
 
     & > * {
         grid-column: main-start / main-end;
@@ -43,7 +42,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 48px;
+    gap: 8px;
     
     nav {
         font-size: 0.8rem;
@@ -56,16 +55,19 @@
         &::before {
             content: "Case study";
             display: block;
+            margin-bottom: 4px;
             
-            font-size: 1rem;
             font-weight: 400;
-            color: #e1e5e580;
+            font-size: 0.875rem;
+            color: #AFB3B2;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
     }
     /* Description */
     .lead {
-        font-size: 1.31rem;
-        line-height: 1.25;
+        font-size: 1.125rem;
+        line-height: 1.67;
     }
 }
 
@@ -73,14 +75,17 @@
 .projectDetails {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 
+    margin-bottom: 32px;    // add extra spacing to image
     // Undo default styling
     padding: 0;
     
     font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
     list-style: none;
-    color: #C8CCCB;
+    color: #AFB3B2;
     
     // Detail item
     li {

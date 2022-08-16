@@ -30,12 +30,12 @@ const navigation: Array<NavLink> = [
         icon: LaptopFill,
         external: false
     },
-    {
-        name: "Blog",
-        href: '/blog',
-        icon: BookFill,
-        external: false
-    },
+    // {
+    //     name: "Blog",
+    //     href: '/blog',
+    //     icon: BookFill,
+    //     external: false
+    // },
     {
         name: "Contact",
         href: '/contact',

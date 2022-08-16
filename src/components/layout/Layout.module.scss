@@ -12,7 +12,7 @@
 @media (min-width: 1100px) {
     .layout {
         // flex-direction: row;
-        align-items: center;
+        align-items: stretch;
     }
 }
 
@@ -31,8 +31,26 @@
 
     row-gap: 80px;
 
-    & > section {
+    & > section, & > aside {
         grid-column: main-start / main-end;
+    }
+
+    & > .wideWrapper {
+        grid-column: start / end;
+        // margin-left: -24px;
+        // margin-right: -24px;
+
+        display: grid;
+        grid-template-columns: 
+            [start] minmax(24px, 1fr) 
+            [main-start] minmax(min-content, 1000px) 
+            [main-end] minmax(24px, 1fr) 
+            [end]
+        ;
+
+        .wideContent {
+            grid-column: 2 / 3;
+        }
     }
 }
 
@@ -49,6 +67,7 @@
 
     }
     p {
-
+        font-size: 1.125rem;
     }
 }
+

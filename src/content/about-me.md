@@ -4,12 +4,12 @@ title: "About Me"
 
 ---
 
-Hey, I'm Richard! I'm a product designer, developer, and human being invested in creating technology that delights and inspires compassion. 
+Hey, I'm Richard! I'm a UX designer and human being interested in tech that is uplifting and socially responsible. I’m also self-taught in front-end web development, and I love building my designs in code. (Like this website!)
 
-**Currently, I’m seeking a full-time product designer role where I can help talented design teams solve real human needs.**
+As a kid, I was drawn to writing. I particularly loved stories that gave me hope and strength, and I dreamt of writing an epic novel that moved hearts. (That hasn’t panned out…yet.)
 
-I believe design (and tech in general) should be about people first. I’m particularly interested in design for mental health/positive wellbeing. I also love building out my projects, and am self-taught in web development, including HTML, CSS, JS, and React (which I used to build this site!)
+Then in college, I joined a student conference as a copywriter so that I could apply my writing skills. But one day, they asked me to build their website, which was a bit of a stretch—I had exactly *zero* prior design experience!
 
-A little about me: growing up, I always enjoyed tinkering around on the web, but never felt like I had the “talent” for computer science (I stuck to writing and humanities courses). Then in college, despite having zero design experience, I was tasked to create a website for a large student conference! The work opened my eyes to the world of UX design, and I found it so fun and fulfilling that I created my own major in Digital Design and User Experience.
+Despite this, I quickly learned that my web design goals weren’t so different from my old writing dreams. Both were about understanding the people on the other side of the screen (or page) and inspiring them to make positive change. This understanding guided me through the work, which I found so rewarding that I created my own major in Digital Design and User Experience. 
 
-In my free time, I like taking morning walks, playing video games, and practicing guitar. I’m currently resisting the urge to buy a PS5.
+Since then, I’ve worked on a ton of self-initiated projects in both design and code, in addition to freelancing and volunteering as a web designer and developer. Today, I'm seeking a full-time junior UX/product designer role where I can help talented teams solve real human needs.

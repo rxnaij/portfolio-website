@@ -18,10 +18,22 @@ const CaseStudyHead = ({
 }) => (
     <header className={wrapper}>
         <div className={titleWrapper}>
-            <nav><Link to="/work">Portfolio</Link> &rsaquo; {title}</nav>
+            {/* <nav><Link to="/work">Portfolio</Link> &rsaquo; {title}</nav> */}
             <h1>{title}</h1>  
             <p className={lead}>{description}</p>
         </div>
+        {
+            projectLink && 
+            <Button
+                className={link}
+                variant="outline"
+                renderContainer={(props) => 
+                    <a href={projectLink} {...props}>
+                        Try it out! &rsaquo;
+                    </a>
+                }
+            />
+        }
         <ul className={projectDetails}>
             <li>
                 <CalendarFill size={16} />
@@ -36,18 +48,6 @@ const CaseStudyHead = ({
                 <div>{ role }</div>
             </li>
         </ul>
-        {
-            projectLink && 
-            <Button
-                className={link}
-                variant="outline"
-                renderContainer={(props) => 
-                    <a href={projectLink} {...props}>
-                        Try it out! &rsaquo;
-                    </a>
-                }
-            />
-        }
         <GatsbyImage 
             image={coverPhoto.gatsbyImageData} 
             alt={coverPhoto.title} 

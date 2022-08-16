@@ -13,7 +13,7 @@ import Sidebar from '../navigation/Sidebar'
 import Footer from '../footer/footer'
 import '../../styles/App.scss'
 import cn from 'classnames'
-import { layout, mainContent, title } from './Layout.module.scss'
+import { layout, mainContent, title, wideWrapper, wideContent } from './Layout.module.scss'
 
 const Layout = ({ children, style }) => {
 
@@ -48,6 +48,20 @@ Title.propTypes = {
   children: PropTypes.node.isRequired
 }
 
+const WideSection = ({ children, tagName, className, id }) => {
+  const Tag = tagName || `section`
+  return(
+    <Tag id={id} className={cn(wideWrapper)} style={{
+      backgroundColor: "#30363B"
+    }}>
+      <div className={cn(wideContent, className)}>
+        { children }
+      </div>
+    </Tag>
+  )
+}
+
 Layout.Title = Title
+Layout.WideSection = WideSection
 
 export default Layout

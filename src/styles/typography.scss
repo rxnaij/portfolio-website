@@ -1,7 +1,8 @@
 @import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
 
 html, body {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 16px;
 
     --text-4xl: 3.157rem;
@@ -9,28 +10,33 @@ html, body {
     --text-2xl: 1.777rem;
     --text-lg: 1.333rem;
     --text-base: 1rem;
-    --text-sm: 0.8rem;
+    --text-sm: 0.875rem;
+
+    --color-accent: #96b5ae;
 }
 
 /* Mobile & tablet — screen size <= 720px */
 
 h1 {
     font-size: var(--text-3xl);
-    font-weight: 700;
+    font-weight: 900;
     line-height: 1.2;
-    color: $header-text-light;
+    letter-spacing: -0.03em;
+    color: var(--color-accent);
 }
 h2 {
     font-size: var(--text-2xl);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
-    color: $header-text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $primary;
 }
 h3 {
     font-size: var(--text-lg);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
-    color: $header-text-light;
+    color: var(--color-accent);
 }
 h4 {
     font-size: var(--text-base);
@@ -39,8 +45,14 @@ h4 {
     color: $header-text-light;
 }
 h5 {
-
     color: $header-text-light;
+}
+
+.label {
+    font-size: var(--text-sm);
+    color: $body-text-light-subtle;
+    text-transform: uppercase;
+    letter-spacing: 3%;
 }
 
 /* Mobile & tablet — screen size > 720px */
@@ -48,18 +60,18 @@ h5 {
 @media screen and (min-width: 721px) {
     h1 {
         font-size: var(--text-4xl);
-        font-weight: 700;
-        color: $header-text-light;
+        // font-weight: 700;
+        // color: $header-text-light;
     }
     h2 {
         font-size: var(--text-3xl);
-        font-weight: 700;
-        color: $header-text-light;
+        // font-weight: 700;
+        // color: $header-text-light;
     }
     h3 {
         font-size: var(--text-2xl);
-        font-weight: 500;
-        color: $header-text-light;
+        // font-weight: 500;
+        // color: $header-text-light;
     }
     h4 {
         font-size: var(--text-lg);
@@ -157,7 +169,6 @@ label {
     h1, h2, h3, h4, h5, h6 {
         margin-top: 2em;
         margin-bottom: 0.5em;
-        // color: #f1f2f7;
     }
 
     h3 {
@@ -197,7 +208,7 @@ label {
             font-style: italic;
             padding-top: 0.8em;
 
-            color: #c8cccb;
+            color: var(--color-accent);
         }
     }
 }

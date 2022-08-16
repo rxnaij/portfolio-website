@@ -62,7 +62,7 @@
         align-self: flex-start;
 
         position: sticky;
-        top: 32px;
+        top: 108px;
     }
 }
 
@@ -76,11 +76,12 @@
     justify-content: space-between;
     align-items: center;
 
-    border-radius: 8px;
+    border-radius: 2px;
     background-color: #ffffff10;
 
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 
     &:hover {
         background-color: #ffffff30;

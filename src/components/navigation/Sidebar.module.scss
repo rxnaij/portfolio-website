@@ -153,11 +153,13 @@
         padding: 16px 24px;
         gap: 8px;
         
-        border-radius: 4px;
-        color: #f2f5f7 !important;
+        border-radius: 2px;
+        color: #e1e5e5;
 
-        font-weight: 700;
-        font-size: 0.8rem;
+        font-weight: 500;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
 
         text-decoration: none;
         &:hover, &:focus {

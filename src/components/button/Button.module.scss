@@ -5,7 +5,7 @@
     // display: inline-block;
 
     border: 2px solid transparent;
-    border-radius: 8px;
+    border-radius: 2px;
     padding: 15px 18px;
     background-color: hsl(168, 48%, 48%);
 
@@ -16,8 +16,11 @@
     gap: 12px;
 
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     text-decoration: none;
+
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 
     &:hover {
         background-color: hsl(168, 48%, 68%);

@@ -34,10 +34,9 @@ const IntroSection = () => {
         <section id="intro" className={wrapper}>
             <div className={title}>
                 <h1>Welcome to richardblu.com!</h1>
-                <small className={small}>{getSubtitle()}</small>
-                <small className={small}>Today's date: {today}</small>
+                <small className={small}>Today's date: {today} • </small><small>{getSubtitle()}</small>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+            <div style={{ maxWidth: 680 }} dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
             <Button
                 variant='outline'
                 renderContainer={(props) => (

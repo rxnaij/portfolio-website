@@ -30,16 +30,17 @@ const WorkBlurb = props => {
                     }
                 </div>
             </div>
+            <div className={detailsContainer}>
+                <div className={details}>{props.projectDates}</div>
+                <div className={details}>{props.projectType}</div>
+            </div>
             <div className="typography">
                 <h3>
                     {props.title}
                 </h3>
                 <p>{props.description}</p>
             </div>
-            <div className={detailsContainer}>
-                <div className={details}><CalendarFill size={14} /> {props.projectDates}</div>
-                <div className={details}><TagFill size={14} /> {props.projectType}</div>
-            </div>
+            
         </Link>
     )
 }
