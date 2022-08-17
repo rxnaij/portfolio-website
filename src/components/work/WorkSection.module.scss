@@ -8,9 +8,10 @@
         auto-fill, 
         minmax(min(400px, 100%), 1fr)
     );
-    gap: 48px;
+    gap: 64px;
 }
 
+// CURRENTLY UNUSED: see <TagFilter /> definition in ./TagFilteredBlurbs.tsx
 .tag {
     display: flex;
     border-radius: 16px;
@@ -48,84 +49,3 @@
         margin-bottom: 16px;
     }
 }
-
-.blurb {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.coverImageBackground {
-    background-color:hsl(168, 48%, 48%);
-    border-radius: 8px;
-}
-
-.coverImage {
-    position: relative;
-
-    border-radius: 8px;
-    overflow: hidden; // Crop border edges
-    
-    box-shadow: none;
-    line-height: 0;
-    border-radius: 8px;
-
-    transform: none;
-    transition: transform 0.15s ease-out;
-
-    &:hover {
-        transform: translateX(10px) translateY(-10px);
-    }
-}
-
-.protectedTag {
-    position: absolute;
-    left: 16px;
-    top: 16px;
-
-    display: block;
-
-    padding: 8px 12px 9px 12px;
-    background-color: hsl(168, 48%, 48%);
-    border-radius: 2px;
-    
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-.detailsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-
-
-.icon {
-    display: inline;
-    margin-bottom: -1px;
-    margin-right: 0.5rem;
-    // color: hsl(168, 58%, 58%);
-}
-
-.details {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    line-height: 1.21;
-    color: #A3A6A5;
-
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-
-    // &:not(:last-child) {
-    //     margin-right: 12px;
-    // }
-
-    .icon {
-        margin-right: 4px;
-    }
-}
-

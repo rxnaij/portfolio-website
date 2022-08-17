@@ -1,11 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import Layout from '../layout/layout'
-import TagFilteredBlurbs from './TagFilteredBlurbs'
 
 const WorkSection = ({ isOnHomePage }) => {
-
-    const Title = isOnHomePage ? `h2` : `h1`
 
     const data = useStaticQuery(graphql`
     query {
@@ -42,8 +38,6 @@ const WorkSection = ({ isOnHomePage }) => {
 
     return(
         <>
-            
-            
             {
                 isOnHomePage && 
                 <Link to="/work">

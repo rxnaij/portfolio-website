@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { footer } from './Footer.module.scss'
 
-const Footer = ({ siteTitle }) => {
+const Footer = () => {
 
     return (
         <footer className={footer}>

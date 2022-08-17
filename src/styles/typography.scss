@@ -5,6 +5,7 @@ html, body {
     font-family: 'Inter', 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 16px;
 
+    // Font sizes
     --text-4xl: 3.157rem;
     --text-3xl: 2.369rem;
     --text-2xl: 1.777rem;
@@ -12,8 +13,11 @@ html, body {
     --text-base: 1rem;
     --text-sm: 0.875rem;
 
-    --color-accent: #96b5ae;
+    --letter-spacing-h1: -0.03em;
+    --letter-spacing-label: 0.03em;
 }
+
+/***** Block text elements *****/
 
 /* Mobile & tablet — screen size <= 720px */
 
@@ -21,7 +25,7 @@ h1 {
     font-size: var(--text-3xl);
     font-weight: 900;
     line-height: 1.2;
-    letter-spacing: -0.03em;
+    letter-spacing: var(--letter-spacing-h1);
     color: var(--color-accent);
 }
 h2 {
@@ -30,7 +34,7 @@ h2 {
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: $primary;
+    color: var(--color-primary);
 }
 h3 {
     font-size: var(--text-lg);
@@ -42,17 +46,22 @@ h4 {
     font-size: var(--text-base);
     font-weight: 400;
     line-height: 1.2;
-    color: $header-text-light;
 }
 h5 {
-    color: $header-text-light;
 }
 
 .label {
     font-size: var(--text-sm);
-    color: $body-text-light-subtle;
+    color: var(--color-text-light-subtle);
     text-transform: uppercase;
-    letter-spacing: 3%;
+    letter-spacing: var(--letter-spacing-label);
+}
+
+@mixin label {
+    font-size: var(--text-sm);
+    color: var(--color-text-light-subtle);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
 }
 
 /* Mobile & tablet — screen size > 720px */
@@ -61,17 +70,14 @@ h5 {
     h1 {
         font-size: var(--text-4xl);
         // font-weight: 700;
-        // color: $header-text-light;
     }
     h2 {
         font-size: var(--text-3xl);
         // font-weight: 700;
-        // color: $header-text-light;
     }
     h3 {
         font-size: var(--text-2xl);
         // font-weight: 500;
-        // color: $header-text-light;
     }
     h4 {
         font-size: var(--text-lg);
@@ -79,7 +85,6 @@ h5 {
         color: $header-text-light;
     }
     h5 {
-    
         color: $header-text-light;
     }
 }
@@ -91,13 +96,10 @@ p {
 }
 
 
-// // Paragraph spacing
+
+// Paragraph spacing
 p + p {
     margin-top: 1.5em;
-}
-
-small {
-    font-size: 0.75rem;
 }
 
 blockquote {
@@ -108,10 +110,6 @@ blockquote {
 
     font-size: 1.15rem;
     font-style: italic;
-
-    p {
-        margin-bottom: 0 !important;
-    }
 }
 
 .small-header {
@@ -130,6 +128,16 @@ label {
 .subtle {
     color: #c8cccb;
     // font-size: 0.9rem;
+}
+
+/***** Inline text elements *****/
+
+a {
+    color: var(--color-dark-link);
+}
+
+small {
+    font-size: 0.75rem;
 }
 
 .typography {

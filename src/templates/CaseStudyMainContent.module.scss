@@ -15,11 +15,9 @@
     }
 }
 
-
 /* Case Study contentfulRichText styling - text */
 /* Sets width of text elements */
 .mainContentWrapper {
-    // grid-column: main-start / main-end;
     max-width: 680px;
 
     & > *:first-child {
@@ -31,8 +29,6 @@
         font-size: 1.1rem;
         margin-bottom: 1.5em;
         line-height: 1.65;
-
-        // max-width: 600px;
     }
 
     // Lists
@@ -66,6 +62,10 @@
         font-size: 1.2rem;
         margin-top: 1em;
         margin-bottom: 1em;
+
+        p {
+            margin-bottom: 0;
+        }
     }
 
     // Wide elements and figures

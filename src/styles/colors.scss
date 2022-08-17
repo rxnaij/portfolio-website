@@ -8,3 +8,18 @@ $primary: hsl(168, 48%, 48%);
 $body-text-light: #e1e5e5;
 $header-text-light: #e1e5e5;
 $body-text-light-subtle: #AFB3B2;
+
+html, body {
+    /* Color */
+    --color-dark: hsl(210, 11%, 15%);
+    --color-dark-secondary: hsl(207, 10%, 21%);
+    --color-light: hsl(204, 24%, 96%);
+    --color-dark-link: hsl(198, 100%, 50%);
+    --color-light-link: hsl(212, 100%, 39%);
+    --color-primary: hsl(168, 48%, 48%);
+    --color-primary-light: hsl(168, 44%, 54%);
+
+    --color-text-light: #e1e5e5;
+    --color-text-light-subtle: #AFB3B2;
+    --color-accent: #96b5ae;
+}

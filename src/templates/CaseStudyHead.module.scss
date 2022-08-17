@@ -6,14 +6,13 @@
 
     display: grid;
     grid-template-columns: inherit;
-    row-gap: 48px;
+    row-gap: 60px;
 
     // Undo the initial vertical offset; integrate into section
     margin-top: -32px;
     padding-top: 32px;
-    // padding-bottom: 32px;
     
-    background-color: #30363B;
+    background-color: var(--color-dark-secondary);
 
     & > * {
         grid-column: main-start / main-end;
@@ -58,10 +57,10 @@
             margin-bottom: 4px;
             
             font-weight: 400;
-            font-size: 0.875rem;
-            color: #AFB3B2;
+            font-size: var(--text-sm);
+            color: var(--color-text-light-subtle);
             text-transform: uppercase;
-            letter-spacing: 0.03em;
+            letter-spacing: var(--letter-spacing-label);
         }
     }
     /* Description */
@@ -80,12 +79,12 @@
     margin-bottom: 32px;    // add extra spacing to image
     // Undo default styling
     padding: 0;
-    
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
     list-style: none;
-    color: #AFB3B2;
+    
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-light-subtle);
     
     // Detail item
     li {

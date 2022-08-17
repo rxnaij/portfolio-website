@@ -2,19 +2,21 @@
 
 .buttonClass {
     position: relative;
-    // display: inline-block;
 
+    // External appearance
     border: 2px solid transparent;
     border-radius: 2px;
-    padding: 15px 18px;
-    background-color: hsl(168, 48%, 48%);
-
     width: fit-content;
+    padding: 15px 18px;
+    background-color: var(--color-primary);
+
+    // Inner content
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 12px;
 
+    // Text
     font-weight: 700;
     font-size: 0.875rem;
     text-decoration: none;
@@ -28,22 +30,22 @@
 
 }
 .outline {
-    --primary-light: hsl(168, 44%, 54%);
-
+    // External appearance
     background-color: transparent;
-    border: 2px solid var(--primary-light);
+    border: 2px solid var(--color-primary-light);
 
-    color: var(--primary-light);
+    // Text
+    color: var(--color-primary-light);
 
     &:hover {
-        color: black;
-        background-color: var(--primary-light);
+        color: #000;
+        background-color: var(--color-primary-light);
     }
 }
 .secondary {
     background-color: transparent;
     &:hover {
-        background-color: hsl(168, 48%, 48%);
+        background-color: var(--color-primary);
     }
 }
 

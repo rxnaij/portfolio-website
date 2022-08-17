@@ -3,14 +3,14 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import cn from 'classnames'
 import { LockFill, CalendarFill, TagFill } from 'react-bootstrap-icons'
-import { blurb, details, detailsContainer, icon, coverImageBackground, coverImage, protectedTag } from './WorkSection.module.scss'
+import { wrapper, details, detailsContainer, icon, coverImageBackground, coverImage, protectedTag } from './WorkBlurb.module.scss'
 
 const WorkBlurb = props => {
 
     return (
         <Link
             className={cn(
-                blurb,
+                wrapper,
                 `a-no-style`
             )}
             to={props.protected ? `/work/secret/${props.slug}` : `/work/${props.slug}`}
@@ -24,8 +24,7 @@ const WorkBlurb = props => {
                     {
                         props.protected &&
                         <span className={protectedTag}>
-                            <LockFill className={icon} size={14} />
-                            protected
+                            <LockFill className={icon} size={14} /> protected
                         </span>
                     }
                 </div>
@@ -40,7 +39,6 @@ const WorkBlurb = props => {
                 </h3>
                 <p>{props.description}</p>
             </div>
-            
         </Link>
     )
 }

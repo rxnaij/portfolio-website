@@ -4,7 +4,7 @@ import Button from '../components/button/Button'
 import Form from '../components/form/Form'
 import SEO from '../components/seo'
 import cn from 'classnames'
-import { wrapper, title } from './contact.module.scss'
+import { wrapper } from './contact.module.scss'
 
 const ContactPage = () => {
     const [ state, setState ] = useState({})
@@ -17,11 +17,12 @@ const ContactPage = () => {
     return(
         <Layout>
             <SEO title="Contact" />
-            <Title>
-                <h1>Let's get in touch!</h1>
-                <p>Thanks for stopping by! Leave a message if you're interested in working together, have questions, or want to share ideas. At the moment, I'm seeking opportunities for full-time, entry-level UX/product designer roles.</p>
-            </Title>
+            <Layout.Title>
+                <h1>Contact</h1>
+                <p>Let's get in touch!</p>
+            </Layout.Title>
             <section id="contact" className={wrapper}>
+                <p>Leave a message if you're interested in working together, have questions, or want to share ideas. At the moment, I'm seeking opportunities for full-time, entry-level UX/product designer roles.</p>
                 <Form 
                     name="contact"
                     method="post"
@@ -47,14 +48,6 @@ const ContactPage = () => {
                 </Form>
             </section>
         </Layout>
-    )
-}
-
-const Title = ({ children }) => {
-    return(
-        <div className={cn(["typography", title])}>
-            { children }
-        </div>
     )
 }
 

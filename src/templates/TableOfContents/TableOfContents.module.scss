@@ -21,7 +21,7 @@
                 padding: 8px;
                 border-radius: 4px;
                 
-                color: #A3A6A5;
+                color: var(--color-text-light-subtle);
                 text-decoration: none;
                 
                 &:hover, &:focus {
@@ -79,9 +79,9 @@
     border-radius: 2px;
     background-color: #ffffff10;
 
-    font-size: 0.875rem;
+    font-size: var(--color-text-light-subtle);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--letter-spacing-label);
 
     &:hover {
         background-color: #ffffff30;

@@ -18,9 +18,7 @@ const IndexPage = () => (
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 48,
-        padding: "80px 0"
-        // gridColumn: "start / end"
+        gap: 64,
       }}>
         <Title 
           title="Featured work"

@@ -20,7 +20,6 @@ const AboutPage = ({ data }) => {
                 <h1>About me</h1>
                 <p>What's up!</p>
             </Layout.Title>
-            
             <section className={bioWrapper}>
                 <div className="main">
                     <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -37,7 +36,6 @@ const AboutPage = ({ data }) => {
                     level={2}
                 />
                 <div>
-
                     <h3>Relevant links</h3>
                     <div className={links}>
                         <div>
@@ -55,11 +53,9 @@ const AboutPage = ({ data }) => {
                     </div>
                 </div>
                 <div>
-
                     <h3>Current interests</h3>
                     <div className={interests}>
                         <div>
-
                             <p className={title}>Now playing <Controller size={20} style={{ display: 'inline-block' }} /></p>
                             <ul>
                                 <li>Yakuza: Like a Dragon</li>
@@ -83,10 +79,7 @@ const AboutPage = ({ data }) => {
                         </div>
                     </div>
                 </div>
-
-
             </Layout.WideSection>
-
         </Layout>
     )
 }

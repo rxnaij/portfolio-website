@@ -102,7 +102,7 @@ const TagFilteredBlurbs = ({ isOnHomePage }: TagFilteredBlurbsProps) => {
                                     return true
                                 }
                             })
-                            // Filter nodes by work project category
+                            // Filter nodes by work project category (e.g. "Work" or "Extra")
                             .filter(node => node.projectCategory === activeTab)
                             // Render nodes
                             .map((node: any) =>

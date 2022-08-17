@@ -2,7 +2,7 @@
     grid-column: main-start / main-end;
     align-self: end;
 
-    border-top: 1px solid hsla(168, 48%, 48%, 0.1);
+    border-top: 1px solid hsla(168, 48%, 48%, 0.2);
     padding: 16px 0;
 
     small {
@@ -10,6 +10,6 @@
         line-height: 1.5em;
     }
     small:first-of-type {
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
 }

@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import Button from '../button/Button'
 import { Envelope } from 'react-bootstrap-icons'
 
-import { wrapper, title, ctaButton, small } from './Intro.module.scss'
+import { wrapper, title, introContent } from './Intro.module.scss'
 
 const today = new Date().toDateString()
 const getSubtitle = () => {
@@ -34,17 +34,18 @@ const IntroSection = () => {
         <section id="intro" className={wrapper}>
             <div className={title}>
                 <h1>Welcome to richardblu.com!</h1>
-                <small className={small}>Today's date: {today} • </small><small>{getSubtitle()}</small>
+                <span>Today's date: {today} • </span><span>{subtitle}</span>
             </div>
-            <div style={{ maxWidth: 680 }} dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+            <div 
+                className={introContent} 
+                dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} 
+            />
             <Button
                 variant='outline'
                 renderContainer={(props) => (
                     <Link to="/contact" {...props}>
-                        <Envelope size={24} />
-                        <div>
-                            <span>Get in touch!</span>
-                        </div>
+                        <span>Get in touch!</span>
+                        <Envelope size={20} />
                     </Link>
                 )}
             />

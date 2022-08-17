@@ -7,21 +7,18 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useThemeState } from "../../hooks/ThemeContext.ts"
 
 import Sidebar from '../navigation/Sidebar'
 import Footer from '../footer/footer'
+
 import '../../styles/App.scss'
 import cn from 'classnames'
 import { layout, mainContent, title, wideWrapper, wideContent } from './Layout.module.scss'
 
 const Layout = ({ children, style }) => {
 
-  const { theme } = useThemeState()
-  const tType = theme === 'dark' ? 'dark-mode' : 'default-mode'
-
   return (
-    <div className={`${tType} ${layout}`}>
+    <div className={layout}>
       <Sidebar />
       <main style={{ ...style }} className={mainContent}>
         {children}
@@ -38,22 +35,21 @@ Layout.propTypes = {
 
 const Title = ({ children }) => {
   return(
-      <div className={cn(["typography", title])}>
+      <header className={cn(["typography", title])}>
           { children }
-      </div>
+      </header>
   )
 }
 
 Title.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  
 }
 
 const WideSection = ({ children, tagName, className, id }) => {
   const Tag = tagName || `section`
   return(
-    <Tag id={id} className={cn(wideWrapper)} style={{
-      backgroundColor: "#30363B"
-    }}>
+    <Tag id={id} className={cn(wideWrapper)}>
       <div className={cn(wideContent, className)}>
         { children }
       </div>

@@ -2,10 +2,10 @@ import React, { useState, useEffect, createContext, useContext, ChangeEvent, Com
 import cn from 'classnames'
 import { formClass, labelClass, inputClass, textareaClass, groupClass } from './Form.module.scss'
 
-/* Initialize form context */
+/* Initialize form state and context */
 
 type FormState = {
-    [key: string]: string|number|readonly string[]
+    [key: string]: string|number|readonly string[]      // Value of input
 }
 
 type FormContextValue = {
@@ -16,7 +16,7 @@ type FormContextValue = {
 const FormContext = createContext<FormContextValue>({} as FormContextValue)
 
 /**
- * USE THIS HOOK to access form state & event handlers across compound components.
+ * Access form state & event handlers within compound components.
  * @returns a FormContextValue object, which contains the FormState object and a
  * handleChange function
  */
@@ -43,18 +43,20 @@ const Form = (props: FormProps) => {
         })
     }
 
-    // When the form is initially mounted, it accidentally creates a property called "undefined" in state.
-    // This effect removes that "undefined" property right away.
+    // When the form is initially mounted, it accidentally creates a property in state called "undefined". This effect removes the "undefined" property right away.
     useEffect(() => {
         if (formState["undefined"]) {
             delete formState["undefined"]
         }
     }, [])
 
-    const enableNetlifyForm = !props.disableNetlify ? {
-        "data-netlify": "true",
-        "data-netlify-honeypot": "bot-field"
-    } : null
+    // When enabled, 
+    const enableNetlifyForm = !props.disableNetlify 
+        ? {
+            "data-netlify": "true",
+            "data-netlify-honeypot": "bot-field"
+        } 
+        : null
 
     return (
         <FormContext.Provider value={{state: formState, handleChange}}>

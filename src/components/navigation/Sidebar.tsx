@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { sidebar, menuBar, controls, nav, navLink, active, sidebarIsOpen, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
+import { wrapper, menuBar, controls, nav, navLink, active, sidebarIsClosed, openButton, overlay } from './Sidebar.module.scss'
 import cn from 'classnames'
-import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, JournalText, List, BookFill, ChevronLeft, ArrowUpRightSquareFill, Github, Behance } from 'react-bootstrap-icons'
+import { Icon, HouseFill, PersonFill, LaptopFill, EnvelopeFill, List, BookFill, ChevronLeft, ArrowUpRightSquareFill, X } from 'react-bootstrap-icons'
+import VisuallyHidden from '../hidden/VisuallyHidden'
 
 export type NavLink = {
     name: string
@@ -48,39 +49,75 @@ const Sidebar = () => {
     const [isOpen, setOpen] = useState(false)
     return (
         <> 
-            <MenuBar isOpen={isOpen} setOpen={setOpen} />
-            {isOpen && <Overlay handleClick={() => setOpen(false)} />}
-            <div className={cn(
-                sidebar,
+            <MenuBar setOpen={setOpen} />
+            { isOpen && <Overlay handleClick={() => setOpen(false)} /> }
+            <nav className={cn(
+                wrapper,
                 !isOpen && sidebarIsClosed
             )}>
                 <div className={controls}>
                     <button className={openButton} onClick={() => setOpen(false)}>
-                        <ChevronLeft width={16} height={16} /> Close menu
+                        <X size={24} /> Close menu
                     </button>
                     <strong><Link to="/" className="a-no-style">Richard Lu</Link></strong>
                 </div>
-                <ul className={nav}>
-                    {
-                        navigation.map(item => {
-                            if (!item.external) {
-                                return (
-                                    <NavLink key={item.name} {...item} />
-                                )
-                            }
-                        })
-                    }
-                </ul>
-            </div>
+                <Nav />
+            </nav>
         </>
     )
 }
 
 export default Sidebar
 
+/**
+ * Dark overlay underneath sidebar.
+ * When clicked, closes sidebar.
+ */
+const Overlay = ({ handleClick }) => {
+    return(
+        <div className={overlay} onClick={handleClick} />
+    )
+}
+
+/**
+ * Mobile: Menu bar with hamburger navigation
+ */
+const MenuBar = ({ setOpen }) => {
+    return(
+        <div className={menuBar}>
+            <button 
+                onClick={() => setOpen(true)}
+                className={openButton}
+            >
+                <List size={24}/>
+                <VisuallyHidden>Open menu</VisuallyHidden>
+            </button>
+        </div>
+    )
+}
+
+/**
+ * Navigation
+ */
+const Nav = () => {
+    return(
+        <ul className={nav}>
+            {
+                navigation.map(item => {
+                    if (!item.external) {
+                        return (
+                            <NavLink key={item.name} {...item} />
+                        )
+                    }
+                })
+            }
+        </ul>
+    )
+}
+
 type NavLinkProps = NavLink
 
-const NavLink = ({ name, href, icon, external }: NavLinkProps) => {
+const NavLink = ({ name, href, icon }: NavLinkProps) => {
     const Icon = icon
 
     return (
@@ -88,28 +125,7 @@ const NavLink = ({ name, href, icon, external }: NavLinkProps) => {
             <Link to={href} activeClassName={active}>
                 <Icon width={20} height={20}/>
                 { name }
-                { external && <ArrowUpRightSquareFill width={20} height={20} /> }
             </Link>
         </li>
-    )
-}
-
-
-const Overlay = ({ handleClick }) => {
-    return(
-        <div className={overlay} onClick={handleClick} />
-    )
-}
-
-const MenuBar = ({ isOpen, setOpen }) => {
-    return(
-        <div className={menuBar}>
-            <button 
-                onClick={() => setOpen(true)}
-                className={openButton}
-            >
-                <List width={24} height={24}/>
-            </button>
-        </div>
     )
 }
