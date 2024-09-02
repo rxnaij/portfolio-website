@@ -60,5 +60,6 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "packageManager": "yarn@1.1.0+sha512.7ce740ac47d8ba42c47d0262979fcd1d22daede2a298e1743341c52584bee7d4beca8758c118deccaefd9cb0bc2780a37e110ae3633af56ac6916ae0389eadf6"
 }
