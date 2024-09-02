@@ -61,5 +61,5 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
-  "packageManager": "yarn@1.1.0+sha512.7ce740ac47d8ba42c47d0262979fcd1d22daede2a298e1743341c52584bee7d4beca8758c118deccaefd9cb0bc2780a37e110ae3633af56ac6916ae0389eadf6"
+  "packageManager": "yarn@4.4.1+sha512.f825273d0689cc9ead3259c14998037662f1dcd06912637b21a450e8da7cfeb4b1965bbee73d16927baa1201054126bc385c6f43ff4aa705c8631d26e12460f1"
 }
