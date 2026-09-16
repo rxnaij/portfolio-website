@@ -1,6 +1,15 @@
 # build output
 dist/
 
+# Raw Contentful dump: kept locally as the export safety net, never committed
+# because it contains the protected case study in full.
+contentful-raw/
+
+# Protected case study. Held out of git because this repo is public; a master
+# copy lives in ../../Password-Protected Case Studies/
+src/content/work/pharmacy-website-redesign-concept.mdx
+src/assets/work/pharmacy-website-redesign-concept/
+
 # generated types
 .astro/
 

@@ -409,6 +409,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@contentful/rich-text-html-renderer@npm:^17.2.3":
+  version: 17.2.3
+  resolution: "@contentful/rich-text-html-renderer@npm:17.2.3"
+  dependencies:
+    "@contentful/rich-text-types": "npm:^17.2.7"
+  checksum: 10c0/8ee18c6b5d6cc05fd011b4bf2279045ac1d345cd2e1eec93c1c0286c79561abc6fa51a9bf954229fd5e412ffc0a9ed8ae07259d7f29da220afed8343669e1900
+  languageName: node
+  linkType: hard
+
+"@contentful/rich-text-types@npm:^17.2.7":
+  version: 17.2.7
+  resolution: "@contentful/rich-text-types@npm:17.2.7"
+  checksum: 10c0/fddf495bb3d16cbf18a8ce41572351de08602398d4d292698b432528d8a2b19d6e08b2cded671aab49605be3b3bfed3bb286260d56c3207c08446b31a6a849b3
+  languageName: node
+  linkType: hard
+
 "@emmetio/abbreviation@npm:^2.3.3":
   version: 2.3.3
   resolution: "@emmetio/abbreviation@npm:2.3.3"
@@ -895,6 +911,13 @@ __metadata:
     unist-util-visit: "npm:^5.0.0"
     vfile: "npm:^6.0.0"
   checksum: 10c0/371ed95e2bee7731f30a7ce57db66383a0b7470e66c38139427174cb456d6a40bf7d259f3652716370c1de64acfba50a1ba27eb8c556e7a431dc7940b04cb1a1
+  languageName: node
+  linkType: hard
+
+"@mixmark-io/domino@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@mixmark-io/domino@npm:2.2.0"
+  checksum: 10c0/aa468a15f9217d425220fe6a4b3f9416cbe8e566ee14efc191c6d5cc04fe39338b16a90bbac190f28d44e69465db5f2cf95f479c621ce38060ca6b2a3d346e9d
   languageName: node
   linkType: hard
 
@@ -4317,6 +4340,8 @@ __metadata:
     "@astrojs/check": "npm:^0.9.3"
     "@astrojs/mdx": "npm:^3.1.5"
     "@astrojs/react": "npm:^3.6.2"
+    "@contentful/rich-text-html-renderer": "npm:^17.2.3"
+    "@contentful/rich-text-types": "npm:^17.2.7"
     "@types/react": "npm:^18.3.5"
     "@types/react-dom": "npm:^18.3.0"
     astro: "npm:^4.15.2"
@@ -4326,6 +4351,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-spring: "npm:^10.0.4"
     sass: "npm:^1.104.1"
+    turndown: "npm:^7.2.4"
     typescript: "npm:^5.5.4"
   languageName: unknown
   linkType: soft
@@ -5236,6 +5262,15 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
+  languageName: node
+  linkType: hard
+
+"turndown@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "turndown@npm:7.2.4"
+  dependencies:
+    "@mixmark-io/domino": "npm:^2.2.0"
+  checksum: 10c0/8e66e24bc9d9cdcf720f0ee2655a61d9b9e60ebe2763e97a7a8c3f689e9154717bbea7ed48cc5e355651f34182da698c6bc5fef3028e5600c1cadb7e117376d5
   languageName: node
   linkType: hard
 

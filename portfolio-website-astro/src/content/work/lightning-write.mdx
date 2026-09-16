@@ -1,0 +1,224 @@
+---
+title: "Lightning Write"
+description: "During the height of the pandemic, I designed and coded a tool to help amateur creative writers overcome writer’s block using guided constraints."
+projectCategory: "Work"
+projectType: "independent, ux design, react"
+role: "UX designer, user researcher, developer"
+projectLink: "http://lightning-write.surge.sh"
+startDate: 2020-03-15
+endDate: 2020-09-17
+protected: false
+coverPhoto: "../../assets/work/lightning-write/product-photo-all.png"
+coverPhotoAlt: "Lightning Write Product photo - all"
+---
+
+import Figure from '../../components/figure/Figure.astro'
+import img0 from '../../assets/work/lightning-write/product-photo-all.png'
+import img1 from '../../assets/work/lightning-write/product-photo-desktop.png'
+import img2 from '../../assets/work/lightning-write/product-photo-mobile.png'
+import img3 from '../../assets/work/lightning-write/affinity-map.png'
+import img4 from '../../assets/work/lightning-write/persona.png'
+import img5 from '../../assets/work/lightning-write/lightning-write-journey-map.png'
+import img6 from '../../assets/work/lightning-write/inspiration.png'
+import img7 from '../../assets/work/lightning-write/lw-user-flow.png'
+import img8 from '../../assets/work/lightning-write/wireframe-1.png'
+import img9 from '../../assets/work/lightning-write/wireframe-2.png'
+import img10 from '../../assets/work/lightning-write/wireframe-3.png'
+import img11 from '../../assets/work/lightning-write/wireframe-4.png'
+import img12 from '../../assets/work/lightning-write/wireframe-5.png'
+import img13 from '../../assets/work/lightning-write/design-system.png'
+import img14 from '../../assets/work/lightning-write/lw-demo.gif'
+import img15 from '../../assets/work/lightning-write/writing-bg-andrew-neel.jpg'
+
+## Problem
+
+Many amateur creative writers struggle with writers' block, preventing them from starting and finishing work they care about.
+
+## Solution
+
+Lightning Write is a website that helps amateur writers get started on their next project by providing a focused, judgement-free space to turn ideas into words.
+
+<Figure src={img1} alt="Don't get stuck in the weeds of your mind: get focused on writing what you need to write." caption="Don't get stuck in the weeds of your mind: get focused on writing what you need to write." />
+
+<Figure src={img2} alt="Simplicity is productive: just name what you're writing, set your timer and word count, and you're off." caption="Simplicity is productive: just name what you're writing, set your timer and word count, and you're off." />
+
+## The challenge
+
+As an aspiring and amateur writer, I’ve struggled with writers’ block all my life. Even during the COVID-19 pandemic, with lots more time to spare at home, I still found it difficult to sit down and get started on writing.
+
+I challenged myself to understand and develop a solution to this issue of writers’ block—both for myself, and for other amateur writers struggling to write during the pandemic. Specifically, I sought to:
+
+1.  **Understand why amateur creative writers suffer from writers’ block.**
+    
+2.  **Design a solution that helps amateur writers overcome writers’ block.**
+    
+3.  **Code said solution as a functional web app.**
+    
+
+**Why code**? As the pandemic was causing people real stress, I wanted to try my hand at creating a tool that could tangibly help people, rather than just showing off a static design concept.
+
+### Process
+
+I approached the challenge using an iterative and nonlinear design process inspired by the Design Sprint methodology pioneered by Jake Knapp at Google Ventures.
+
+Some key principles of this process include: 
+
+1.  a bias toward action,
+    
+2.  creating and validating an MVP through rapid user testing and research, and
+    
+3.  embracing iterative change.
+    
+
+## Researching the problem
+
+### Interview methods
+
+To understand writers' pain points, I conducted a total of seven qualitative interviews:
+
+-   Four with the target user base, i.e. college-aged amateur writers, about their various feelings and behaviors around their writing habits, especially during the pandemic.
+    
+-   Three with "field experts"—professional writers and educators—on what makes a successful (and unsuccessful) writing process.
+    
+
+**Selected sample questions**:
+
+-   _Have you been writing lately?_
+    
+-   _If so: what are you aiming to accomplish by writing this?_
+    
+-   _If not: what's been stopping you?_
+    
+-   _What was the last project you completed to your satisfaction?_
+    
+-   _What are some obstacles that have prevented you from writing?_
+    
+
+### Key insights & observations
+
+<Figure src={img3} alt="I assembled observations from the interviews into an affinity map to identify pain points and behavioral patterns." caption="I assembled observations from the interviews into an affinity map to identify pain points and behavioral patterns." />
+
+The key findings from these interviews were as follows:
+
+1.  Creative writing **is a personal and emotional activity**. An oft-cited reason was that it lets writers resonate with their younger self.
+    
+2.  Interviewees dropped projects when **they struggled to reach their expectations** (which were, many times, too high).
+    
+3.  **Avoidance and procrastination** are signals of perfectionism, and in turn, a failing writing project.
+    
+4.  **Structured, controlled writing environments**, such as classes and workshops, were where writers succeeded most in finishing projects they cared about.
+    
+
+> “It's been a stumper...usually, I try to write lyrics that sound fresh and new, but I end up writing something that's already been written.”
+
+> “I like that environment of a closed box of a class… everything kind of just exists in that class, so I was able to throw out spontaneous, impersonal ideas”
+
+<Figure src={img4} alt="The persona maps out the different pain points, behaviors, and characteristics of amateur writers struggling to finish their work." caption="The persona maps out the different pain points, behaviors, and characteristics of amateur writers struggling to finish their work." />
+
+<Figure src={img5} alt="A journey map detailing the task of writing. While writing can be a fluid and enjoyable activity, it's also vulnerable to unproductive thoughts emotions like self-comparison and impatience." caption="A journey map detailing the task of writing. While writing can be a fluid and enjoyable activity, it's also vulnerable to unproductive thoughts emotions like self-comparison and impatience." />
+
+## Designing a solution
+
+### Ideation
+
+I hypothesized that two things were key to overcoming an inability to write:
+
+1.  **Deliberate, specific constraints** and
+    
+2.  **Generative improvisation.**
+    
+
+For visual design inspiration, I looked to other writing and productivity apps. WYSIWYG word processing tools, like Medium and WordPress’s Gutenberg editor, emphasize minimalist spaces to facilitate a feeling of craftsmanship. Productivity apps such as [<u>prodcard.co</u>](http://prodcard.co/) provide discrete options to minimize decision fatigue.
+
+<Figure src={img6} alt="I found inspiration in the minimalist interfaces of Medium and WordPress's writing interfaces." caption="I found inspiration in the minimalist interfaces of Medium and WordPress's writing interfaces." />
+
+### Finding the right design
+
+I came up with a user flow outlining how the tool might help a writer tackle their work in more digestible parts.
+
+<Figure src={img7} alt="" caption="" />
+
+The aim was to help writers get in their natural writing flow while avoiding dwelling on their work for too long, using the help of constraints like a timer and word counter.
+
+<Figure src={img8} alt="Initial lo-fi sketches to define the general outline of the tool. Basic features such as the time limit, word counter, and text editor are established here." caption="Initial lo-fi sketches to define the general outline of the tool. Basic features such as the time limit, word counter, and text editor are established here." />
+
+At first, I wasn't certain about how exactly the features should appear visually. Testing was a good opportunity to clarify this, by seeing how testers responded to certain design choices or features.
+
+To test the app, I got on a video call with participants and asked them to write a short piece about a topic of their choice using the app, while narrating their thought process.
+
+<Figure src={img9} alt="This iteration clarified certain visual and interaction details, like the visibility of the timer and word counter during the writing stage." caption="This iteration clarified certain visual and interaction details, like the visibility of the timer and word counter during the writing stage." />
+
+<Figure src={img10} alt="During testing, some users felt stressed out by the pressure of the timer. I tried to compromise by making the controls and constraints subtle but clear, so that they wouldn't distract the user." caption="During testing, some users felt stressed out by the pressure of the timer. I tried to compromise by making the controls and constraints subtle but clear, so that they wouldn't distract the user." />
+
+<Figure src={img11} alt="I kept refining usability and interaction details alongside the visual design. Here, I added options for custom time limits and word count goals." caption="I kept refining usability and interaction details alongside the visual design. Here, I added options for custom time limits and word count goals." />
+
+As a bonus: about a year after I had originally finished working on Lightning Write, I revisited the screens just to test the UI design skills that I'd picked up since then.
+
+<Figure src={img12} alt="Revisiting the visual design a year after wrapping up the project. I incorporated UI design details I'd picked up since then, such as icons, typographic hierarchy, and layout." caption="Revisiting the visual design a year after wrapping up the project. I incorporated UI design details I'd picked up since then, such as icons, typographic hierarchy, and layout." />
+
+### The one-man team's design system
+
+Design systems are typically used by large organizations to handle complex products. However, I found a design system to be super helpful in my comparatively small personal project. This is due to two main constraints I faced with this project: I was the sole designer, and I wanted to code the product.
+
+<Figure src={img13} alt="A glimpse of the design system used for Lightning Write. Many components, text choices, and color choices would begin as iterative sketches over wireframes, to be formalized in the design system later on." caption="A glimpse of the design system used for Lightning Write. Many components, text choices, and color choices would begin as iterative sketches over wireframes, to be formalized in the design system later on." />
+
+This was my first shot at creating a design system, and it required a ton of overhead in addition to designing the actual product. That said, it came with some noticeable benefits:
+
+-   **Organized**: like a second team member reminding me how to understand the product
+    
+-   **Iterative**: optimized less for instant perfection, and more for gradual improvement
+    
+-   **Deliberate**: providing clear rules for when and how elements should appear
+    
+
+## Developing the prototype
+
+As I mentioned earlier, the crisis of the pandemic meant that I felt it was right to create a solution that could actually help people. That's why I coded an interactive prototype in React to test the design.
+
+<Figure src={img14} alt="Lightning Write in action as a web app! Having a coded prototype allowed me to get feedback on the writing experience in a way that would've been difficult with static screens in Figma." caption="Lightning Write in action as a web app! Having a coded prototype allowed me to get feedback on the writing experience in a way that would've been difficult with static screens in Figma." />
+
+The tech stack included:
+
+-   JavaScript and TypeScript
+    
+-   React frontend (via [<u>Create React App</u>](https://create-react-app.dev/))
+    
+-   SCSS for styling
+    
+
+You can see the source code on the [Lightning Write GitHub respository](https://github.com/rxnaij/lightning-write-neo).
+
+### Cutting down on dev time
+
+For [<u>Party Mode for Spotify</u>](https://www.richardblu.com/work/party-mode-for-spotify/), I also created a code prototype, which was great for testing the app, but came at some major time costs:
+
+1.  I coded it from scratch, which meant spending excessive time creating simple components such as buttons.
+    
+2.  I didn’t create a proper design system, which meant that similar elements around the app were redundant, incompatible, or difficult to reuse.
+    
+
+By having a design system beforehand and focusing on reusing components, I was able to cut the time to finish a working prototype to around 2 weeks (compared to 5 with Party Mode).
+
+Still, I feel that I can cut down on that time even further to be more in line with the design thinking ethos of rapid prototyping. In the future, I might consider ways to incorporate interactivity without having to code, or at least tools that reduce the time it takes to code from scratch.
+
+## Reflection
+
+<Figure src={img15} alt="A desk with a laptop, coffee, notepad, and phone" caption="A desk with a laptop, coffee, notepad, and phone" />
+
+When I started this project during the early pandemic, I sought to explore a way to help people cope with the looming uncertainty. I learned a lot about research, design, and code in the process, particularly:
+
+-   **Interactive, functional prototyping**. The interactive prototype solicited important user feedback that may not have been possible with static screens—for instance, a feeling of pressure from watching the timer count down in real time.
+    
+-   **Translating designs into code**. Because I had planned to code this project from the start, I invested a lot of time and effort into keeping the design file and code well-organized and in sync.
+    
+
+I also discovered a lot of areas that I'd want to improve on for future projects, such as:
+
+-   **More rigorous, long-term user testing.** I managed to solicit feedback largely based on people’s 20-minute impressions of the prototype, but it would be useful to test how effective it is in improving their writing habits over a longer period of time, e.g. the span of a few weeks.
+    
+-   **Assessing the perfectionism problem across different types of writing**. I approached this project from the angle of creative writing, but I'd also like to study its effectiveness with less creative and more utilitarian writing tasks, like emails, essays, or letters.
+    
+
+If you would like to use the app yourself, try it out at [<u>http://lightning-write.surge.sh</u>](http://lightning-write.surge.sh). I'm always open to feedback, questions, or comments about the product or the case study, so feel free to [<u>send me a message</u>](https://richardblu.com/contact).
+
+Thanks for reading!

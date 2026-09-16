@@ -23,5 +23,10 @@
     "react-spring": "^10.0.4",
     "sass": "^1.104.1",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@contentful/rich-text-html-renderer": "^17.2.3",
+    "@contentful/rich-text-types": "^17.2.7",
+    "turndown": "^7.2.4"
   }
 }

@@ -1,0 +1,132 @@
+---
+title: "Chess Card"
+description: "Chess Card gives new and experienced chess players a snazzy playercard to share their online chess profile on."
+projectCategory: "Extra"
+projectType: "Independent, graphic design, front-end development"
+role: "Designer, Developer"
+projectLink: "https://xenodochial-jennings-6e0aac.netlify.app/"
+startDate: 2020-12-07
+endDate: 2021-02-07
+protected: false
+coverPhoto: "../../assets/work/chess-card/cover-image.png"
+coverPhotoAlt: "Chess Card cover image"
+---
+
+import Figure from '../../components/figure/Figure.astro'
+import img0 from '../../assets/work/chess-card/cover-image.png'
+import img1 from '../../assets/work/chess-card/strava-year-in-sport.png'
+import img2 from '../../assets/work/chess-card/qr-codes.png'
+import img3 from '../../assets/work/chess-card/file-000.jpeg'
+import img4 from '../../assets/work/chess-card/lo-fi-card-iterations.png'
+import img5 from '../../assets/work/chess-card/hi-fi-card-iterations.png'
+import img6 from '../../assets/work/chess-card/flow-v3.png'
+import img7 from '../../assets/work/chess-card/website-iterations.png'
+import img8 from '../../assets/work/chess-card/desktop-v3-home-not-logged-in.png'
+
+## Problem
+
+New and casual chess players want to find friends to play online chess with. 
+
+Players need a way to invite their friends to play with them.
+
+## Solution
+
+An elegant, customizable player card containing the player’s username and online ratings that can easily be shared on social media.
+
+## Design
+
+_Tools used: pen and paper, Figma_
+
+### Background: Meeting the chess demand
+
+In 2020, one game exploded in a way that no one could have predicted: chess. Today, the ancient sport is booming, thanks in part to pop culture moments including the [<u>PogChamps</u>](https://en.wikipedia.org/wiki/PogChamps) invitationals, and the Netflix limited series _The Queen’s Gambit_, starring Anya Taylor-Joy.
+
+Interest among new players has surged in particular. After the release of _The Queen’s Gambit_, [<u>new registrations on Chess.com increased by 500%</u>](https://www.businessinsider.com/the-queens-gambit-netflix-online-chess-app-interest-2020-11).
+
+But while chess websites such as Chess.com and Lichess make it easy to play on online ladders versus strangers, it’s reasonable to assume that, as with any other game or hobby, **the average player will enjoy playing chess more and for longer when they have friends to play with**.
+
+And while it’s fairly straightforward to invite and exchange usernames with individual friends, what if you _don’t know_ who out of your friends plays chess?
+
+One seemingly simple solution is for players to post their usernames on social media. Yet there isn’t an easy or elegant way to do that.
+
+> Hypothesis: the average player will enjoy playing chess more and for longer when they have friends to play with.
+
+### Ideation: shareable cards and stories
+
+I considered different methods for helping people share their chess profiles on social media. The idea I arrived at was player card stories: a hybrid of video game player cards and stories.
+
+Player cards are a common sight in online multiplayer video games, providing information such as a player’s level and username, while also allowing them to express themselves through the use of avatars, emblems, catchphrases, stats, etc.
+
+Similarly, “data stories” popularized by apps such as Spotify and Strava communicate user information by combining data and graphic design to create expressive and personalized “data trophies” that are rewarding to share with friends.
+
+<Figure src={img1} alt="Data-driven stories package user data with graphic design and animation to create rewarding “trophies” that users can share with their friends. Pictured: Strava’s Year in Sport" caption="Data-driven stories package user data with graphic design and animation to create rewarding “trophies” that users can share with their friends. Pictured: Strava’s Year in Sport" />
+
+Another source of inspiration were custom QR code cards from apps such as Instagram and Spotify. Compared to the stories, their designs are simpler and more utilitarian.
+
+<Figure src={img2} alt="Examples of QR code cards from Instagram and Spotify" caption="Examples of QR code cards from Instagram and Spotify" />
+
+All of these things—video game player cards, data-generated stories, and QR cards—lend themselves well to being shared with/interacted by other people.
+
+### Designing the player card
+
+I aimed to design a player card that was visually striking while communicating necessary information about the player.
+
+Some necessary limitations to consider when designing the card were:
+
+-   The design had to be simple enough to recreate and present on a website.
+    
+-   The design had to have customizable elements. It had to have room for some kind of dynamic content.
+    
+-   The card had to work well both on its own and as part of a story.
+    
+
+<Figure src={img3} alt="Early sketches of the player card" caption="Early sketches of the player card" />
+
+<Figure src={img4} alt="Early iterations of the card design, made part of the story" caption="Early iterations of the card design, made part of the story" />
+
+<Figure src={img5} alt="High-fidelity iterations of the card and story design" caption="High-fidelity iterations of the card and story design" />
+
+### Designing the customization app
+
+The objective of the card customization app is to deliver a high-quality exported image of their playercard that creators can share on social platforms such as Instagram.
+
+<Figure src={img6} alt="The user flow of the card customization app" caption="The user flow of the card customization app" />
+
+By logging in to their online chess account, users can personalize a player card with their username and ratings. They are also able to customize the appearance of their player card live on the app. The design on the live editor is a 1-to-1 match to the final exported image.
+
+Initially, users could simply type their usernames into a text box and have their player card generated in one click. However, it became apparent that this could be exploited to allow anyone to use _anyone_’s player card. Therefore, it made sense to require logging in using their online chess account first.
+
+<Figure src={img7} alt="Iterations of the card customization app design" caption="Iterations of the card customization app design" />
+
+#### Current design
+
+<Figure src={img8} alt="The current iteration of the chess card app" caption="The current iteration of the chess card app" />
+
+## Development
+
+### Tech stack
+
+Here’s the lowdown of the stack I used to code the app:
+
+-   I wrote the code in [<u>TypeScript</u>](https://www.typescriptlang.org/).
+    
+-   I developed the website using React via [<u>Create React App</u>](https://create-react-app.dev/).
+    
+-   I chose [<u>Tailwind</u>](https://tailwindcss.com/) as a styling framework.
+    
+-   I used the [<u>Konva</u>](https://konvajs.org/) library to draw the card using HTML canvas.
+    
+-   I used a NodeJS backend for the OAuth2 authorization process.
+    
+
+### View project repo
+
+**Check out the project repo**: [<u><b>https://github.com/rxnaij/chess-card</b></u>](https://github.com/rxnaij/chess-card)
+
+### Future considerations
+
+Chess Card is still a work in progress. As the website is released, I’ll be looking to conduct further usability testing and research.
+
+If you have any questions or feedback on the app, whether it’s related to the design, code or anything else, please [<u>contact me</u>](https://richardblu.com#contact)! That counts doubly if you’re an interested user who’d like to talk about your experience using the app.
+
+Thanks for reading!
