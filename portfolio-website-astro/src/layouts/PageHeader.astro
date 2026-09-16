@@ -1,0 +1,13 @@
+---
+import styles from './Layout.module.scss';
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<header class:list={['typography', styles.title, className]}>
+	<slot />
+</header>

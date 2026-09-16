@@ -1,0 +1,17 @@
+---
+import styles from './Layout.module.scss';
+
+interface Props {
+	as?: 'section' | 'aside' | 'div';
+	id?: string;
+	class?: string;
+}
+
+const { as: Tag = 'section', id, class: className } = Astro.props;
+---
+
+<Tag id={id} class={styles.wideWrapper}>
+	<div class:list={[styles.wideContent, className]}>
+		<slot />
+	</div>
+</Tag>
