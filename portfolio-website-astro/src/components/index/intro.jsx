@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
 
 // import Button from '../button/Button'
 // import { Envelope } from 'react-bootstrap-icons'
 
-import { wrapper, title, introContent } from './Intro.module.scss'
+import styles from './Intro.module.scss'
+
+const { wrapper, title, introContent } = styles
 
 const today = new Date().toDateString()
 const getSubtitle = () => {

@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Sidebar from '../navigation/Sidebar'
-import Footer from '../footer/footer'
+import Footer from '../footer/Footer'
 
 import '../../styles/App.scss'
 import cn from 'classnames'

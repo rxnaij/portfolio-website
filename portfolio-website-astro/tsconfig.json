@@ -3,5 +3,26 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
+  // Files still awaiting migration off Gatsby. They are kept as a reference while
+  // each page is ported, and are not imported by any Astro page. Remove entries as
+  // they get migrated — when this list is empty, the Gatsby migration is done.
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/pages/404.jsx",
+    "src/pages/about.tsx",
+    "src/pages/blog.tsx",
+    "src/pages/contact.tsx",
+    "src/pages/index.jsx",
+    "src/pages/work.jsx",
+    "src/components/image.js",
+    "src/components/seo.jsx",
+    "src/components/game/game.js",
+    "src/components/layout/layout.js",
+    "src/components/work/TagFilteredBlurbs.tsx",
+    "src/components/work/WorkBlurb.js",
+    "src/components/work/work-section.js",
+    "src/layouts/layout.js"
+  ]
 }

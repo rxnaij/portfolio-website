@@ -1,6 +1,8 @@
 import React from 'react'
-import { tag, activeTag } from './WorkSection.module.scss'
+import styles from './WorkSection.module.scss'
 import { XCircleFill } from 'react-bootstrap-icons'
+
+const { tag, activeTag } = styles
 
 interface TagProps {
     name: string

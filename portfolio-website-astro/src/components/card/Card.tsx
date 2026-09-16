@@ -1,7 +1,13 @@
 import React from 'react'
-import { card } from './Card.module.scss'
+import styles from './Card.module.scss'
 
-const Card = ({ children }) => {
+const { card } = styles
+
+interface CardProps {
+    children: React.ReactNode
+}
+
+const Card = ({ children }: CardProps) => {
     return (
         <aside className={card}>
             { children }

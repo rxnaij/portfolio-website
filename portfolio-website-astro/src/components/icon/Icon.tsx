@@ -1,12 +1,14 @@
 import React from 'react'
-import { iconClass } from './Icon.module.scss'
+import styles from './Icon.module.scss'
+
+const { iconClass } = styles
 
 interface IconProps {
     src: string
     alt: string
 }
 
-const Icon = ({ src, alt }) => {
+const Icon = ({ src, alt }: IconProps) => {
     return (
         <div className={iconClass}>
             <img src={src} alt={alt} />

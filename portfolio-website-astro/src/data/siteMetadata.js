@@ -3,3 +3,5 @@ const siteMetadata = {
     description: `I am a product designer and front-end web developer based in NYC.`,
     author: `Richard Lu`,
 }
+
+export default siteMetadata

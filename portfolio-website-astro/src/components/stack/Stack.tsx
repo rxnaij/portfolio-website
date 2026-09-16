@@ -1,6 +1,8 @@
 import React from 'react'
 import cn from 'classnames'
-import { stack } from './Stack.module.scss'
+import styles from './Stack.module.scss'
+
+const { stack } = styles
 
 type Size = 'none' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl'
 
@@ -48,10 +50,7 @@ const Stack = ({
     const Container = asList ? 'ul' : 'div'
     return (
         <Container
-            className={cn({
-                [stack]: true,
-                [className]: className !== undefined
-            })}
+            className={cn(stack, className)}
             style={{
                 padding: sizes[padding],
                 paddingLeft: sizes[paddingX],

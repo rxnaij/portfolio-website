@@ -27,7 +27,7 @@ export const getTagsOfNode = (node: ProjectNode) => {
  */
 export const getAllUniqueTags = (nodes: ProjectNode[]) => {
     return nodes.reduce((allTags: string[], node) => {
-        let uniqueTags = []     // This array "collects" all of the new tags in the current node
+        let uniqueTags: string[] = []     // This array "collects" all of the new tags in the current node
         for (const tag of getItemsFromCommaSeparatedString(node.projectType)) {
             // Add unique tags to the "collector" array
             if (!allTags?.includes(tag)) {

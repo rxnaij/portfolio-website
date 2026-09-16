@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 import classNames from 'classnames'
 
-import * as styles from './Flipcard.module.scss'
+import styles from './Flipcard.module.scss'
 
 interface Props {
     front?: React.ReactNode,

@@ -1,6 +1,9 @@
-import React, { useState, useEffect, createContext, useContext, ChangeEvent, ComponentPropsWithoutRef } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
+import type { ChangeEvent, ComponentPropsWithoutRef } from 'react'
 import cn from 'classnames'
-import { formClass, labelClass, inputClass, textareaClass, groupClass } from './Form.module.scss'
+import styles from './Form.module.scss'
+
+const { formClass, labelClass, inputClass, textareaClass, groupClass } = styles
 
 /* Initialize form state and context */
 
@@ -80,7 +83,7 @@ const Form = (props: FormProps) => {
 
 /* Group component - container for a label and input pair */
 
-const Group = ({ children }) => {
+const Group = ({ children }: { children: React.ReactNode }) => {
     return(
         <div className={groupClass}>
             {children}
@@ -118,7 +121,7 @@ const Input = (props: InputProps) => {
         <input
             {...props}
             className={cn(props.className, inputClass)}
-            value={state[props.name]}
+            value={props.name !== undefined ? state[props.name] : props.value}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 handleChange(e)
                 props.onChange && props.onChange(e)

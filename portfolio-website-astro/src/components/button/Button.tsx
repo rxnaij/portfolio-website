@@ -1,7 +1,9 @@
 import * as React from 'react'
 import cn from 'classnames'
-import { buttonClass, outline, secondary, buttonIcon } from './Button.module.scss'
-import { Icon } from 'react-bootstrap-icons'
+import styles from './Button.module.scss'
+
+const { buttonClass, outline, secondary, buttonIcon } = styles
+import type { Icon } from 'react-bootstrap-icons'
 
 interface ButtonInjectedProps {
     className: string
@@ -29,20 +31,15 @@ const Button = ({
     icon,
     renderContainer=(props) => <button {...props} />
 }: ButtonProps) => {
-    const Icon = icon
+    const IconComponent = icon
     return renderContainer({
-        className: cn({
-            [buttonClass]: true,
-            // "a-no-style": true,
-            [className]: className !== undefined,
-
+        className: cn(buttonClass, className, {
             [outline]: variant === 'outline',
-            
             [secondary]: variant === 'secondary'
         }),
         children: (
             <>
-                { icon && <Icon className={buttonIcon} /> }
+                { IconComponent && <IconComponent className={buttonIcon} /> }
                 { children }
             </>
         )

@@ -1,5 +1,7 @@
 import React from 'react'
-import { tabContainer, tab, tabIsActive, hiddenInput } from './Tabs.module.scss'
+import styles from './Tabs.module.scss'
+
+const { tabContainer, tab, tabIsActive, hiddenInput } = styles
 import cn from 'classnames'
 
 interface TabsProps {

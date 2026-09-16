@@ -4,7 +4,9 @@
  */
 
 import * as React from 'react'
-import { input, label, switchbutton } from './Toggle.module.scss'
+import styles from './Toggle.module.scss'
+
+const { input, label, switchbutton } = styles
 
 interface ToggleProps {
     className?: string,

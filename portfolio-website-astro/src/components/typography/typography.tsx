@@ -1,5 +1,7 @@
 import React from 'react'
-import { titleWrapper } from './typography.module.scss'
+import styles from './typography.module.scss'
+
+const { titleWrapper } = styles
 
 interface TitleProps {
     title: string
@@ -8,7 +10,7 @@ interface TitleProps {
 }
 
 export const Title = ({ title, level, subtitle }: TitleProps) => {
-    const Heading = "h" + level
+    const Heading = `h${level}` as 'h1' | 'h2' | 'h3'
     return(
         <div className={titleWrapper}>
             <Heading>{ title }</Heading>

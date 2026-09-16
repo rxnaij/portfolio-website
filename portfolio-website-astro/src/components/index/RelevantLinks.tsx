@@ -1,20 +1,16 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import type { Icon as IconType } from 'react-bootstrap-icons'
 import { Behance, Github, JournalText } from 'react-bootstrap-icons'
-import { wrapper, content, linkWrapper, linkTitle } from './RelevantLinks.module.scss'
+import styles from './RelevantLinks.module.scss'
+
+const { wrapper, content, linkWrapper, linkTitle } = styles
 import { Title } from '../typography/typography'
 
-const RelevantLinks = () => {
-    const data = useStaticQuery(graphql`
-    query {
-        contentfulAsset(title: {eq: "Richard Lu Resume"}) {
-          file {
-            url
-          }
-        }
-    }
-    `)
+interface RelevantLinksProps {
+    resumeUrl: string
+}
 
+const RelevantLinks = ({ resumeUrl }: RelevantLinksProps) => {
     return (
         <section id="relevant-links" className={wrapper}>
             <Title 
@@ -22,9 +18,9 @@ const RelevantLinks = () => {
                 level={2}
             />
             <ul className={content}>
-                <Link 
-                    href={data.contentfulAsset.file.url} 
-                    icon={JournalText} 
+                <Link
+                    href={resumeUrl}
+                    icon={JournalText}
                     label="Resume" 
                     description="My experience." 
                 />
@@ -45,7 +41,14 @@ const RelevantLinks = () => {
     )
 }
 
-const Link = ({ href, icon, label, description }) => {
+interface LinkProps {
+    href: string
+    icon: IconType
+    label: string
+    description: string
+}
+
+const Link = ({ href, icon, label, description }: LinkProps) => {
     const Icon = icon
     return(
         <li className={linkWrapper}>
