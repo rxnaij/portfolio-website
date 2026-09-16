@@ -1,0 +1,15 @@
+.titleWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    p {
+        font-size: 1.125rem;
+    }
+
+    & > div:last-child {
+        width: 90px;
+        height: 10px;
+        background-color: #337B6F;
+    }
+}

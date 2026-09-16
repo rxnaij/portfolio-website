@@ -1,0 +1,43 @@
+.tabContainer {
+    width: fit-content;
+    border: 1px solid var(--color-primary);
+    border-radius: 2px;
+    
+    overflow: hidden;   // crop corners
+
+    margin-bottom: 32px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.tab {
+    padding: 14px 21px;
+
+    background-color: transparent;
+
+    font-weight: 700;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-accent);
+
+    cursor: pointer;
+
+    &.tabIsActive {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+    }
+
+    .hiddenInput {
+        display: inline-block;
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1;
+        width: 1;
+        margin: -1;
+        padding: 0;
+        border: 0;
+    }
+}

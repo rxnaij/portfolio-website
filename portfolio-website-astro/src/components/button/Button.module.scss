@@ -1,0 +1,55 @@
+@import '../../styles/colors.scss';
+
+.buttonClass {
+    position: relative;
+
+    // External appearance
+    border: 2px solid transparent;
+    border-radius: 2px;
+    width: fit-content;
+    padding: 15px 18px;
+    background-color: var(--color-primary);
+
+    // Inner content
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    // Text
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+
+    &:hover {
+        background-color: hsl(168, 48%, 68%);
+    }
+
+}
+.outline {
+    // External appearance
+    background-color: transparent;
+    border: 2px solid var(--color-primary-light);
+
+    // Text
+    color: var(--color-primary-light);
+
+    &:hover {
+        color: #000;
+        background-color: var(--color-primary-light);
+    }
+}
+.secondary {
+    background-color: transparent;
+    &:hover {
+        background-color: var(--color-primary);
+    }
+}
+
+.buttonIcon {
+    width: 24px;
+    height: 24px;
+}

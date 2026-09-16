@@ -1,0 +1,183 @@
+@import "../../styles/colors.scss";
+
+.wrapper {
+    z-index: var(--active-navigation);
+    min-width: 224px;
+    height: 100%;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    background-color: var(--color-dark);
+
+    /* Mobile */
+    
+    position: fixed;
+    top: 0;
+
+    /* Transition: open and close sidebar */
+    transition: transform 0.15s ease-out;
+    transform: translateX(0%);
+    &.sidebarIsClosed {
+        transform: translateX(-100%);
+    }
+}
+
+/* Desktop: attach navigation to top as a horizontal navbar. */
+@media screen and (min-width: 1100px) {
+    .wrapper {
+        // Disable sidebar transitions
+        &.sidebarIsClosed {
+            transform: none;
+        }
+
+        position: sticky;
+        top: 0;
+    
+        grid-column: main-start / main-end;
+        display: grid;
+        grid-template-columns: 
+            [start] minmax(24px, 1fr) 
+            [main-start] minmax(min-content, 1000px) 
+            [main-end] minmax(24px, 1fr) 
+            [end]
+        ;
+    }
+}
+
+.overlay {
+    z-index: var(--active-navigation);
+    
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    cursor: pointer;
+
+    background-color: hsla(0, 0%, 0%, 0.5);
+
+    transition: background-color 0.3s ease-out;
+}
+
+/* No overlay on large screens. */
+@media screen and (min-width: 721px) {
+    .overlay {
+        display: none;
+    }
+}
+
+.menuBar {
+    z-index: var(--menu-bar);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 24px;
+
+    background-color: var(--color-dark);
+}
+
+.openButton {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text-light);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    background-color: inherit;
+
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    text-decoration: none;
+    
+    cursor: pointer;
+}
+
+/* No toggle button on large screens. */
+@media screen and (min-width: 1100px) {
+    .menuBar, .openButton {
+        display: none;
+    }
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; 
+    gap: 16px;
+
+    strong {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .controls {
+        margin-left: auto;
+
+        strong {
+            display: inline-block;
+            white-space: nowrap;
+        }
+    }
+}
+
+.nav {
+    padding: 0; // Disable default ul padding
+    
+    display: flex;
+    gap: 8px;
+    flex-direction: column; // Mobile
+}
+
+@media screen and (min-width: 1100px) {
+    .nav {
+        flex-direction: row;
+        grid-column: 2 / 4;
+    }
+}
+
+.navLink {
+    min-width: 124px;
+    
+    list-style: none;
+    
+    // .a-no-style
+    a, a:not(.active):hover {
+        padding: 16px 24px;
+        border-radius: 2px;
+
+        display: flex;
+        gap: 8px;
+        
+        color: #e1e5e5;
+        font-size: var(--text-sm);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-label);
+        text-decoration: none;
+
+        &:hover, &:focus {
+            background-color: hsla(168, 48%, 48%, 0.2);
+        }
+
+        &.active {
+            text-decoration: none;
+            background-color: var(--color-primary);
+            color: #000;
+        }
+    }
+}

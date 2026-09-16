@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.title {
+    span {
+        font-size: var(--text-sm);
+        color: var(--color-text-light-subtle);
+        
+        &:first-of-type {
+            text-transform: uppercase;
+            letter-spacing: var(--letter-spacing-label)
+        }
+    
+        &:last-of-type {
+            font-style: italic;
+        }
+    }
+}
+
+.introContent {
+    max-width: 680px;
+}
