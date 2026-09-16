@@ -19,7 +19,7 @@
     "src/components/image.js",
     "src/components/seo.jsx",
     "src/components/game/game.js",
-    "src/components/layout/layout.js",
+    "src/components/layout/layout.tsx",
     "src/components/work/TagFilteredBlurbs.tsx",
     "src/components/work/WorkBlurb.js",
     "src/components/work/work-section.js",
