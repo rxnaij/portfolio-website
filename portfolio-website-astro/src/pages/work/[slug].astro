@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyHead from '../../components/work/CaseStudyHead.astro';
+import Figure from '../../components/figure/Figure.astro';
+import styles from '../../components/work/CaseStudyMainContent.module.scss';
+
+const { mainContentWrapper, productImagesWrapper } = styles;
+
+export async function getStaticPaths() {
+	const entries = await getCollection('work');
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title} description={entry.data.description}>
+	<CaseStudyHead {...entry.data} />
+	{entry.data.productImages && (
+		<section class={productImagesWrapper}>
+			{entry.data.productImages.map((image) => (
+				<Figure src={image.src} caption={image.caption} />
+			))}
+		</section>
+	)}
+	<article class={mainContentWrapper}>
+		<Content />
+	</article>
+	<section>
+		<a href="/work">&larr; Back to portfolio</a>
+	</section>
+</Layout>

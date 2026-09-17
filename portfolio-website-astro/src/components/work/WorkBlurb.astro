@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { LockFill } from 'react-bootstrap-icons';
+import styles from './WorkBlurb.module.scss';
+
+const { wrapper, coverImageBackground, coverImage, protectedTag, icon, detailsContainer, details } = styles;
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, description, projectType, startDate, endDate, coverPhoto, coverPhotoAlt, protected: isProtected } = entry.data;
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+const projectDates = dateFormatter.format(startDate) + (endDate ? ` – ${dateFormatter.format(endDate)}` : '');
+const href = isProtected ? `/work/secret/${entry.slug}` : `/work/${entry.slug}`;
+---
+
+<a class={`${wrapper} a-no-style`} href={href}>
+	<div class={coverImageBackground}>
+		<div class={coverImage}>
+			<Image src={coverPhoto} alt={coverPhotoAlt} width={720} height={480} />
+			{isProtected && (
+				<span class={protectedTag}>
+					<LockFill className={icon} size={14} /> protected
+				</span>
+			)}
+		</div>
+	</div>
+	<div class={detailsContainer}>
+		<div class={details}>{projectDates}</div>
+		<div class={details}>{projectType}</div>
+	</div>
+	<div class="typography">
+		<h3>{title}</h3>
+		<p>{description}</p>
+	</div>
+</a>

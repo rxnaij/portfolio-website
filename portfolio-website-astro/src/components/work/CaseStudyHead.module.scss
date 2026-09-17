@@ -1,0 +1,103 @@
+@import '../../styles/breakpoints.scss';
+
+/* Container */
+.wrapper {
+    grid-column: start / end;
+
+    display: grid;
+    grid-template-columns: inherit;
+    row-gap: 60px;
+
+    // Undo the initial vertical offset; integrate into section
+    margin-top: -32px;
+    padding-top: 32px;
+
+    background-color: var(--color-dark-secondary);
+
+    & > * {
+        grid-column: main-start / main-end;
+    }
+
+    .coverImage {
+        grid-column: start / end;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .wrapper {
+        grid-column: start / end;
+
+        display: grid;
+        grid-template-columns: inherit;
+
+        margin-top: -32px;
+        padding-top: 80px;
+    }
+}
+
+/* Title & description */
+.titleWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+
+    nav {
+        font-size: 0.8rem;
+    }
+
+    /* Title */
+    h1 {
+        margin-top: 0;
+
+        &::before {
+            content: "Case study";
+            display: block;
+            margin-bottom: 4px;
+
+            font-weight: 400;
+            font-size: var(--text-sm);
+            color: var(--color-text-light-subtle);
+            text-transform: uppercase;
+            letter-spacing: var(--letter-spacing-label);
+        }
+    }
+    /* Description */
+    .lead {
+        font-size: 1.125rem;
+        line-height: 1.67;
+    }
+}
+
+/* Project attributes */
+.projectDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 32px; // add extra spacing to image
+    // Undo default styling
+    padding: 0;
+    list-style: none;
+
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-light-subtle);
+
+    // Detail item
+    li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.link {
+}
+
+/* Title cover photo */
+.coverImage {
+}

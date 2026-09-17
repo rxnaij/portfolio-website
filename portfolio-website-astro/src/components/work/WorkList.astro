@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import WorkBlurb from './WorkBlurb.astro';
+import styles from './WorkList.module.scss';
+
+const { wrapper, tabInput, tabsContainer, tabLabel, workSection, panelWork, panelExtra } = styles;
+
+interface Props {
+	entries: CollectionEntry<'work'>[];
+}
+
+const { entries } = Astro.props;
+
+const workEntries = entries.filter((entry) => entry.data.projectCategory === 'Work');
+const extraEntries = entries.filter((entry) => entry.data.projectCategory === 'Extra');
+---
+
+<section class={wrapper}>
+	<input type="radio" name="work-category" id="tab-work" class={tabInput} checked />
+	<input type="radio" name="work-category" id="tab-extra" class={tabInput} />
+	<div class={tabsContainer}>
+		<label for="tab-work" class={tabLabel}>Work</label>
+		<label for="tab-extra" class={tabLabel}>Extra</label>
+	</div>
+	<div class={`${workSection} ${panelWork}`}>
+		{workEntries.map((entry) => <WorkBlurb entry={entry} />)}
+	</div>
+	<div class={`${workSection} ${panelExtra}`}>
+		{extraEntries.map((entry) => <WorkBlurb entry={entry} />)}
+	</div>
+</section>

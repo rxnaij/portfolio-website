@@ -1,0 +1,49 @@
+---
+import React from 'react';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Button from '../button/Button';
+import { CalendarFill, PersonFill, CardChecklist } from 'react-bootstrap-icons';
+import moduleStyles from './CaseStudyHead.module.scss';
+
+const { coverImage, wrapper, projectDetails, titleWrapper, lead, link } = moduleStyles;
+
+type Props = CollectionEntry<'work'>['data'];
+
+const { title, coverPhoto, coverPhotoAlt, description, startDate, endDate, projectType, role, projectLink } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+const projectDates = dateFormatter.format(startDate) + (endDate ? ` – ${dateFormatter.format(endDate)}` : '');
+
+// Astro templates don't support inline JSX, so the render-prop passed to
+// Button is built with React.createElement instead of a JSX literal.
+const renderProjectLink = (props: { className: string; children: React.ReactNode }) =>
+	React.createElement('a', { href: projectLink, ...props });
+---
+
+<header class={wrapper}>
+	<div class={titleWrapper}>
+		<h1>{title}</h1>
+		<p class={lead}>{description}</p>
+	</div>
+	{projectLink && (
+		<Button className={link} variant="outline" renderContainer={renderProjectLink}>
+			Try it out! &rsaquo;
+		</Button>
+	)}
+	<ul class={projectDetails}>
+		<li>
+			<CalendarFill size={16} />
+			<div>{projectDates}</div>
+		</li>
+		<li>
+			<PersonFill size={16} />
+			<div>{projectType}</div>
+		</li>
+		<li>
+			<CardChecklist size={16} />
+			<div>{role}</div>
+		</li>
+	</ul>
+	<Image src={coverPhoto} alt={coverPhotoAlt} class={coverImage} loading="eager" />
+</header>
