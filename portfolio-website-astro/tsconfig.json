@@ -10,10 +10,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src/pages/404.jsx",
-    "src/pages/about.tsx",
-    "src/pages/blog.tsx",
-    "src/pages/contact.tsx",
     "src/pages/index.jsx",
     "src/components/image.js",
     "src/components/seo.jsx",

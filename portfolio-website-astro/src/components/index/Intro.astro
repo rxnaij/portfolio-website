@@ -1,0 +1,26 @@
+---
+import IntroContent from '../../data/intro.md';
+import moduleStyles from './Intro.module.scss';
+
+const { wrapper, title, introContent } = moduleStyles;
+
+const today = new Date().toDateString();
+const subtitles = [
+	'enjoy your stay...',
+	'take your time...',
+	'happy web-surfing...',
+	`how's it going?`,
+	`take it easy...`,
+];
+const subtitle = subtitles[Math.floor(Math.random() * subtitles.length)];
+---
+
+<section id="intro" class={wrapper}>
+	<div class={title}>
+		<h1>Welcome to richardblu.com!</h1>
+		<span>Today's date: {today} • </span><span>{subtitle}</span>
+	</div>
+	<div class={`${introContent} longform-text`}>
+		<IntroContent />
+	</div>
+</section>

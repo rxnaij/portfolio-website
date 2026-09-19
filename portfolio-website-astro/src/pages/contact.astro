@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../layouts/PageHeader.astro';
+import ContactForm from '../components/form/ContactForm';
+import moduleStyles from './contact.module.scss';
+
+const { wrapper } = moduleStyles;
+---
+
+<Layout title="Contact">
+	<PageHeader>
+		<h1>Contact</h1>
+		<p>Let's get in touch!</p>
+	</PageHeader>
+	<section id="contact" class={wrapper}>
+		<p>Leave a message if you're interested in working together, have questions, or want to share ideas. At the moment, I'm seeking opportunities for full-time, entry-level UX/product designer roles.</p>
+		<ContactForm client:load />
+	</section>
+</Layout>

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../layouts/PageHeader.astro';
+import moduleStyles from './blog.module.scss';
+
+const { section, blogPostsWrapper } = moduleStyles;
+---
+
+<Layout title="Blog">
+	<PageHeader>
+		<h1>Blog</h1>
+	</PageHeader>
+	<section class={section}>
+		<div class={blogPostsWrapper}>
+			<p style="text-align: center; color: #C8CCCB;">No posts yet...but expect some in the near future!</p>
+		</div>
+	</section>
+</Layout>

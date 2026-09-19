@@ -10,14 +10,6 @@
     }
 }
 
-.photo {
-    box-shadow: 16px 32px 0 #33C2FF20;
-    transition: box-shadow 0.15s ease-out;
-    &:hover {
-        box-shadow: 32px 48px 0 #33C2FF50;
-    }
-}
-
 .asideContent {
     display: flex;
     flex-direction: column; // Mobile
